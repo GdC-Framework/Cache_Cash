@@ -619,9 +619,9 @@ if (CPC_MAP in ["altis"]) then
 		_unit addItemToVest "ACE_MapTools";
 		_unit addItemToVest "ACE_Kestrel4500";
 		for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addBackpack "rhsusf_falconii_mc";
-		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addHeadgear (selectrandom _helmet);
 
 		comment "Add weapons";
@@ -1602,9 +1602,9 @@ if (CPC_MAP in ["chernarus","fdf_isle1_a","woodland_acr"]) then
 		_unit addItemToVest "ACE_MapTools";
 		_unit addItemToVest "ACE_Kestrel4500";
 		for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addBackpack "B_AssaultPack_rgr";
-		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addHeadgear (selectrandom _helmet);
 		_unit addGoggles (selectrandom _lunettes);
 
@@ -2583,9 +2583,9 @@ if (CPC_MAP in ["pja307","takistan"]) then
 		_unit addItemToVest "ACE_MapTools";
 		_unit addItemToVest "ACE_Kestrel4500";
 		for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addBackpack "rhsusf_falconii_mc";
-		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addHeadgear (selectrandom _helmet);
 
 		comment "Add weapons";
@@ -3560,9 +3560,9 @@ if (CPC_MAP in ["isladuala3","sara"]) then
 		_unit addItemToVest "ACE_MapTools";
 		_unit addItemToVest "ACE_Kestrel4500";
 		for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addBackpack "rhsusf_falconii_mc";
-		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addHeadgear (selectrandom _helmet);
 
 		comment "Add weapons";
@@ -4557,9 +4557,9 @@ if (CPC_MAP in ["tanoa","pja305"]) then
 		_unit addItemToVest "ACE_MapTools";
 		_unit addItemToVest "ACE_Kestrel4500";
 		for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addBackpack "rhsusf_falconii";
-		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+		for "_i" from 1 to 8 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 		_unit addHeadgear (selectrandom _helmet);
 
 		comment "Add weapons";

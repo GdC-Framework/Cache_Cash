@@ -92,6 +92,8 @@ if (CC_p_insertion == 2) then
 	"rhsusf_m1025_w_s_m2",
 	"rhsusf_m1025_d_s",
 	"rhsusf_m1025_w_s",
+	"rhsusf_m1045_d_s",
+	"rhsusf_m1045_w_s",
 	"rhs_tigr_3camo_msv",
 	"rhs_tigr_sts_3camo_msv",
 	"CUP_O_UAZ_Unarmed_RU",

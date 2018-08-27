@@ -20,7 +20,7 @@ CC_p_ammocrate = (paramsArray select 15);
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)
 playerIsJIP = _this select 1;	// boolean (true ou false). True = le joueur se connecte en cours de partie.
 cc_rhsennemy = false;
-if (CC_p_ennemy in [0,2,14,17,18,19,100,106,108,109]) then {cc_rhsennemy = true};
+if (CC_p_ennemy in [0,2,14,17,18,19,20,21,100,106,108,109]) then {cc_rhsennemy = true};
 cc_loadoutcamo = "polyvalent";
 switch (toLower worldName) do {
 	case "altis" : {cc_loadoutcamo = "polyvalent"};

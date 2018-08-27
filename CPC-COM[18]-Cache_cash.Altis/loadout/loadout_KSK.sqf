@@ -597,9 +597,9 @@ loadoutCC_M = //
 	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
 	for "_i" from 1 to 2 do {_unit addItemToUniform "HandGrenade";};
 	_unit addVest "CUP_V_B_GER_Carrier_Vest";
-	for "_i" from 1 to 8 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+	for "_i" from 1 to 8 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 	_unit addBackpack "B_AssaultPack_khk";
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 	_unit addHeadgear (selectrandom _helmet);
 
 	comment "Add weapons";

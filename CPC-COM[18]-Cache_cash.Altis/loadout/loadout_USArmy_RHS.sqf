@@ -604,7 +604,7 @@ loadoutCC_M = //
 	if (_ucp) then {_unit addVest "rhsusf_spcs_ucp_sniper";};
 	_unit addItemToVest "ACE_Kestrel4500";
 	_unit addItemToVest "ACE_RangeCard";
-	for "_i" from 1 to 11 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+	for "_i" from 1 to 11 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 	_unit addHeadgear (selectrandom _helmet);
 
 	comment "Add weapons";

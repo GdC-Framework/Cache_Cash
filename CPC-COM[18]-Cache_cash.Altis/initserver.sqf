@@ -17,7 +17,7 @@ CC_p_fullmoon = (paramsArray select 14);
 CC_p_ammocrate = (paramsArray select 15);
 
 cc_rhsennemy = false;
-if (CC_p_ennemy in [0,2,14,17,18,19,100,106,108,109]) then {cc_rhsennemy = true};
+if (CC_p_ennemy in [0,2,14,17,18,19,20,21,100,106,108,109]) then {cc_rhsennemy = true};
 
 CPC_loadedworld = worldName;
 publicVariable "CPC_loadedworld";

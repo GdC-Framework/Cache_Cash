@@ -585,12 +585,12 @@ loadoutCC_M = //
 	for "_i" from 1 to 2 do {_unit addItemToUniform "rhs_mag_an_m8hc";};
 	for "_i" from 1 to 2 do {_unit addItemToUniform "rhs_mag_m67";};
 	_unit addVest "rhsusf_spc_marksman";
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_m118_special_Mag";};
+	for "_i" from 1 to 6 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 	_unit addBackpack "rhsusf_falconii_coy";
 	_unit addItemToBackpack "ACE_MapTools";
 	_unit addItemToBackpack "ACE_Kestrel4500";
 	_unit addItemToBackpack "ACE_RangeCard";
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_m118_special_Mag";};
+	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
 	_unit addHeadgear "rhsusf_lwh_helmet_marpatwd";
 	_unit addHeadgear (selectrandom _helmet);
 

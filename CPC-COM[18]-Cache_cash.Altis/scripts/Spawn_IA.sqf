@@ -27,8 +27,8 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["rhsusf_army_ocp_riflemanl","rhsusf_army_ocp_riflemanl"];
 		_ennemi_group = ["rhsusf_army_ocp_teamleader","rhsusf_army_ocp_rifleman","rhsusf_army_ocp_autorifleman","rhsusf_army_ocp_riflemanat","rhsusf_army_ocp_grenadier"];
-		_rand_vehi = ["rhsusf_M1232_M2_usarmy_wd","rhsusf_M1117_O","rhsusf_m113_usarmy","rhsusf_m113_usarmy_M240","RHS_M2A2_wd","RHS_M2A3_BUSKI_wd","rhsusf_m1a1aimwd_usarmy"];
-		_transp_vehi = "rhsusf_rg33_wd";
+		_rand_vehi = ["rhsusf_M1220_M2_usarmy_wd","rhsusf_M1117_O","rhsusf_m113_usarmy","RHS_M2A2_wd","RHS_M2A3_BUSKI_wd","rhsusf_m1a1aimwd_usarmy"];
+		_transp_vehi = "rhsusf_M1078A1P2_B_WD_fmtv_usarmy";
 		_offroad = "rhsusf_m1025_w_m2";
 		_helico = "RHS_UH60M";
 	};
@@ -44,9 +44,9 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_B_USMC_Soldier","CUP_B_USMC_Soldier"];
 		_ennemi_group = ["CUP_B_USMC_Soldier_SL","CUP_B_USMC_Soldier","CUP_B_USMC_Soldier_AR","CUP_B_USMC_Soldier_LAT","CUP_B_USMC_Soldier_GL"];
-		_rand_vehi = ["CUP_RG31_M2_OD","CUP_RG31_M2_OD","CUP_RG31_M2_OD","CUP_RG31_Mk19_OD","CUP_B_LAV25M240_USMC","CUP_B_M1A1_Woodland_USMC"];
+		_rand_vehi = ["CUP_B_M1126_ICV_M2_Woodland_Slat","CUP_B_M1128_MGS_Woodland","CUP_B_M113_USA","CUP_B_LAV25_USMC","CUP_B_M2Bradley_USA_W","CUP_B_M2A3Bradley_USA_W","CUP_B_M1A1_Woodland_USMC"];
 		_transp_vehi = "CUP_B_MTVR_USMC";
-		_offroad = "CUP_B_HMMWV_M2_USMC";
+		_offroad = "CUP_B_M1151_M2_WDL_USA";
 		_helico = "CUP_B_MH60S_USMC";
 	};
 
@@ -61,7 +61,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["rhs_msv_rifleman","rhs_msv_rifleman"];
 		_ennemi_group = ["rhs_msv_efreitor","rhs_msv_rifleman","rhs_msv_grenadier","rhs_msv_at","rhs_msv_machinegunner"];
-		_rand_vehi = ["rhs_btr80_msv","rhs_btr80a_msv","rhs_bmp2k_msv","rhs_bmp3_late_msv","rhs_bmp1p_msv","rhs_t72bd_tv","rhs_t80bvk"];
+		_rand_vehi = ["rhs_btr80_msv","rhs_btr80a_msv","rhs_bmp2k_msv","rhs_bmp3_late_msv","rhs_t72bd_tv","rhs_t80bvk"];
 		_transp_vehi = "rhs_kamaz5350_msv";
 		_offroad = "rhs_tigr_sts_msv";
 		_helico = "RHS_Mi8mt_vdv";
@@ -78,10 +78,10 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_O_TK_Soldier","CUP_O_TK_Soldier"];
 		_ennemi_group = ["CUP_O_TK_Soldier_SL","CUP_O_TK_Soldier","CUP_O_TK_Soldier_MG","CUP_O_TK_Soldier_AT","CUP_O_TK_Soldier_GL"];
-		_rand_vehi = ["CUP_O_BTR40_MG_TKA","CUP_O_BRDM2_TKA","CUP_O_BRDM2_TKA","CUP_O_M113_TKA","CUP_O_BMP1_TKA","CUP_O_BTR60_TK","CUP_O_BTR60_TK","CUP_O_BMP2_TKA","UP_O_T55_TK","CUP_O_T72_TKA"];
-		_transp_vehi = "CUP_O_Ural_TKA";
+		_rand_vehi = ["CUP_O_BTR40_MG_TKA","CUP_O_BRDM2_TKA","CUP_O_M113_TKA","CUP_O_BTR60_TK","CUP_O_BMP1_TKA","CUP_O_BMP2_TKA","CUP_O_T34_TKA","UP_O_T55_TK","CUP_O_T72_TKA"];
+		_transp_vehi = "CUP_O_V3S_Covered_TKA";
 		_offroad = "CUP_O_UAZ_MG_TKA";
-		_helico = "CUP_O_Mi17_TK";
+		_helico = "CUP_O_UH1H_TKA";
 	};
 
 	case 4 : { // RACS
@@ -95,7 +95,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_I_RACS_Soldier","CUP_I_RACS_Soldier"];
 		_ennemi_group = ["CUP_I_RACS_SL","CUP_I_RACS_Soldier","CUP_I_RACS_MMG","CUP_I_RACS_Medic","CUP_I_RACS_GL"];
-		_rand_vehi = ["CUP_I_M113_RACS","CUP_I_M113_RACS","CUP_I_M163_RACS","CUP_I_T72_RACS","CUP_I_T72_RACS"];
+		_rand_vehi = ["CUP_I_M113_RACS","CUP_I_M113_RACS","CUP_I_M163_RACS","CUP_I_M60A3_RACS","CUP_I_T72_RACS"];
 		_transp_vehi = "CUP_I_LR_Transport_RACS";
 		_offroad = "CUP_I_LR_MG_RACS";
 		_helico = "CUP_I_UH60L_RACS";
@@ -112,7 +112,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_O_sla_Soldier","CUP_O_sla_Soldier"];
 		_ennemi_group = ["CUP_O_sla_Soldier_SL","CUP_O_sla_Soldier","CUP_O_sla_Soldier_AR","CUP_O_sla_Soldier_AT","CUP_O_sla_Soldier_GL"];
-		_rand_vehi = ["CUP_O_BRDM2_SLA","CUP_O_BRDM2_SLA","CUP_O_BTR60_SLA","CUP_O_BMP2_SLA","CUP_O_BMP2_SLA","CUP_O_T72_SLA"];
+		_rand_vehi = ["CUP_O_BRDM2_SLA","CUP_O_BTR60_SLA","CUP_O_BTR60_SLA","CUP_O_BMP2_SLA","CUP_O_T55_SLA","CUP_O_T72_SLA"];
 		_transp_vehi = "CUP_O_Ural_SLA";
 		_offroad = "CUP_O_UAZ_MG_RU";
 		_helico = "CUP_O_Mi8_SLA_1";
@@ -129,10 +129,10 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["I_Soldier_lite_F","I_Soldier_lite_F"];
 		_ennemi_group = ["I_Soldier_SL_F","I_soldier_F","I_Soldier_AR_F","I_medic_F","I_Soldier_GL_F"];
-		_rand_vehi = ["I_MRAP_03_hmg_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F","I_APC_Wheeled_03_cannon_F","I_MBT_03_cannon_F"];
+		_rand_vehi = ["I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F","I_APC_Wheeled_03_cannon_F","I_LT_01_cannon_F","I_MBT_03_cannon_F"];
 		_transp_vehi = "I_Truck_02_covered_F";
-		_offroad = "B_G_Offroad_01_armed_F";
-		_helico = "MU_AAF_HummingBird";
+		_offroad = "CUP_I_LR_MG_AAF";
+		_helico = "I_Heli_light_03_unarmed_F";
 	};
 
 	case 7 : { // CSAT
@@ -146,9 +146,9 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["O_Soldier_lite_F","O_Soldier_lite_F"];
 		_ennemi_group = ["O_Soldier_SL_F","O_Soldier_F","O_Soldier_AR_F","O_medic_F","O_Soldier_GL_F"];
-		_rand_vehi = ["O_MRAP_02_hmg_F","O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F","O_MBT_02_cannon_F"];
+		_rand_vehi = ["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_APC_Wheeled_02_rcws_F","O_APC_Tracked_02_cannon_F","O_MBT_02_cannon_F","O_MBT_04_cannon_F"];
 		_transp_vehi = "O_Truck_02_covered_F";
-		_offroad = "B_G_Offroad_01_armed_F";
+		_offroad = "O_LSV_02_armed_F";
 		_helico = "O_Heli_Light_02_F";
 	};
 
@@ -163,9 +163,9 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["B_Soldier_lite_F","B_Soldier_lite_F"];
 		_ennemi_group = ["B_Soldier_SL_F","B_Soldier_F","B_Soldier_AR_F","B_medic_F","B_Soldier_GL_F"];
-		_rand_vehi = ["B_MRAP_01_hmg_F","B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_MBT_01_cannon_F"];
+		_rand_vehi = ["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_AFV_Wheeled_01_cannon_F","MU_NATO_Gorgon","B_MBT_01_cannon_F"];
 		_transp_vehi = "B_Truck_01_covered_F";
-		_offroad = "rhsusf_m1025_w_m2";
+		_offroad = "B_LSV_01_armed_F";
 		_helico = "B_Heli_Transport_01_camo_F";
 	};
 
@@ -180,7 +180,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CPC_Duala_B_GFD_soldier_light","CPC_Duala_B_GFD_soldier_light"];
 		_ennemi_group = ["CPC_Duala_B_GFD_soldier_TL","CPC_Duala_B_GFD_soldier_1","CPC_Duala_B_GFD_soldier_MG","CPC_Duala_B_GFD_soldier_AT","CPC_Duala_B_GFD_soldier_GL"];
-		_rand_vehi = ["CPC_Duala_B_GFD_BTR40_MG","CPC_Duala_B_GFD_BTR40_MG","CPC_Duala_B_GFD_BRDM2","CPC_Duala_B_GFD_BRDM2","CPC_Duala_B_GFD_BTR60","CPC_Duala_B_GFD_M113","CPC_Duala_B_GFD_M113","CPC_Duala_B_GFD_T55"];
+		_rand_vehi = ["CPC_Duala_B_GFD_BTR40_MG","CPC_Duala_B_GFD_BRDM2","CPC_Duala_B_GFD_BTR60","CPC_Duala_B_GFD_M113","CPC_Duala_B_GFD_M113","CPC_Duala_B_GFD_T55"];
 		_transp_vehi = "CPC_Afrique_B_GFD_V3S_Covered";
 		_offroad = "CPC_Duala_B_GFD_LR_MG";
 		_helico = "CPC_Duala_B_GFD_SA330";
@@ -197,7 +197,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_O_RU_Soldier","CUP_O_RU_Soldier"];
 		_ennemi_group = ["CUP_O_RU_Soldier_SL","CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_MG","CUP_O_RU_Medic","CUP_O_RU_Soldier_GL"];
-		_rand_vehi = ["CUP_O_BMP2_RU","CUP_O_BMP2_RU","CUP_O_BMP3_RU","CUP_O_BMP3_RU","CUP_O_GAZ_Vodnik_PK_RU","CUP_O_GAZ_Vodnik_BPPU_RU","CUP_O_BTR90_RU","CUP_O_BTR90_RU","CUP_O_T72_RU","CUP_O_T72_RU","CUP_O_UAZ_METIS_RU"];
+		_rand_vehi = ["CUP_O_BMP2_RU","CUP_O_GAZ_Vodnik_BPPU_RU","CUP_O_BTR60_RU","CUP_O_BMP3_RU","CUP_O_BRDM2_RUS","CUP_O_BTR90_RU","CUP_O_T72_RU","CUP_O_T90_RU"];
 		_transp_vehi = "CUP_O_Ural_RU";
 		_offroad = "CUP_O_UAZ_MG_RU";
 		_helico = "CUP_O_Mi8_RU";
@@ -214,7 +214,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_B_US_Soldier","CUP_B_US_Soldier"];
 		_ennemi_group = ["CUP_B_US_Soldier_TL","CUP_B_US_Soldier_LAT","CUP_B_US_Soldier_AR","CUP_B_US_Medic","CUP_B_US_Soldier_GL"];
-		_rand_vehi = ["CUP_B_M1126_ICV_M2_Desert_Slat","CUP_B_M1126_ICV_M2_Desert_Slat","CUP_B_M1126_ICV_MK19_Desert_Slat","CUP_B_M1128_MGS_Desert_Slat","CUP_B_M2Bradley_USA_D","CUP_B_M2A3Bradley_USA_D","CUP_B_M1A2_TUSK_MG_DES_US_Army"];
+		_rand_vehi = ["CUP_B_M1126_ICV_M2_Desert_Slat","CUP_B_M1128_MGS_Desert","CUP_B_M1126_ICV_MK19_Desert_Slat","CUP_B_M2Bradley_USA_D","CUP_B_M2A3Bradley_USA_D","CUP_B_M1A2_TUSK_MG_DES_US_Army"];
 		_transp_vehi = "CUP_B_MTVR_USA";
 		_offroad = "CUP_B_HMMWV_M2_GPK_USA";
 		_helico = "CUP_B_UH60M_US";
@@ -231,7 +231,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_B_BAF_Soldier_DDPM","CUP_B_BAF_Soldier_Backpack_DDPM"];
 		_ennemi_group = ["CUP_B_BAF_Soldier_SL_DDPM","CUP_B_BAF_Soldier_AT_DDPM","CUP_B_BAF_Soldier_AR_DDPM","CUP_B_BAF_Medic_DDPM","CUP_B_BAF_Soldier_GL_DDPM"];
-		_rand_vehi = ["CUP_B_Ridgback_HMG_GB_D","CUP_B_Ridgback_HMG_GB_D","CUP_B_Ridgback_GMG_GB_D","CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV510_GB_D_SLAT","CUP_B_MCV80_GB_D_SLAT","CUP_B_Challenger2_Desert_BAF"];
+		_rand_vehi = ["CUP_B_Ridgback_HMG_GB_D","CUP_B_Ridgback_GMG_GB_D","CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV510_GB_D_SLAT","CUP_B_MCV80_GB_D_SLAT","CUP_B_Challenger2_Desert_BAF"];
 		_transp_vehi = "CUP_B_LR_Transport_GB_D";
 		_offroad = "CUP_B_Jackal2_L2A1_GB_D";
 		_helico = "CUP_B_Merlin_HC3_GB";
@@ -248,7 +248,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_B_BAF_Soldier_DPM","CUP_B_BAF_Soldier_Backpack_DPM"];
 		_ennemi_group = ["CUP_B_BAF_Soldier_SL_DPM","CUP_B_BAF_Soldier_AT_DPM","CUP_B_BAF_Soldier_AR_DPM","CUP_B_BAF_Medic_DPM","CUP_B_BAF_Soldier_GL_DPM"];
-		_rand_vehi = ["CUP_B_Ridgback_HMG_GB_W","CUP_B_Ridgback_HMG_GB_W","CUP_B_Ridgback_GMG_GB_W","CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV510_GB_W_SLAT","CUP_B_MCV80_GB_W","CUP_B_Challenger2_2CW_BAF"];
+		_rand_vehi = ["CUP_B_Ridgback_HMG_GB_W","CUP_B_Ridgback_GMG_GB_W","CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV510_GB_W_SLAT","CUP_B_MCV80_GB_W","CUP_B_Challenger2_2CW_BAF"];
 		_transp_vehi = "CUP_B_LR_Transport_GB_W";
 		_offroad = "CUP_B_LR_MG_GB_W";
 		_helico = "CUP_B_Merlin_HC3_GB";
@@ -265,7 +265,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_rifleman_m70"];
 		_ennemi_group = ["rhsgref_cdf_reg_rifleman_lite","rhsgref_cdf_reg_rifleman","rhsgref_cdf_reg_grenadier","rhsgref_cdf_reg_grenadier_rpg","rhsgref_cdf_reg_machinegunner"];
-		_rand_vehi = ["rhsgref_cdf_btr60","rhsgref_cdf_btr70","rhsgref_cdf_bmd2k","rhsgref_cdf_bmp1","rhsgref_cdf_bmp2e","rhsgref_cdf_t72ba_tv"];
+		_rand_vehi = ["rhsgref_cdf_btr60","rhsgref_cdf_btr70","rhsgref_cdf_bmd2k","rhsgref_cdf_bmp1","rhsgref_cdf_bmp2e","rhsgref_cdf_t72ba_tv","rhsgref_cdf_t80b_tv"];
 		_transp_vehi = "rhsgref_cdf_gaz66";
 		_offroad = "rhsgref_cdf_reg_uaz_dshkm";
 		_helico = "rhsgref_cdf_reg_Mi17Sh";
@@ -282,7 +282,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["O_T_Soldier_F","O_T_Soldier_F"];
 		_ennemi_group = ["O_T_Soldier_TL_F","O_T_Soldier_F","O_T_Soldier_AR_F","O_T_Soldier_LAT_F","O_T_Soldier_GL_F"];
-		_rand_vehi = ["O_T_LSV_02_armed_F","O_T_MRAP_02_hmg_ghex_F","O_T_APC_Wheeled_02_rcws_ghex_F","O_T_APC_Wheeled_02_rcws_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F","O_T_MBT_02_cannon_ghex_F"];
+		_rand_vehi = ["O_T_MRAP_02_gmg_ghex_F","O_T_MRAP_02_hmg_ghex_F","O_T_APC_Wheeled_02_rcws_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F","O_T_MBT_02_cannon_ghex_F","O_T_MBT_04_cannon_F"];
 		_transp_vehi = "O_T_Truck_03_covered_ghex_F";
 		_offroad = "O_T_LSV_02_armed_F";
 		_helico = "O_Heli_Light_02_F";
@@ -299,7 +299,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["B_T_Soldier_F","B_T_Soldier_F"];
 		_ennemi_group = ["B_T_Soldier_SL_F","B_T_Soldier_F","B_T_Soldier_AR_F","B_T_medic_F","B_T_Soldier_GL_F"];
-		_rand_vehi = ["B_T_MRAP_01_hmg_F","B_T_MRAP_01_hmg_F","B_T_MRAP_01_gmg_F","B_T_APC_Wheeled_01_cannon_F","B_T_APC_Tracked_01_rcws_F","B_T_MBT_01_cannon_F"];
+		_rand_vehi = ["B_T_MRAP_01_hmg_F","B_T_MRAP_01_gmg_F","MU_NATO_T_Gorgon","B_T_APC_Wheeled_01_cannon_F","B_T_APC_Tracked_01_rcws_F","B_T_AFV_Wheeled_01_cannon_F","B_T_MBT_01_cannon_F"];
 		_transp_vehi = "B_T_Truck_01_covered_F";
 		_offroad = "B_T_LSV_01_armed_F";
 		_helico = "B_Heli_Transport_01_camo_F";
@@ -336,7 +336,7 @@ switch (CC_p_ennemy) do {
 		_rand_vehi = ["CPC_ME_B_DAM_M113_m2","CPC_ME_B_DAM_M113_m2","CPC_ME_B_DAM_BTR70","CPC_ME_B_DAM_BTR70","CPC_ME_B_DAM_M1117"];
 		_transp_vehi = "CPC_ME_B_DAM_M998_2dr_fulltop";
 		_offroad = "CPC_ME_B_DAM_M1025_m2";
-		_helico = "rhsgref_cdf_reg_Mi17Sh";
+		_helico = "CPC_ME_B_DAM_UH1H";
 	};
 
 	case 19 : { // Asian Army
@@ -353,7 +353,41 @@ switch (CC_p_ennemy) do {
 		_rand_vehi = ["CPC_JUN_B_AMIL_M113_m2","CPC_JUN_B_AMIL_M113_m2","CPC_JUN_B_AMIL_M113_m2","CPC_JUN_B_AMIL_M1117"];
 		_transp_vehi = "CPC_JUN_B_AMIL_M998_2dr_fulltop";
 		_offroad = "CPC_JUN_B_AMIL_M1025_m2";
-		_helico = "CPC_JUN_B_AMIL_UH60M";
+		_helico = "CPC_JUN_B_AMIL_UH1H";
+	};
+
+	case 20 : { // HIDF RHS
+		_compo_group = [
+			["rhsgref_hidf_teamleader","rhsgref_hidf_rifleman","rhsgref_hidf_autorifleman"],
+			["rhsgref_hidf_teamleader","rhsgref_hidf_rifleman","rhsgref_hidf_grenadier"],
+			["rhsgref_hidf_rifleman","rhsgref_hidf_rifleman_m72","rhsgref_hidf_boat_driver"],
+			["rhsgref_hidf_teamleader","rhsgref_hidf_rifleman","rhsgref_hidf_rifleman_m72","rhsgref_hidf_medic","rhsgref_hidf_rifleman"],
+			["rhsgref_hidf_marksman","rhsgref_hidf_rifleman"]
+		];
+
+		_binome = ["rhsgref_hidf_grenadier","rhsgref_hidf_rifleman"];
+		_ennemi_group = ["rhsgref_hidf_teamleader","rhsgref_hidf_grenadier","rhsgref_hidf_autorifleman","rhsgref_hidf_rifleman_m72","rhsgref_hidf_rifleman"];
+		_rand_vehi = ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19"];
+		_transp_vehi = "rhsgref_hidf_M998_2dr_fulltop";
+		_offroad = "rhsgref_hidf_m1025_m2";
+		_helico = "rhs_uh1h_hidf";
+	};
+
+	case 21 : { // SAF RHS
+		_compo_group = [
+			["rhssaf_army_m10_digital_sq_lead","rhssaf_army_m10_digital_rifleman_m21","rhssaf_army_m10_digital_mgun_m84"],
+			["rhssaf_army_m10_digital_sq_lead","rhssaf_army_m10_digital_rifleman_m21","rhssaf_army_m10_digital_gl"],
+			["rhssaf_army_m10_digital_rifleman_m21","rhssaf_army_m10_digital_spec_at","rhssaf_army_m10_digital_rifleman_m21"],
+			["rhssaf_army_m10_digital_sq_lead","rhssaf_army_m10_digital_rifleman_m21","rhssaf_army_m10_digital_rifleman_at","rhssaf_army_m10_digital_medic","rhssaf_army_m10_digital_rifleman_m21"],
+			["rhssaf_army_m10_digital_sniper_m76","rhssaf_army_m10_digital_rifleman_m21"]
+		];
+
+		_binome = ["rhssaf_army_m10_digital_gl","rhssaf_army_m10_digital_rifleman_m21"];
+		_ennemi_group = ["rhssaf_army_m10_digital_sq_lead","rhssaf_army_m10_digital_gl","rhssaf_army_m10_digital_mgun_m84","rhssaf_army_m10_digital_rifleman_at","rhssaf_army_m10_digital_rifleman_m21"];
+		_rand_vehi = ["rhssaf_m1025_olive_m2","rhssaf_army_t72s","rhssaf_army_t72s"];
+		_transp_vehi = "rhssaf_army_ural";
+		_offroad = "rhssaf_m1025_olive_m2";
+		_helico = "rhssaf_airforce_ht48";
 	};
 
 	case 100 : { // Insurge RHS
@@ -367,7 +401,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["rhsgref_ins_g_rifleman_aksu","rhsgref_ins_g_rifleman_RPG26"];
 		_ennemi_group = ["rhsgref_ins_g_rifleman","rhsgref_ins_g_rifleman_akm","rhsgref_ins_g_machinegunner","rhsgref_ins_g_grenadier_rpg","rhsgref_ins_g_militiaman_mosin"];
-		_rand_vehi = ["rhsgref_ins_g_uaz_dshkm_chdkz","rhsgref_ins_g_uaz_ags","rhsgref_ins_g_btr60","rhsgref_ins_g_btr70","rhsgref_ins_g_uaz_spg9","rhsgref_ins_g_gaz66_zu23","rhsgref_BRDM2_ins_g","rhsgref_ins_g_bmp2e","rhsgref_ins_g_bmd1p","rhsgref_ins_g_bmp1","rhsgref_ins_g_t72ba","rhsgref_ins_g_t72bb"];
+		_rand_vehi = ["rhsgref_ins_g_btr60","rhsgref_ins_g_btr70","rhsgref_ins_g_bmp1","rhsgref_ins_g_bmp1p","rhsgref_ins_g_bmp2e","rhsgref_BRDM2_ins_g","rhsgref_ins_g_t72ba","rhsgref_ins_g_t72bb"];
 		_transp_vehi = "rhsgref_ins_g_gaz66";
 		_offroad = "rhsgref_ins_g_uaz_dshkm_chdkz";
 		_helico = "";
@@ -418,7 +452,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["B_G_Soldier_lite_F","B_G_Soldier_lite_F"];
 		_ennemi_group = ["B_G_Soldier_SL_F","B_G_Soldier_F","B_G_Soldier_AR_F","B_G_medic_F","B_G_Soldier_GL_F"];
-		_rand_vehi = ["B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F"];
+		_rand_vehi = ["B_G_Offroad_01_armed_F","I_C_Offroad_02_LMG_F","B_G_Offroad_01_AT_F","I_C_Offroad_02_AT_F","CUP_B_BTR60_FIA"];
 		_transp_vehi = "B_G_Van_01_transport_F";
 		_offroad = "B_G_Offroad_01_armed_F";
 		_helico = "";
@@ -435,7 +469,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CPC_Duala_O_NPFD_soldier_5","CPC_Duala_O_NPFD_soldier_5"];
 		_ennemi_group = ["CPC_Duala_O_NPFD_soldier_TL","CPC_Duala_O_NPFD_soldier_2","CPC_Duala_O_NPFD_soldier_MG","CPC_Duala_O_NPFD_soldier_Medic","CPC_Duala_O_NPFD_soldier_GL"];
-		_rand_vehi = ["CPC_Duala_O_NPFD_BTR40_MG","CPC_Duala_O_NPFD_Datsun_PK","CPC_Duala_O_NPFD_Datsun_PK","CPC_Duala_O_NPFD_Datsun_PK","CPC_Duala_O_NPFD_Ural_ZU23"];
+		_rand_vehi = ["CPC_Duala_O_NPFD_BTR40_MG","CUP_I_BMP2_NAPA","CUP_I_BRDM2_NAPA","CPC_Duala_O_NPFD_Datsun_PK","CPC_Duala_O_NPFD_Ural_ZU23"];
 		_transp_vehi = "CPC_Afrique_O_NPFD_V3S_Covered";
 		_offroad = "CPC_Duala_O_NPFD_Datsun_PK";
 		_helico = "";
@@ -452,7 +486,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CUP_O_INS_Soldier_AK74","CUP_O_INS_Soldier"];
 		_ennemi_group = ["CUP_O_INS_Officer","CUP_O_INS_Soldier_AK74","CUP_O_INS_Soldier_MG","CUP_O_INS_Soldier_AT","CUP_O_INS_Soldier_GL"];
-		_rand_vehi = ["CUP_O_Datsun_PK_Random","CUP_O_UAZ_AGS30_CHDKZ","CUP_O_BRDM2_CHDKZ","CUP_O_BRDM2_CHDKZ","CUP_O_BMP2_CHDKZ","CUP_O_BMP2_CHDKZ","CUP_O_T72_CHDKZ"];
+		_rand_vehi = ["CUP_O_BRDM2_CHDKZ","CUP_O_BRDM2_CHDKZ","CUP_O_BMP2_CHDKZ","CUP_O_BMP2_CHDKZ","CUP_O_T72_CHDKZ"];
 		_transp_vehi = "CUP_O_Ural_CHDKZ";
 		_offroad = "CUP_O_UAZ_MG_CHDKZ";
 		_helico = "";
@@ -469,7 +503,7 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["rhsgref_nat_pmil_saboteur","rhsgref_nat_pmil_rifleman"];
 		_ennemi_group = ["rhsgref_nat_pmil_commander","rhsgref_nat_pmil_saboteur","rhsgref_nat_pmil_machinegunner","rhsgref_nat_pmil_grenadier_rpg","rhsgref_nat_pmil_grenadier"];
-		_rand_vehi = ["rhsgref_nat_uaz_dshkm","rhsgref_nat_uaz_ags","rhsgref_nat_uaz_spg9","rhsgref_nat_btr70","rhsgref_nat_btr70","rhsgref_nat_ural_Zu23"];
+		_rand_vehi = ["rhsgref_nat_uaz_ags","rhsgref_nat_uaz_spg9","rhsgref_nat_btr70","rhsgref_nat_btr70","rhsgref_nat_ural_Zu23"];
 		_transp_vehi = "rhsgref_nat_ural_open";
 		_offroad = "rhsgref_nat_uaz_dshkm";
 		_helico = "";
@@ -486,9 +520,9 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["I_C_Soldier_Para_7_F","I_C_Soldier_Para_7_F"];
 		_ennemi_group = ["I_C_Soldier_Para_8_F","I_C_Soldier_Para_1_F","I_C_Soldier_Para_4_F","I_C_Soldier_Para_5_F","I_C_Soldier_Para_6_F"];
-		_rand_vehi = ["B_G_Offroad_01_armed_F","I_C_Offroad_02_unarmed_F"];
+		_rand_vehi = ["I_C_Offroad_02_LMG_F","I_C_Offroad_02_AT_F"];
 		_transp_vehi = "I_C_Van_01_transport_F";
-		_offroad = "B_G_Offroad_01_armed_F";
+		_offroad = "I_C_Offroad_02_LMG_F";
 		_helico = "";
 	};
 

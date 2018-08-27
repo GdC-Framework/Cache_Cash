@@ -92,7 +92,7 @@ switch (CC_p_loaout) do {
 	case 3 : {
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 		_mag_ar = "rhs_200rnd_556x45_M_SAW";
 		_mag_mg = "rhsusf_50Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -117,7 +117,7 @@ switch (CC_p_loaout) do {
 	case 4 : {
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 		_mag_ar = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
 		_mag_mg = "rhsusf_50Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -142,7 +142,7 @@ switch (CC_p_loaout) do {
 	case 5 : {
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 		_mag_ar = "rhs_200rnd_556x45_M_SAW";
 		_mag_mg = "rhsusf_50Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -242,7 +242,7 @@ switch (CC_p_loaout) do {
 	case 9 : {
 		_gre = "HandGrenade";
 		_mag1 = "CUP_30Rnd_556x45_G36";
-		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 		_mag_ar = "CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag";
 		_mag_mg = "rhsusf_100Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -442,7 +442,7 @@ switch (CC_p_loaout) do {
 	case 17 : {
 		_gre = "CUP_HandGrenade_M67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
 		_mag_ar = "rhs_200rnd_556x45_M_SAW";
 		_mag_mg = "rhsusf_50Rnd_762x51";
 		if (cc_rhsennemy) then {
