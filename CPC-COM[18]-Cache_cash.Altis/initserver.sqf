@@ -7,14 +7,12 @@ CC_p_skillia = (paramsArray select 4);
 CC_p_loaout = (paramsArray select 5);
 CC_p_ennemy = (paramsArray select 6);
 CC_p_extraction = (paramsArray select 7);
-CC_p_vehicle1 = (paramsArray select 8);
-CC_p_vehicle2 = (paramsArray select 9);
-CC_p_vehicle3 = (paramsArray select 10);
-CC_p_overcast = (paramsArray select 11);
-CC_p_fog = (paramsArray select 12);
-CC_p_ennemyveh = (paramsArray select 13);
-CC_p_fullmoon = (paramsArray select 14);
-CC_p_ammocrate = (paramsArray select 15);
+CC_p_vehicle = (paramsArray select 8);
+CC_p_overcast = (paramsArray select 9);
+CC_p_fog = (paramsArray select 10);
+CC_p_ennemyveh = (paramsArray select 11);
+CC_p_fullmoon = (paramsArray select 12);
+CC_p_ammocrate = (paramsArray select 13);
 
 cc_rhsennemy = false;
 if (CC_p_ennemy in [0,2,14,17,18,19,20,21,100,106,108,109]) then {cc_rhsennemy = true};
@@ -33,6 +31,4 @@ _trg setTriggerActivation ["ALPHA", "PRESENT", false];
 _trg setTriggerText "Couper la mission";
 _trg setTriggerStatements ["this", "['end1',true,4] call BIS_fnc_endMission;", ""];
 
-if (CC_p_ammocrate == 1) then {
-	null = [] execVM "scripts\AmmoCrate.sqf";
-};
+null = [] execVM "scripts\AmmoCrate.sqf";

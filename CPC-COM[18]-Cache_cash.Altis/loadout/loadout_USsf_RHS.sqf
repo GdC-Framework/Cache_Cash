@@ -24,12 +24,11 @@ hard_setLoadout =
 	_unit = _this select 0;
 	_loadout = _unit getVariable "loadout";
 	
-	_rhsennemy = false;
 	_nvg = false;
 	_lamp = false;
-	if ((paramsArray select 6) in [0,2,14,17,18,19,100,106,108,109]) then {_rhsennemy = true};
-	if ((paramsArray select 3) == 1) then {_nvg = true};
-	if ((paramsArray select 3) == 2) then {_lamp = true};
+	_rhsennemy = cc_rhsennemy;
+	if (CC_p_nvg == 1) then {_nvg = true};
+	if (CC_p_nvg == 2) then {_lamp = true};
 	_helmet = [];
 	_helmet_chef = [];
 	_lunettes = [];

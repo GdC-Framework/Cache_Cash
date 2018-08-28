@@ -81,6 +81,7 @@ if (CC_p_insertion == 2) then
 	clearMagazineCargoGlobal _veh;clearWeaponCargoGlobal _veh;clearItemCargoGlobal _veh;clearBackpackCargoGlobal _veh;
 };
 
+/*
 //gestion vehicules
 [] spawn {
 	_listveh = [
@@ -236,6 +237,7 @@ if (CC_p_insertion == 2) then
 		};
 	};
 };
+*/
 
 //extraction
 switch (CC_p_extraction) do {

@@ -24,8 +24,7 @@ hard_setLoadout =
 	_unit = _this select 0;
 	_loadout = _unit getVariable "loadout";
 	
-	_rhsennemy = false;
-	if ((paramsArray select 6) in [0,2,14,17,18,19,100,106,108,109]) then {_rhsennemy = true};
+	_rhsennemy = cc_rhsennemy;
 	_nvg = false;
 	_lamp = false;
 	_uniform = [];
@@ -77,8 +76,8 @@ hard_setLoadout =
 		_vest1 = ["CUP_V_I_Carrier_Belt","CUP_V_B_GER_Carrier_Rig_2_Brown","CUP_V_I_RACS_Carrier_Rig_wdl_2","CUP_V_RUS_Smersh_1","V_TacChestrig_grn_F","V_TacChestrig_oli_F","V_TacVest_blk","V_TacVest_camo","V_TacVest_khk","V_TacVest_oli","V_I_G_resistanceLeader_F"];
 		_vest2 = ["CUP_V_B_GER_Carrier_Rig_3_Brown","CUP_V_O_Ins_Carrier_Rig_Com","CUP_V_I_RACS_Carrier_Rig_wdl_3","CUP_V_RUS_Smersh_2"];
 	};
-	if ((paramsArray select 3) == 1) then {_nvg = true};
-	if ((paramsArray select 3) == 2) then {_lamp = true};
+	if (CC_p_nvg == 1) then {_nvg = true};
+	if (CC_p_nvg == 2) then {_lamp = true};
 	
 	switch _loadout do 
 	{

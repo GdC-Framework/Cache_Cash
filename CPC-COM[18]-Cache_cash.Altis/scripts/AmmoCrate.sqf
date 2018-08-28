@@ -1,20 +1,13 @@
 /*
 Script pour créer une caisse avec du matos en plus près du spawn des joueurs
-
-
 */
-private ["_pos","_veh","cc_rhsennemy","_lat","_at","_mag_at1","_mag_at2","_mag_at3","_hat","_mag_hat","_gre","_mag1","_mag2","_mag_ar","_mag_mg"];
+private ["_pos","_veh","_weap","_lat","_at","_mag_at1","_mag_at2","_mag_at3","_hat","_mag_hat","_gre","_mag1","_mag2","_mag_ar","_mag_mg"];
 
-waitUntil {time > 1};
-
-_pos = markerpos "Mark_inser";
-_pos = [_pos, 0, 30, 3, 0] call BIS_fnc_findSafePos;
-_veh = "CUP_USBasicWeapons_EP1" createVehicle _pos;
-_veh allowdamage false;
 
 switch (CC_p_loaout) do {
 	//OTAN
 	case 0 : {
+		_weap = "arifle_MX_ACO_F";
 		_gre = "HandGrenade";
 		_mag1 = "30Rnd_65x39_caseless_mag";
 		_mag2 = "30Rnd_65x39_caseless_mag";
@@ -40,6 +33,7 @@ switch (CC_p_loaout) do {
 	};
 	//CSAT
 	case 1 : {
+		_weap = "arifle_Katiba_F";
 		_gre = "HandGrenade";
 		_mag1 = "30Rnd_65x39_caseless_green";
 		_mag2 = "10Rnd_762x54_Mag";
@@ -65,6 +59,7 @@ switch (CC_p_loaout) do {
 	};
 	//AAF
 	case 2 : {
+		_weap = "arifle_Mk20_Holo_F";
 		_gre = "HandGrenade";
 		_mag1 = "30Rnd_556x45_Stanag";
 		_mag2 = "20Rnd_762x51_Mag";
@@ -90,6 +85,7 @@ switch (CC_p_loaout) do {
 	};
 	//USArmy
 	case 3 : {
+		_weap = "rhs_weap_m4_carryhandle";
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
 		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
@@ -115,6 +111,7 @@ switch (CC_p_loaout) do {
 	};
 	//USMC
 	case 4 : {
+		_weap = "rhs_weap_m16a4_carryhandle";
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
 		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
@@ -140,6 +137,7 @@ switch (CC_p_loaout) do {
 	};
 	//USSF
 	case 5 : {
+		_weap = "rhs_weap_mk18_eotech_sup";
 		_gre = "rhs_mag_m67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
 		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
@@ -165,6 +163,7 @@ switch (CC_p_loaout) do {
 	};
 	//RUS2000
 	case 6 : {
+		_weap = "rhs_weap_ak74m";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_545x39_AK";
 		_mag2 = "rhs_10Rnd_762x54mmR_7N1";
@@ -190,6 +189,7 @@ switch (CC_p_loaout) do {
 	};
 	//RUS2015
 	case 7 : {
+		_weap = "rhs_weap_ak74m";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_545x39_AK";
 		_mag2 = "rhs_10Rnd_762x54mmR_7N1";
@@ -215,6 +215,7 @@ switch (CC_p_loaout) do {
 	};
 	//RUSF
 	case 8 : {
+		_weap = "rhs_weap_ak74mr_1p87";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_545x39_7N22_AK";
 		_mag2 = "rhs_10Rnd_762x54mmR_7N14";
@@ -240,6 +241,7 @@ switch (CC_p_loaout) do {
 	};
 	//KSK
 	case 9 : {
+		_weap = "CUP_arifle_G36A";
 		_gre = "HandGrenade";
 		_mag1 = "CUP_30Rnd_556x45_G36";
 		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
@@ -265,6 +267,7 @@ switch (CC_p_loaout) do {
 	};
 	//BAF
 	case 10 : {
+		_weap = "CUP_arifle_L85A2_NG";
 		_gre = "CUP_HandGrenade_L109A1_HE";
 		_mag1 = "30Rnd_556x45_Stanag";
 		_mag2 = "20Rnd_762x51_Mag";
@@ -290,6 +293,7 @@ switch (CC_p_loaout) do {
 	};
 	//RACS
 	case 11 : {
+		_weap = "CUP_arifle_M16A4_Base";
 		_gre = "HandGrenade";
 		_mag1 = "30Rnd_556x45_Stanag";
 		_mag2 = "20Rnd_762x51_Mag";
@@ -315,6 +319,7 @@ switch (CC_p_loaout) do {
 	};
 	//TAKI
 	case 12 : {
+		_weap = "CUP_arifle_FNFAL";
 		_gre = "CUP_HandGrenade_RGD5";
 		_mag1 = "CUP_20Rnd_762x51_FNFAL_M";
 		_mag2 = "30Rnd_556x45_Stanag";
@@ -340,6 +345,7 @@ switch (CC_p_loaout) do {
 	};
 	//INS
 	case 13 : {
+		_weap = "rhs_weap_akm";
 		_gre = "CUP_HandGrenade_RGD5";
 		_mag1 = "rhs_30Rnd_762x39mm";
 		_mag2 = "rhsgref_10Rnd_792x57_m76";
@@ -365,6 +371,7 @@ switch (CC_p_loaout) do {
 	};
 	//TakINS
 	case 14 : {
+		_weap = "rhs_weap_akm";
 		_gre = "CUP_HandGrenade_RGD5";
 		_mag1 = "rhs_30Rnd_762x39mm";
 		_mag2 = "CUP_10Rnd_762x54_SVD_M";
@@ -390,6 +397,7 @@ switch (CC_p_loaout) do {
 	};
 	//SAF
 	case 15 : {
+		_weap = "rhs_weap_m21a";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhsgref_30rnd_556x45_m21";
 		_mag2 = "rhsgref_10Rnd_792x57_m76";
@@ -415,6 +423,7 @@ switch (CC_p_loaout) do {
 	};
 	//CDF
 	case 16 : {
+		_weap = "rhs_weap_m70b1n";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_762x39mm";
 		_mag2 = "rhsgref_10Rnd_792x57_m76";
@@ -440,6 +449,7 @@ switch (CC_p_loaout) do {
 	};
 	//PMC
 	case 17 : {
+		_weap = "rhs_weap_m4_carryhandle";
 		_gre = "CUP_HandGrenade_M67";
 		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
 		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
@@ -465,6 +475,7 @@ switch (CC_p_loaout) do {
 	};
 	//FR
 	case 18 : {
+		_weap = "rhs_weap_hk416d145";
 		_gre = "HandGrenade";
 		_mag1 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
 		_mag2 = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
@@ -490,6 +501,7 @@ switch (CC_p_loaout) do {
 	};
 	// armée occident
 	case 19 : {
+		_weap = "rhs_weap_vhsd2_ct15x";
 		_gre = "HandGrenade";
 		_mag1 = "rhsgref_30rnd_556x45_vhs2";
 		_mag2 = "rhsgref_30rnd_556x45_vhs2_t";
@@ -514,6 +526,19 @@ switch (CC_p_loaout) do {
 		};
 	};
 };
+
+cc_ArrayMagFaction = [_gre,_mag1,_mag2,_mag_ar,_mag_mg,_mag_at1,_mag_at2,_mag_at3,_mag_hat];
+publicVariable "cc_ArrayMagFaction";
+cc_ArrayATFaction = [_weap,_lat,_at,_hat];
+publicVariable "cc_ArrayATFaction";
+
+if (CC_p_ammocrate == 0) exitWith {};
+waitUntil {time > 1};
+
+_pos = markerpos "Mark_inser";
+_pos = [_pos, 0, 30, 3, 0] call BIS_fnc_findSafePos;
+_veh = "CUP_USBasicWeapons_EP1" createVehicle _pos;
+_veh allowdamage false;
 
 clearMagazineCargoGlobal _veh;
 clearWeaponCargoGlobal _veh;

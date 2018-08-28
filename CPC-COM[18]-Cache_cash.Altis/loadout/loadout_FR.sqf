@@ -24,18 +24,17 @@ hard_setLoadout =
 	_unit = _this select 0;
 	_loadout = _unit getVariable "loadout";
 	
-	_rhsennemy = false;
-	if ((paramsArray select 6) in [0,2,14,17,18,19,100,106,108,109]) then {_rhsennemy = true};
+	_rhsennemy = cc_rhsennemy;
 	_nvg = false;
 	_lamp = false;
 	_uniform = ["U_MU_B_soldier_wdl","U_MU_B_soldier_wdl","U_MU_B_soldier_wdl_vest"];
 	_helmet = ["rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland_black_ess_bare"];
 	_face = ["","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","","","",""];
-	if ((paramsArray select 3) == 1) then {
+	if (CC_p_nvg == 1) then {
 		_nvg = true;
 		_helmet = ["rhssaf_helmet_m97_woodland"];
 	};
-	if ((paramsArray select 3) == 2) then {_lamp = true};
+	if (CC_p_nvg == 2) then {_lamp = true};
 	
 	switch _loadout do 
 	{

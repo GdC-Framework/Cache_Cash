@@ -15,9 +15,7 @@ if (isNil "paramsArray") then {
 		19,		//Faction
 		100,	//Faction IA
 		1,		//extraction
-		0,		//Véhicule 1
-		0,		//Véhicule 2
-		0,		//Véhicule 3
+		0,		//Véhicule
 		1,		//météo
 		0,		//brouillard
 		0,		//ennemyveh
@@ -36,14 +34,12 @@ if (isNil "CC_p_time") then {
 	CC_p_loaout = (paramsArray select 5);
 	CC_p_ennemy = (paramsArray select 6);
 	CC_p_extraction = (paramsArray select 7);
-	CC_p_vehicle1 = (paramsArray select 8);
-	CC_p_vehicle2 = (paramsArray select 9);
-	CC_p_vehicle3 = (paramsArray select 10);
-	CC_p_overcast = (paramsArray select 11);
-	CC_p_fog = (paramsArray select 12);
-	CC_p_ennemyveh = (paramsArray select 13);
-	CC_p_fullmoon = (paramsArray select 14);
-	CC_p_ammocrate = (paramsArray select 15);
+	CC_p_vehicle = (paramsArray select 8);
+	CC_p_overcast = (paramsArray select 9);
+	CC_p_fog = (paramsArray select 10);
+	CC_p_ennemyveh = (paramsArray select 11);
+	CC_p_fullmoon = (paramsArray select 12);
+	CC_p_ammocrate = (paramsArray select 13);
 };
 
 // déterminer la localité pour faire pop les IAs(HC ou éditeur)
@@ -111,6 +107,11 @@ if (CC_p_extraction == 3) then {
 
 finishMissionInit;
 waitUntil {time > 0};
+
+// véhicle creator
+if (CC_p_vehicle > 0) then {
+	null = [] execVM "scripts\vehicle_creator.sqf";
+};
 
 //METEO
 null = [] execVM "scripts\meteo.sqf";

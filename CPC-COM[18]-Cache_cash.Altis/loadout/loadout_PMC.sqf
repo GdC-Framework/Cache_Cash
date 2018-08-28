@@ -24,8 +24,7 @@ hard_setLoadout =
 	_unit = _this select 0;
 	_loadout = _unit getVariable "loadout";
 	
-	_rhsennemy = false;
-	if ((paramsArray select 6) in [0,2,14,17,18,19,100,106,108,109]) then {_rhsennemy = true};
+	_rhsennemy = cc_rhsennemy;
 	_nvg = false;
 	_lamp = false;
 	_uniform = ["CUP_I_B_PMC_Unit_24","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_20","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_8","CUP_I_B_PMC_Unit_7","CUP_I_B_PMC_Unit_6","CUP_I_B_PMC_Unit_5","CUP_I_B_PMC_Unit_4","CUP_I_B_PMC_Unit_3","CUP_I_B_PMC_Unit_2","CUP_I_B_PMC_Unit_1"];
@@ -40,8 +39,8 @@ hard_setLoadout =
 	_sac = ["B_Kitbag_rgr","B_Kitbag_mcamo","B_Kitbag_cbr","B_TacticalPack_blk","B_TacticalPack_oli","B_MU_TacticalPack_cbr"];
 	_nvg_item = ["CUP_NVG_PVS14","CUP_NVG_PVS7","CUP_NVG_HMNVS"];
 	
-	if ((paramsArray select 3) == 1) then {_nvg = true};
-	if ((paramsArray select 3) == 2) then {_lamp = true};
+	if (CC_p_nvg == 1) then {_nvg = true};
+	if (CC_p_nvg == 2) then {_lamp = true};
 	
 	switch _loadout do 
 	{

@@ -7,14 +7,12 @@ CC_p_skillia = (paramsArray select 4);
 CC_p_loaout = (paramsArray select 5);
 CC_p_ennemy = (paramsArray select 6);
 CC_p_extraction = (paramsArray select 7);
-CC_p_vehicle1 = (paramsArray select 8);
-CC_p_vehicle2 = (paramsArray select 9);
-CC_p_vehicle3 = (paramsArray select 10);
-CC_p_overcast = (paramsArray select 11);
-CC_p_fog = (paramsArray select 12);
-CC_p_ennemyveh = (paramsArray select 13);
-CC_p_fullmoon = (paramsArray select 14);
-CC_p_ammocrate = (paramsArray select 15);
+CC_p_vehicle = (paramsArray select 8);
+CC_p_overcast = (paramsArray select 9);
+CC_p_fog = (paramsArray select 10);
+CC_p_ennemyveh = (paramsArray select 11);
+CC_p_fullmoon = (paramsArray select 12);
+CC_p_ammocrate = (paramsArray select 13);
 
 // Variables pour les loadouts
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)

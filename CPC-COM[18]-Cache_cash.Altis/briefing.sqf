@@ -28,6 +28,16 @@ switch (CC_p_extraction) do {
 	};
 };
 
+if (CC_p_vehicle > 0) then {
+	_nbr = str CC_p_vehicle;
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer un véhicule de leur choix au moyen d'une action disponible dans la menu molette.
+		<br/>- L'action ouvre le garage virtuel.
+		<br/>- Le véhicule est crée 10m devant le joueur.
+		<br/>- L'action disparaît après 10 minutes ou lorsque le nombre de véhicules disponibles est égal à 0.
+		<br/><br/>Nombre de véhicules disponibles : " + _nbr;
+		player createDiaryRecord ["Diary",["Véhicules",_txt]];
+};
+
 player createDiaryRecord ["Diary",["Extraction",
 
 switch (CC_p_extraction) do {
