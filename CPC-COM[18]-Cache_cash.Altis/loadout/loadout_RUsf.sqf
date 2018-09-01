@@ -65,9 +65,9 @@ hard_setLoadout =
 	};
 	switch (CC_p_nvg) do {
 		case 0: {_nvg = ""; _lamp = ""; _lamp2 = "";};
-		case 1: {_nvg = "NVGoggles_OPFOR"; _lamp = "rhs_acc_perst3_2dp_h";; _lamp2 = "rhs_acc_perst3";};
-		case 2: {_nvg = ""; _lamp = "rhs_acc_2dpzenit";; _lamp2 = "rhs_acc_2dpzenit_ris";};
-		default {_nvg = ""; _lamp = "";; _lamp2 = "";};
+		case 1: {_nvg = "NVGoggles_OPFOR"; _lamp = "rhs_acc_perst3_2dp_h"; _lamp2 = "rhs_acc_perst3";};
+		case 2: {_nvg = ""; _lamp = "rhs_acc_2dpzenit"; _lamp2 = "rhs_acc_2dpzenit_ris";};
+		default {_nvg = ""; _lamp = ""; _lamp2 = "";};
 	};
 	switch (cc_rhsennemy) do {
 		case true: {
@@ -76,7 +76,7 @@ hard_setLoadout =
 			_mun_at = ["rhs_rpg_empty",[["rhs_rpg7_PG7VL_mag",2,1],["rhs_rpg7_TBG7V_mag",1,1]]];
 		};
 		case false: {
-			_weap_lat = ["CUP_launch_M72A6","","","",["ACE_PreloadedMissileDummy_M72A6_CUP",1],[],""];
+			_weap_lat = ["CUP_launch_RPG18","","","",["ACE_PreloadedMissileDummy_M72A6_CUP",1],[],""];
 			_weap_at = ["CUP_launch_RPG7V","","","cup_optic_pgo7v3",["CUP_PG7VM_M",1],[],""];
 			_mun_at = ["CUP_B_RPGPack_Khaki",[["CUP_PG7VM_M",2,1],["CUP_OG7_M",2,1]]];
 		};
@@ -142,7 +142,7 @@ loadoutCC_OFF = //
 		"rhs_fieldcap_digi",
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",(if (CC_p_nvg == 1) then {"NVGoggles_OPFOR"} else {""})]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg == 1) then {"NVGoggles_OPFOR"} else {""})]
 	];
 };
 
@@ -160,7 +160,7 @@ loadoutCC_TL = //
 		(selectrandom _headgear),
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -177,7 +177,7 @@ loadoutCC_DOC = //
 		(selectrandom _headgear),
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -194,7 +194,7 @@ loadoutCC_AR = //
 		(selectrandom _headgear),
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -211,7 +211,7 @@ loadoutCC_AAR = //
 		(selectrandom _headgear),
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 loadoutCC_MG = //
@@ -227,7 +227,7 @@ loadoutCC_MG = //
 		(selectrandom _headgear),
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -244,7 +244,7 @@ loadoutCC_AMG = //
 		(selectrandom _headgear),
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -261,7 +261,7 @@ loadoutCC_AT = //
 		(selectrandom _headgear),
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -278,7 +278,7 @@ loadoutCC_AAT = //
 		(selectrandom _headgear),
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -295,7 +295,7 @@ loadoutCC_DEMO = //
 		(selectrandom _headgear),
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -312,7 +312,7 @@ loadoutCC_M = //
 		(selectrandom _headgear),
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -329,7 +329,7 @@ loadoutCC_GL = //
 		(selectrandom _headgear),
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -346,7 +346,7 @@ loadoutCC_A = //
 		(selectrandom _headgear),
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -363,7 +363,7 @@ loadoutCC_LAT = //
 		(selectrandom _headgear),
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -380,7 +380,7 @@ loadoutCC_R = //
 		(selectrandom _headgear),
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -397,7 +397,7 @@ loadoutCC_CREW = //
 		"rhs_tsh4_bala",
 		"",
 		["Binocular","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };
 
@@ -414,7 +414,7 @@ loadoutCC_PILOT = //
 		"rhs_zsh7a_mike",
 		"",
 		[],
-		["ItemMap","","","ItemCompass","ItemWatch",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
 	];
 };
 
@@ -431,7 +431,7 @@ loadoutCC_SNIPER = //
 		_hat,
 		"",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
 	];
 };
 
@@ -448,7 +448,7 @@ loadoutCC_OBS = //
 		_hat,
 		"rhs_scarf",
 		["rhs_pdu4","","","",[],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"NVGoggles_OPFOR"} else {""})]
 	];
 };
 
@@ -465,6 +465,6 @@ loadoutCC_JTAC = //
 		(selectrandom _headgear),
 		"",
 		["Laserdesignator_01_khk_F","","","",["Laserbatteries",1],[],""],
-		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };

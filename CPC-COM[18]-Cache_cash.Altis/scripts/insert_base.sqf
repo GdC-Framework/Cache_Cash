@@ -7,7 +7,7 @@ if (didJIP) exitwith {};
 private ["_unitArray"];
 
 if (!isMultiplayer) then {
-	_unitArray = SlotPlayers;
+	_unitArray = switchableUnits;
 } else {
 	_unitArray = PlayableUnits;
 };

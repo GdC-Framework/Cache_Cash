@@ -312,7 +312,7 @@ loadoutCC_M = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_sr25","","rhsusf_acc_anpeq16a","rhsusf_acc_ACOG3",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"bipod_02_F_blk"],
+		["rhs_weap_sr25","",_lamp,"rhsusf_acc_ACOG3",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"bipod_02_F_blk"],
 		[],
 		[],
 		[_uniform,_itemsU_base],

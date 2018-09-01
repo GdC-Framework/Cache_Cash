@@ -33,6 +33,8 @@ switch (CC_p_loaout) do {
 		case 16 : {_type = "rhsgref_cdf_b_reg_Mi8amt";}; // CDF
 		case 17 : {_type = "MU_MERC_Mohawk";}; // PMC
 		case 18 : {_type = "CUP_B_SA330_Puma_HC2_BAF";}; // FR
+		case 19 : {_type = "RHS_CH_47F";}; // occident
+		default {_type = "RHS_CH_47F";};
 };
 
 waituntil {time > 0};
@@ -63,7 +65,7 @@ if (isserver) then {
 	
 	// teleport des joueurs dans l'hélico
 	if (!isMultiplayer) then {
-		_unitArray = SlotPlayers;
+		_unitArray = switchableUnits;
 	} else {
 		_unitArray = PlayableUnits;
 	};

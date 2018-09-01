@@ -8,15 +8,14 @@ cc_action_vehiclecreator = player addaction ["<t color='#B404AE'>créer vehicule
 	CC_p_vehicle = CC_p_vehicle - 1;
 	publicVariable "CC_p_vehicle";
 	// Event handler de fermeture du garage
-	_event = [missionnamespace, "garageClosed",{
-		player allowdamage true;
-		BIS_fnc_garage_center allowdamage true;
+	cc_event_closeg = [missionnamespace, "garageClosed",{
+		BIS_fnc_garage_center setdir ((getdir player) - 180);
 		clearItemCargoGlobal BIS_fnc_garage_center;
 		clearWeaponCargoGlobal BIS_fnc_garage_center;
 		clearMagazineCargoGlobal BIS_fnc_garage_center;
 		clearBackpackCargoGlobal BIS_fnc_garage_center;
 		BIS_fnc_garage_center addWeaponCargoGlobal [(cc_ArrayATFaction select 0), 1]; //weap
-		BIS_fnc_garage_center addWeaponCargoGlobal [(cc_ArrayATFaction select 1), 2]; //lat
+		BIS_fnc_garage_center addWeaponCargoGlobal [(cc_ArrayATFaction select 1), 1]; //lat
 		BIS_fnc_garage_center addMagazineCargoGlobal ["smokeshell", 5];
 		BIS_fnc_garage_center addMagazineCargoGlobal ["smokeshellBlue", 5];
 		BIS_fnc_garage_center addMagazineCargoGlobal [(cc_ArrayMagFaction select 0), 5]; //Gre
@@ -26,7 +25,9 @@ cc_action_vehiclecreator = player addaction ["<t color='#B404AE'>créer vehicule
 		BIS_fnc_garage_center addMagazineCargoGlobal [(cc_ArrayMagFaction select 4), 2]; //magmg
 		BIS_fnc_garage_center addMagazineCargoGlobal [(cc_ArrayMagFaction select 5), 1]; //magat1
 		BIS_fnc_garage_center addMagazineCargoGlobal [(cc_ArrayMagFaction select 6), 1]; //magat2
-		[missionNamespace, "garageClosed", _event] call BIS_fnc_removeScriptedEventHandler; 
+		player allowdamage true;
+		BIS_fnc_garage_center allowdamage true;
+		[missionNamespace, "garageClosed", cc_event_closeg] call BIS_fnc_removeScriptedEventHandler; 
 	}] call BIS_fnc_addScriptedEventHandler;
 	// Une position 10m devant le joueur
 	_pos = player getPos [10,getDir player];

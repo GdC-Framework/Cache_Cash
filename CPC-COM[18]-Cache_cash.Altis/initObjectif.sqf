@@ -50,10 +50,11 @@ if (random 100 < 70) then {
 	["1"] execVM "scripts\create_ville.sqf";
 };
 
+/*
 //spawn des helicos si insertion helico
 if (CC_p_insertion == 2) then 
 {
-	switch (CC_p_loaout) do {
+	_type = switch (CC_p_loaout) do {
 		case 0 : {_type = "B_Heli_Transport_01_camo_F";}; // NATO
 		case 1 : {_type = "O_Heli_Light_02_F";}; // CSAT
 		case 2 : {_type = "I_Heli_Transport_02_F";}; // AAF
@@ -73,6 +74,7 @@ if (CC_p_insertion == 2) then
 		case 16 : {_type = "rhsgref_cdf_b_reg_Mi8amt";}; // CDF
 		case 17 : {_type = "MU_MERC_Mohawk";}; // PMC
 		case 18 : {_type = "CUP_B_SA330_Puma_HC2_BAF";}; // FR
+		default
 	};
 	"M_helipad1" setMarkerAlpha 1;
 	_veh = _type createVehicle (getMarkerPos "M_helipad1");
@@ -80,6 +82,7 @@ if (CC_p_insertion == 2) then
 	_veh = _type createVehicle (getMarkerPos "M_helipad2");
 	clearMagazineCargoGlobal _veh;clearWeaponCargoGlobal _veh;clearItemCargoGlobal _veh;clearBackpackCargoGlobal _veh;
 };
+*/
 
 /*
 //gestion vehicules

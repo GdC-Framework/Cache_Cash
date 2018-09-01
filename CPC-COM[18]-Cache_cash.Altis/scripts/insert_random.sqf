@@ -11,7 +11,7 @@ if (isServer) then {
 	"Mark_inser" setmarkerpos _pos;
 };
 if (!isMultiplayer) then {
-	_unitArray = SlotPlayers;
+	_unitArray = switchableUnits;
 } else {
 	_unitArray = PlayableUnits;
 };

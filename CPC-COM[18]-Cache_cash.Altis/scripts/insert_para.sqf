@@ -16,7 +16,7 @@ if (rank player == "SERGEANT") then {
 };
 
 if (!isMultiplayer) then {
-	_unitArray = SlotPlayers;
+	_unitArray = switchableUnits;
 } else {
 	_unitArray = PlayableUnits;
 };

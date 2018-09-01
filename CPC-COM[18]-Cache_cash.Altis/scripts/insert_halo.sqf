@@ -63,7 +63,7 @@ if (isserver) then {
 
 	// Déplacement des joueurs dans l'avion.
 	if (!isMultiplayer) then {
-		_unitArray = SlotPlayers;
+		_unitArray = switchableUnits;
 	} else {
 		_unitArray = PlayableUnits;
 	};
