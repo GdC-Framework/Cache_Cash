@@ -14,6 +14,7 @@ CC_p_overcast = (paramsArray select 11);
 CC_p_fog = (paramsArray select 12);
 CC_p_fullmoon = (paramsArray select 13);
 
+cc_night = if (CC_p_time in [1,2,3,4,20,21,22,23,0]) then {true} else {false};
 // Variables pour les loadouts
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)
 playerIsJIP = _this select 1;	// boolean (true ou false). True = le joueur se connecte en cours de partie.
@@ -37,7 +38,7 @@ switch (toLower worldName) do {
 	default {cc_loadoutcamo = "polyvalent"};
 };
 
-waitUntil {CPC_MarkersCreated};
+waitUntil {!isnil "cc_MarkersCreated"};
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	2) CALL / COMPILE
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,8 +47,8 @@ switch (CC_p_loaout) do {
 	case 0 : {call compile preprocessFileLineNumbers "loadout\loadout_NATO.sqf";};
 	case 1 : {call compile preprocessFileLineNumbers "loadout\loadout_CSAT.sqf";};
 	case 2 : {call compile preprocessFileLineNumbers "loadout\loadout_AAF.sqf";};
-	case 3 : {call compile preprocessFileLineNumbers "loadout\loadout_USArmy_RHS.sqf";};
-	case 4 : {call compile preprocessFileLineNumbers "loadout\loadout_USMC_RHS.sqf";};
+	case 3 : {call compile preprocessFileLineNumbers "loadout\loadout_USArmy.sqf";};
+	case 4 : {call compile preprocessFileLineNumbers "loadout\loadout_USMC.sqf";};
 	case 5 : {call compile preprocessFileLineNumbers "loadout\loadout_USsf.sqf";};
 	case 6 : {call compile preprocessFileLineNumbers "loadout\loadout_RU2000_RHS.sqf";};
 	case 7 : {call compile preprocessFileLineNumbers "loadout\loadout_RU2015_RHS.sqf";};

@@ -1,4 +1,4 @@
-if(hasInterface or isServer) exitWith {};
+if (ismultiplayer) then {if(hasInterface or isServer) exitWith {};};
 
 _sf   			= _this select 0; 
 

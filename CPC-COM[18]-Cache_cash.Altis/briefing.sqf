@@ -1,6 +1,4 @@
-﻿waitUntil {!(isNull player)};
-waitUntil {player==player};
-waitUntil {CPC_MarkersCreated};
+﻿waitUntil {!isnil "cc_MarkersCreated"};
 
 //Task
 task1 = player createSimpleTask ["Détruire la cache d'explosifs."];
@@ -9,28 +7,10 @@ task1 setSimpleTaskDestination markerpos "Mark_Cible";
 task2 = player createSimpleTask ["Tuer tout les ennemis. (optionnel)"];
 task2 setSimpleTaskDescription ["Tuer tout les ennemis. (optionnel)","Tuer tout les ennemis. (optionnel)","Tuer tout les ennemis. (optionnel)"];
 
-switch (CC_p_extraction) do {
-	case 0: {
-		task3 = player createSimpleTask ["Tenir la base."];
-		task3 setSimpleTaskDescription ["Tenir la base ennemie.","Tenir la base ennemie.","Tenir la base ennemie."];
-	};
-	case 1: {
-		task3 = player createSimpleTask ["S'extraire."];
-		task3 setSimpleTaskDescription ["S'extraire sur le point RDV.","S'extraire sur le point RDV.","S'extraire sur le point RDV."];
-	};
-	case 2: {
-		task3 = player createSimpleTask ["S'extraire."];
-		task3 setSimpleTaskDescription ["S'extraire sur le point d'insertion.","S'extraire sur le point d'insertion.","S'extraire sur le point d'insertion."];
-	};
-	case 3: {
-		task3 = player createSimpleTask ["S'extraire."];
-		task3 setSimpleTaskDescription ["S'extraire en appelant l'hélico sur le canal 5 de la PRC148.","S'extraire sur le point d'insertion.","S'extraire sur le point d'insertion."];
-	};
-};
 
 if (CC_p_vehicle > 0) then {
 	_nbr = str CC_p_vehicle;
-	_txt = "Une fois en jeu, les chefs de groupes peuvent créer un véhicule de leur choix au moyen d'une action disponible dans la menu molette.
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer un véhicule de leur choix au moyen d'une action disponible dans le menu molette.
 		<br/>- L'action ouvre le garage virtuel.
 		<br/>- Le véhicule est crée 10m devant le joueur.
 		<br/>- L'action disparaît après 10 minutes ou lorsque le nombre de véhicules disponibles est égal à 0.
@@ -42,16 +22,13 @@ player createDiaryRecord ["Diary",["Extraction",
 
 switch (CC_p_extraction) do {
 	case 0: {"| Aucune extraction |
-<br/><br/>Restez quelques minutes dans la base ennemie une fois la cache détruite. (un chef de groupe peut fermer la mission avec le menu molette)
+<br/><br/>L'extraction est au choix du leader. 0-0-1 pour couper la mission.
 	"};
 	case 1: {"| Extraction aléatoire |
-<br/><br/>Une fois la cache détruite, le point RDV vous sera communiqué pour vous extraire. (un chef de groupe peut fermer la mission avec le menu molette)
+<br/><br/>Rejoignez le point de RDV pour vous extraire. (un chef de groupe peut fermer la mission avec le menu molette)
 	"};
-	case 2: {"| Extraction sur insertion|
-<br/><br/>Une fois la cache détruite, revenez sur le point d'insertion. (un chef de groupe peut fermer la mission avec le menu molette)
-	"};
-	case 3: {"| Extraction heliportée|
-<br/><br/>Une fois la cache détruite, appellez l'hélicoptère d'extraction sur le canal 5 de la PRC148 (menu molette)
+	case 2: {"| Extraction heliportée|
+<br/><br/>Une fois la cache détruite, appellez l'hélicoptère d'extraction sur le canal 5 de la PRC148 (GDC_extra)
 	"};
 }]];
 
@@ -69,11 +46,6 @@ case 1:{
 <br/><br/>Les chefs de groupe choisi la position d'insertion de tout le monde par un clique gauche sur la carte. Attention de ne pas être trop loin. (Il est impossible être dans la zone rouge pour l'insertion)
 <br/>Vous allez être insérés <font color='#0066FF'><marker name='mark_inser'>ici</marker></font>.
 	"};
-case 2:{
-	"| Insertion Héliportée |
-<br/><br/>Vous êtes sur un aérodrome et deux hélico sont a votre disposition pour rejoindre la zone d'opération.
-<br/>Vous être insérés <font color='#0066FF'><marker name='mark_inser'>ici</marker></font>.
-	"};
 case 3:{
 	"| Insertion Héliportée (IA) |
 <br/><br/>Les chefs de groupe choisissent la Landing Zone par un clique gauche sur la carte.
@@ -81,15 +53,20 @@ case 3:{
 	"};
 case 4:{
 	"| Insertion Parachutée |
-<br/><br/>Les chefs de groupe choisissent la position du parachutage par un clique gauche sur la carte Attention de ne pas être trop loin. (Il est possible d'être parachuté dans la zone rouge.).
-<br/>Vous être parachutés <font color='#0066FF'><marker name='mark_inser'>ici</marker></font>.
+<br/>Système GDC_halo
+<br/><br/>Les chefs de groupe choisissent la position spawn par un clique gauche sur la carte.
+<br/>Une fois en jeu, interagissez avec le panneau pour déclencher le saut LALO. Seuls les joueurs présents dans la zone marquée autour du panneau sont affectés.
+<br/>Le saut est automatique et s'effectue à 300m d'altitude.
+<br/><br/>Note : Il est possible (mais pas indispensable) de choisir la position de départ de l'avion en créant un marqueur nommé ""AVION"" sur la map dans le canal global.
 	"};
 case 5:{
 	"| Insertion HALO |
-<br/><br/>Les chefs de groupe choisissent la position de saut par un clique gauche sur la carte. Le saut débute à partir de ce point, les joueurs seront certainement dispersés sur une distance d'environ 1 kilomètre entre le point de saut et l'objectif.
+<br/>Système GDC_halo
+<br/><br/>Les chefs de groupe choisissent la position spawn par un clique gauche sur la carte.
+<br/>Une fois en jeu, interagissez avec le panneau pour déclencher le saut HALO. Seuls les joueurs présents dans la zone marquée autour du panneau sont affectés.
 <br/>Le saut est automatique et s'effectue à 8000m d'altitude.
 <br/>Pendant le saut les joueurs disposent d'un GPS.
-<br/><br/>Note : Il est possible (mais pas indispensable) de choisir la position de départ de l'avion en créant un marqueur nommé ""AVION"" sur la map dans le canal global. Conseil : privilégiez au moins 5 ou 6 kilomètres entre ce marqueur et le marqueur de saut. Si le marqueur AVION est trop proche du point de saut il sera ignoré.
+<br/><br/>Note : Il est possible (mais pas indispensable) de choisir la position de départ de l'avion en créant un marqueur nommé ""AVION"" sur la map dans le canal global.
 	"};
 }]];
 

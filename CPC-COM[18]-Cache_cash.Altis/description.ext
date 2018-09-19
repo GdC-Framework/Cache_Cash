@@ -1,13 +1,43 @@
 onLoadName =| Cache Cash |;
 enableDebugConsole = 1;
 
+class CfgFunctions
+{
+	class STDR
+	{
+		class movement
+		{
+			class patrolArea {};
+			class patrol {};
+			class renfort {};
+			class transport {};
+			class transportAir {};
+		};
+		class spawn
+		{
+			class spawnStaticUnit {};
+			class spawnVehicleCrew {};
+			class spawnGroup {};
+			class spawnVehicle {};
+		};
+		class cc
+		{
+			class setdate {};
+			class meteo {};
+			class ammocrate {};
+			class aafire {};
+			class getTownPosList {};
+		};
+	};
+};
+
 class Params
 {
-	class Heure 		//paramsArray select 0
+	class heure //paramsArray select 0
 	{
 		title = "Heure :";
-		values[] = {24,25,26,27,28,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
+		values[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0};
+		texts[] = {"01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00"};
 		default = 12;
 	};
 
@@ -38,9 +68,9 @@ class Params
 	class extraction	//paramsArray select 4
 	{
 		title = "Extraction :";
-		values[] = {0,1,2,3};
-		texts[] = {"Aucune","Aléatoire","Sur insertion","héliportée"};
-		default = 1;
+		values[] = {0,1,2};
+		texts[] = {"Aucune (au choix du leader)","Aléatoire","héliportée"};
+		default = 0;
 	};
 
 	class Faction	//paramsArray select 5

@@ -132,9 +132,9 @@ switch (CC_p_loaout) do {
 	case 3 : {
 		_weap = "rhs_weap_m4_carryhandle";
 		_gre = "rhs_mag_m67";
-		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
-		_mag_ar = "rhs_200rnd_556x45_M_SAW";
+		_mag1 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
+		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
+		_mag_ar = "rhsusf_200rnd_556x45_mixed_box";
 		_mag_mg = "rhsusf_50Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
@@ -153,14 +153,35 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			//uniforms
+			"U_B_PilotCoveralls","rhs_uniform_cu_ocp","rhs_uniform_acu_ucp",
+			//vests
+			"rhsusf_spcs_ucp","rhsusf_spcs_ucp_teamleader","rhsusf_spcs_ocp_teamleader","rhsusf_spcs_ucp_teamleader_alt","rhsusf_spcs_ocp_teamleader_alt","rhsusf_spcs_ucp_squadleader","rhsusf_spcs_ocp_squadleader","rhsusf_spcs_ucp_sniper","rhsusf_spcs_ocp_sniper","rhsusf_spcs_ucp_saw","rhsusf_spcs_ocp_saw","rhsusf_spcs_ucp_rifleman","rhsusf_spcs_ocp_rifleman","rhsusf_spcs_ucp_rifleman_alt","rhsusf_spcs_ocp_rifleman_alt","rhsusf_spcs_ocp","rhsusf_spcs_ucp_medic","rhsusf_spcs_ocp_medic","rhsusf_spcs_ucp_machinegunner","rhsusf_spcs_ocp_machinegunner","rhsusf_spcs_ucp_grenadier","rhsusf_spcs_ocp_grenadier","rhsusf_spcs_ucp_crewman","rhsusf_spcs_ocp_crewman",
+			//backpacks
+			"rhsusf_falconii_mc","rhsusf_assault_eagleaiii_ucp","rhsusf_assault_eagleaiii_ocp","B_rhsusf_B_BACKPACK","B_Carryall_mcamo","B_Carryall_cbr","B_AssaultPack_rgr",
+			//headgears
+			"RHS_jetpilot_usaf","rhsusf_ihadss","rhsusf_hgu56p_visor_mask","rhsusf_hgu56p_visor","rhsusf_hgu56p","rhs_Booniehat_ucp","rhs_Booniehat_ocp","rhsusf_cvc_ess","rhsusf_cvc_alt_helmet","rhsusf_cvc_green_ess","rhsusf_cvc_green_alt_helmet","rhsusf_ach_helmet_ucp_norotos","rhsusf_ach_helmet_headset_ess_ucp","rhsusf_ach_helmet_headset_ucp","rhsusf_ach_helmet_ESS_ucp","rhsusf_ach_helmet_ucp","rhsusf_ach_helmet_ocp_norotos","rhsusf_ach_helmet_camo_ocp","rhsusf_ach_helmet_headset_ess_ocp","rhsusf_ach_helmet_headset_ocp","rhsusf_ach_helmet_ESS_ocp","rhsusf_ach_helmet_ocp",
+			//facewar
+			"CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","rhsusf_oakley_goggles_ylw","rhsusf_oakley_goggles_clr","rhsusf_oakley_goggles_blk","rhs_ess_black","rhs_googles_orange","rhs_googles_yellow","rhs_googles_clear","rhs_googles_black","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black",
+			//weapons
+			"CUP_launch_Javelin","CUP_launch_M136","CUP_launch_MAAWS","rhs_weap_smaw_green","rhs_weap_m72a7","rhs_weap_maaws","rhs_weap_M136_hp","rhs_weap_M136_hedp","rhs_weap_M136","rhs_weap_fim92","rhs_weap_fgm148","rhsusf_weap_glock17g4","rhsusf_weap_m9","rhs_weap_m4a1_carryhandle_mstock","rhs_weap_m4a1_carryhandle_m203S","rhs_weap_m4a1_carryhandle","rhs_weap_m249_pip_L_para","rhs_weap_m249_pip_L","rhs_weap_m240G","rhs_weap_m240B","rhs_weap_XM2010","rhs_weap_XM2010_wd","rhs_weap_XM2010_d","rhs_weap_XM2010_sa","rhs_weap_M107","rhs_weap_m14ebrri",
+			//weapon items
+			"cup_optic_maaws_scope","rhs_weap_optic_smaw","rhs_optic_maaws","acc_flashlight_pistol","rhsusf_acc_anpeq16a_top","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15","rhsusf_acc_ardec_m240","rhsusf_acc_rotex5_grey","rhsusf_acc_nt4_black","rhsusf_acc_sfmb556","rhsusf_acc_sf3p556","rhsusf_acc_acog_rmr","rhsusf_acc_acog_mdo","rhsusf_acc_su230a","rhsusf_acc_anpas13gv1","rhsusf_acc_acog3","rhsusf_acc_acog2","rhsusf_acc_acog","rhsusf_acc_elcan_ard","rhsusf_acc_elcan","rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_premier","rhsusf_acc_premier_anpvs27","rhsusf_acc_leupoldmk4_2_d","rhsusf_acc_leupoldmk4_2","rhsusf_acc_leupoldmk4","rhsusf_acc_wmx_bk","rhsusf_acc_wmx","rhsusf_acc_m952v","rhsusf_acc_anpeq16a","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15side","rhsusf_acc_m2010s_wd","rhsusf_acc_m2010s_sa","rhsusf_acc_m2010s_d","rhsusf_acc_m2010s","rhsusf_acc_harris_bipod",
+			//magazines
+			"CUP_Javelin_M","CUP_MAAWS_HEAT_M","CUP_MAAWS_HEDP_M","rhs_mag_smaw_SR","rhs_mag_smaw_HEDP","rhs_mag_smaw_HEAA","rhs_mag_maaws_HE","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_fim92_mag","rhs_fgm148_magazine_AT","rhsusf_mag_15Rnd_9x19_FMJ","rhsusf_mag_17Rnd_9x19_FMJ","rhsusf_mag_17Rnd_9x19_JHP","rhsusf_mag_15Rnd_9x19_JHP","rhs_mag_30Rnd_556x45_M855A1_PMAG_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_PMAG","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhsusf_200rnd_556x45_mixed_box","rhsusf_100Rnd_762x51_m61_ap","rhsusf_100Rnd_762x51_m62_tracer","rhsusf_100Rnd_762x51","rhsusf_100Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m61_ap","rhsusf_50Rnd_762x51_m62_tracer","rhsusf_50Rnd_762x51","rhsusf_5Rnd_300winmag_xm2010","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_mag_10Rnd_STD_50BMG_mk211","rhsusf_mag_10Rnd_STD_50BMG_M33",
+			//grenades
+			"rhs_mag_mk84","rhs_mag_m18_yellow","rhs_mag_m18_red","rhs_mag_m18_purple","rhs_mag_m18_green","rhs_mag_m67","B_IR_Grenade","rhs_mag_an_m8hc","rhs_mag_an_m14_th3",
+			//items
+			"rhsusf_ANPVS_15","rhsusf_ANPVS_14","NVGoggles_OPFOR","rhsusf_bino_lerca_1200_tan","rhsusf_bino_lerca_1200_black","Rangefinder","ACE_Vector"
+		];
 	};
 	//USMC
 	case 4 : {
 		_weap = "rhs_weap_m16a4_carryhandle";
 		_gre = "rhs_mag_m67";
-		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
+		_mag1 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
+		_mag2 = "rhsusf_20Rnd_762x51_m118_special_Mag";
 		_mag_ar = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
 		_mag_mg = "rhsusf_50Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -180,7 +201,28 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			//uniforms
+			"U_B_PilotCoveralls","rhs_uniform_FROG01_d","rhs_uniform_FROG01_wd",
+			//vests
+			"rhsusf_spc_teamleader","rhsusf_spc_squadleader","rhsusf_spc_rifleman","rhsusf_spc_patchless_radio","rhsusf_spc_patchless","rhsusf_spc_marksman","rhsusf_spc_mg","rhsusf_spc_light","rhsusf_spc_iar","rhsusf_spc_crewman","rhsusf_spc_corpsman","rhsusf_spc",
+			//backpacks
+			"rhsusf_falconii_coy","rhsusf_assault_eagleaiii_coy","B_rhsusf_B_BACKPACK","B_Carryall_khk","B_Carryall_cbr",
+			//headgears
+			"RHS_jetpilot_usaf","rhsusf_ihadss","rhsusf_hgu56p_visor_mask","rhsusf_hgu56p_visor","rhsusf_hgu56p","rhs_booniehat2_marpatd","rhs_booniehat2_marpatwd","rhs_8point_marpatwd","rhs_8point_marpatd","rhsusf_lwh_helmet_marpatwd_ess","rhsusf_lwh_helmet_marpatwd_headset","rhsusf_lwh_helmet_marpatwd_headset_blk","rhsusf_lwh_helmet_marpatwd_blk_ess","rhsusf_lwh_helmet_marpatwd","rhsusf_lwh_helmet_marpatd_headset","rhsusf_lwh_helmet_marpatd_ess","rhsusf_lwh_helmet_marpatd",
+			//facewar
+			"CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","rhsusf_oakley_goggles_ylw","rhsusf_oakley_goggles_clr","rhsusf_oakley_goggles_blk","rhs_ess_black","rhs_googles_orange","rhs_googles_yellow","rhs_googles_clear","rhs_googles_black","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black",
+			//weapons
+			"rhs_weap_m4a1_carryhandle","CUP_launch_Javelin","CUP_launch_M136","CUP_launch_Mk153Mod0","rhs_weap_smaw_green","rhs_weap_m72a7","rhs_weap_maaws","rhs_weap_M136_hp","rhs_weap_M136_hedp","rhs_weap_M136","rhs_weap_fim92","rhs_weap_fgm148","rhsusf_weap_glock17g4","rhsusf_weap_m9","rhs_weap_m4a1_carryhandle_mstock","rhs_weap_m16a4_carryhandle","rhs_weap_m16a4_carryhandle_M203","rhs_weap_m249_pip","rhs_weap_m240G","rhs_weap_m240B","rhs_weap_m27iar_grip","rhs_weap_m40a5_wd","rhs_weap_m40a5_d","rhs_weap_m40a5","rhs_weap_M107","rhs_weap_m14ebrri",
+			//weapon items
+			"cup_optic_smaw_scope","rhs_weap_optic_smaw","rhs_optic_maaws","acc_flashlight_pistol","rhsusf_acc_anpeq16a_top","rhsusf_acc_anpeq15_bk","rhsusf_acc_anpeq15","rhsusf_acc_ardec_m240","rhsusf_acc_rotex5_grey","rhsusf_acc_nt4_black","rhsusf_acc_sfmb556","rhsusf_acc_sf3p556","rhsusf_acc_acog_rmr","rhsusf_acc_acog_mdo","rhsusf_acc_su230a","rhsusf_acc_anpas13gv1","rhsusf_acc_acog3_usmc","rhsusf_acc_acog2_usmc","rhsusf_acc_acog_usmc","rhsusf_acc_elcan_ard","rhsusf_acc_elcan","rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_premier","rhsusf_acc_premier_anpvs27","rhsusf_acc_leupoldmk4","rhsusf_acc_wmx_bk","rhsusf_acc_wmx","rhsusf_acc_m952v","rhsusf_acc_anpeq16a","rhsusf_acc_anpeq15side_bk","rhsusf_acc_anpeq15side","rhsusf_acc_harris_swivel","rhsusf_acc_m8541_low_wd","rhsusf_acc_m8541_low_d","rhsusf_acc_m8541_low","rhsusf_acc_harris_bipod",
+			//magazines
+			"CUP_Javelin_M","CUP_SMAW_HEAA_M","CUP_SMAW_HEDP_M","rhs_mag_smaw_SR","rhs_mag_smaw_HEDP","rhs_mag_smaw_HEAA","rhs_mag_maaws_HE","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_fim92_mag","rhs_fgm148_magazine_AT","rhsusf_mag_15Rnd_9x19_FMJ","rhsusf_mag_17Rnd_9x19_FMJ","rhsusf_mag_17Rnd_9x19_JHP","rhsusf_mag_15Rnd_9x19_JHP","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhsusf_200rnd_556x45_mixed_box","rhsusf_100Rnd_762x51_m61_ap","rhsusf_100Rnd_762x51_m62_tracer","rhsusf_100Rnd_762x51","rhsusf_100Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m61_ap","rhsusf_50Rnd_762x51_m62_tracer","rhsusf_50Rnd_762x51","rhsusf_5Rnd_762x51_AICS_m993_Mag","rhsusf_5Rnd_762x51_AICS_m62_Mag","rhsusf_5Rnd_762x51_AICS_m118_special_Mag","rhsusf_20Rnd_762x51_m993_Mag","rhsusf_20Rnd_762x51_m62_Mag","rhsusf_20Rnd_762x51_m118_special_Mag","rhsusf_mag_10Rnd_STD_50BMG_mk211","rhsusf_mag_10Rnd_STD_50BMG_M33",
+			//grenades
+			"rhs_mag_mk84","rhs_mag_m18_yellow","rhs_mag_m18_red","rhs_mag_m18_purple","rhs_mag_m18_green","rhs_mag_m67","B_IR_Grenade","rhs_mag_an_m8hc","rhs_mag_an_m14_th3",
+			//items
+			"rhsusf_ANPVS_15","rhsusf_ANPVS_14","NVGoggles_OPFOR","rhsusf_bino_lerca_1200_tan","rhsusf_bino_lerca_1200_black","Rangefinder","ACE_Vector"
+		];
 	};
 	//USSF
 	case 5 : {
@@ -209,9 +251,9 @@ switch (CC_p_loaout) do {
 		};
 		_arsenal_items_faction = [
 			//uniforms
-			"U_B_HeliPilotCoveralls","U_B_PilotCoveralls","rhs_uniform_g3_blk","rhs_uniform_g3_rgr","rhs_uniform_g3_tan","rhs_uniform_g3_m81","rhs_uniform_g3_mc",
+			"U_B_Wetsuit","U_B_HeliPilotCoveralls","U_B_PilotCoveralls","rhs_uniform_g3_blk","rhs_uniform_g3_rgr","rhs_uniform_g3_tan","rhs_uniform_g3_m81","rhs_uniform_g3_mc",
 			//vests
-			"V_TacVest_oli","V_Chestrig_khk","V_Chestrig_rgr","V_Chestrig_blk","V_TacVest_blk","V_TacVest_khk","rhsusf_mbav_light","rhsusf_mbav_grenadier","rhsusf_mbav_mg","rhsusf_mbav_medic","rhsusf_mbav_rifleman",
+			"V_RebreatherB","V_TacVest_oli","V_Chestrig_khk","V_Chestrig_rgr","V_Chestrig_blk","V_TacVest_blk","V_TacVest_khk","rhsusf_mbav_light","rhsusf_mbav_grenadier","rhsusf_mbav_mg","rhsusf_mbav_medic","rhsusf_mbav_rifleman",
 			//backpacks
 			"rhsusf_assault_eagleaiii_ucp","rhsusf_falconii","rhsusf_falconii_mc","rhsusf_falconii_coy","rhsusf_assault_eagleaiii_ocp","B_rhsusf_B_BACKPACK","rhsusf_assault_eagleaiii_coy","B_Kitbag_mcamo","B_Kitbag_rgr","B_Kitbag_cbr","B_Carryall_oli","B_Carryall_mcamo","B_Carryall_khk","B_Carryall_cbr","B_AssaultPack_mcamo","B_AssaultPack_khk","B_AssaultPack_rgr","B_AssaultPack_cbr",
 			//headgears
@@ -231,7 +273,7 @@ switch (CC_p_loaout) do {
 			"rhsusf_ach_bare_semi_headset","rhsusf_ach_bare_semi_ess","rhsusf_ach_bare_semi","rhsusf_ach_bare_headset_ess","rhsusf_ach_bare_headset","rhsusf_ach_bare_ess","rhsusf_ach_bare_des_headset_ess","rhsusf_ach_bare_des_headset",
 			"rhsusf_ach_bare_des_ess","rhsusf_ach_bare_des","rhsusf_ach_bare","rhs_Booniehat_ucp","rhs_booniehat2_marpatwd","rhs_booniehat2_marpatd","rhsusf_bowman_cap","rhsusf_Bowman","rhs_Booniehat_ocp","rhs_Booniehat_m81",
 			//facewar
-			"CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","rhsusf_oakley_goggles_ylw","rhsusf_oakley_goggles_clr","rhsusf_oakley_goggles_blk","rhsusf_shemagh2_gogg_tan","rhsusf_shemagh_gogg_tan","rhsusf_shemagh2_gogg_od","rhsusf_shemagh_gogg_od",
+			"G_B_Diving","CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","rhsusf_oakley_goggles_ylw","rhsusf_oakley_goggles_clr","rhsusf_oakley_goggles_blk","rhsusf_shemagh2_gogg_tan","rhsusf_shemagh_gogg_tan","rhsusf_shemagh2_gogg_od","rhsusf_shemagh_gogg_od",
 			"rhsusf_shemagh2_gogg_grn","rhsusf_shemagh_gogg_grn","rhsusf_shemagh2_tan","rhsusf_shemagh_tan","rhsusf_shemagh2_od","rhsusf_shemagh_od","rhsusf_shemagh2_grn","rhsusf_shemagh_grn","rhs_ess_black","rhs_googles_orange","rhs_googles_yellow",
 			"rhs_googles_clear","rhs_googles_black","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black",
 			//weapons
@@ -346,15 +388,15 @@ switch (CC_p_loaout) do {
 		};
 		_arsenal_items_faction = [
 			//uniforms
-			"rhs_uniform_df15_tan","rhs_uniform_df15","rhs_uniform_flora_patchless","rhs_uniform_m88_patchless","rhs_uniform_mflora_patchless","rhs_uniform_mvd_izlom","rhs_uniform_emr_patchless","rhs_uniform_emr_des_patchless","rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g",
+			"U_I_Wetsuit","rhs_uniform_df15_tan","rhs_uniform_df15","rhs_uniform_flora_patchless","rhs_uniform_m88_patchless","rhs_uniform_mflora_patchless","rhs_uniform_mvd_izlom","rhs_uniform_emr_patchless","rhs_uniform_emr_des_patchless","rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g",
 			//vests
-			"rhs_6b23_vydra_3m","rhs_6b23_sniper","rhs_6b23_rifleman","rhs_6b23_engineer","rhs_6sh92_vsr_vog","rhs_6sh92_vsr","rhs_6sh92_digi","rhs_6sh92","rhs_6sh92_radio","rhs_6b23_digi_medic","rhs_6b23_digi_engineer","rhs_6sh92_vsr_radio","rhs_6sh92_digi_radio","rhs_6b23_digi_crew","rhs_6b23_digi_rifleman","rhs_6b23_digi_sniper","rhs_6b23_digi_6sh92_Vog_Spetsnaz","rhs_6b23_digi_6sh92_Spetsnaz","rhs_6b23_digi_6sh92_spetsnaz2",
+			"V_RebreatherIA","rhs_6b23_vydra_3m","rhs_6b23_sniper","rhs_6b23_rifleman","rhs_6b23_engineer","rhs_6sh92_vsr_vog","rhs_6sh92_vsr","rhs_6sh92_digi","rhs_6sh92","rhs_6sh92_radio","rhs_6b23_digi_medic","rhs_6b23_digi_engineer","rhs_6sh92_vsr_radio","rhs_6sh92_digi_radio","rhs_6b23_digi_crew","rhs_6b23_digi_rifleman","rhs_6b23_digi_sniper","rhs_6b23_digi_6sh92_Vog_Spetsnaz","rhs_6b23_digi_6sh92_Spetsnaz","rhs_6b23_digi_6sh92_spetsnaz2",
 			//backpacks
 			"rhs_sidor","CUP_B_RPGPack_Khaki","rhs_rpg_empty","rhs_assault_umbts_engineer_empty","rhs_assault_umbts","B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_oli","B_Carryall_cbr","B_Carryall_khk","B_Carryall_oli",
 			//headgears
 			"rhs_6b47_ess","rhs_6b47","rhs_beanie_green","rhs_fieldcap_digi","rhs_fieldcap_vsr","rhs_fieldcap_khk","rhs_fieldcap","H_Booniehat_tan","rhs_Booniehat_digi","rhs_Booniehat_flora","rhs_6b47_bala","rhs_6b47_bala","rhs_6b47_ess_bala",
 			//facewar
-			
+			"G_I_Diving",
 			//weapons
 			"CUP_launch_RPG7V","CUP_launch_RPG18","rhs_weap_rpg7","rhs_weap_rpg26","rhs_weap_pb_6p9","rhs_weap_t5000","rhs_weap_aks74u","rhs_weap_ak74mr_gp25","rhs_weap_svds","rhs_weap_pkp","rhs_weap_ak74mr",
 			"rhs_weap_ak74n","rhs_weap_aks74n_gp25","rhs_weap_aks74n","rhs_weap_akms_gp25","rhs_weap_akmn_gp25","rhs_weap_akms","rhs_weap_akmn","rhs_weap_pkm","rhs_weap_ak74m_gp25","rhs_weap_ak74m","rhs_weap_ak105","rhs_weap_ak105_zenitco01","rhs_weap_ak105_zenitco01_b33","rhs_weap_rshg2","rhs_weap_vss_grip_npz","rhs_weap_vss_grip","rhs_weap_asval_grip_npz","rhs_weap_asval_grip","rhs_weap_ak74m_zenitco01_b33","rhs_weap_ak74m_zenitco01",
@@ -782,6 +824,17 @@ _veh addBackpackCargoGlobal ["B_Carryall_oli",1];
 _veh addBackpackCargoGlobal ["B_AssaultPack_rgr",1];
 _veh addBackpackCargoGlobal ["B_Kitbag_rgr",1];
 _veh addBackpackCargoGlobal ["B_rhsusf_B_BACKPACK",1];
+
+// Flares sur la caisse :
+if (cc_night) then {
+	_dir = random 360;
+	_pos = (getpos _veh) getpos [2,_dir];
+	"ACE_G_Chemlight_HiOrange_Infinite" createvehicle _pos;
+	_pos = (getpos _veh) getpos [2,(_dir+120)];
+	"ACE_G_Chemlight_HiOrange_Infinite" createvehicle _pos;
+	_pos = (getpos _veh) getpos [2,(_dir+240)];
+	"ACE_G_Chemlight_HiOrange_Infinite" createvehicle _pos;
+};
 
 if (CC_p_ammocrate < 2) exitWith {};
 

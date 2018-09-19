@@ -1,10 +1,10 @@
 //if (hasInterface || isDedicated) exitwith {};
 if (MODE_HC or MODE_EDITEUR) then {
 
-waitUntil {CPC_MarkersCreated};
+waitUntil {!isnil "cc_MarkersCreated"};
 
 null = [] execVM "InitGaia.sqf";
-
+call compile preprocessfilelinenumbers "shk_pos\shk_pos_init.sqf";
 waituntil {time > 10};
 
 private ["_Nombre_Ennemi","_compo_group","_mark","_markEx","_markPos","_markSize","_pos","_group","_fois","_dir","_upPos","_binome","_ennemi_group","_rand_vehi","_transp_vehi","_offroad","_helico"];
@@ -876,6 +876,7 @@ if (chefIA_create) then {removeHeadgear chefIA; chefIA addHeadgear "CUP_H_RUS_Be
 	};
 };
 
+hint "SPAWN END";
 
 waitUntil {time > (2100 + (random 600))};
 //random Event
@@ -916,6 +917,7 @@ if ((random 100 < 50) AND (CC_p_ennemyveh < 1)) then {
 	} foreach (units (_veh select 2));
 };
 
+/*
 if ((CC_p_ennemy < 100) AND (4 > random 10)) then {
 	waitUntil {time > 4200};
 	sleep (random 300);
@@ -946,6 +948,7 @@ if ((CC_p_ennemy < 100) AND (4 > random 10)) then {
 		deleteVehicle _this;
 	};
 };
+*/
 
 if (CC_p_ennemyveh == 0) then {
 	if ((_helico != "") AND (random 100 < 35)) then {

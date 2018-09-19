@@ -1,10 +1,27 @@
 if (didJIP) exitwith {};
 
-private ["_unitArray","_type"];
+private ["_unitArray","_type","_dir","_pos"];
+
+// les joueurs peuvvent quand même choisir la position de départ
+["Mark_inser",[],"SERGEANT",["Mark_cible"],1,30,4] call GDC_fnc_chooseSpawnPos;
+
+waitUntil {time > 0};
 
 if (isserver) then {
 	cc_objet_lalo = "Land_InfoStand_V1_F" createvehicle (markerpos "mark_inser");
 	publicVariable "cc_objet_lalo";
+	// Flares autour de la zone :
+	if (cc_night) then {
+		_dir = random 360;
+		_pos = (getpos cc_objet_lalo) getpos [4,_dir];
+		"ACE_G_Chemlight_HiWhite_Infinite" createvehicle _pos;
+		_pos = (getpos cc_objet_lalo) getpos [4,(_dir+90)];
+		"ACE_G_Chemlight_HiWhite_Infinite" createvehicle _pos;
+		_pos = (getpos cc_objet_lalo) getpos [4,(_dir+180)];
+		"ACE_G_Chemlight_HiWhite_Infinite" createvehicle _pos;
+		_pos = (getpos cc_objet_lalo) getpos [4,(_dir-90)];
+		"ACE_G_Chemlight_HiWhite_Infinite" createvehicle _pos;
+	};
 };
 waitUntil {!isnil "cc_objet_lalo"};
 _type = switch (CC_p_loaout) do {

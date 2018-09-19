@@ -17,7 +17,8 @@ if !(isnil("_Zone")) then
 {
 	[_group] call fnc_RemoveWayPoints;
 	_group  setSpeedMode "FULL";
-	[_group,(getMarkerpos _zone),((((getMarkerSize _zone)select 0) max ((getMarkerSize _zone)select 1)) min 500)] call gaia_CBA_fnc_taskDefend;
+	//[_group,(getMarkerpos _zone),((((getMarkerSize _zone)select 0) max ((getMarkerSize _zone)select 1)) min 500),2] call gaia_CBA_fnc_taskDefend;
+	[_group,(getMarkerpos _zone),((((getMarkerSize _zone)select 0) max ((getMarkerSize _zone)select 1)) min 500),2] call CBA_fnc_taskDefend;
 
 
 

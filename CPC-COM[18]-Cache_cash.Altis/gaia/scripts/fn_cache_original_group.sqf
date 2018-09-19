@@ -1,4 +1,4 @@
-if(hasInterface or isServer) exitWith {};
+if (ismultiplayer) then {if(hasInterface or isServer) exitWith {};};
 private ["_group","_units","_vehicles"];
 
 _group 			= _this select 0; 

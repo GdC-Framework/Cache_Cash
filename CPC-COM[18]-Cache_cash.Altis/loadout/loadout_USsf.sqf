@@ -267,7 +267,7 @@ loadoutCC_MG = //
 		[],
 		["rhsusf_weap_glock17g4","","acc_flashlight_pistol","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 		[_uniform,_itemsU_base],
-		[_vest_mg,[["rhs_mag_m67",2,1],["rhs_mag_an_m8hc",1,1],["rhsusf_50Rnd_762x51_m62_tracer",3,5],["rhsusf_mag_17Rnd_9x19_JHP",2,17]]],
+		[_vest_mg,[["rhs_mag_m67",2,1],["rhs_mag_an_m8hc",1,1],["rhsusf_50Rnd_762x51_m62_tracer",3,50],["rhsusf_mag_17Rnd_9x19_JHP",2,17]]],
 		[_backpack_small,[["rhsusf_50Rnd_762x51_m62_tracer",4,50]]],
 		_helmet,
 		_facewear,
@@ -373,7 +373,7 @@ loadoutCC_GL = //
 		[_backpack_med,[["rhs_mag_M433_HEDP",10,1],["rhs_mag_m713_Red",6,1],["rhs_mag_M585_white",6,1],["ACE_HandFlare_Green",2,1],["rhs_mag_m67",2,1],["rhs_mag_an_m8hc",2,1]]],
 		_helmet,
 		_facewear,
-		[],
+		["ACE_Vector","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
 	];
 };

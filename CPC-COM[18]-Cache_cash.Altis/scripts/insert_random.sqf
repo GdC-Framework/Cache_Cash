@@ -7,7 +7,8 @@ if (didJIP) exitwith {};
 private ["_pos","_unitArray"];
 
 if (isServer) then {
-	_pos = [(markerpos "Mark_Cible"),1750,random 360,0] call SHK_pos;
+	_pos = (markerpos "Mark_Cible") getpos [1750,(random 360)];
+	_pos = [_pos,0,200,0,0,0.4,0,[],_pos] call BIS_fnc_findSafePos;
 	"Mark_inser" setmarkerpos _pos;
 };
 if (!isMultiplayer) then {
