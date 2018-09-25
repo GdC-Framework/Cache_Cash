@@ -19,12 +19,12 @@ Author:
 	Rommel
 ---------------------------------------------------------------------------- */
 
-private ["_building", "_i","_BuildPos"];
+private ["_building", "_i", "_BuildPos"];
 
 _building = nearestBuilding _this;
 _BuildPos = [];
 _i = 0;
 
 while {str(_building buildingPos _i) != "[0,0,0]"} do {_i = _i + 1;};
-	
-[_building,_i,(_building distance _this )]
+
+[_building, _i,(_building distance _this )]

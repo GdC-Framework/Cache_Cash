@@ -39,34 +39,34 @@ call compile preprocessfile "gaia\gaia_init.sqf";
 
 
 //===============Delete Groups ====================
-	[] spawn 
+[] spawn 
+{
+	_gaia_respawn = [];
+	while {true} do
 	{
-		_gaia_respawn = [];
-		while {true} do
+		//player globalchat "Deleting started..............";
+		
 		{
-			//player globalchat "Deleting started..............";
+			_gaia_respawn = (missionNamespace getVariable [ "GAIA_RESPAWN_" + str(_x),[] ]);
+			//Store ALL original group setups
+			if (count(_gaia_respawn)==0) then {[(_x)] call gaia_fnc_cache_original_group;};
 			
+			if ((({alive _x} count units _x) == 0) ) then 
 			{
-				_gaia_respawn = (missionNamespace getVariable [ "GAIA_RESPAWN_" + str(_x),[] ]);
-				//Store ALL original group setups
-				if (count(_gaia_respawn)==0) then {[(_x)] call fn_cache_original_group;};
+				//Before we send him to heaven check if he should be reincarnated
+				if (count(_gaia_respawn)==2) then {	[_gaia_respawn,(_x getVariable  ["MCC_GAIA_RESPAWN",-1]),(_x getVariable  ["MCC_GAIA_CACHE",false]),(_x getVariable  ["GAIA_zone_intend",[]])] call gaia_fnc_uncache_original_group;};					
 				
-				if ((({alive _x} count units _x) == 0) ) then 
-				{
-					//Before we send him to heaven check if he should be reincarnated
-					if (count(_gaia_respawn)==2) then {	[_gaia_respawn,(_x getVariable  ["MCC_GAIA_RESPAWN",-1]),(_x getVariable  ["MCC_GAIA_CACHE",false]),(_x getVariable  ["GAIA_zone_intend",[]])] call fn_uncache_original_group;};					
-					
-					//Remove the respawn group content before the group is re-used
-					missionNamespace setVariable ["GAIA_RESPAWN_" + str(_x), nil];
-					
-					deleteGroup _x;
-				};
+				//Remove the respawn group content before the group is re-used
+				missionNamespace setVariable ["GAIA_RESPAWN_" + str(_x), nil];
 				
-				sleep .1;
-				
-			} foreach allGroups;			
+				deleteGroup _x;
+			};
 			
-			sleep 2; 
-		};
+			sleep .1;
+			
+		} foreach allGroups;			
+		
+		sleep 2; 
 	};
+};
 

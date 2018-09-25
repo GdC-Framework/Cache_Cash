@@ -1,4 +1,4 @@
-private ["_pos","_IsBlackListed","_WPPos","_TempArray"];
+private ["_pos", "_IsBlackListed", "_WPPos", "_TempArray"];
 /* ----------------------------------------------------------------------------
 Function: fnc_isblacklisted
 
@@ -6,8 +6,8 @@ Description:
 	Checks if the given position is witin MCC_GAIA_AWARENESSRANGE.
 
 Parameters:
-	- position 
-	
+	- position
+
 Returns:
 	true/false
 
@@ -33,7 +33,7 @@ switch (_side) do
 
 {
 _WPPos = _WPPos + [_x];
-} forEach _TempArray; 
+} forEach _TempArray;
 
 
 switch (_side) do
@@ -44,9 +44,9 @@ switch (_side) do
 		};
 
 {
-	if ((_pos distance (_x select 0))<MCC_GAIA_AWARENESSRANGE) 
+	if ((_pos distance (_x select 0))<MCC_GAIA_AWARENESSRANGE)
 	exitWith {_IsBlackListed = true;}
-		
+
 }forEach _TempArray+_WPPos;
 
 _IsBlackListed

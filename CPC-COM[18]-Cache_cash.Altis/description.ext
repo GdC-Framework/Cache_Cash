@@ -29,6 +29,117 @@ class CfgFunctions
 			class getTownPosList {};
 		};
 	};
+
+	class Gaia
+	{
+		class core
+		{
+			// Gaia
+			class GAIA {file = "gaia\scripts\fnc_GAIA.sqf";};
+			class GAIA_AnalyzeTargets {file = "gaia\scripts\fnc_GAIA_AnalyzeTargets.sqf";};
+			class GAIA_AnalyzeForces {file = "gaia\scripts\fnc_GAIA_AnalyzeForces.sqf";};
+			class GAIA_ConflictAreas {file = "gaia\scripts\fnc_GAIA_ConflictAreas.sqf";};
+			class GAIA_Classify {file = "gaia\scripts\fnc_GAIA_Classify.sqf";};
+			class GAIA_IssueOrders {file = "gaia\scripts\fnc_GAIA_IssueOrders.sqf";};
+
+			// Cache
+			class cache {file = "gaia\scripts\fn_cache.sqf";};
+			class cache_stage_2 {file = "gaia\scripts\fn_cache_stage_2.sqf";};
+			class sync {file = "gaia\scripts\fn_sync.sqf";};
+			class uncache {file = "gaia\scripts\fn_uncache.sqf";};
+			class uncache_stage_2 {file = "gaia\scripts\fn_uncache_stage_2.sqf";};
+			class nearPlayer {file = "gaia\scripts\fn_nearPlayer.sqf";};
+			class gaia_cache_init {file = "gaia\scripts\fn_gaia_cache_init.sqf";};
+			class cache_original_group {file = "gaia\scripts\fn_cache_original_group.sqf";};
+			class uncache_original_group {file = "gaia\scripts\fn_uncache_original_group.sqf";};
+
+			// Behavior Functions
+			class GetCAPoints {file = "gaia\scripts\fnc_GetCAPoints.sqf";};
+			class DoTask {file = "gaia\scripts\fnc_DoTask.sqf";};
+			class GetZoneIntendFomGroup {file = "gaia\scripts\fnc_GetZoneIntendFomGroup.sqf";};
+			class GetDistanceClosestZone {file = "gaia\scripts\fnc_GetDistanceClosestZone.sqf";};
+			class AddGroupToGAIA {file = "gaia\scripts\fnc_AddGroupToGAIA.sqf";};
+			class HasLOS {file = "gaia\scripts\fnc_HasLOS.sqf";};
+			class SortGroupsByCA {file = "gaia\scripts\fnc_SortGroupsByCA.sqf";};
+			class FireFlare {file = "gaia\scripts\fnc_FireFlare.sqf";};
+
+		    // Subfunctions Positioning
+			class GetDirectionalPos {file = "gaia\scripts\fnc_GetDirectionalPos.sqf";};
+			class findclosestposition {file = "gaia\scripts\fnc_findclosestposition.sqf";};
+			class getmarkercorners {file = "gaia\scripts\fnc_getmarkercorners.sqf";};
+			class getmarkershape {file = "gaia\scripts\fnc_getmarkershape.sqf";};
+			class getposfromcircle {file = "gaia\scripts\fnc_getposfromcircle.sqf";};
+			class getposfromellipse {file = "gaia\scripts\fnc_getposfromellipse.sqf";};
+			class getposfromrectangle {file = "gaia\scripts\fnc_getposfromrectangle.sqf";};
+			class getposfromsquare {file = "gaia\scripts\fnc_getposfromsquare.sqf";};
+			class isblacklisted {file = "gaia\scripts\fnc_isblacklisted.sqf";};
+			class issameposition {file = "gaia\scripts\fnc_issameposition.sqf";};
+			class rotateposition {file = "gaia\scripts\fnc_rotateposition.sqf";};
+			class getNearestBuildingPosDistance {file = "gaia\scripts\fnc_getNearestBuildingPosDistance.sqf";};
+			class GetZoneStatusBehavior {file = "gaia\scripts\fnc_GetZoneStatusBehavior.sqf";};
+			class isCleared {file = "gaia\scripts\fnc_isCleared.sqf";};
+
+		    // Terrain functions
+			class ScanTerrain {file = "gaia\scripts\fnc_ScanTerrain.sqf";};
+			class CountUnitTypes {file = "gaia\scripts\fnc_CountUnitTypes.sqf";};
+			class ClassifyUnits {file = "gaia\scripts\fnc_ClassifyUnits.sqf";};
+			class AnalyseUnit {file = "gaia\scripts\fnc_AnalyseUnit.sqf";};
+			
+		    // Statistic function
+			class GetTurretsWeapons {file = "gaia\scripts\fnc_GetTurretsWeapons.sqf";};
+
+		}
+
+		class orders
+		{
+			class GetPosition {file = "gaia\scripts\orders\fnc_GetPosition.sqf";};
+			class addWaypoint {file = "gaia\scripts\orders\fnc_addWaypoint.sqf";};
+			class AddAttackWaypoint {file = "gaia\scripts\orders\fnc_AddAttackWaypoint.sqf";};
+			class RemoveWayPoints {file = "gaia\scripts\orders\fnc_RemoveWayPoints.sqf";};
+			class CreateBuildingWP {file = "gaia\scripts\orders\fnc_CreateBuildingWP.sqf";};
+			class CreateWP {file = "gaia\scripts\orders\fnc_CreateWP.sqf";};
+			class DoPatrolInf {file = "gaia\scripts\orders\fnc_DoPatrolInf.sqf";};
+			class DoPatrolRecon {file = "gaia\scripts\orders\fnc_DoPatrolRecon.sqf";};
+			class DoPatrol {file = "gaia\scripts\orders\fnc_DoPatrol.sqf";};
+			class DoPatrolCar {file = "gaia\scripts\orders\fnc_DoPatrolCar.sqf";};
+			class DoPatrolMotorRecon {file = "gaia\scripts\orders\fnc_DoPatrolMotorRecon.sqf";};
+			class DoPatrolMechInf {file = "gaia\scripts\orders\fnc_DoPatrolMechInf.sqf";};
+			class DoPatrolMotorInf {file = "gaia\scripts\orders\fnc_DoPatrolMotorInf.sqf";};
+			class DoPatrolShip {file = "gaia\scripts\orders\fnc_DoPatrolShip.sqf";};
+			class DoPatrolHeli {file = "gaia\scripts\orders\fnc_DoPatrolHeli.sqf";};
+			class DoFortify {file = "gaia\scripts\orders\fnc_DoFortify.sqf";};
+			class DoWait {file = "gaia\scripts\orders\fnc_DoWait.sqf";};
+			class DoAttackRecon {file = "gaia\scripts\orders\fnc_DoAttackRecon.sqf";};
+			class DoAttackInf {file = "gaia\scripts\orders\fnc_DoAttackInf.sqf";};
+			class DoAttackCar {file = "gaia\scripts\orders\fnc_DoAttackCar.sqf";};
+			class DoAttackMotorRecon {file = "gaia\scripts\orders\fnc_DoAttackMotorRecon.sqf";};
+			class DoAttackMotorInf {file = "gaia\scripts\orders\fnc_DoAttackMotorInf.sqf";};
+			class DoAttack {file = "gaia\scripts\orders\fnc_DoAttack.sqf";};
+			class DoAttackMechInf {file = "gaia\scripts\orders\fnc_DoAttackMechInf.sqf";};
+			class DoAttackTank {file = "gaia\scripts\orders\fnc_DoAttackTank.sqf";};
+			class DoAttackShip {file = "gaia\scripts\orders\fnc_DoAttackShip.sqf";};
+			class DoAttackHeli {file = "gaia\scripts\orders\fnc_DoAttackHeli.sqf";};
+			class DoTransportCar {file = "gaia\scripts\orders\fnc_DoTransportCar.sqf";};
+			class DoTransportTank {file = "gaia\scripts\orders\fnc_DoTransportTank.sqf";};
+			class DoTransportHeli {file = "gaia\scripts\orders\fnc_DoTransportHeli.sqf";};
+			class DoClear {file = "gaia\scripts\orders\fnc_DoClear.sqf";};
+			class DoClearRecon {file = "gaia\scripts\orders\fnc_DoClearRecon.sqf";};
+			class DoClearInf {file = "gaia\scripts\orders\fnc_DoClearInf.sqf";};
+			class DoSupport {file = "gaia\scripts\orders\fnc_DoSupport.sqf";};
+			class DoHide {file = "gaia\scripts\orders\fnc_DoHide.sqf";};
+			class DoOrganizeTransportation {file = "gaia\scripts\orders\fnc_DoOrganizeTransportation.sqf";};
+			class DoPark {file = "gaia\scripts\orders\fnc_DoPark.sqf";};
+			class DoMortar {file = "gaia\scripts\orders\fnc_DoMortar.sqf";};
+		}
+
+		class fortify {
+			class gaia_CBA_fnc_taskDefend {file = "gaia\scripts\fortify\gaia_CBA_fnc_taskDefend.sqf";};
+		}
+
+		class utils {
+			class export_waypoint {file = "gaia\scripts\utils\fn_export_waypoint.sqf";};
+		}
+	}
 };
 
 class Params

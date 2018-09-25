@@ -7,8 +7,8 @@ Description:
 Parameters:
 	- Group
 	_ zone
-	_ intend 
-	
+	_ intend
+
 
 Returns:
 	true
@@ -18,7 +18,7 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-private ["_group","_zone","_intend"];
+private ["_group", "_zone", "_intend"];
 
 _group 		= _this select 0;
 _zone 		= _this select 1;
@@ -27,7 +27,7 @@ _intend		= _this select 2;
 
 
 
-_group setVariable ["GAIA_ZONE_INTEND",[_zone,_intend], false];
+_group setVariable ["GAIA_ZONE_INTEND",[_zone, _intend], false];
 
 
 true;

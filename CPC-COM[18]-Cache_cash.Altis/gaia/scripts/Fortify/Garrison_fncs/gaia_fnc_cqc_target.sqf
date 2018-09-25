@@ -1,4 +1,4 @@
-private ["_unit","_target","_vec","_posATL","_abx","_aby","_abz"];
+private ["_unit", "_target", "_vec", "_posATL", "_abx", "_aby", "_abz"];
 
 _unit = _this select 0;
 _target = _this select 1; if ((typeName _target) == "OBJECT") then {_target = (getPosATL _target)};
@@ -16,7 +16,7 @@ _vec = [_abx, _aby, _abz];
 // Main body of the function;
 
 _unit doWatch objNull;
-_unit doTarget objNull;	
+_unit doTarget objNull;
 sleep 0.2;
 _unit setVectorDir _vec;
 sleep 0.02;

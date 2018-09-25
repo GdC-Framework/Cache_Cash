@@ -1,9 +1,9 @@
-private ["_angle","_cansee","_infront","_obstruction"];
+private ["_angle", "_cansee", "_infront", "_obstruction"];
 _unit = _this select 0;
 _focus = _this select 1;
 _cansee = false;
 
-if (isnil("_focus")) then 
+if (isnil("_focus")) then
 {
 	_eyes = eyepos _unit;
 	_angle = (getdir _unit);
@@ -23,10 +23,10 @@ if (isnil("_focus")) then
 
 	};
 
-	_obstruction = (lineintersectswith [_eyes,_infront,_unit]) select 0;
+	_obstruction = (lineintersectswith [_eyes, _infront, _unit]) select 0;
 
 	if (!(isnil("_obstruction"))) then {
-	
+
 
 	};
 

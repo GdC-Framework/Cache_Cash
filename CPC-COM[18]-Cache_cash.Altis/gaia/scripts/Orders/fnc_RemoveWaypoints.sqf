@@ -6,8 +6,8 @@ Description:
 
 Parameters:
 	- Group
-	
-		
+
+
 Optional:
 	- <NONE>
 
@@ -36,15 +36,15 @@ switch (side _group) do
 // Clear all way points
 while {(count (waypoints _group)) > 0} do
 {
- deleteWaypoint ((waypoints _group) select 0); 
+ deleteWaypoint ((waypoints _group) select 0);
 };
 
 
 
-//Clear the WP array also 
-for [{_i=0},{_i < count _TempArray},{_i=_i+1}] do 
+//Clear the WP array also
+for [{_i=0},{_i < count _TempArray},{_i=_i+1}] do
 {
-	
+
 	if ((_TempArray select _i select 1)==_group) then
 	{
 			_TempArray set [_i, "REMOVE"];
@@ -56,15 +56,15 @@ for [{_i=0},{_i < count _TempArray},{_i=_i+1}] do
 //In case of combined orders (for now transportation), then in case of we are the transporting party do unload the load
 if (!isnull(_group getVariable  ["GAIA_CombinedOrder",grpNull])) then
 {
-	
-	if !(_group getVariable  ["GAIA_class",""] in ["Infantry","ReconInfantry"]) then
+
+	if !(_group getVariable  ["GAIA_class", ""] in ["Infantry", "ReconInfantry"]) then
 		{   	 _wpTransporter	= _x addWaypoint [(position leader _group), 0];
 				   _wpTransporter	setWaypointType "TR UNLOAD";
-				   _wpTransporter	setWaypointCompletionRadius 20;	
+				   _wpTransporter	setWaypointCompletionRadius 20;
 		};
-   		
-		
-		
+
+
+
 };
 
 //Clear the current order also
@@ -72,7 +72,7 @@ _group setVariable ["GAIA_Order"							, "None", false];
 _group setVariable ["GAIA_CombinedOrder"			, grpNull, false];
 
 //Clear fortify specific if needed.
-_group setVariable ["Garrisoning",false];  
+_group setVariable ["Garrisoning",false];
 _group setVariable ["GAIA_OriginalDestination", [], false];
 
 switch (side _group) do

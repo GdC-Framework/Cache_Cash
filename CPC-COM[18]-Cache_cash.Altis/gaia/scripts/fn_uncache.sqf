@@ -8,17 +8,17 @@ _count = 0;
 		};
                 _x allowDamage true;
                 _x enableSimulation true;
-                
+
                 _x enableAI "TARGET";
                 _x enableAI "AUTOTARGET";
                 _x enableAI "MOVE";
                 _x enableAI "ANIM";
                 _x enableAI "FSM";
-                
-        
- 				        //_x hideObject false;
-        				//if (vehicle _x != _x) then {(vehicle _x) hideObject false};
-                
+
+
+                //_x hideObject false;
+                //if (vehicle _x != _x) then {(vehicle _x) hideObject false};
+
                 _count = _count + 1;
         };
 } forEach units _this;

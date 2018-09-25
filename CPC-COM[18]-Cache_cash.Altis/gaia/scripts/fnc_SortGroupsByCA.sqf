@@ -30,16 +30,16 @@
 	Examples:
 
 	//sort numbers from lowest to highest
-	_sortedNumbers = [[1,-80,0,480,15,-40],[],{_x},"ASCEND"] call BIS_fnc_sortBy;
+	_sortedNumbers = [[1,-80,0,480,15,-40],[],{_x}, "ASCEND"] call BIS_fnc_sortBy;
 
 	//sort helicopters by distance from player
-	_closestHelicopters = [[_heli1,_heli2,_heli3],[],{player distance _x},"ASCEND"] call BIS_fnc_sortBy;
+	_closestHelicopters = [[_heli1, _heli2, _heli3],[],{player distance _x}, "ASCEND"] call BIS_fnc_sortBy;
 
 	//sort enemy by distance from friendly unit (referenced by local variable), the furtherest first
-	_furtherstEnemy = [[_enemy1,_enemy2,_enemy3],[_friendly],{_input0 distance _x},"DESCEND",{canMove _x}] call BIS_fnc_sortBy;
+	_furtherstEnemy = [[_enemy1, _enemy2, _enemy3],[_friendly],{_input0 distance _x}, "DESCEND",{canMove _x}] call BIS_fnc_sortBy;
 */
 
-private ["_unsortedArray","_inputParams","_algorithm","_sortDirection","_filter","_removeElement","_values","_sortedArray","_sortedValues","_fnc_sort","_initValue","_sortCode"];
+private ["_unsortedArray", "_inputParams", "_algorithm", "_sortDirection", "_filter", "_removeElement", "_values", "_sortedArray", "_sortedValues", "_fnc_sort", "_initValue", "_sortCode"];
 
 _unsortedArray 	= [_this, 0, [], [[]]] call BIS_fnc_param;
 _inputParams	= [_this, 1, [], [[]]] call BIS_fnc_param;
@@ -52,7 +52,7 @@ _removeElement = "BIS_fnc_sortBy_RemoveMe";
 if (count _unsortedArray == 0) exitWith {[]};
 
 //create the input params
-private["_input0","_input1","_input2","_input3","_input4","_input5","_input6","_input7","_input8","_input9"];
+private ["_input0", "_input1", "_input2", "_input3", "_input4", "_input5", "_input6", "_input7", "_input8", "_input9"];
 
 //--- ToDo: Pass arguments in _this instead of pre-defining limited number of input variables as below
 _this = _inputParams;
@@ -72,10 +72,9 @@ _input9 = [_inputParams, 9, objNull] call BIS_fnc_param;
 {
 	if !(call _filter) then
 	{
-		_unsortedArray set [_forEachIndex,_removeElement];
+		_unsortedArray set [_forEachIndex, _removeElement];
 	};
-}
-forEach _unsortedArray;
+} forEach _unsortedArray;
 
 //remove filtered-out items
 _unsortedArray = _unsortedArray - [_removeElement];
@@ -88,7 +87,7 @@ _values = [];
 	_algorithmTemp = _algorithm;
 
 	//--- Wipe out all existing variables to prevent accidental overwriting (except of _values)
-	private ["_unsortedArray","_inputParams","_algorithm","_sortDirection","_filter","_removeElement","_sortedArray","_sortedValues","_fnc_sort","_initValue","_sortCode"];
+	private ["_unsortedArray", "_inputParams", "_algorithm", "_sortDirection", "_filter", "_removeElement", "_sortedArray", "_sortedValues", "_fnc_sort", "_initValue", "_sortCode"];
 
 	//--- Evaluate the algorithm
 	_values set [count _values,call _algorithmTemp];
@@ -100,20 +99,17 @@ _sortedArray = [];
 _sortedValues = [];
 
 //handle ASCENDing vs. DESCENDing sorting
-if (_sortDirection == "ASCEND") then
-{
+if (_sortDirection == "ASCEND") then {
 	_initValue = 1e9;
 	_sortCode  = {_x < _selectedValue};
-}
-else
-{
+} else {
 	_initValue = -1e9;
 	_sortCode  = {_x > _selectedValue};
 };
 
 if (count _values > 0) then {
 	while {count _values > 0} do {
-		private["_selectedValue","_selectedItem","_selectedIndex"];
+		private["_selectedValue", "_selectedItem", "_selectedIndex"];
 
 		_selectedValue = _initValue;
 
@@ -128,13 +124,13 @@ if (count _values > 0) then {
 		forEach _values;
 
 		//store selected
-		_sortedArray set [count _sortedArray,_selectedItem];
-		_sortedValues set [count _sortedValues,_selectedValue];
+		_sortedArray set [count _sortedArray, _selectedItem];
+		_sortedValues set [count _sortedValues, _selectedValue];
 
 		//remove stored from source pool
-		_unsortedArray set [_selectedIndex,_removeElement];
+		_unsortedArray set [_selectedIndex, _removeElement];
 		_unsortedArray = _unsortedArray - [_removeElement];
-		_values set [_selectedIndex,_removeElement];
+		_values set [_selectedIndex, _removeElement];
 		_values = _values - [_removeElement];
 	};
 };

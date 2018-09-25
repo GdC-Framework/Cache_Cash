@@ -1,18 +1,18 @@
 /*
 	Fire a flare up in the sky
-	
+
 	Start: The start position of the flare
 		- (ARRAY)
-	
+
 	End: The end position of the flare
 		- (ARRAY)
-	
+
 	Horizontal Speed: The added horizontal speed to the flare
 		- (NUMBER)
-	
+
 	Vertical Speed: The added vertical speed to the flare
 		- (NUMBER)
-	
+
 	Class: The flare class
 		- (STRING)
 */
@@ -55,18 +55,18 @@ _flare say3D "SN_Flare_Weapon_Fired";
 //Flare sounds
 _flare spawn {
 	sleep 0.5;
-	
+
 	//The sound of the flare starting to burn
 	_this say3D "SN_Flare_Fired_4";
-	
+
 	sleep 1;
-	
+
 	//The flare burning loop sound
 	while { !isNull _this } do {
 		_this say3D "SN_Flare_Loop";
 		sleep 4;
 	};
-	
+
 	//Log
 	"Flare stopped burning!" call BIS_fnc_log;
 };

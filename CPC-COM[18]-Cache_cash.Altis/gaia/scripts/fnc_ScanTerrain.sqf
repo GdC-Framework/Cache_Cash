@@ -1,12 +1,12 @@
 
-	private ["_position","_posX","_posY","_radius","_precision","_sourcesCount","_urban","_forest","_hills","_flat","_sea","_valS","_value","_val0","_samples","_sGr","_hprev","_hcurr","_samplePos","_i","_rds"];	
+	private ["_position", "_posX", "_posY", "_radius", "_precision", "_sourcesCount", "_urban", "_forest", "_hills", "_flat", "_sea", "_valS", "_value", "_val0", "_samples", "_sGr", "_hprev", "_hcurr", "_samplePos", "_i", "_rds"];
 
 	_position = _this select 0;
 	_samples = _this select 1;
 	_rds = 100;
 	if ((count _this) > 2) then {_rds = _this select 2};
 
-	if not ((typeName _position) == "ARRAY") then {_position = getPosATL _position};
+	if ((typeName _position) != "ARRAY") then {_position = getPosATL _position};
 
 	_posX = _position select 0;
 	_posY = _position select 1;
@@ -22,11 +22,11 @@
 	_sea = 0;
 
 	_sGr = 0;
-	_hprev = getTerrainHeightASL [_posX,_posY];
+	_hprev = getTerrainHeightASL [_posX, _posY];
 
 	for "_i" from 1 to 10 do
 		{
-		_samplePos = [_posX + ((random (_rds * 2)) - _rds),_posY + ((random (_rds * 2)) - _rds)];
+		_samplePos = [_posX + ((random (_rds * 2)) - _rds), _posY + ((random (_rds * 2)) - _rds)];
 		_hcurr = getTerrainHeightASL _samplePos;
 		_sGr = _sGr + abs (_hcurr - _hprev)
 		};
@@ -38,10 +38,10 @@
 
 		for "_i" from 1 to _samples do
 			{
-			_position = [_posX + (random (_rds/5)) - (_rds/10),_posY + (random (_rds/5)) - (_rds/10)];
+			_position = [_posX + (random (_rds/5)) - (_rds/10), _posY + (random (_rds/5)) - (_rds/10)];
 
 
-			_value = selectBestPlaces [_position,_radius,_x,_precision,_sourcesCount];
+			_value = selectBestPlaces [_position, _radius, _x, _precision, _sourcesCount];
 
 			_val0 = _value select 0;
 			_val0 = _val0 select 1;
@@ -61,7 +61,7 @@
 			case ("Sea") : {_sea = _sea + _valS};
 			};
 		}
-	foreach ["Houses","Trees","Forest","Hills","Meadow","Sea"];
+	foreach ["Houses", "Trees", "Forest", "Hills", "Meadow", "Sea"];
 
-[_urban,_forest,_hills,_flat,_sea,_sGr]
-	
+[_urban, _forest, _hills, _flat, _sea, _sGr]
+

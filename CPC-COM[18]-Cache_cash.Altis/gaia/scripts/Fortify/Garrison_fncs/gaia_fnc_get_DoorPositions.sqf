@@ -1,4 +1,4 @@
-private ["_house","_uACfg","_sel","_position","_doorPositions"];
+private ["_house", "_uACfg", "_sel", "_position", "_doorPositions"];
 _house = _this select 0;
 
 _uACfg = (configFile >> "cfgVehicles" >> (typeOf _house) >> "UserActions");
