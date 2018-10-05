@@ -554,9 +554,9 @@ switch (CC_p_ennemy) do {
 
 		_binome = ["CPC_JUN_I_AGUE_soldier_1","CPC_JUN_I_AGUE_soldier_2"];
 		_ennemi_group = ["CPC_JUN_I_AGUE_soldier_TL","CPC_JUN_I_AGUE_soldier_3","CPC_JUN_I_AGUE_soldier_MG","CPC_JUN_I_AGUE_soldier_AT","CPC_JUN_I_AGUE_soldier_GL"];
-		_rand_vehi = ["CPC_ME_I_REB_uaz_dshkm","CPC_ME_I_REB_uaz_dshkm","CPC_ME_I_REB_uaz_spg9"];
-		_transp_vehi = "CPC_ME_I_REB_gaz66o";
-		_offroad = "CPC_ME_I_REB_uaz_dshkm";
+		_rand_vehi = ["CPC_JUN_I_AGUE_uaz_dshkm","CPC_JUN_I_AGUE_uaz_dshkm","CPC_JUN_I_AGUE_uaz_spg9"];
+		_transp_vehi = "CPC_JUN_I_AGUE_ural";
+		_offroad = "CPC_JUN_I_AGUE_uaz_dshkm";
 		_helico = "";
 	};
 };

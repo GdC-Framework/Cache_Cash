@@ -59,7 +59,7 @@ hard_setLoadout =
 			_weap_r2 = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_eotech_xps3","rhsusf_acc_rx01_nofilter","rhsusf_acc_rx01_nofilter_tan","rhsusf_acc_t1_high"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_tl = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_su230_mrds","rhsusf_acc_su230_mrds_c"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_m = ["rhs_weap_sr25_ec","rhsusf_acc_sr25s",_lamp,"rhsusf_acc_su230a_mrds",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"rhsusf_acc_harris_bipod"];
-			_weap_sniper = ["rhs_weap_m24sws_d","rhsusf_acc_m24_silencer_d","","rhsusf_acc_leupoldmk4_d",["rhsusf_5Rnd_762x51_m118_special_Mag",5],[],"rhsusf_acc_harris_swivel"];
+			_weap_sniper = ["rhs_weap_XM2010_sa","rhsusf_acc_m2010s_sa","","rhsusf_acc_leupoldmk4_2",["rhsusf_5Rnd_300winmag_xm2010",5],[],"rhsusf_acc_harris_bipod"];
 		};
 		case "woodland": {
 			_uniform = "rhs_uniform_g3_m81";
@@ -73,7 +73,7 @@ hard_setLoadout =
 			_weap_r2 = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_eotech_xps3","rhsusf_acc_rx01_nofilter","rhsusf_acc_rx01_nofilter_tan","rhsusf_acc_t1_high"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_tl = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_su230_mrds","rhsusf_acc_su230_mrds_c"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_m = ["rhs_weap_sr25_ec","rhsusf_acc_sr25s",_lamp,"rhsusf_acc_su230a_mrds",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"rhsusf_acc_harris_bipod"];
-			_weap_sniper = ["rhs_weap_m24sws_wd","rhsusf_acc_m24_silencer_wd","","rhsusf_acc_leupoldmk4_wd",["rhsusf_5Rnd_762x51_m118_special_Mag",5],[],"rhsusf_acc_harris_swivel"];
+			_weap_sniper = ["rhs_weap_XM2010_wd","rhsusf_acc_m2010s_wd","","rhsusf_acc_leupoldmk4_2",["rhsusf_5Rnd_300winmag_xm2010",5],[],"rhsusf_acc_harris_bipod"];
 		};
 		case "desert": {
 			_uniform = "rhs_uniform_g3_tan";
@@ -87,7 +87,7 @@ hard_setLoadout =
 			_weap_r2 = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_eotech_xps3","rhsusf_acc_eotech_552_d","rhsusf_acc_rx01_nofilter_tan","rhsusf_acc_t1_high"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_tl = [_weap,"rhsusf_acc_nt4_tan",_lamp,"rhsusf_acc_su230_mrds_c",["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
 			_weap_m = ["rhs_weap_sr25_ec_d","rhsusf_acc_sr25s_d",_lamp,"rhsusf_acc_su230a_mrds_c",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"rhsusf_acc_harris_bipod"];
-			_weap_sniper = ["rhs_weap_m24sws_d","rhsusf_acc_m24_silencer_d","","rhsusf_acc_leupoldmk4_d",["rhsusf_5Rnd_762x51_m118_special_Mag",5],[],"rhsusf_acc_harris_swivel"];
+			_weap_sniper = ["rhs_weap_XM2010_d","rhsusf_acc_m2010s_d","","rhsusf_acc_leupoldmk4_2_d",["rhsusf_5Rnd_300winmag_xm2010",5],[],"rhsusf_acc_harris_bipod"];
 		};
 		case "jungle": {
 			_uniform = "rhs_uniform_g3_rgr";
@@ -101,15 +101,21 @@ hard_setLoadout =
 			_weap_r2 = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_eotech_xps3","rhsusf_acc_rx01_nofilter","rhsusf_acc_eotech_552_wd","rhsusf_acc_t1_high"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2_wd"];
 			_weap_tl = [_weap,"rhsusf_acc_nt4_tan",_lamp,"rhsusf_acc_su230_mrds",["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2_wd"];
 			_weap_m = ["rhs_weap_sr25_ec_wd","rhsusf_acc_sr25s_wd",_lamp,"rhsusf_acc_su230a_mrds",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"rhsusf_acc_harris_bipod"];
-			_weap_sniper = ["rhs_weap_m24sws_wd","rhsusf_acc_m24_silencer_wd","","rhsusf_acc_leupoldmk4_wd",["rhsusf_5Rnd_762x51_m118_special_Mag",5],[],"rhsusf_acc_harris_swivel"];
+			_weap_sniper = ["rhs_weap_XM2010_wd","rhsusf_acc_m2010s_wd","","rhsusf_acc_leupoldmk4_2",["rhsusf_5Rnd_300winmag_xm2010",5],[],"rhsusf_acc_harris_bipod"];
 		};
 		default {
-			_uniform = "";
-			_backpack_big = ["",""];
-			_backpack_small = ["",""];
-			_helmet = ["","","","",""];
-			_hat = "";
-			_weaps = ["",""];
+			_uniform = "rhs_uniform_g3_mc";
+			_backpack_big = selectRandom ["B_Carryall_mcamo","B_Carryall_cbr","B_Carryall_khk"];
+			_backpack_med = selectRandom ["B_Kitbag_mcamo","B_Kitbag_rgr","B_Kitbag_cbr"];
+			_backpack_small = selectRandom ["rhsusf_falconii_mc","rhsusf_falconii_coy","B_AssaultPack_mcamo","B_AssaultPack_cbr"];
+			_helmet = selectRandom ["rhsusf_opscore_ut_pelt_nsw","rhsusf_opscore_ut_pelt","rhsusf_opscore_paint_pelt_nsw","rhsusf_opscore_paint_pelt","rhsusf_opscore_mc_pelt_nsw","rhsusf_opscore_mc_pelt","rhsusf_opscore_mc_cover_pelt_nsw","rhsusf_opscore_mc_cover_pelt"];
+			_hat = "rhs_Booniehat_ocp";
+			_weap = selectRandom ["rhs_weap_mk18","rhs_weap_mk18_KAC"];
+			_weap_r = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_su230_c","rhsusf_acc_su230"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
+			_weap_r2 = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_eotech_xps3","rhsusf_acc_rx01_nofilter","rhsusf_acc_rx01_nofilter_tan","rhsusf_acc_t1_high"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
+			_weap_tl = [_weap,"rhsusf_acc_nt4_tan",_lamp,(selectRandom ["rhsusf_acc_su230_mrds","rhsusf_acc_su230_mrds_c"]),["rhs_mag_30Rnd_556x45_M855A1_PMAG",30],[],"rhsusf_acc_grip2"];
+			_weap_m = ["rhs_weap_sr25_ec","rhsusf_acc_sr25s",_lamp,"rhsusf_acc_su230a_mrds",["rhsusf_20Rnd_762x51_SR25_m118_special_Mag",20],[],"rhsusf_acc_harris_bipod"];
+			_weap_sniper = ["rhs_weap_XM2010_sa","rhsusf_acc_m2010s_sa","","rhsusf_acc_leupoldmk4_2",["rhsusf_5Rnd_300winmag_xm2010",5],[],"rhsusf_acc_harris_bipod"];
 		};
 	};
 	switch (cc_rhsennemy) do {
@@ -471,8 +477,8 @@ loadoutCC_SNIPER = //
 		[],
 		["rhsusf_weap_glock17g4","","acc_flashlight_pistol","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 		[_uniform,(_itemsU_base + _itemsU_tl)],
-		["V_TacVest_khk",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["ACE_ATragMX",1],["rhs_mag_m67",2,1],["rhsusf_5Rnd_762x51_m118_special_Mag",6,5],["rhsusf_mag_17Rnd_9x19_JHP",4,17]]],
-		[_backpack_small,[["rhsusf_acc_su230a",1],["rhsusf_5Rnd_762x51_m62_Mag",6,5],["rhsusf_5Rnd_762x51_m993_Mag",6,5]]],
+		["V_TacVest_khk",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["ACE_ATragMX",1],["rhs_mag_m67",2,1],["rhsusf_5Rnd_300winmag_xm2010",5,5],["rhsusf_mag_17Rnd_9x19_JHP",4,17]]],
+		[_backpack_small,[["rhsusf_acc_premier_anpvs27",1],["rhsusf_5Rnd_300winmag_xm2010",14,5]]],
 		_hat,
 		_facewear,
 		["Rangefinder","","","",[],[],""],

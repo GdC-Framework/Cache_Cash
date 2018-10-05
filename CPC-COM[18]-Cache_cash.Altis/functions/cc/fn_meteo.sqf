@@ -13,7 +13,7 @@ switch (CC_p_overcast) do {
 		0 setLightnings 0;
 		forceWeatherChange;
 		999999 setOvercast 0;
-		999999 setWindForce 0.1;
+		999999 setWindForce 0.2;
 		999999 setRain 0;
 		999999 setLightnings 0;
 	};
@@ -41,7 +41,7 @@ switch (CC_p_overcast) do {
 		0 setLightnings 0;
 		forceWeatherChange;
 		3600 setOvercast (random [0.6,0.75,1]);
-		999999 setWindForce 0.2;
+		999999 setWindForce 0.3;
 		999999 setRain 0;
 		999999 setLightnings 0;
 	};
@@ -55,7 +55,7 @@ switch (CC_p_overcast) do {
 		0 setLightnings 0;
 		forceWeatherChange;
 		3600 setOvercast (random [0.7,0.8,0.9]);
-		999999 setWindForce 0.1;
+		999999 setWindForce 0.2;
 		3600 setRain (random [0.2,0.4,0.8]);
 		3600 setLightnings 0;
 	};
@@ -69,7 +69,7 @@ switch (CC_p_overcast) do {
 		0 setLightnings (random [0.5,0.8,1]);
 		forceWeatherChange;
 		999999 setOvercast 1;
-		999999 setWindForce 0.1;
+		999999 setWindForce 0.4;
 		3600 setRain (random [0,0.8,1]);
 		3600 setLightnings (random [0.5,0.8,1]);
 	};

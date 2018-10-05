@@ -1,5 +1,4 @@
 ﻿
-
 // définition manuelle des paramètres pour le débug
 if (isNil "paramsArray") then {
 	paramsArray = [
@@ -101,6 +100,12 @@ if (CC_p_extraction == 2) then {
 	};
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;
 };
+
+// Trigger de fin de mission
+_trg = createTrigger ["EmptyDetector",[0,0,0],true];
+_trg setTriggerActivation ["ALPHA","PRESENT",false];
+_trg setTriggerText "Couper la mission";
+_trg setTriggerStatements ["this","['end1',true,4] call BIS_fnc_endMission;",""];
 
 finishMissionInit;
 waitUntil {time > 0};

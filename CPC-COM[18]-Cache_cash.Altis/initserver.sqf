@@ -49,12 +49,6 @@ switch (cc_p_mission_server) do {
 	};
 };
 
-// Trigger de fin de mission
-_trg = createTrigger ["EmptyDetector", [0,0,0], true];
-_trg setTriggerActivation ["ALPHA", "PRESENT", false];
-_trg setTriggerText "Couper la mission";
-_trg setTriggerStatements ["this", "['end1',true,4] call BIS_fnc_endMission;", ""];
-
 // Trigger d'objectif
 _trg = createTrigger ["EmptyDetector",[0,0,0],true];
 _trg setTriggerStatements ["!alive cible","task1 setTaskState 'Succeeded';['TaskSucceeded',['','"+_txt+"']] call BIS_fnc_showNotification;",""];
