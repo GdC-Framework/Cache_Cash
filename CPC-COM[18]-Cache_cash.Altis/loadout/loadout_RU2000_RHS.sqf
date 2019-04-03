@@ -57,7 +57,7 @@ hard_setLoadout =
 		_mountain = true;
 	};
 	//Desert
-	if (CPC_MAP in ["takistan"]) then 
+	if (CPC_MAP in ["takistan","dingor"]) then 
 	{
 		_uniform = "rhs_uniform_m88_patchless";
 		_helmet = ["rhs_6b27m_green","rhs_6b27m_green_bala","rhs_6b27m_green_ess","rhs_6b27m_green_ess_bala"];
@@ -72,7 +72,7 @@ hard_setLoadout =
 		_des = true;
 	};
 	//Flora
-	if (CPC_MAP in ["tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden"]) then 
+	if (CPC_MAP in ["tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden","chernarus_winter","lingor3"]) then 
 	{
 		_uniform = "rhs_uniform_flora_patchless";
 		_helmet = ["rhs_6b26","rhs_6b26_bala","rhs_6b26_ess","rhs_6b26_ess_bala"];

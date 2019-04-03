@@ -30,12 +30,12 @@ hard_setLoadout =
 	_wdl = false;
 	_des = false;
 	//WDL
-	if (CPC_MAP in ["altis","tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden"]) then 
+	if (CPC_MAP in ["altis","tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden","chernarus_winter","lingor3"]) then 
 	{
 		_wdl = true;
 	};
 	//DES
-	if (CPC_MAP in ["takistan","isladuala3","pja307"]) then 
+	if (CPC_MAP in ["takistan","isladuala3","pja307","dingor"]) then 
 	{
 		_des = true;
 	};

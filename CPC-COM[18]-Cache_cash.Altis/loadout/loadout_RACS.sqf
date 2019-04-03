@@ -37,7 +37,7 @@ hard_setLoadout =
 	_bag_small = "";
 
 	//Desert
-	if (CPC_MAP in ["takistan","pja307","isladuala3"]) then 
+	if (CPC_MAP in ["takistan","pja307","isladuala3","dingor"]) then 
 	{
 		_uniform = ["CUP_U_I_RACS_Desert_2","CUP_U_I_RACS_Desert_1"];
 		_helmet = "CUP_H_RACS_Helmet_DES";
@@ -61,7 +61,7 @@ hard_setLoadout =
 		_bag_small = "rhsusf_falconii";
 	};
 	//WDL
-	if (CPC_MAP in ["tanoa","chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","eden"]) then 
+	if (CPC_MAP in ["tanoa","chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","eden","chernarus_winter","lingor3"]) then 
 	{
 		_uniform = ["CUP_U_I_RACS_WDL_2","CUP_U_I_RACS_WDL_1"];
 		_helmet = "CUP_H_RACS_Helmet_olive";

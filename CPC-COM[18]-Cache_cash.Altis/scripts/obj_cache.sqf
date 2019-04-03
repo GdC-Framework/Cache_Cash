@@ -17,7 +17,8 @@ _center = [_pos,0,150,0,0,0.25,0,[],_pos] call BIS_fnc_findSafePos;
 while {isOnRoad _center} do {
 	_center = [_pos,0,150,0,0,0.25,0,[],_pos] call BIS_fnc_findSafePos;
 };
-Random_Position = _center;
+Random_Position = [(_center #0),(_center #1),0];
+publicVariable "Random_Position";
 
 //creation de la caisse objectif et gestion des marqueurs
 { _x hideObjectGlobal true;} forEach (nearestObjects [_center,[],30]);

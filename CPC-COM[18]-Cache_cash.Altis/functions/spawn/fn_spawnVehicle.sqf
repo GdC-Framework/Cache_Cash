@@ -11,12 +11,15 @@
  * 4 (optionnal) - STRING special ("NONE", "FLY", "FORM", "CAN_COLLIDE")
  *
  * Return : the new group created
+_group = [_pos,_side,_type,_crew,_dir] call STDR_fnc_spawnVehicle;
 */
 params ["_pos","_side","_vehtype","_crew",["_dir",0],["_skill",0.5],["_special","NONE"]];
 private ["_veh","_group"];
 
 _veh = createVehicle [_vehtype,_pos,[],0,_special];
+_veh setdir _dir;
 
 _group = [_veh,_side,_crew,_skill] call STDR_fnc_spawnVehicleCrew;
+_group setFormDir _dir;
 
 _group;

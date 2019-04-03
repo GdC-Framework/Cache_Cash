@@ -4,8 +4,8 @@
 task1 = player createSimpleTask ["Détruire la cache d'explosifs."];
 task1 setSimpleTaskDescription ["Détruire la cache d'explosifs.","Détruire la cache d'explosifs.","Détruire la cache d'explosifs."];
 task1 setSimpleTaskDestination markerpos "Mark_Cible";
-task2 = player createSimpleTask ["Tuer tout les ennemis. (optionnel)"];
-task2 setSimpleTaskDescription ["Tuer tout les ennemis. (optionnel)","Tuer tout les ennemis. (optionnel)","Tuer tout les ennemis. (optionnel)"];
+task2 = player createSimpleTask ["Tuer tous les ennemis. (optionnel)"];
+task2 setSimpleTaskDescription ["Tuer tous les ennemis. (optionnel)","Tuer tous les ennemis. (optionnel)","Tuer tous les ennemis. (optionnel)"];
 
 
 if (CC_p_vehicle > 0) then {

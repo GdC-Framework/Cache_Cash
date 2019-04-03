@@ -12,6 +12,8 @@
  * 5 - ARRAY waypoint timeout (default = [0,15,30])
  *
  * Return : nothing
+ *
+[_group,[_pos,_pos,_pos],"SAFE","LIMITED","MOVE",[0,15,30]] call STDR_fnc_patrol;
 */
 params ["_group","_wplist",["_behaviour","SAFE"],["_speed","LIMITED"],["_type","MOVE"],["_time",[0,15,30]]];
 private ["_pos","_wp"];

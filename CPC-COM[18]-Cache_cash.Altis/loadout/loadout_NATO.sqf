@@ -44,7 +44,7 @@ hard_setLoadout =
 	_hat = "";
 
 	//MTP
-	if (CPC_MAP in ["takistan","altis","isladuala3","pja307"]) then 
+	if (CPC_MAP in ["takistan","altis","isladuala3","pja307","dingor"]) then 
 	{
 		_uniform = ["U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam_vest"];
 		_vest1 = "V_PlateCarrier2_rgr";
@@ -82,7 +82,7 @@ hard_setLoadout =
 		_hat = "H_Booniehat_oli";
 	};
 	//Sage
-	if (CPC_MAP in ["sara"]) then 
+	if (CPC_MAP in ["sara","chernarus_winter"]) then 
 	{
 		_uniform = ["U_MU_B_soldier_sage","U_MU_B_soldier_sage_vest","U_MU_B_soldier_sage_tshirt"];
 		_vest1 = "V_PlateCarrier2_rgr";
@@ -101,7 +101,7 @@ hard_setLoadout =
 		_hat = "H_Booniehat_khk";
 	};
 	//Jungle
-	if (CPC_MAP in ["tanoa","pja305"]) then 
+	if (CPC_MAP in ["tanoa","pja305","lingor3"]) then 
 	{
 		_uniform = ["U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_AR_F"];
 		_vest1 = "V_PlateCarrier2_tna_F";

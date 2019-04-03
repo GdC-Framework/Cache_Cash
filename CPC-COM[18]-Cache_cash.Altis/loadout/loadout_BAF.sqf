@@ -41,7 +41,7 @@ hard_setLoadout =
 	_sac = "";
 
 	//DPM
-	if (CPC_MAP in ["sara","altis","tanoa","chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","pja305","noe","eden"]) then 
+	if (CPC_MAP in ["sara","altis","tanoa","chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","pja305","noe","eden","chernarus_winter","lingor3"]) then 
 	{
 		_uniform = ["CUP_U_B_BAF_DPM_S2_UnRolled","CUP_U_B_BAF_DPM_S1_RolledUp","CUP_U_B_BAF_DPM_Tshirt"];
 		_helmet = ["CUP_H_BAF_Helmet_1_DPM","CUP_H_BAF_Helmet_Net_2_DPM","CUP_H_BAF_Helmet_2_DPM","CUP_H_BAF_Helmet_3_DPM","CUP_H_BAF_Helmet_4_DPM"];
@@ -56,7 +56,7 @@ hard_setLoadout =
 		_dpm = true;		
 	};
 	//DDPM
-	if (CPC_MAP in ["isladuala3","takistan","pja307"]) then 
+	if (CPC_MAP in ["isladuala3","takistan","pja307","dingor"]) then 
 	{
 		_uniform = ["CUP_U_B_BAF_DDPM_S2_UnRolled","CUP_U_B_BAF_DDPM_S1_RolledUp","CUP_U_B_BAF_DDPM_Tshirt"];
 		_helmet = ["CUP_H_BAF_Helmet_1_DDPM","CUP_H_BAF_Helmet_Net_2_DDPM","CUP_H_BAF_Helmet_2_DDPM","CUP_H_BAF_Helmet_3_DDPM","CUP_H_BAF_Helmet_4_DDPM"];

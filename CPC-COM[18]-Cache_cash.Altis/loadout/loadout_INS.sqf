@@ -38,7 +38,7 @@ hard_setLoadout =
 	_bag_big = ["B_Carryall_khk","B_Carryall_oli"];
 	
 	//WDL
-	if (CPC_MAP in ["chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","eden"]) then 
+	if (CPC_MAP in ["chernarus","chernarus_summer","fdf_isle1_a","woodland_acr","eden","chernarus_winter"]) then 
 	{
 		_uniform = ["U_BG_Guerrilla_6_1","CUP_U_O_CHDKZ_Kam_03","CUP_U_O_CHDKZ_Kam_01","CUP_U_O_CHDKZ_Kam_04","CUP_U_O_CHDKZ_Kam_02","rhs_chdkz_uniform_4","rhs_chdkz_uniform_3","rhsgref_uniform_woodland_olive","rhsgref_uniform_woodland","rhsgref_uniform_reed","rhsgref_uniform_flecktarn","CUP_U_I_GUE_Flecktarn2","CUP_U_I_GUE_Flecktarn","CUP_U_I_GUE_Woodland1","CUP_U_I_GUE_Anorak_03"];
 		_helmet = ["H_Bandanna_camo","H_Bandanna_mcamo","H_Bandanna_gry","rhs_beanie_green","CUP_H_C_Beanie_02","CUP_H_ChDKZ_Beanie","H_Beret_blk","H_Booniehat_oli","H_Booniehat_khk","H_Cap_grn","rhs_fieldcap_digi2","CUP_H_ChDKZ_Cap","CUP_H_ChDKZ_Beret","CUP_H_SLA_BeanieGreen","CUP_H_SLA_BeanieGreen","CUP_H_SLA_BeanieGreen","rhs_ssh68","CUP_H_C_Ushanka_03",""];
@@ -58,7 +58,7 @@ hard_setLoadout =
 	};
 	
 	//Jungle
-	if (CPC_MAP in ["tanoa","pja305","isladuala3"]) then 
+	if (CPC_MAP in ["tanoa","pja305","isladuala3","lingor3","dingor"]) then 
 	{
 		_uniform = ["U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F","U_I_C_Soldier_Para_4_F","U_I_C_Soldier_Camo_F"];
 		_helmet = ["H_Bandanna_camo","CUP_H_FR_BandanaWdl","CUP_H_FR_BandanaGreen","H_Bandanna_sgg","rhs_Booniehat_digi","H_Booniehat_khk","CPC_JUN_fieldcap","H_Booniehat_oli","rhs_Booniehat_m81","CPC_JUN_fieldcap","CPC_JUN_fieldcap","CPC_JUN_fieldcap"];

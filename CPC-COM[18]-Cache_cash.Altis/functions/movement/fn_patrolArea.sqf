@@ -12,6 +12,7 @@
  * 5 - NUMBER number of waypoints (default = 4)
  *
  * Return : nothing
+[_group,"mkz_tower","SAFE","LIMITED","MOVE",4] call STDR_fnc_patrolArea;
 */
 params ["_group","_marker",["_behaviour","SAFE"],["_speed","LIMITED"],["_type","MOVE"],["_nbr",4]];
 private ["_pos","_wp"];

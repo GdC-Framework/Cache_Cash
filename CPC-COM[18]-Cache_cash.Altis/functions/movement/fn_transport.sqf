@@ -28,6 +28,8 @@ _group setSpeedMode "NORMAL";
 // WP d'attente
 _wp = _group addWaypoint [(getpos _veh), 0];
 _wp setWaypointType "MOVE";
+//_wp setWaypointBehaviour "CARELESS";
+//_wp setWaypointSpeed "NORMAL";
 _wp setWaypointStatements [_condition,""];
 _wp setWaypointTimeout _wait;
 

@@ -3,20 +3,21 @@
  * 
  * Parameters
  * 0 - GROUP
- * 1 - ARRAY of 2 positions (waypoints)
+ * 1 - ARRAY of positions (waypoints)
  * 2 - STRING of a global variable
  *
  * Optional parameters
  * 3 - ARRAY waypoint timeout for the first one (default = [0,0,0])
- * 4 - STRING Type of the last WP (default = "SAD")
- * 5 - ARRAY the group will search the area around the last WP [radius, number of waypoints]. if radius = 0 : no search. (default = [0,3])
+ * 5 - STRING Behavior of the road WPs (default = "AWARE")
+ * 6 - STRING Type of the last WP (default = "SAD")
+ * 7 - ARRAY the group will search the area around the last WP [radius, number of waypoints]. if radius = 0 : no search. (default = [0,3])
  *
  * Return : nothing
 */
-params ["_group","_wps","_condition",["_wait",[0,0,0]],["_wpType","SAD"],["_search",[0,3]]];
+params ["_group","_wps","_condition",["_wait",[0,0,0]],["_wpBehavior","AWARE"],["_wpType","SAD"],["_search",[0,3]]];
 private ["_wp","_last"];
 
-_last = _wps select ((count _wps) + 1);
+_last = _wps select ((count _wps) - 1);
 _wps = _wps - [_last];
 
 // WP d'attente
@@ -27,8 +28,9 @@ _wp setWaypointTimeout _wait;
 
 // WP de marche
 {
-	_wp = _group addWaypoint [(_wps select 0), 0];
+	_wp = _group addWaypoint [_x,0];
 	_wp setWaypointType "MOVE";
+	_wp setWaypointBehaviour _wpBehavior;
 } forEach _wps;
 
 // WP d'assaut

@@ -1,24 +1,7 @@
 private ["_txt","_trg","_pos","_mk"];
 
-// Variables liées au paramètres de la mission
-CC_p_time = (paramsArray select 0);
-CC_p_difficulty = (paramsArray select 1);
-CC_p_skillia = (paramsArray select 2);
-CC_p_insertion = (paramsArray select 3);
-CC_p_extraction = (paramsArray select 4);
-CC_p_loaout = (paramsArray select 5);
-CC_p_nvg = (paramsArray select 6);
-CC_p_ammocrate = (paramsArray select 7);
-CC_p_vehicle = (paramsArray select 8);
-CC_p_ennemy = (paramsArray select 9);
-CC_p_ennemyveh = (paramsArray select 10);
-CC_p_overcast = (paramsArray select 11);
-CC_p_fog = (paramsArray select 12);
-CC_p_fullmoon = (paramsArray select 13);
-
-cc_night = if (CC_p_time in [1,2,3,4,20,21,22,23,0]) then {true} else {false};
-cc_rhsennemy = false;
-if (CC_p_ennemy in [0,2,14,17,18,19,20,21,100,106,108,109]) then {cc_rhsennemy = true};
+// We need tones of variables
+[] call STDR_fnc_commonVariables;
 
 chefIA_create = false;
 publicVariable "chefIA_create";

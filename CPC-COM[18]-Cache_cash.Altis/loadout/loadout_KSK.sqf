@@ -37,7 +37,7 @@ hard_setLoadout =
 	_wdl = false;
 
 	//WDL
-	if (CPC_MAP in ["altis","tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden"]) then 
+	if (CPC_MAP in ["altis","tanoa","chernarus","chernarus_summer","sara","fdf_isle1_a","woodland_acr","pja305","noe","eden","chernarus_winter","lingor3"]) then 
 	{
 		_uniform = ["CUP_U_B_GER_Flecktarn_2","CUP_U_B_GER_Flecktarn_1"];
 		_helmet = ["CUP_H_Ger_Boonie_Flecktarn","H_Watchcap_khk","H_Cap_oli_hs","CUP_H_PMC_EP_Headset","CUP_H_PMC_PRR_Headset"];
@@ -48,7 +48,7 @@ hard_setLoadout =
 		_wdl = true;
 	};
 	//DES
-	if (CPC_MAP in ["takistan","isladuala3","pja307"]) then 
+	if (CPC_MAP in ["takistan","isladuala3","pja307","dingor"]) then 
 	{
 		_uniform = ["CUP_U_B_GER_Tropentarn_2","CUP_U_B_GER_Tropentarn_1"];
 		_helmet = ["CUP_H_Ger_Boonie_desert","H_ShemagOpen_khk","H_ShemagOpen_khk","CUP_H_PMC_Cap_PRR_Tan"];

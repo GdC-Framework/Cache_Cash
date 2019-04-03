@@ -5,7 +5,7 @@
  * 0 - OBJECT vehicle that need a crew
  * 1 - SIDE
  * 2 - ARRAY of STRING crew classnames
- * 3 (optionnal) - NUMBER skill
+ * 3 (optionnal) - NUMBER skill (default=0.5)
  *
  * Return : the new group created
 */
@@ -15,10 +15,11 @@ private ["_group","_u"];
 
 _group = createGroup _side;
 {
-	_u = _group createUnit [_x,[0,0,0],[],0,"NONE"];
-	_u setSkill _skill;
+	_x createUnit [[0,0,0],_group,"",_skill];
+	_u = (units _group) select _foreachindex;
 	[_u,_veh] remoteExecCall ["moveinAny",_veh];
 } forEach _crew;
+_group selectLeader (effectiveCommander _veh);
 _group setFormDir (getdir _veh);
 
 _group;

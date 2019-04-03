@@ -9,6 +9,7 @@
  * 4 (optionnal) - NUMBER skill
  *
  * Return : the new group created
+_group = [_pos,_side,_types] call STDR_fnc_spawnGroup;
 */
 params ["_pos","_side","_units",["_dir",0],["_skill",0.5]];
 private ["_group"];

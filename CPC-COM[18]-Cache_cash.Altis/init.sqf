@@ -1,43 +1,6 @@
 ﻿
-// définition manuelle des paramètres pour le débug
-if (isNil "paramsArray") then {
-	paramsArray = [
-		12,		//Heure
-		1,		//Difficulté
-		1,		//Skill
-		1,		//Insertion
-		0,		//extraction
-		19,		//Loadout
-		0,		//NVG
-		0,		//Caisse
-		0,		//Véhicule
-		100,	//Faction IA
-		0,		//ennemyveh
-		1,		//météo
-		0,		//brouillard
-		0		//Moon
-	];
-};
-
-// Variables liées au paramètres de la mission
-if (isNil "CC_p_time") then {
-	CC_p_time = (paramsArray select 0);
-	CC_p_difficulty = (paramsArray select 1);
-	CC_p_skillia = (paramsArray select 2);
-	CC_p_insertion = (paramsArray select 3);
-	CC_p_extraction = (paramsArray select 4);
-	CC_p_loaout = (paramsArray select 5);
-	CC_p_nvg = (paramsArray select 6);
-	CC_p_ammocrate = (paramsArray select 7);
-	CC_p_vehicle = (paramsArray select 8);
-	CC_p_ennemy = (paramsArray select 9);
-	CC_p_ennemyveh = (paramsArray select 10);
-	CC_p_overcast = (paramsArray select 11);
-	CC_p_fog = (paramsArray select 12);
-	CC_p_fullmoon = (paramsArray select 13);
-};
-cc_night = if (CC_p_time in [1,2,3,4,20,21,22,23,0]) then {true} else {false};
-cc_playerCount = if (isMultiplayer) then {count playableUnits} else {count switchableUnits};
+// We need tones of variables
+[] call STDR_fnc_commonVariables;
 
 // déterminer la localité pour faire pop les IAs(HC ou éditeur)
 MODE_EDITEUR = false;
