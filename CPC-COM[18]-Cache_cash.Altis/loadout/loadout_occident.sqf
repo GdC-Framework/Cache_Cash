@@ -34,15 +34,7 @@ hard_setLoadout =
 	_mun_at = [];
 	
 	switch (cc_loadoutcamo) do {
-		case "polyvalent": {
-			_uniform = "rhsgref_uniform_altis_lizard";
-			_vest = "rhsgref_otv_khaki";
-			_backpack_big = "B_Carryall_khk";
-			_backpack_small = "B_FieldPack_khk";
-			_headgear = "rhsgref_helmet_pasgt_altis_lizard";
-			_hat = "H_Booniehat_khk";
-			_facewear = ["rhs_ess_black","rhsusf_oakley_goggles_clr","rhs_googles_black","G_Shades_Black","G_Shades_Green","rhsusf_shemagh_od","rhsusf_shemagh2_od","rhsusf_shemagh_gogg_od","rhsusf_shemagh2_gogg_od"];
-		};
+		case "winter";
 		case "woodland": {
 			_uniform = "rhsgref_uniform_woodland";
 			_vest = "rhssaf_vest_otv_md2camo";
@@ -70,6 +62,7 @@ hard_setLoadout =
 			_hat = "H_Booniehat_oli";
 			_facewear = ["rhs_ess_black","rhsusf_oakley_goggles_clr","rhs_googles_black","G_Shades_Black","G_Shades_Green"];
 		};
+		case "polyvalent";
 		default {
 			_uniform = "rhsgref_uniform_altis_lizard";
 			_vest = "rhsgref_otv_khaki";
@@ -87,16 +80,12 @@ hard_setLoadout =
 		default {_nvg = ""; _lamp = "";};
 	};
 	switch (cc_rhsennemy) do {
-		case true: {
-			_weap_lat = ["rhs_weap_m72a7","","","",["rhs_m72a7_mag",1],[],""];
-			_weap_at = ["rhs_weap_smaw_green","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];
-			_mun_at = [["rhs_mag_smaw_HEAA",2,1],["rhs_mag_smaw_SR",2,5]];
-		};
 		case false: {
 			_weap_lat = ["CUP_launch_M72A6","","","",["ACE_PreloadedMissileDummy_M72A6_CUP",1],[],""];
 			_weap_at = ["CUP_launch_Mk153Mod0","","","cup_optic_smaw_scope",["CUP_SMAW_HEAA_M",1],[],""];
 			_mun_at = [["CUP_SMAW_HEAA_M",2,1],["CUP_SMAW_Spotting",2,5]];
 		};
+		case true;
 		default {
 			_weap_lat = ["rhs_weap_m72a7","","","",["rhs_m72a7_mag",1],[],""];
 			_weap_at = ["rhs_weap_smaw_green","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];

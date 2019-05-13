@@ -7,6 +7,9 @@ MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
+createMarkerLocal ["mkr_spawn_static_unit",[0,0,0]];
+[1.0,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
+
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
 	null = [] execVM "scripts\spawn_ia.sqf";
@@ -59,6 +62,7 @@ if (CC_p_extraction == 2) then {
 		case 17 : {if (cc_playerCount > 8) then {"MU_MERC_Mohawk"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // PMC
 		case 18 : {"CUP_B_SA330_Puma_HC2_BAF"}; // FR
 		case 19 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // occident
+		case 19 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // us 80s
 		default {"RHS_CH_47F"};
 	};
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;
@@ -68,7 +72,7 @@ if (CC_p_extraction == 2) then {
 _trg = createTrigger ["EmptyDetector",[0,0,0],true];
 _trg setTriggerActivation ["ALPHA","PRESENT",false];
 _trg setTriggerText "Couper la mission";
-_trg setTriggerStatements ["this","['end1',true,4] call BIS_fnc_endMission;",""];
+_trg setTriggerStatements ["this","['end1',true,4] remoteExecCall [""BIS_fnc_endMission"",0];",""];
 
 finishMissionInit;
 waitUntil {time > 0};

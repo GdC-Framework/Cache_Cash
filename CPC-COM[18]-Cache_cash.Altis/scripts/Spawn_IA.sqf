@@ -1,7 +1,6 @@
 /*
 
 */
-
 private [
 	"_nbr","_mark","_markEx","_pos","_dir","_group","_veh","_array","_type","_wp","_i","_markPos","_upPos",
 	"_side","_unitType","_vehTypes","_VehicleCrew","_VehicleCrewTypes",
@@ -26,8 +25,8 @@ waitUntil {!isnil "cc_MarkersCreated"};
 	40,
 	5000,
 	350
-] call GDC_gaia_fnc_init;
-*/
+] call GDC_gaia_fnc_initHC;*/
+
 [] execVM "InitGaia.sqf";
 call compile preprocessfilelinenumbers "shk_pos\shk_pos_init.sqf";
 
@@ -94,7 +93,7 @@ _mark = "2";
 _markEx = "1";
 for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,_markEx,100] call SHK_pos;
-	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	_group setVariable ["GAIA_ZONE_INTEND",[_mark,"NOFOLLOW"],false];
 	sleep 0.5;
 };
@@ -110,7 +109,8 @@ if (CC_p_menace_veh_nbr > 0) then {
 	for "_n" from 1 to _nbr do {
 		_type = (selectRandom _veharray_light);
 		_pos = [_mark,0,_markEx,[100,_type]] call SHK_pos;
-		_group = [_pos,_side,_type,([_unitTypes,2] call GDC_fnc_creategroupCompo),(random 360)] call STDR_fnc_spawnVehicle;
+		_veh = [_pos,_side,_type,([_unitTypes,2] call GDC_fnc_creategroupCompo),(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_group = _veh#0;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
 		sleep 0.5;
 	};
@@ -144,7 +144,7 @@ if (typecamp == 3) then { //Base militaire
 _mark = "1";
 for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,[],100] call SHK_pos;
-	_group = [_pos, _side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
 	sleep 0.5;
 };
@@ -161,7 +161,7 @@ _markEx = "2";
 for "_n" from 1 to _nbr do {
 	{
 		_pos = [_mark,0,_markEx,200] call SHK_pos;
-		_group = [_pos, _side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
 		sleep 0.5;
 	} foreach [1,2,3,4];
@@ -185,7 +185,8 @@ if (CC_p_menace_veh_nbr > 0) then {
 		} else {
 			_VehicleCrew = ([_unitTypes,2] call GDC_fnc_creategroupCompo);
 		};
-		_group = [_pos,_side,_type,_VehicleCrew,(random 360)] call STDR_fnc_spawnVehicle;
+		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_group = _veh#0;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
 		sleep 0.5;
 	};
@@ -209,7 +210,7 @@ if (CC_p_menace_aa == 1) then {
 		} else {
 			_VehicleCrew = ([_unitTypes,2] call GDC_fnc_creategroupCompo);
 		};
-		_group = [_pos,_side,_type,_VehicleCrew,(random 360)] call STDR_fnc_spawnVehicle;
+		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		sleep 0.5;
 	};
 };
@@ -239,7 +240,7 @@ if (random 100 < 22) then {
 			_mark setMarkerSize [50,51];
 			_mark setMarkerAlpha 0;
 		_dir = random 360;
-		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
 		sleep 0.5;
 	};
@@ -250,9 +251,9 @@ if (CC_p_menace_veh_nbr > 0) then {
 	if (random 100 < 75) then {
 		_type = selectRandom _veharray_transport;
 		_pos = [getMarkerPos "1",[1000,1500],random 360,0,[1,500],_type] call SHK_pos;
-		_group = [_pos,_side,_type,[_r],(random 360)] call STDR_fnc_spawnVehicle;
-		_veh = vehicle (leader _group);
-		units _group join _veh;
+		_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_group = _veh#0; _veh = _veh#1;
+		//units _group join _veh;
 		_wp = _group addWaypoint [(getpos _veh),20];
 			_wp setWaypointType "MOVE";
 			_wp setWaypointBehaviour "SAFE";
@@ -268,7 +269,7 @@ if (CC_p_menace_veh_nbr > 0) then {
 			_wp setWaypointType "CYCLE";
 			_wp setWaypointBehaviour "SAFE";
 			_wp setWaypointSpeed "LIMITED";
-		_group = [(getpos _veh),_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call BIS_fnc_spawnGroup;
+		_group = [(getpos _veh),_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		{_x assignAsCargo _veh; _x moveInCargo _veh;} foreach units _group;
 	};
 };
@@ -292,12 +293,12 @@ if (random 100 < 75) then {
 	_veh = "Land_Cargo_Patrol_V2_F" CreateVehicle [_pos select 0, _pos select 1,-3];
 	_veh setdir random 360;
 	"4" setmarkerpos _pos;
-	_group = [getpos _veh,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+	_group = [(getpos _veh),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	(leader _group) setPosATL (_veh buildingPos 1);
 	_group setVariable ["GAIA_ZONE_INTEND",["4","FORTIFY"],false];
 };
 
-//hélico
+//hélico TODO : changer la fonction, besoin d'une classe pilote
 if (CC_p_menace_air == 1) then {
 	for "_i" from 1 to 2 do {
 		if (((count _veharray_air) != 0) AND (random 100 < 50)) then {
@@ -325,7 +326,7 @@ private _houseOutlist = [];
 	if (random 100 < 3.5) then {
 		_houseOutlist = _houseOutlist + [_x];
 		_pos = getpos _x;
-		_group = [_pos,_side,([_unitTypes,2] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+		_group = [_pos,_side,([_unitTypes,2] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		_mark = createMarker [format["BPos%1",_x],_pos];
 			_mark setmarkerColor "colorPink";
 			_mark setMarkerShape "ELLIPSE";
@@ -333,7 +334,7 @@ private _houseOutlist = [];
 			_mark setMarkerAlpha 0;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
 		if ((!chefIA_create) AND (random 100 < 20) AND !(["1",_pos] call BIS_fnc_inTrigger)) then {
-			private _group_chef = [_pos,_side,[_tl],[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+			private _group_chef = [_pos,_side,[_tl]] call GDC_fnc_lucySpawnGroupInf;
 			chefIA = (units _group_chef) #0;
 			[chefIA] joinSilent _group;
 			chefIA allowDamage false;
@@ -362,7 +363,7 @@ _houselist = _houselist - _houseOutlist;
 			case "chern": {["CUP_C_C_Citizen_02","CUP_C_C_Citizen_01","CUP_C_C_Citizen_04","CUP_C_C_Citizen_03""CUP_C_C_Functionary_01","CUP_C_C_Functionary_02","CUP_C_C_Priest_01","CUP_C_C_Profiteer_02","CUP_C_C_Profiteer_03","CUP_C_C_Profiteer_01","CUP_C_C_Profiteer_04","CUP_C_C_Rocker_01","CUP_C_C_Rocker_03","CUP_C_C_Rocker_02","CUP_C_C_Rocker_04","CUP_C_C_Schoolteacher_01","CUP_C_C_Villager_01","CUP_C_C_Villager_04","CUP_C_C_Villager_02","CUP_C_C_Villager_03","CUP_C_C_Woodlander_01","CUP_C_C_Woodlander_02","CUP_C_C_Woodlander_03","CUP_C_C_Woodlander_04","CUP_C_C_Worker_03","CUP_C_C_Worker_04","CUP_C_C_Worker_02","CUP_C_C_Worker_01"]};
 			case "fidji": {["C_Man_casual_1_F_tanoan","C_Man_casual_2_F_tanoan","C_Man_casual_3_F_tanoan","C_man_sport_1_F_tanoan""C_man_sport_2_F_tanoan","C_man_sport_3_F_tanoan","C_Man_casual_4_F_tanoan","C_Man_casual_5_F_tanoan","C_Man_casual_6_F_tanoan"]};
 		};
-		_group = [_pos,civilian,[(selectrandom _type),(selectrandom _type)],[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+		_group = [_pos,civilian,[(selectrandom _type),(selectrandom _type)]] call GDC_fnc_lucySpawnGroupInf;
 		[_group,0] setWaypointType "DISMISS";
 		sleep 0.5;
 	};
@@ -405,7 +406,7 @@ if (chefIA_create) then {removeHeadgear chefIA; chefIA addHeadgear "CUP_H_RUS_Be
 		_mark = "2";
 		_markPos = markerpos _mark;
 		_pos = [[_markPos select 0,_markPos select 1,0],1400,random 360,0,[],100] call SHK_pos;
-		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo),[],[],[],[],[],random 360] call BIS_fnc_spawnGroup;
+		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		_group setVariable ["GAIA_ZONE_INTEND",[_mark,"NOFOLLOW"],false];
 		sleep 0.5;
 		[(units _group)] call STDR_fnc_setskill;
@@ -421,9 +422,9 @@ waitUntil {time > (2100 + (random 600))};
 if (CC_p_menace_veh_nbr > 0) then {
 	_type = selectRandom _veharray_transport;
 	_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,200],_type] call SHK_pos;
-	_group = [_pos,_side,_type,[_r],(random 360)] call STDR_fnc_spawnVehicle;
-	_veh = vehicle (leader _group);
-	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call BIS_fnc_spawnGroup;
+	_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+	_group = _veh#0; _veh = _veh#1;
+	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	{_x assignAsCargo (_veh select 0); _x moveInCargo (_veh select 0);} foreach units _group;
 	units _group join (_veh select 2);
 	(_veh select 2) setVariable ["GAIA_ZONE_INTEND",["2", "MOVE"], false];
@@ -435,14 +436,15 @@ if ((random 100 < 50) AND (CC_p_menace_veh_nbr > 0)) then {
 	sleep (600 + (random 300));
 	_type = selectRandom _veharray_transport;
 	_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,200],_type] call SHK_pos;
-	_group = [_pos,_side,_type,[_r],(random 360)] call STDR_fnc_spawnVehicle;
-	_veh = vehicle (leader _group);
-	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call BIS_fnc_spawnGroup;
+	_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+	_group = _veh#0; _veh = _veh#1;
+	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	{_x assignAsCargo (_veh select 0); _x moveInCargo (_veh select 0);} foreach units _group;
 	units _group join (_veh select 2);
 	(_veh select 2) setVariable ["GAIA_ZONE_INTEND",["2", "MOVE"], false];
 	[(units (_veh select 2))] call STDR_fnc_setskill;
 };
+
 
 /*
 if (CC_p_menace_air == 1) then {

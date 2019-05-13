@@ -32,12 +32,12 @@ hard_setLoadout =
 	_mun_at = [];
 	
 	switch (cc_loadoutcamo) do {
-		case "polyvalent": {
-			_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla1_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_leader","U_I_C_Soldier_Bandit_2_F","U_I_C_Soldier_Bandit_3_F","U_MU_B_GuerillaGarment_brown","U_MU_B_GuerillaGarment_skull","U_MU_B_GuerillaGarment2_brown","U_MU_B_GuerillaGarment2_grey"];
-			_backpack_big = ["rhssaf_kitbag_md2camo","rhssaf_alice_smb","rhssaf_alice_md2camo","rhsgref_hidf_alicepack","B_Kitbag_mcamo","B_Kitbag_rgr","B_Kitbag_cbr","B_Carryall_oli","B_Carryall_khk","B_Carryall_cbr"];
-			_backpack_small = ["B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_oli","B_TacticalPack_blk","B_TacticalPack_rgr","B_TacticalPack_oli","B_MU_TacticalPack_cbr"];
-			_headgear = ["H_Booniehat_dgtl","H_Cap_red","H_Cap_tan","rhssaf_booniehat_digital","rhssaf_bandana_oakleaf","rhssaf_bandana_md2camo","rhssaf_bandana_digital","H_Cap_oli","H_Cap_grn","H_Cap_blk","H_Booniehat_tan","H_Booniehat_oli","H_Booniehat_khk","H_Bandanna_camo","H_Bandanna_sand","H_Bandanna_sgg","H_Bandanna_khk","H_Bandanna_cbr","H_Bandanna_gry"];
-			_facewear = ["rhs_scarf","rhsusf_oakley_goggles_clr","rhsusf_shemagh2_tan","rhsusf_shemagh2_od","G_Bandanna_tan","G_Bandanna_oli","G_Bandanna_khk","G_Bandanna_blk","G_Aviator","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black"];
+		case "winter": {
+			_uniform = ["rhsgref_uniform_reed"];
+			_backpack_big = ["rhssaf_kitbag_md2camo","rhssaf_alice_smb","rhssaf_alice_md2camo","rhsgref_hidf_alicepack","B_Kitbag_sgg","B_Kitbag_rgr","B_Carryall_oli","B_Carryall_khk","B_Carryall_cbr"];
+			_backpack_small = ["B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_oli","B_TacticalPack_blk","B_TacticalPack_rgr"];
+			_headgear = ["H_Bandanna_gry","H_Bandanna_khk","H_Bandanna_sgg","H_Bandanna_camo","H_Booniehat_khk","H_Booniehat_oli","H_Cap_blk","H_Cap_grn","H_Cap_oli","rhs_Booniehat_m81","rhs_beanie_green","rhs_fieldcap_vsr","rhssaf_bandana_digital","rhssaf_bandana_md2camo","rhssaf_bandana_oakleaf","rhssaf_bandana_smb","rhs_beanie_green","rhs_beanie_green","rhs_beanie_green","rhs_beanie_green","rhs_beanie_green"];
+			_facewear = ["CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","rhs_scarf","rhsusf_shemagh2_od","rhsusf_shemagh_od","G_Shades_Red","G_Shades_Green","G_Shades_Black","G_Bandanna_oli","G_Bandanna_khk"];
 		};
 		case "woodland": {
 			_uniform = ["rhsgref_uniform_dpm","rhsgref_uniform_dpm_olive","rhsgref_uniform_flecktarn","rhsgref_uniform_reed","rhsgref_uniform_woodland","rhsgref_uniform_woodland_olive","rhssaf_uniform_m93_oakleaf","rhssaf_uniform_m93_oakleaf_summer"];
@@ -60,6 +60,7 @@ hard_setLoadout =
 			_headgear = ["CPC_JUN_fieldcap","CPC_JUN_fieldcap","CPC_JUN_fieldcap","CPC_JUN_fieldcap","H_Cap_oli","CPC_JUN_fieldcap","H_Cap_blk","CPC_JUN_fieldcap","H_Booniehat_oli","H_Booniehat_khk","rhssaf_bandana_md2camo","CPC_JUN_fieldcap","H_Bandanna_sgg","H_Bandanna_khk","H_Bandanna_cbr","H_Bandanna_gry"];
 			_facewear = ["CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black"];
 		};
+		case "polyvalent";
 		default {
 			_uniform = ["U_BG_Guerrilla_6_1","U_BG_Guerilla1_1","U_BG_Guerilla2_2","U_BG_Guerilla2_1","U_BG_Guerilla2_3","U_BG_leader","U_I_C_Soldier_Bandit_2_F","U_I_C_Soldier_Bandit_3_F","U_MU_B_GuerillaGarment_brown","U_MU_B_GuerillaGarment_skull","U_MU_B_GuerillaGarment2_brown","U_MU_B_GuerillaGarment2_grey"];
 			_backpack_big = ["rhssaf_kitbag_md2camo","rhssaf_alice_smb","rhssaf_alice_md2camo","rhsgref_hidf_alicepack","B_Kitbag_mcamo","B_Kitbag_rgr","B_Kitbag_cbr","B_Carryall_oli","B_Carryall_khk","B_Carryall_cbr"];

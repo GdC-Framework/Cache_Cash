@@ -32,7 +32,7 @@ hard_setLoadout =
 	_jungle = false;
 
 	//Hex
-	if (CPC_MAP in ["takistan","altis","isladuala3","pja307","fdf_isle1_a","woodland_acr","chernarus","chernarus_summer","noe","eden","chernarus_winter","dingor"]) then 
+	if (CPC_MAP in ["takistan","altis","isladuala3","pja307","fdf_isle1_a","woodland_acr","chernarus","chernarus_summer","noe","eden","chernarus_winter","dingor","sara"]) then 
 	{
 		_helmet = ["H_HelmetLeaderO_ocamo","H_HelmetO_ocamo"];
 		_hex = true;
@@ -71,7 +71,7 @@ hard_setLoadout =
 	};
 };
 
-if (worldName in ["takistan","Altis","IslaDuala3","pja307","FDF_Isle1_a","Woodland_ACR","chernarus","Chernarus"]) then {
+if (worldName in ["takistan","Altis","IslaDuala3","pja307","FDF_Isle1_a","Woodland_ACR","chernarus","Chernarus","sara"]) then {
 
 loadoutCC_OFF = //
 {

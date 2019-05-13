@@ -52,42 +52,8 @@ hard_setLoadout =
 	};
 	
 	switch (cc_loadoutcamo) do {
-		case "polyvalent": {
-			_uniform = "rhs_uniform_cu_ocp";
-			_backpack_big = "B_Carryall_cbr";
-			_backpack_med = "rhsusf_assault_eagleaiii_ocp";
-			_backpack_small = "rhsusf_falconii_mc";
-			_helmet = selectRandom ["rhsusf_ach_helmet_ocp","rhsusf_ach_helmet_camo_ocp"];
-			_helmet_tl = "rhsusf_ach_helmet_headset_ocp";
-			_hat = "rhs_Booniehat_ocp";
-			_vest_r = "rhsusf_spcs_ocp_rifleman_alt";
-			_vest_doc = "rhsusf_spcs_ocp_medic";
-			_vest_ar = "rhsusf_spcs_ocp_saw";
-			_vest_mg = "rhsusf_spcs_ocp_machinegunner";
-			_vest_m = "rhsusf_spcs_ocp_sniper";
-			_vest_gl = "rhsusf_spcs_ocp_grenadier";
-			_vest_sl = "rhsusf_spcs_ocp_squadleader";
-			_vest_tl = "rhsusf_spcs_ocp_teamleader_alt";
-			_vest_c = "rhsusf_spcs_ocp_crewman";
-		};
-		case "woodland": {
-			_uniform = "rhs_uniform_acu_ucp";
-			_backpack_big = "B_Carryall_mcamo";
-			_backpack_med = "rhsusf_assault_eagleaiii_ucp";
-			_backpack_small = "B_AssaultPack_rgr";
-			_helmet = "rhsusf_ach_helmet_ucp";
-			_helmet_tl = "rhsusf_ach_helmet_headset_ucp";
-			_hat = "rhs_Booniehat_ucp";
-			_vest_r = "rhsusf_spcs_ucp_rifleman_alt";
-			_vest_doc = "rhsusf_spcs_ucp_medic";
-			_vest_ar = "rhsusf_spcs_ucp_saw";
-			_vest_mg = "rhsusf_spcs_ucp_machinegunner";
-			_vest_m = "rhsusf_spcs_ucp_sniper";
-			_vest_gl = "rhsusf_spcs_ucp_grenadier";
-			_vest_sl = "rhsusf_spcs_ucp_squadleader";
-			_vest_tl = "rhsusf_spcs_ucp_teamleader_alt";
-			_vest_c = "rhsusf_spcs_ucp_crewman";
-		};
+		case "woodland";
+		case "winter";
 		case "desert": {
 			_uniform = "rhs_uniform_acu_ucp";
 			_backpack_big = "B_Carryall_mcamo";
@@ -106,24 +72,8 @@ hard_setLoadout =
 			_vest_tl = "rhsusf_spcs_ucp_teamleader_alt";
 			_vest_c = "rhsusf_spcs_ucp_crewman";
 		};
-		case "jungle": {
-			_uniform = "rhs_uniform_cu_ocp";
-			_backpack_big = "B_Carryall_cbr";
-			_backpack_med = "rhsusf_assault_eagleaiii_ocp";
-			_backpack_small = "rhsusf_falconii_mc";
-			_helmet = selectRandom ["rhsusf_ach_helmet_ocp","rhsusf_ach_helmet_camo_ocp"];
-			_helmet_tl = "rhsusf_ach_helmet_headset_ocp";
-			_hat = "rhs_Booniehat_ocp";
-			_vest_r = "rhsusf_spcs_ocp_rifleman_alt";
-			_vest_doc = "rhsusf_spcs_ocp_medic";
-			_vest_ar = "rhsusf_spcs_ocp_saw";
-			_vest_mg = "rhsusf_spcs_ocp_machinegunner";
-			_vest_m = "rhsusf_spcs_ocp_sniper";
-			_vest_gl = "rhsusf_spcs_ocp_grenadier";
-			_vest_sl = "rhsusf_spcs_ocp_squadleader";
-			_vest_tl = "rhsusf_spcs_ocp_teamleader_alt";
-			_vest_c = "rhsusf_spcs_ocp_crewman";
-		};
+		case "jungle";
+		case "polyvalent";
 		default {
 			_uniform = "rhs_uniform_cu_ocp";
 			_backpack_big = "B_Carryall_cbr";
@@ -144,16 +94,12 @@ hard_setLoadout =
 		};
 	};
 	switch (cc_rhsennemy) do {
-		case true: {
-			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
-			_weap_at = ["rhs_weap_maaws","","","rhs_optic_maaws",["rhs_mag_maaws_HEAT",1],[],""];
-			_mun_at = [["rhs_mag_maaws_HEAT",2,1],["rhs_mag_maaws_HEDP",1,1]];
-		};
 		case false: {
 			_weap_lat = ["CUP_launch_M136","","","",[],[],""];
 			_weap_at = ["CUP_launch_MAAWS","","","cup_optic_maaws_scope",["CUP_MAAWS_HEAT_M",1],[],""];
 			_mun_at = [["CUP_MAAWS_HEAT_M",2,1],["CUP_MAAWS_HEDP_M",1,1]];
 		};
+		case true;
 		default {
 			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
 			_weap_at = ["rhs_weap_maaws","","","rhs_optic_maaws",["rhs_mag_maaws_HEAT",1],[],""];

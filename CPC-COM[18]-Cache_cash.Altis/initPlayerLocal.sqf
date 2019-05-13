@@ -32,6 +32,7 @@ switch (CC_p_loaout) do {
 	case 17 : {call compile preprocessFileLineNumbers "loadout\loadout_PMC.sqf";};
 	case 18 : {call compile preprocessFileLineNumbers "loadout\loadout_FR.sqf";};
 	case 19 : {call compile preprocessFileLineNumbers "loadout\loadout_occident.sqf";};
+	case 20 : {call compile preprocessFileLineNumbers "loadout\loadout_US80.sqf";};
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -441,26 +441,26 @@ switch (CC_p_loaout) do {
 	};
 	//BAF
 	case 10 : {
-		_weap = "CUP_arifle_L85A2_NG";
+		_weap = "CUP_arifle_L85A2_G";
 		_gre = "CUP_HandGrenade_L109A1_HE";
-		_mag1 = "30Rnd_556x45_Stanag";
+		_mag1 = "CUP_30Rnd_556x45_Stanag_L85";
 		_mag2 = "20Rnd_762x51_Mag";
 		_mag_ar = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
 		_mag_mg = "CUP_100Rnd_TE4_LRT4_White_Tracer_762x51_Belt_M";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
-			_at = "rhs_weap_maaws_optic";
-			_mag_at1 = "rhs_mag_maaws_HEAT";
-			_mag_at2 = "rhs_mag_maaws_HEDP";
-			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_at = "rhs_weap_smaw_gr_optic";
+			_mag_at1 = "rhs_mag_smaw_HEAA";
+			_mag_at2 = "rhs_mag_smaw_HEDP";
+			_mag_at3 = "rhs_mag_smaw_SR";
 			_hat = "rhs_weap_fgm148";
 			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
-			_lat = "CUP_launch_NLAW";
-			_at = "CUP_launch_MAAWS_Scope";
-			_mag_at1 = "CUP_MAAWS_HEAT_M";
-			_mag_at2 = "CUP_MAAWS_HEDP_M";
-			_mag_at3 = "CUP_MAAWS_HEAT_M";
+			_lat = "CUP_launch_M136";
+			_at = "CUP_launch_Mk153Mod0_SMAWOptics";
+			_mag_at1 = "CUP_SMAW_HEAA_M";
+			_mag_at2 = "CUP_SMAW_HEDP_M";
+			_mag_at3 = "CUP_SMAW_Spotting";
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
@@ -757,6 +757,33 @@ switch (CC_p_loaout) do {
 			//items
 			"NVGoggles_OPFOR","rhsusf_ANPVS_14","Laserbatteries","Laserdesignator_01_khk_F"
 		];
+	};
+	//US 80s
+	case 20 : {
+		_weap = "CUP_arifle_M16A1";
+		_gre = "CUP_HandGrenade_M67";
+		_mag1 = "CUP_20Rnd_556x45_Stanag";
+		_mag2 = "20Rnd_762x51_Mag";
+		_mag_ar = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
+		_mag_mg = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
+		if (cc_rhsennemy) then {
+			_lat = "rhs_weap_m72a7";
+			_at = "rhs_weap_maaws_optic";
+			_mag_at1 = "rhs_mag_maaws_HEAT";
+			_mag_at2 = "rhs_mag_maaws_HEDP";
+			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_hat = "rhs_weap_fgm148";
+			_mag_hat = "rhs_fgm148_magazine_AT";
+		} else {
+			_lat = "CUP_launch_M72A6";
+			_at = "CUP_launch_MAAWS_Scope";
+			_mag_at1 = "CUP_MAAWS_HEAT_M";
+			_mag_at2 = "CUP_MAAWS_HEDP_M";
+			_mag_at3 = "CUP_MAAWS_HEAT_M";
+			_hat = "CUP_launch_Javelin";
+			_mag_hat = "CUP_Javelin_M";
+		};
+		_arsenal_items_faction = [];
 	};
 };
 

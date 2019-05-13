@@ -53,26 +53,6 @@ hard_setLoadout =
 	};
 	
 	switch (cc_loadoutcamo) do {
-		case "polyvalent": {
-			_uniform = "rhs_uniform_FROG01_wd";
-			_backpack_big = "B_Carryall_khk";
-			_backpack_med = "rhsusf_assault_eagleaiii_coy";
-			_backpack_small = "rhsusf_falconii_coy";
-			_helmet = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {selectrandom ["rhsusf_lwh_helmet_marpatwd_blk_ess","rhsusf_lwh_helmet_marpatwd"]};
-			_helmet_tl = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {"rhsusf_lwh_helmet_marpatwd_headset_blk"};
-			_hat = "rhs_booniehat2_marpatwd";
-			_helmet_crew = "rhsusf_cvc_green_alt_helmet";
-		};
-		case "woodland": {
-			_uniform = "rhs_uniform_FROG01_wd";
-			_backpack_big = "B_Carryall_khk";
-			_backpack_med = "rhsusf_assault_eagleaiii_coy";
-			_backpack_small = "rhsusf_falconii_coy";
-			_helmet = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {selectrandom ["rhsusf_lwh_helmet_marpatwd_blk_ess","rhsusf_lwh_helmet_marpatwd"]};
-			_helmet_tl = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {"rhsusf_lwh_helmet_marpatwd_headset_blk"};
-			_hat = "rhs_booniehat2_marpatwd";
-			_helmet_crew = "rhsusf_cvc_green_alt_helmet";
-		};
 		case "desert": {
 			_uniform = "rhs_uniform_FROG01_d";
 			_backpack_big = "B_Carryall_cbr";
@@ -83,16 +63,10 @@ hard_setLoadout =
 			_hat = "rhs_booniehat2_marpatd";
 			_helmet_crew = "rhsusf_cvc_alt_helmet";
 		};
-		case "jungle": {
-			_uniform = "rhs_uniform_FROG01_wd";
-			_backpack_big = "B_Carryall_khk";
-			_backpack_med = "rhsusf_assault_eagleaiii_coy";
-			_backpack_small = "rhsusf_falconii_coy";
-			_helmet = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {selectrandom ["rhsusf_lwh_helmet_marpatwd_blk_ess","rhsusf_lwh_helmet_marpatwd"]};
-			_helmet_tl = if (CC_p_nvg == 1) then {"rhsusf_lwh_helmet_marpatwd"} else {"rhsusf_lwh_helmet_marpatwd_headset_blk"};
-			_hat = "rhs_booniehat2_marpatwd";
-			_helmet_crew = "rhsusf_cvc_green_alt_helmet";
-		};
+		case "jungle";
+		case "woodland";
+		case "winter";
+		case "polyvalent";
 		default {
 			_uniform = "rhs_uniform_FROG01_wd";
 			_backpack_big = "B_Carryall_khk";
@@ -105,19 +79,15 @@ hard_setLoadout =
 		};
 	};
 	switch (cc_rhsennemy) do {
-		case true: {
-			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
-			_weap_at = ["rhs_weap_smaw_green","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];
-			_mun_at = [["rhs_mag_smaw_HEAA",2,1],["rhs_mag_smaw_SR",2,5]];
-		};
 		case false: {
 			_weap_lat = ["CUP_launch_M136","","","",[],[],""];
 			_weap_at = ["CUP_launch_Mk153Mod0","","","cup_optic_maaws_scope",["CUP_SMAW_HEAA_M",1],[],""];
 			_mun_at = [["CUP_SMAW_HEAA_M",2,1],["CUP_SMAW_HEDP_M",1,1]];
 		};
+		case true;
 		default {
 			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
-			_weap_at = ["rhs_weap_smaw_green","","","cup_optic_smaw_scope",["rhs_mag_CUP_SMAW_HEAA_Msmaw_HEAA",1],[],""];
+			_weap_at = ["rhs_weap_smaw_green","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];
 			_mun_at = [["rhs_mag_smaw_HEAA",2,1],["rhs_mag_smaw_SR",2,5]];
 		};
 	
