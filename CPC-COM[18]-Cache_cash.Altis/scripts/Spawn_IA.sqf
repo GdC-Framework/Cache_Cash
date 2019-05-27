@@ -219,7 +219,8 @@ if (CC_p_menace_aa == 1) then {
 if (random 100 < 22) then {
 	_dir = [[getMarkerPos "Mark_Inser" select 0,getMarkerPos "Mark_Inser" select 1,0],[getMarkerPos "1" select 0,getMarkerPos "1" select 1,0]] call BIS_fnc_dirTo;
 	_pos = [[getmarkerpos "1" select 0, getmarkerpos "1" select 1,0],2000,(_dir + ((random 20)-10)),0] call SHK_pos;
-	_group = [_pos,_side,"B_G_Mortar_01_F",[_r],(random 360)] call STDR_fnc_spawnVehicle;
+	_veh = [_pos,_side,"B_G_Mortar_01_F",[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+	_group = _veh#0; _veh = _veh#1;
 	_group setVariable ["GAIA_ZONE_INTEND",["3","NOFOLLOW"],false];
 };
 

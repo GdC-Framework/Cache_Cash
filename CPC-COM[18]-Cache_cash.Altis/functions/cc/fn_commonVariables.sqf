@@ -74,6 +74,7 @@ cc_IAcamo = "polyvalent";
 switch (toLower worldName) do {
 	case "altis" : {cc_IAcamo = "polyvalent"};
 	case "sara" : {cc_IAcamo = "polyvalent"};
+	case "enoch" : {cc_IAcamo = "woodland"}; // Livonia
 	case "chernarus" : {cc_IAcamo = "woodland"};
 	case "chernarus_summer" : {cc_IAcamo = "woodland"};
 	case "fdf_isle1_a" : {cc_IAcamo = "woodland"}; // Podagorsk
