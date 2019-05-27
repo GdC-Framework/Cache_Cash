@@ -123,7 +123,7 @@ hard_setLoadout =
 	if (CC_p_nvg < 1) then {
 		_facewear = selectrandom ["CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","G_Shades_Red","G_Shades_Green","G_Shades_Black"];
 	} else {
-		_facewear = selectRandomWeighted ["CUP_TK_NeckScarf",0.5,"CUP_FR_NeckScarf",0.5,"CUP_FR_NeckScarf2",0.5,"None",0.9];
+		_facewear = selectRandomWeighted ["CUP_TK_NeckScarf",0.5,"CUP_FR_NeckScarf",0.5,"CUP_FR_NeckScarf2",0.5,"",0.9];
 	};
 
 	_weap_rco = ["CUP_arifle_L85A2_G","",_lamp,"cup_optic_elcan_reflex",["CUP_30Rnd_556x45_Stanag_L85",30],[],""];

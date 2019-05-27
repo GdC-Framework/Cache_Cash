@@ -81,22 +81,21 @@ hard_setLoadout =
 	switch (cc_rhsennemy) do {
 		case false: {
 			_weap_lat = ["CUP_launch_M136","","","",[],[],""];
-			_weap_at = ["CUP_launch_Mk153Mod0","","","cup_optic_maaws_scope",["CUP_SMAW_HEAA_M",1],[],""];
-			_mun_at = [["CUP_SMAW_HEAA_M",2,1],["CUP_SMAW_HEDP_M",1,1]];
+			_weap_at = ["CUP_launch_Mk153Mod0","","","cup_optic_smaw_scope",["CUP_SMAW_HEAA_M",1],[],""];
+			_mun_at = [["CUP_SMAW_HEAA_M",2,1],["CUP_SMAW_Spotting",2,5]];
 		};
 		case true;
 		default {
 			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
-			_weap_at = ["rhs_weap_smaw_green","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];
+			_weap_at = ["rhs_weap_smaw","","","rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA",1],[],""];
 			_mun_at = [["rhs_mag_smaw_HEAA",2,1],["rhs_mag_smaw_SR",2,5]];
 		};
-	
 	};
 
 	if (CC_p_nvg < 1) then {
 		_facewear = selectrandom ["CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","rhsusf_oakley_goggles_ylw","rhsusf_oakley_goggles_clr","rhsusf_oakley_goggles_blk","rhs_ess_black","rhs_googles_orange","rhs_googles_yellow","rhs_googles_clear","rhs_googles_black","G_Shades_Red","G_Shades_Green","G_Shades_Blue","G_Shades_Black"];
 	} else {
-		_facewear = selectRandomWeighted ["CUP_TK_NeckScarf",0.5,"CUP_FR_NeckScarf",0.5,"CUP_FR_NeckScarf2",0.5,"None",0.9];
+		_facewear = selectRandomWeighted ["CUP_TK_NeckScarf",0.5,"CUP_FR_NeckScarf",0.5,"CUP_FR_NeckScarf2",0.5,"",0.9];
 	};
 
 	_weap_m4_cco = ["rhs_weap_m4a1_carryhandle","",_lamp,"rhsusf_acc_compm4",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""];

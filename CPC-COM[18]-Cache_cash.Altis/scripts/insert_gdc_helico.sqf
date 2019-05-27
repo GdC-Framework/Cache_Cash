@@ -27,6 +27,7 @@ _type = switch (CC_p_loaout) do {
 	case 18 : {"CUP_B_SA330_Puma_HC2_BAF"}; // FR
 	case 19 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // occident
 	case 20 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // us 80s
+	case 21 : {"RHS_Mi8AMT_vvsc"}; // RU 1980
 	default {"RHS_CH_47F"};
 };
 

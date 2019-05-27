@@ -25,7 +25,7 @@ switch (CC_p_loaout) do {
 	case 10 : {call compile preprocessFileLineNumbers "loadout\loadout_BAF.sqf";};
 	case 11 : {call compile preprocessFileLineNumbers "loadout\loadout_RACS.sqf";};
 	case 12 : {call compile preprocessFileLineNumbers "loadout\loadout_TAK.sqf";};
-	case 13 : {call compile preprocessFileLineNumbers "loadout\loadout_INS2.sqf";};
+	case 13 : {call compile preprocessFileLineNumbers "loadout\loadout_INS.sqf";};
 	case 14 : {call compile preprocessFileLineNumbers "loadout\loadout_TAK_INS.sqf";};
 	case 15 : {call compile preprocessFileLineNumbers "loadout\loadout_SAF.sqf";};
 	case 16 : {call compile preprocessFileLineNumbers "loadout\loadout_CDF.sqf";};
@@ -33,6 +33,7 @@ switch (CC_p_loaout) do {
 	case 18 : {call compile preprocessFileLineNumbers "loadout\loadout_FR.sqf";};
 	case 19 : {call compile preprocessFileLineNumbers "loadout\loadout_occident.sqf";};
 	case 20 : {call compile preprocessFileLineNumbers "loadout\loadout_US80.sqf";};
+	case 21 : {call compile preprocessFileLineNumbers "loadout\loadout_RU1980.sqf";};
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

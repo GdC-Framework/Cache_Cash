@@ -12,35 +12,158 @@
 		- Une fois ceci fait, remplacez tout les 'this' par '_unit'.
 	3/ Dans l'éditeur, placez la commande ci-dessous dans les init d'unités jouables pour leur attribuer le loadout souhaité :
 		this setVariable ["loadout", "cc_sl"];
-		
-	PS :Dans l'exemple ci-dessous les lignes des commentaires issues de l'exportation avec l'arsenal vitruel ont été supprimées pour une meilleure lisibilité.
-
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------*/
-private ["_rhsennemy","_uniform","_helmet","_nvg","_lamp"];
+
 
 hard_setLoadout = 
 {
 	_unit = _this select 0;
 	_loadout = _unit getVariable "loadout";
+	_uniform = "";
+	_backpack_big = "";
+	_backpack_med = "";
+	_backpack_small = "";
+	_helmet = "";
+	_vest_r = "";
+	_vest_ar = "";
+	_vest_gl = "";
+	_vest_tl = "";
+	_vest_l = "";
+	_camo = "";
+	_nvg = "";
+	_lamp = "";
+	_weap_r = "";
+	_weap_gl = "";
+	_mag = "";
+	_cco = "";
+	_rco = "";
+	_weap_lat = [];
+	_weap_at = [];
+	_mun_at = [];
+	_facewear =  [];
+
+	switch (CC_p_nvg) do {
+		case 0: {_nvg = ""; _lamp = "";};
+		case 1: {_nvg = "CUP_NVG_PVS15_black"; _lamp = "cup_acc_flashlight";};
+		case 2: {_nvg = ""; _lamp = "acc_flashlight";};
+		default {_nvg = ""; _lamp = "";};
+	};
 	
-	_rhsennemy = cc_rhsennemy;
-	_nvg = false;
-	_lamp = false;
-	_uniform = ["CUP_I_B_PMC_Unit_24","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_20","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_8","CUP_I_B_PMC_Unit_7","CUP_I_B_PMC_Unit_6","CUP_I_B_PMC_Unit_5","CUP_I_B_PMC_Unit_4","CUP_I_B_PMC_Unit_3","CUP_I_B_PMC_Unit_2","CUP_I_B_PMC_Unit_1"];
-	_helmet = ["CUP_H_PMC_Cap_Burberry","CUP_H_PMC_Cap_Grey","CUP_H_PMC_Cap_Tan","CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_PMC_Cap_Back_PRR_Burberry","CUP_H_PMC_Cap_Back_PRR_Grey","CUP_H_PMC_Cap_Back_PRR_Tan","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan","CUP_H_FR_Cap_Headset_Green","CUP_H_PMC_Cap_PRR_Burberry","CUP_H_PMC_Cap_PRR_Grey","CUP_H_PMC_Cap_PRR_Tan","CUP_H_PMC_EP_Headset","CUP_H_PMC_PRR_Headset"];
-	_vest = ["CUP_V_PMC_CIRAS_Black_Patrol","CUP_V_PMC_CIRAS_Coyote_Patrol","CUP_V_PMC_IOTV_Black_Patrol","CUP_V_PMC_IOTV_Coyote_Patrol"];
-	_vest_l = ["CUP_V_PMC_CIRAS_Black_Veh","CUP_V_PMC_CIRAS_Coyote_Veh"];
-	_vest_tl = ["CUP_V_PMC_CIRAS_Black_TL","CUP_V_PMC_CIRAS_Coyote_TL","CUP_V_PMC_IOTV_Black_TL","CUP_V_PMC_IOTV_Coyote_TL"];
-	_weapon = ["rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle","rhs_weap_m4_carryhandle_mstock"];
-	_scope = ["rhsusf_acc_eotech_552","rhsusf_acc_compm4","rhsusf_acc_eotech_552","rhsusf_acc_compm4","rhsusf_acc_ACOG","rhsusf_acc_ELCAN"];
-	_flash = ["acc_flashlight","rhs_acc_2dpZenit_ris","rhsusf_acc_M952V","rhsusf_acc_wmx"];
-	_handguard = ["rhsusf_acc_grip2","rhs_acc_grip_ffg2","rhsusf_acc_grip1","rhsusf_acc_grip3","","",""];
-	_sac = ["B_Kitbag_rgr","B_Kitbag_mcamo","B_Kitbag_cbr","B_TacticalPack_blk","B_TacticalPack_oli","B_MU_TacticalPack_cbr"];
-	_nvg_item = ["CUP_NVG_PVS14","CUP_NVG_PVS7","CUP_NVG_HMNVS"];
+	switch (cc_loadoutcamo) do {
+		case "winter": {
+			_uniform = selectRandom ["CUP_I_B_PMC_Unit_33","CUP_I_B_PMC_Unit_29","CUP_I_B_PMC_Unit_25","CUP_I_B_PMC_Unit_30"];
+			_backpack_big = "CPC_Snow_Backpack_1";
+			_backpack_med = selectRandom ["B_MU_Kitbag_blk","B_Kitbag_sgg"];
+			_backpack_small = selectRandom ["B_AssaultPack_blk","B_AssaultPack_sgg"];
+			_helmet = selectRandom ["CUP_H_FR_BeanieGreen","CUP_H_PMC_Beanie_Headphones_Winter","CUP_H_PMC_Beanie_Headphones_Khaki","CUP_H_PMC_Beanie_Headphones_Black","H_Watchcap_khk","H_Watchcap_blk"];
+			_facewear = [];
+			_vest_r = "CUP_V_PMC_CIRAS_Winter_Patrol";
+			_vest_tl = "CUP_V_PMC_CIRAS_Winter_TL";
+			_vest_gl = "CUP_V_PMC_CIRAS_Winter_Grenadier";
+			_vest_l = "CUP_V_PMC_CIRAS_Winter_Veh";
+			_vest_ar = _vest_r;
+			_camo = "black";
+		};
+		case "desert": {
+			_uniform = selectRandom ["CUP_I_B_PMC_Unit_32","CUP_I_B_PMC_Unit_31","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_20"];
+			_backpack_big = selectRandom ["B_Carryall_cbr","B_Carryall_khk"];
+			_backpack_med = selectRandom ["B_Kitbag_cbr","B_Kitbag_rgr","B_Kitbag_mcamo"];
+			_backpack_small = selectRandom ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk"];
+			_helmet = selectRandom ["H_Cap_oli_hs","CUP_H_RUS_Bandana_HS","H_Bandanna_khk_hs","CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_PMC_Cap_Back_PRR_Grey","CUP_H_PMC_Cap_Back_PRR_Tan","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan","CUP_H_PMC_Cap_PRR_Grey","CUP_H_PMC_Cap_PRR_Tan"];
+			_facewear = ["CUP_TK_NeckScarf","CUP_FR_NeckScarf5","CUP_FR_NeckScarf2","CUP_FR_NeckScarf"];
+			_vest_r = selectRandom ["CUP_V_PMC_CIRAS_Black_Patrol","CUP_V_PMC_CIRAS_Coyote_Patrol","CUP_V_PMC_IOTV_Black_Patrol","CUP_V_PMC_IOTV_Coyote_Patrol"];
+			_vest_tl = selectRandom ["CUP_V_PMC_CIRAS_Black_TL","CUP_V_PMC_CIRAS_Coyote_TL","CUP_V_PMC_IOTV_Black_TL","CUP_V_PMC_IOTV_Coyote_TL"];
+			_vest_gl = selectRandom ["CUP_V_PMC_CIRAS_Black_Grenadier","CUP_V_PMC_CIRAS_Coyote_Grenadier","CUP_V_PMC_IOTV_Black_Grenadier","CUP_V_PMC_IOTV_Coyote_Grenadier"];
+			_vest_l = selectRandom ["CUP_V_PMC_CIRAS_Black_Veh","CUP_V_PMC_CIRAS_Coyote_Veh"];
+			_vest_ar = selectRandom ["CUP_V_PMC_IOTV_Black_AR","CUP_V_PMC_IOTV_Coyote_AR"];
+			_camo = selectrandom ["black","tan"];
+		};
+		case "woodland";
+		case "jungle": {
+			_uniform = selectRandom ["CUP_I_B_PMC_Unit_32","CUP_I_B_PMC_Unit_31","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_20"];
+			_backpack_big = selectRandom ["B_Carryall_oli","B_Carryall_cbr","B_Carryall_khk"];
+			_backpack_med = selectRandom ["B_Kitbag_cbr","B_Kitbag_rgr","B_Kitbag_mcamo"];
+			_backpack_small = selectRandom ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk"];
+			_helmet = selectRandom ["H_Cap_oli_hs","CUP_H_RUS_Bandana_HS","H_Bandanna_khk_hs","H_Watchcap_khk","H_Watchcap_camo","H_Watchcap_cbr","H_Watchcap_blk","CUP_H_PMC_Beanie_Headphones_Black","CUP_H_PMC_Beanie_Headphones_Khaki","CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_PMC_Cap_Back_PRR_Grey","CUP_H_PMC_Cap_Back_PRR_Tan","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan","CUP_H_PMC_Cap_PRR_Grey","CUP_H_PMC_Cap_PRR_Tan"];
+			_facewear = ["CUP_TK_NeckScarf","CUP_FR_NeckScarf2","CUP_FR_NeckScarf"];
+			_vest_r = selectRandom ["CUP_V_PMC_CIRAS_Black_Patrol","CUP_V_PMC_CIRAS_Coyote_Patrol","CUP_V_PMC_IOTV_Black_Patrol","CUP_V_PMC_IOTV_Coyote_Patrol"];
+			_vest_tl = selectRandom ["CUP_V_PMC_CIRAS_Black_TL","CUP_V_PMC_CIRAS_Coyote_TL","CUP_V_PMC_IOTV_Black_TL","CUP_V_PMC_IOTV_Coyote_TL"];
+			_vest_gl = selectRandom ["CUP_V_PMC_CIRAS_Black_Grenadier","CUP_V_PMC_CIRAS_Coyote_Grenadier","CUP_V_PMC_IOTV_Black_Grenadier","CUP_V_PMC_IOTV_Coyote_Grenadier"];
+			_vest_l = selectRandom ["CUP_V_PMC_CIRAS_Black_Veh","CUP_V_PMC_CIRAS_Coyote_Veh"];
+			_vest_ar = selectRandom ["CUP_V_PMC_IOTV_Black_AR","CUP_V_PMC_IOTV_Coyote_AR"];
+			_camo = selectrandom ["black","black","od"];
+		};
+		case "polyvalent";
+		default {
+			_uniform = selectRandom ["CUP_I_B_PMC_Unit_32","CUP_I_B_PMC_Unit_31","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_20"];
+			_backpack_big = selectRandom ["B_Carryall_oli","B_Carryall_cbr","B_Carryall_khk"];
+			_backpack_med = selectRandom ["B_Kitbag_cbr","B_Kitbag_rgr","B_Kitbag_mcamo"];
+			_backpack_small = selectRandom ["B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk"];
+			_helmet = selectRandom ["H_Cap_oli_hs","CUP_H_RUS_Bandana_HS","H_Bandanna_khk_hs","H_Watchcap_khk","H_Watchcap_camo","H_Watchcap_cbr","H_Watchcap_blk","CUP_H_PMC_Beanie_Headphones_Black","CUP_H_PMC_Beanie_Headphones_Khaki","CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_PMC_Cap_Back_PRR_Grey","CUP_H_PMC_Cap_Back_PRR_Tan","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan","CUP_H_PMC_Cap_PRR_Grey","CUP_H_PMC_Cap_PRR_Tan"];
+			_facewear = ["CUP_TK_NeckScarf","CUP_FR_NeckScarf5","CUP_FR_NeckScarf2","CUP_FR_NeckScarf"];
+			_vest_r = selectRandom ["CUP_V_PMC_CIRAS_Black_Patrol","CUP_V_PMC_CIRAS_Coyote_Patrol","CUP_V_PMC_IOTV_Black_Patrol","CUP_V_PMC_IOTV_Coyote_Patrol"];
+			_vest_tl = selectRandom ["CUP_V_PMC_CIRAS_Black_TL","CUP_V_PMC_CIRAS_Coyote_TL","CUP_V_PMC_IOTV_Black_TL","CUP_V_PMC_IOTV_Coyote_TL"];
+			_vest_gl = selectRandom ["CUP_V_PMC_CIRAS_Black_Grenadier","CUP_V_PMC_CIRAS_Coyote_Grenadier","CUP_V_PMC_IOTV_Black_Grenadier","CUP_V_PMC_IOTV_Coyote_Grenadier"];
+			_vest_l = selectRandom ["CUP_V_PMC_CIRAS_Black_Veh","CUP_V_PMC_CIRAS_Coyote_Veh"];
+			_vest_ar = selectRandom ["CUP_V_PMC_IOTV_Black_AR","CUP_V_PMC_IOTV_Coyote_AR"];
+			_camo = selectrandom ["black","tan","od"];
+		};
+	};
+	switch (cc_rhsennemy) do {
+		case false: {
+			_weap_lat = ["CUP_launch_M136","","","",[],[],""];
+			_weap_at = ["CUP_launch_MAAWS","","","cup_optic_maaws_scope",["CUP_MAAWS_HEAT_M",1],[],""];
+			_mun_at = [["CUP_MAAWS_HEAT_M",2,1],["CUP_MAAWS_HEDP_M",1,1]];
+		};
+		case true;
+		default {
+			_weap_lat = ["rhs_weap_M136","","","",[],[],""];
+			_weap_at = ["rhs_weap_maaws","","","rhs_optic_maaws",["rhs_mag_maaws_HEAT",1],[],""];
+			_mun_at = [["rhs_mag_maaws_HEAT",2,1],["rhs_mag_maaws_HEDP",1,1]];
+		};
 	
-	if (CC_p_nvg == 1) then {_nvg = true};
-	if (CC_p_nvg == 2) then {_lamp = true};
+	};
+
+	if (CC_p_nvg < 1) then {
+		_facewear = selectrandom (_facewear + ["CUP_G_Oakleys_Drk","CUP_G_Oakleys_Embr","G_Shades_Red","G_Shades_Green","G_Shades_Black"]);
+	} else {
+		_facewear = selectrandom _facewear;
+	};
+
+	switch (_camo) do {
+		case "black": {
+			_weap_r = selectrandom ["CUP_arifle_HK416_Black","CUP_arifle_M4A3_black"];
+			_weap_gl = selectrandom ["CUP_arifle_HK416_M203_Black","CUP_arifle_M4A1_BUIS_GL"];
+			_mag = selectrandom ["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_PMAG_QP","CUP_30Rnd_556x45_Emag"];
+			_cco = selectrandom ["cup_optic_compm2_low","cup_optic_compm2_low","cup_optic_eotech553_black","cup_optic_microt1"];
+			_rco = selectrandom ["cup_optic_elcan","cup_optic_acog"];
+		};
+		case "tan": {
+			_weap_r = selectrandom ["CUP_arifle_HK416_Desert","CUP_arifle_M4A3_desert"];
+			_weap_gl = selectrandom ["CUP_arifle_HK416_CQB_M203_Desert","CUP_arifle_M4A1_BUIS_desert_GL"];
+			_mag = selectrandom ["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_PMAG_QP_Tan","CUP_30Rnd_556x45_EMAG_Tan"];
+			_cco = selectrandom ["cup_optic_compm2_low_coyote","cup_optic_compm2_low_coyote","cup_optic_eotech553_black","cup_optic_microt1"];
+			_rco = selectrandom ["cup_optic_elcan_coyote","cup_optic_acog_reflex_desert"];
+		};
+		case "od": {
+			_weap_r = selectrandom ["CUP_arifle_HK416_Wood","CUP_arifle_M4A3_camo"];
+			_weap_gl = selectrandom ["CUP_arifle_HK416_M203_Wood","CUP_arifle_M4A1_BUIS_camo_GL"];
+			_mag = selectrandom ["CUP_30Rnd_556x45_Stanag","CUP_30Rnd_556x45_PMAG_QP_Olive","CUP_30Rnd_556x45_EMAG_Olive"];
+			_cco = selectrandom ["cup_optic_compm2_low_od","cup_optic_compm2_low_od","cup_optic_eotech553_black","cup_optic_microt1"];
+			_rco = selectrandom ["cup_optic_elcan_od","cup_optic_acog_reflex_wood"];
+		};
+	};
+
+	_weap_cco = [_weap_r,"",_lamp,_cco,[_mag,30],[],""];
+	_weap_rco = [_weap_r,"",_lamp,_rco,[_mag,30],[],""];
+	_weap_gl = [_weap_gl,"",_lamp,_cco,[_mag,30],["CUP_1Rnd_HEDP_M203",1],""];
+	_pistol = ["hgun_Rook40_F","","","",["16Rnd_9x21_Mag",17],[],""];
+
+	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_MX991",1],["ACRE_PRC343",1],["ACE_CableTie",1],["ACE_IR_Strobe_Item",1],["SmokeShell",1,1]];
+	_itemsU_tl = _itemsU_base + [["ACRE_PRC148",1],["ACE_microDAGR",1],["ACE_MapTools",1]];
+	_itemsV_base = [["HandGrenade",2,1],["SmokeShell",2,1],[_mag,7,30],["16Rnd_9x21_Mag",2,17]];
+	_itemsB_medic = [["ACE_personalAidKit",1],["ACE_surgicalKit",1],["ACE_salineIV",2],["ACE_salineIV_250",2],["ACE_salineIV_500",2],["ACE_packingBandage",15],["ACE_fieldDressing",15],["ACE_elasticBandage",10],["ACE_quikclot",10],["ACE_morphine",8],["ACE_epinephrine",4],["ACE_tourniquet",4]];
 	
 	switch _loadout do 
 	{
@@ -64,6 +187,7 @@ hard_setLoadout =
 		case "cc_sniper": {[_unit] call loadoutCC_SNIPER}; //18
 		case "cc_obs": {[_unit] call loadoutCC_OBS}; //19
 		case "cc_jtac": {[_unit] call loadoutCC_JTAC}; //20
+		default {[_unit] call loadoutCC_R};
 	};
 };
 
@@ -72,943 +196,339 @@ hard_setLoadout =
 loadoutCC_OFF = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_17Rnd_9x19_JHP";};
-	for "_i" from 1 to 3 do {_unit addItemToUniform "SmokeShellBlue";};
-	for "_i" from 1 to 3 do {_unit addItemToUniform "SmokeShellPurple";};
-	_unit addVest (selectrandom _vest_tl);
-	_unit addItemToVest "ACE_microDAGR";
-	_unit addItemToVest "ACE_MapTools";
-	_unit addItemToVest "ACRE_PRC148";
-	_unit addItemToVest "ACE_IR_Strobe_Item";
-	for "_i" from 1 to 5 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg) then {_unit addPrimaryWeaponItem "rhs_acc_perst3";};
-	if (_lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_glock17g4";
-	_unit addWeapon "rhs_pdu4";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_tl,[["HandGrenade",1,1],["SmokeShellGreen",4,1],[_mag,7,30],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_small,[["ACRE_PRC117F",1],["SmokeShellPurple",2,1]]],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
+
 
 loadoutCC_TL = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_17Rnd_9x19_JHP";};
-	for "_i" from 1 to 3 do {_unit addItemToUniform "SmokeShellBlue";};
-	_unit addVest (selectrandom _vest_tl);
-	_unit addItemToVest "ACE_microDAGR";
-	_unit addItemToVest "ACE_MapTools";
-	_unit addItemToVest "ACRE_PRC148";
-	_unit addItemToVest "ACE_IR_Strobe_Item";
-	for "_i" from 1 to 5 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg) then {_unit addPrimaryWeaponItem "rhs_acc_perst3";};
-	if (_lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_glock17g4";
-	_unit addWeapon "ACE_Vector";
-	if (_rhsennemy) then {_unit addWeapon "rhs_weap_M136";};
-	if (!_rhsennemy) then {_unit addWeapon "CUP_launch_M136";};
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_rco,
+		_weap_lat,
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_tl,[["HandGrenade",2,1],["SmokeShellGreen",4,1],[_mag,7,30],["16Rnd_9x21_Mag",2,17]]],
+		[],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_DOC = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_15Rnd_9x19_JHP";};
-	_unit addVest (selectrandom _vest_l);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addBackpack (selectrandom _sac);
-	_unit addItemToBackpack "ACE_personalAidKit";
-	for "_i" from 1 to 20 do {_unit addItemToBackpack "ACE_fieldDressing";};
-	for "_i" from 1 to 20 do {_unit addItemToBackpack "ACE_packingBandage";};
-	for "_i" from 1 to 15 do {_unit addItemToBackpack "ACE_elasticBandage";};
-	for "_i" from 1 to 10 do {_unit addItemToBackpack "ACE_quikclot";};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "ACE_salineIV_250";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "ACE_salineIV_500";};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "ACE_salineIV";};
-	for "_i" from 1 to 8 do {_unit addItemToBackpack "ACE_morphine";};
-	for "_i" from 1 to 8 do {_unit addItemToBackpack "ACE_epinephrine";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "ACE_tourniquet";};
-	_unit addItemToBackpack "ACE_surgicalKit";
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_m9";
-	_unit addWeapon "Binocular";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_med,_itemsB_medic],
+		_helmet,
+		_facewear,
+		["Binocular","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_AR = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest "CUP_V_PMC_IOTV_Black_AR";
-	for "_i" from 1 to 2 do {_unit addItemToVest "rhs_200rnd_556x45_M_SAW";};
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "rhs_200rnd_556x45_M_SAW";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_m249_pip_S_para";
-	_unit addPrimaryWeaponItem "rhsusf_acc_eotech_552";
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		["CUP_lmg_m249_pip1","","","cup_optic_eotech553_black",["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",200],[],""],
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_ar,[["HandGrenade",2,1],["SmokeShell",2,1],["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",1,200],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_small,[["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",2,200]]],
+		_helmet,
+		_facewear,
+		[],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_AAR = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 3 do {_unit addItemToBackpack "rhs_200rnd_556x45_M_SAW";};
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_med,[["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",4,200]]],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
-
 loadoutCC_MG = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest "CUP_V_PMC_IOTV_Black_AR";
-	for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_50Rnd_762x51";};
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "rhsusf_50Rnd_762x51";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_m240B_CAP";
-	_unit addPrimaryWeaponItem "rhsusf_acc_ACOG_MDO";
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "Binocular";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		["CUP_lmg_MG3_rail","",_lamp,"cup_optic_elcanm145",["CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",120],[],""],
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_ar,[["HandGrenade",2,1],["SmokeShell",2,1],["CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",1,120],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_small,[["CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",2,120]]],
+		_helmet,
+		_facewear,
+		["Binocular","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_AMG = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 6 do {_unit addItemToBackpack "rhsusf_50Rnd_762x51_m62_tracer";};
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_rco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_med,[["CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",4,120]]],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_AT = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	_unit addItemToUniform "SmokeShell";
-	_unit addItemToUniform "CUP_HandGrenade_M67";
-	for "_i" from 1 to 4 do {_unit addItemToUniform "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addVest "CUP_V_PMC_CIRAS_Coyote_Empty";
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	if (!_rhsennemy) then {
-		_unit addBackpack (selectrandom _sac);
-		for "_i" from 1 to 2 do {_unit addItemToBackpack "CUP_SMAW_HEAA_M";};
-		_unit addWeapon "CUP_launch_Mk153Mod0";
-		_unit addSecondaryWeaponItem "CUP_optic_SMAW_Scope";
-	} else {
-		_unit addBackpack "B_Carryall_khk";
-		for "_i" from 1 to 2 do {_unit addItemToBackpack "rhs_mag_smaw_HEAA";};
-		for "_i" from 1 to 2 do {_unit addItemToBackpack "rhs_mag_smaw_SR";};
-		_unit addWeapon "rhs_weap_smaw_green";
-		_unit addSecondaryWeaponItem "rhs_weap_optic_smaw";
-	};
-	_unit addWeapon "Binocular";
-	_unit addItemToUniform "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		_weap_at,
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_big,_mun_at],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_AAT = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_7x45acp_MHP";};
-	_unit addVest (selectrandom _vest_l);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-	if (!_rhsennemy) then {
-		_unit addBackpack (selectrandom _sac);
-		for "_i" from 1 to 2 do {_unit addItemToBackpack "CUP_SMAW_HEAA_M";};
-	} else {
-		_unit addBackpack "B_Carryall_cbr";
-		for "_i" from 1 to 2 do {_unit addItemToBackpack "rhs_mag_smaw_HEAA";};
-	};
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_m1911a1";
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_rco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_big,_mun_at],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_DEMO = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_17Rnd_9x19_JHP";};
-	_unit addVest (selectrandom _vest_l);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addBackpack (selectrandom _sac);
-	_unit addItemToBackpack "ACE_DefusalKit";
-	_unit addItemToBackpack "ACE_EntrenchingTool";
-	_unit addItemToBackpack "ACE_Clacker";
-	_unit addItemToBackpack "SatchelCharge_Remote_Mag";
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_glock17g4";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_med,[["ACE_M26_Clacker",1],["ACE_DefusalKit",1],["ACE_EntrenchingTool",1],["SatchelCharge_Remote_Mag",1,1],["DemoCharge_Remote_Mag",2,1]]],
+		_helmet,
+		_facewear,
+		["Binocular","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_M = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	_unit addItemToUniform "ACE_MapTools";
-	_unit addItemToUniform "ACE_microDAGR";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest_l);
-	for "_i" from 1 to 3 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-	for "_i" from 1 to 2 do {_unit addItemToVest "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-	_unit addBackpack "B_AssaultPack_mcamo";
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "rhsusf_20Rnd_762x51_SR25_m993_Mag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_sr25_ec";
-	_unit addPrimaryWeaponItem "rhsusf_acc_SpecterDR_A";
-	_unit addPrimaryWeaponItem "bipod_01_F_blk";
-	if (_nvg) then {_unit addPrimaryWeaponItem "rhs_acc_perst3";};
-	if (_lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_glock17g4";
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		["CUP_arifle_HK417_20","",_lamp,"cup_optic_sb_11_4x20_pm",["CUP_20Rnd_762x51_HK417",20],[],"bipod_01_f_blk"],
+		[],
+		_pistol,
+		[_uniform,(_itemsU_base + [["ACE_Kestrel4500",1],["ACE_RangeCard",1]])],
+		[_vest_r,[["HandGrenade",2,1],["SmokeShell",2,1],["CUP_20Rnd_762x51_HK417",4,20],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_small,[["cup_optic_elcan_reflex",1],["CUP_20Rnd_TE1_Red_Tracer_762x51_HK417",5,20]]],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_GL = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest "CUP_V_PMC_CIRAS_Black_Grenadier";
-	for "_i" from 1 to 4 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	for "_i" from 1 to 4 do {_unit addItemToVest "rhs_mag_M433_HEDP";};
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	for "_i" from 1 to 11 do {_unit addItemToBackpack "rhs_mag_M433_HEDP";};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "rhs_mag_m713_Red";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_m4_m203S";
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "ACE_Vector";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_gl,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_gl,[["HandGrenade",2,1],["SmokeShell",2,1],[_mag,5,30],["CUP_1Rnd_HEDP_M203",4,1],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_med,[[_mag,4,30],["CUP_1Rnd_HEDP_M203",5,1],["CUP_1Rnd_SmokeRed_M203",6,1],["CUP_1Rnd_StarCluster_White_M203",6,1],["ACE_HandFlare_Green",2,1],["HandGrenade",2,1],["SmokeShell",2,1]]],
+		_helmet,
+		_facewear,
+		["ACE_Vector","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_A = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addBackpack (selectrandom _sac);
-	for "_i" from 1 to 10 do {_unit addItemToBackpack "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShell";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "CUP_HandGrenade_M67";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "ACE_HandFlare_Green";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "Binocular";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_rco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[_backpack_big,[[_mag,8,30],["SmokeShell",2,1],["HandGrenade",2,1],["ACE_HandFlare_Green",2,1]]],
+		_helmet,
+		_facewear,
+		["Binocular","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_LAT = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	if (_rhsennemy) then {_unit addWeapon "rhs_weap_M136";};
-	if (!_rhsennemy) then {_unit addWeapon "CUP_launch_M136";};
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		_weap_lat,
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[],
+		_helmet,
+		_facewear,
+		[],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_R = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	_unit addPrimaryWeaponItem (selectrandom _handguard);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_base],
+		[_vest_r,_itemsV_base],
+		[],
+		_helmet,
+		_facewear,
+		[],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_CREW = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	_unit addItemToUniform "CUP_HandGrenade_M67";
-	for "_i" from 1 to 3 do {_unit addItemToUniform "rhsusf_mag_15Rnd_9x19_JHP";};
-	_unit addVest (selectrandom _vest_l);
-	_unit addItemToVest "ACE_MapTools";
-	_unit addItemToVest "ACRE_PRC148";
-	for "_i" from 1 to 5 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear "CUP_H_PMC_EP_Headset";
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_m9";
-	_unit addWeapon "Binocular";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	_unit linkItem "ItemGPS";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_l,[["HandGrenade",1,1],["SmokeShell",1,1],[_mag,4,30],["16Rnd_9x21_Mag",2,17]]],
+		[],
+		"H_HelmetCrew_I",
+		_facewear,
+		["Binocular","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };
 
 loadoutCC_PILOT = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "SmokeShell";};
-	_unit addItemToUniform "CUP_HandGrenade_M67";
-	for "_i" from 1 to 3 do {_unit addItemToUniform "rhsusf_mag_15Rnd_9x19_JHP";};
-	_unit addVest (selectrandom _vest_l);
-	_unit addItemToVest "ACE_MapTools";
-	_unit addItemToVest "ACRE_PRC148";
-	for "_i" from 1 to 5 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addHeadgear "CUP_H_PMC_EP_Headset";
-
-	comment "Add weapons";
-	_unit addWeapon (selectrandom _weapon);
-	if (_nvg or _lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "rhsusf_weap_m9";
-	_unit addWeapon "Binocular";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	_unit linkItem "ItemGPS";
-	if (_nvg or _lamp) then {_unit linkItem "CUP_NVG_PVS7";};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_l,[["HandGrenade",1,1],["SmokeShell",1,1],[_mag,4,30],["16Rnd_9x21_Mag",2,17]]],
+		[],
+		"H_PilotHelmetHeli_B",
+		"",
+		[],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"CUP_NVG_PVS15_black"} else {""})]
+	];
 };
 
 loadoutCC_SNIPER = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	_unit addItemToUniform "ACRE_PRC148";
-	_unit addItemToUniform "ACE_microDAGR";
-	_unit addItemToUniform "ACE_MapTools";
-	_unit addItemToUniform "ACE_Kestrel4500";
-	_unit addItemToUniform "ACE_RangeCard";
-	_unit addItemToUniform "ACE_ATragMX";
-	_unit addItemToUniform "ACE_IR_Strobe_Item";
-	_unit addItemToUniform "ACE_morphine";
-	_unit addItemToUniform "SmokeShell";
-	_unit addItemToUniform "CUP_HandGrenade_M67";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "rhsusf_mag_17Rnd_9x19_JHP";};
-	_unit addVest (selectrandom _vest_l);
-	_unit addItemToVest "rhsusf_mag_10Rnd_STD_50BMG_M33";
-	for "_i" from 1 to 2 do {_unit addItemToVest "rhsusf_mag_17Rnd_9x19_JHP";};
-	_unit addBackpack "B_Kitbag_mcamo";
-	for "_i" from 1 to 3 do {_unit addItemToBackpack "rhsusf_mag_10Rnd_STD_50BMG_M33";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_M107";
-	_unit addPrimaryWeaponItem "rhsusf_acc_premier";
-	_unit addWeapon "rhsusf_weap_glock17g4";
-	_unit addHandgunItem "rhsusf_acc_omega9k";
-	_unit addWeapon "Rangefinder";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg or _lamp) then {_unit linkItem "CUP_NVG_PVS7";};
-	if (_nvg or _lamp) then {_unit addItemToBackpack "rhsusf_acc_premier_anpvs27";};
+	_unit setUnitLoadout [
+		["srifle_LRR_F","","","optic_lrps",["7Rnd_408_Mag",7],[],""],
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_l,[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["ACE_ATragMX",1],["SmokeShell",2,1],["HandGrenade",2,1],["7Rnd_408_Mag",1,7],["16Rnd_9x21_Mag",4,17]]],
+		[_backpack_small,[["cup_optic_an_pvs_4",1],["7Rnd_408_Mag",6,7]]],
+		_helmet,
+		_facewear,
+		["Rangefinder","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"CUP_NVG_PVS15_black"} else {""})]
+	];
 };
 
 loadoutCC_OBS = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	_unit addItemToUniform "ACRE_PRC148";
-	_unit addItemToUniform "ACE_microDAGR";
-	_unit addItemToUniform "ACE_MapTools";
-	_unit addItemToUniform "ACE_Kestrel4500";
-	_unit addItemToUniform "ACE_RangeCard";
-	_unit addItemToUniform "ACE_ATragMX";
-	_unit addItemToUniform "ACE_IR_Strobe_Item";
-	_unit addItemToUniform "ACE_morphine";
-	_unit addItemToUniform "SmokeShell";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest (selectrandom _vest);
-	for "_i" from 1 to 6 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	_unit addBackpack "B_Kitbag_rgr";
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "Laserbatteries";};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "rhsusf_mag_10Rnd_STD_50BMG_M33";};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "rhsusf_mag_10Rnd_STD_50BMG_mk211";};
-	_unit addHeadgear (selectrandom _helmet);
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_hk416d10";
-	_unit addPrimaryWeaponItem "rhsusf_acc_nt4_black";
-	_unit addPrimaryWeaponItem "rhsusf_acc_anpeq15side_bk";
-	_unit addPrimaryWeaponItem "rhsusf_acc_ACOG_RMR";
-	_unit addPrimaryWeaponItem "rhsusf_acc_grip1";
-	_unit addWeapon "Laserdesignator";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg or _lamp) then {_unit linkItem "CUP_NVG_PVS7";};
+	_unit setUnitLoadout [
+		["CUP_arifle_HK416_CQB_Black","cup_muzzle_snds_m16","cup_acc_anpeq_15_black","cup_optic_elcan_reflex",["CUP_30Rnd_556x45_PMAG_QP",30],[],""],
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_l,[["ACE_Kestrel4500",1],["ACE_ATragMX",1],["HandGrenade",2,1],["SmokeShell",2,1],["CUP_30Rnd_556x45_PMAG_QP",3,30],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_med,[["CUP_30Rnd_556x45_PMAG_QP",4,30]]],
+		_helmet,
+		_facewear,
+		["Rangefinder","","","",[],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg > 0) then {"CUP_NVG_PVS15_black"} else {""})]
+	];
 };
 
 loadoutCC_JTAC = //
 {
 	_unit = _this select 0;
-	
-	comment "Remove existing items";
-	removeAllWeapons _unit;
-	removeAllItems _unit;
-	removeAllAssignedItems _unit;
-	removeUniform _unit;
-	removeVest _unit;
-	removeBackpack _unit;
-	removeHeadgear _unit;
-	removeGoggles _unit;
-
-	comment "Add containers";
-	_unit forceAddUniform (selectrandom _uniform);
-	for "_i" from 1 to 4 do {_unit addItemToUniform "ACE_fieldDressing";};
-	_unit addItemToUniform "ACE_EarPlugs";
-	_unit addItemToUniform "ACE_tourniquet";
-	_unit addItemToUniform "ACE_Flashlight_XL50";
-	_unit addItemToUniform "ACRE_PRC343";
-	_unit addItemToUniform "ACRE_PRC148";
-	for "_i" from 1 to 2 do {_unit addItemToUniform "CUP_HandGrenade_M67";};
-	_unit addVest "CUP_V_PMC_CIRAS_Black_Grenadier";
-	for "_i" from 1 to 4 do {_unit addItemToVest "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	for "_i" from 1 to 4 do {_unit addItemToVest "rhs_mag_m713_Red";};
-	_unit addBackpack (selectrandom _sac);
-	_unit addItemToBackpack "ACRE_PRC117F";
-	for "_i" from 1 to 6 do {_unit addItemToBackpack "rhs_mag_m713_Red";};
-	for "_i" from 1 to 4 do {_unit addItemToBackpack "rhs_mag_30Rnd_556x45_Mk318_Stanag";};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "SmokeShellBlue";};
-	for "_i" from 1 to 5 do {_unit addItemToBackpack "SmokeShellPurple";};
-	for "_i" from 1 to 2 do {_unit addItemToBackpack "Laserbatteries";};
-	_unit addHeadgear "CUP_H_PMC_PRR_Headset";
-
-	comment "Add weapons";
-	_unit addWeapon "rhs_weap_m4_m203S";
-	_unit addPrimaryWeaponItem (selectrandom _scope);
-	if (_nvg) then {_unit addPrimaryWeaponItem "rhs_acc_perst3";};
-	if (_lamp) then {_unit addPrimaryWeaponItem (selectrandom _flash);};
-	_unit addWeapon "Laserdesignator";
-
-	comment "Add items";
-	_unit linkItem "ItemMap";
-	_unit linkItem "ItemCompass";
-	_unit linkItem "ItemWatch";
-	if (_nvg) then {_unit linkItem (selectrandom _nvg_item);};
+	_unit setUnitLoadout [
+		_weap_cco,
+		[],
+		_pistol,
+		[_uniform,_itemsU_tl],
+		[_vest_r,[["HandGrenade",2,1],["SmokeShell",2,1],[_mag,7,30],["16Rnd_9x21_Mag",2,17]]],
+		[_backpack_small,[["ACRE_PRC117F",1],["SmokeShellGreen",4,1],["ACE_HandFlare_Green",1,1]]],
+		_helmet,
+		_facewear,
+		["Laserdesignator_01_khk_F","","","",["Laserbatteries",1],[],""],
+		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]
+	];
 };

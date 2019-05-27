@@ -7,70 +7,59 @@ private ["_pos","_veh","_weap","_lat","_at","_mag_at1","_mag_at2","_mag_at3","_h
 switch (CC_p_loaout) do {
 	//OTAN
 	case 0 : {
-		_weap = "arifle_MX_ACO_F";
+		_weap = "arifle_MX_Black_F";
 		_gre = "HandGrenade";
-		_mag1 = "30Rnd_65x39_caseless_mag";
-		_mag2 = "30Rnd_65x39_caseless_mag";
-		_mag_ar = "100Rnd_65x39_caseless_mag_Tracer";
-		_mag_mg = "130Rnd_338_Mag";
+		_mag1 = "30Rnd_65x39_caseless_black_mag";
+		_mag2 = "30Rnd_65x39_caseless_black_mag";
+		_mag_ar = "100Rnd_65x39_caseless_black_mag";
+		_mag_mg = "100Rnd_65x39_caseless_black_mag";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
-			_at = "launch_I_Titan_short_F";
-			_mag_at1 = "Titan_AT";
-			_mag_at2 = "Titan_AP";
-			_mag_at3 = "";
-			_hat = "launch_I_Titan_short_F";
-			_mag_hat = "Titan_AT";
+			_at = "rhs_weap_maaws_optic";
+			_mag_at1 = "rhs_mag_maaws_HEAT";
+			_mag_at2 = "rhs_mag_maaws_HEDP";
+			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_hat = "rhs_weap_fgm148";
+			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
-			_lat = "launch_NLAW_F";
-			_at = "launch_I_Titan_short_F";
-			_mag_at1 = "Titan_AT";
-			_mag_at2 = "Titan_AP";
-			_mag_at3 = "";
+			_lat = "CUP_launch_M136";
+			_at = "launch_MRAWS_green_F";
+			_mag_at1 = "MRAWS_HEAT_F";
+			_mag_at2 = "MRAWS_HE_F";
+			_mag_at3 = "MRAWS_HEAT_F";
 			_hat = "launch_I_Titan_short_F";
 			_mag_hat = "Titan_AT";
 		};
 		_arsenal_items_faction = [
-			//uniforms
-			"U_B_T_Soldier_SL_F","U_B_T_Soldier_F","U_B_T_Soldier_AR_F","U_MU_B_soldier_sage","U_MU_B_soldier_sage_vest","U_MU_B_soldier_sage_tshirt","U_MU_B_soldier_wdl","U_MU_B_soldier_wdl_vest","U_MU_B_soldier_wdl_tshirt","U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam",
-			//vests
-			"V_Chestrig_rgr","V_TacVest_blk","V_TacVest_khk","V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F","V_PlateCarrier1_rgr","V_PlateCarrier2_rgr",
-			//backpacks
-			"B_AssaultPack_tna_F","B_Carryall_cbr","B_Carryall_oli","B_Kitbag_rgr","B_AssaultPack_rgr","B_Carryall_mcamo","B_Kitbag_mcamo","B_AssaultPack_mcamo",
-			//headgears
-			"H_MilCap_mcamo","H_Booniehat_mcamo","H_Booniehat_oli","H_MU_MilCap_blk","H_Booniehat_khk","H_MilCap_gry","H_Booniehat_tna_F","H_MilCap_tna_F","H_HelmetB_Light_tna_F","H_HelmetB_tna_F","H_HelmetB_Enh_tna_F","H_HelmetB_light_grass","H_HelmetB_light_black","H_HelmetB_light_snakeskin","H_HelmetB_light","H_HelmetB","H_HelmetSpecB_snakeskin","H_HelmetSpecB_sand","H_HelmetSpecB_paint1","H_HelmetSpecB_paint2","H_HelmetSpecB","H_HelmetB_camo",
-			//facewar
-			"","","","","","",
-			//weapons
-			"","","","","","","","","","","","",
-			//weapon items
-			"","","","","","","","","","","","",
-			//magazines
-			"","","","","","","","","","","","",
-			//grenades
-			"","","","","","","","","","","","",
-			//items
-			"","","","","",""
+			"arifle_MX_khk_F","V_PlateCarrier1_tna_F","V_PlateCarrier2_tna_F","H_Booniehat_tna_F","H_HelmetB_Enh_tna_F","B_AssaultPack_tna_F","B_Kitbag_sgg","B_Carryall_oli","U_B_T_Soldier_F","U_B_T_Soldier_SL_F","U_B_T_Soldier_AR_F","acc_flashlight","acc_pointer_ir","NVGoggles_OPFOR",
+			"B_AssaultPack_rgr","B_Kitbag_rgr","B_Carryall_oli","U_MU_B_soldier_wdl","U_MU_B_soldier_wdl_vest","bipod_01_f_khk","optic_holosight_khk_f","100Rnd_65x39_caseless_khaki_mag","30Rnd_65x39_caseless_khaki_mag","arifle_MX_GL_khk_F","arifle_MXM_khk_F","arifle_MX_SW_khk_F","arifle_MXC_khk_F",
+			"optic_holosight_blk_f","100Rnd_65x39_caseless_black_mag","30Rnd_65x39_caseless_black_mag","arifle_MX_GL_Black_F","arifle_MXM_Black_F","arifle_MX_SW_Black_F","arifle_MXC_Black_F","arifle_MX_Black_F","V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","H_Booniehat_oli","H_HelmetSpecB","H_HelmetSpecB_snakeskin","H_HelmetB_camo",
+			"H_HelmetSpecB_sand","H_HelmetSpecB_paint2","B_AssaultPack_cbr","B_Kitbag_mcamo","B_Carryall_cbr","U_B_CombatUniform_mcam","U_B_CombatUniform_mcam_vest","U_B_CombatUniform_mcam_tshirt","H_Watchcap_camo","B_AssaultPack_sgg","B_Kitbag_sgg","B_Carryall_khk","U_MU_B_soldier_sage_vest","U_MU_B_soldier_sage","bipod_01_f_blk",
+			"bipod_01_f_snd","optic_holosight","100Rnd_65x39_caseless_mag_Tracer","30Rnd_65x39_caseless_mag","arifle_MX_GL_F","arifle_MXM_F","arifle_MX_SW_F","arifle_MXC_F","arifle_MX_F","V_MU_PlateCarrier1_khk","V_MU_PlateCarrier2_khk","H_Booniehat_tan",
+			"rhs_mag_maaws_HEAT","rhs_optic_maaws","rhs_weap_maaws","rhs_weap_M136","MRAWS_HE_F","MRAWS_HEAT_F","launch_MRAWS_green_F","CUP_launch_M136","H_Booniehat_mcamo","H_HelmetSpecB_blk","H_HelmetSpecB_paint1","B_AssaultPack_mcamo","B_Carryall_mcamo",
+			"H_HelmetCrew_B","V_TacVest_oli","UGL_FlareWhite_F","1Rnd_SmokeRed_Grenade_shell","1Rnd_HE_Grenade_shell","H_Beret_Colonel","HandGrenade","16Rnd_9x21_Mag","hgun_P07_F","optic_sos","optic_hamr","rhs_mag_maaws_HEDP",
+			"optic_erco_blk_f","muzzle_snds_m","arifle_SPAR_01_blk_F","optic_nightstalker","11Rnd_45ACP_Mag","acc_flashlight_pistol","muzzle_snds_acp","hgun_Pistol_heavy_01_F","7Rnd_408_Mag","optic_lrps","srifle_LRR_F","H_PilotHelmetHeli_B",
+			"30Rnd_556x45_Stanag_red"
 		];
 	};
 	//CSAT
 	case 1 : {
-		_weap = "arifle_Katiba_F";
+		_weap = "arifle_CTAR_blk_F";
 		_gre = "HandGrenade";
-		_mag1 = "30Rnd_65x39_caseless_green";
-		_mag2 = "10Rnd_762x54_Mag";
-		_mag_ar = "150Rnd_762x54_Box_Tracer";
+		_mag1 = "30Rnd_580x42_Mag_F";
+		_mag2 = "20Rnd_650x39_Cased_Mag_F";
+		_mag_ar = "100Rnd_580x42_Mag_F";
 		_mag_mg = "150Rnd_762x54_Box_Tracer";
 		if (cc_rhsennemy) then {
 			_lat = "";
 			_at = "rhs_weap_rpg7_pgo";
 			_mag_at1 = "rhs_rpg7_PG7VL_mag";
-			_mag_at2 = "rhs_rpg7_OG7V_mag";
-			_mag_at3 = "rhs_rpg7_PG7VL_mag";
+			_mag_at2 = "rhs_rpg7_TBG7V_mag";
+			_mag_at3 = "rhs_rpg7_PG7VR_mag";
 			_hat = "launch_O_Titan_short_F";
 			_mag_hat = "Titan_AT";
 		} else {
-			_lat = "";
+			_lat = "rhs_weap_rpg26";
 			_at = "launch_RPG32_F";
 			_mag_at1 = "RPG32_F";
 			_mag_at2 = "RPG32_HE_F";
@@ -79,54 +68,48 @@ switch (CC_p_loaout) do {
 			_mag_hat = "Titan_AT";
 		};
 		_arsenal_items_faction = [
-			//uniforms
-			"","","","","","",
-			//vests
-			"","","","","","",
-			//backpacks
-			"","","","","","",
-			//headgears
-			"","","","","","",
-			//facewar
-			"","","","","","",
-			//weapons
-			"","","","","","","","","","","","",
-			//weapon items
-			"","","","","","","","","","","","",
-			//magazines
-			"","","","","","","","","","","","",
-			//grenades
-			"","","","","","","","","","","","",
-			//items
-			"","","","","",""
+			"V_TacVest_oli","V_HarnessOGL_ghex_F","V_HarnessO_ghex_F","H_MilCap_ghex_F","H_HelmetCrew_O_ghex_F","H_HelmetO_ghex_F","B_FieldPack_ghex_F","B_Carryall_ghex_F","U_O_T_Soldier_F","acc_flashlight","acc_pointer_ir","NVGoggles_OPFOR",
+			"H_HelmetCrew_B","H_HelmetO_oucamo","B_FieldPack_oucamo","B_Carryall_oucamo","U_O_CombatUniform_oucamo","launch_O_Titan_short_ghex_F","launch_RPG32_ghex_F","100Rnd_580x42_ghex_Mag_F","arifle_CTAR_GL_ghex_F","srifle_DMR_07_ghex_F","arifle_CTARS_ghex_F","arifle_CTAR_ghex_F",
+			"U_O_CombatUniform_ocamo","launch_O_Titan_short_F","launch_RPG32_F","100Rnd_580x42_Mag_F","arifle_CTAR_GL_blk_F","srifle_DMR_07_blk_F","arifle_CTARS_blk_F","arifle_CTAR_blk_F","V_TacVest_blk","V_HarnessOGL_gry","V_HarnessO_gry","H_MilCap_gry",
+			"arifle_CTAR_GL_hex_F","srifle_DMR_07_hex_F","arifle_CTARS_hex_F","arifle_CTAR_hex_F","V_TacVest_khk","V_HarnessOGL_brn","V_HarnessO_brn","H_MilCap_ocamo","H_HelmetCrew_O","H_HelmetO_ocamo","B_FieldPack_ocamo","B_Carryall_ocamo",
+			"optic_aco_grn","30Rnd_580x42_Mag_F","rhs_rpg7_TBG7V_mag","rhs_rpg7_PG7VR_mag","rhs_rpg7_PG7VL_mag","rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","RPG32_HE_F","RPG32_F","Titan_AT","100Rnd_580x42_hex_Mag_F",
+			"UGL_FlareWhite_F","1Rnd_SmokeRed_Grenade_shell","optic_nvs","HandGrenade","16Rnd_9x21_Mag","hgun_Rook40_F","1Rnd_HE_Grenade_shell","20Rnd_650x39_Cased_Mag_F","optic_dms","LMG_Zafir_F","150Rnd_762x54_Box_Tracer","optic_arco_blk_f",
+			"30Rnd_65x39_caseless_green","muzzle_snds_65_ti_blk_f","arifle_Katiba_C_F","muzzle_snds_l","optic_nightstalker","5Rnd_127x108_APDS_Mag","5Rnd_127x108_Mag","optic_lrps","srifle_GM6_F","H_PilotHelmetHeli_O"
 		];
 	};
 	//AAF
 	case 2 : {
-		_weap = "arifle_Mk20_Holo_F";
+		_weap = "arifle_Mk20_F";
 		_gre = "HandGrenade";
 		_mag1 = "30Rnd_556x45_Stanag";
 		_mag2 = "20Rnd_762x51_Mag";
-		_mag_ar = "200Rnd_65x39_cased_Box";
+		_mag_ar = "200Rnd_556x45_Box_Tracer_F";
 		_mag_mg = "200Rnd_65x39_cased_Box_Tracer";
 		if (cc_rhsennemy) then {
-			_lat = "rhs_weap_m72a7";
-			_at = "launch_I_Titan_short_F";
-			_mag_at1 = "Titan_AT";
-			_mag_at2 = "";
-			_mag_at3 = "";
-			_hat = "launch_I_Titan_short_F";
-			_mag_hat = "Titan_AT";
+			_lat = "rhs_weap_M136";
+			_at = "rhs_weap_maaws_optic";
+			_mag_at1 = "rhs_mag_maaws_HEAT";
+			_mag_at2 = "rhs_mag_maaws_HEDP";
+			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_hat = "rhs_weap_fgm148";
+			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
-			_lat = "launch_NLAW_F";
-			_at = "launch_I_Titan_short_F";
-			_mag_at1 = "Titan_AT";
-			_mag_at2 = "";
-			_mag_at3 = "";
+			_lat = "CUP_launch_M136";
+			_at = "launch_MRAWS_olive_rail_F";
+			_mag_at1 = "MRAWS_HEAT_F";
+			_mag_at2 = "MRAWS_HE_F";
+			_mag_at3 = "MRAWS_HEAT_F";
 			_hat = "launch_I_Titan_short_F";
 			_mag_hat = "Titan_AT";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"rhs_optic_maaws","rhs_weap_maaws","rhs_weap_M136","MRAWS_HE_F","MRAWS_HEAT_F","launch_MRAWS_olive_rail_F","CUP_launch_M136","acc_flashlight","acc_pointer_ir","NVGoggles_OPFOR",
+			"V_PlateCarrierIA1_dgtl","H_MilCap_dgtl","H_Booniehat_dgtl","H_HelmetIA","B_AssaultPack_dgtl","B_Kitbag_rgr","B_Carryall_oli","U_I_CombatUniform","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT",
+			"HandGrenade","9Rnd_45ACP_Mag","hgun_ACPC2_F","1Rnd_HE_Grenade_shell","arifle_Mk20_GL_F","optic_mrco","optic_aco_grn","arifle_Mk20_F","30Rnd_556x45_Stanag","V_PlateCarrierIA2_dgtl",
+			"1Rnd_SmokeRed_Grenade_shell","20Rnd_762x51_Mag","optic_sos","srifle_EBR_F","bipod_03_f_blk","200Rnd_65x39_cased_Box_Tracer","LMG_Mk200_F","200Rnd_556x45_Box_Tracer_F","optic_holosight_blk_f","LMG_03_F",
+			"acc_flashlight_pistol","muzzle_snds_acp","hgun_Pistol_heavy_01_F","7Rnd_408_Mag","optic_lrps","srifle_LRR_F","H_PilotHelmetHeli_I","H_HelmetCrew_I","V_TacVest_oli","UGL_FlareWhite_F",
+			"muzzle_snds_m","arifle_Mk20C_F","optic_nightstalker","11Rnd_45ACP_Mag"
+		];
 	};
 	//USArmy
 	case 3 : {
@@ -313,7 +296,7 @@ switch (CC_p_loaout) do {
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_545x39_AK";
 		_mag2 = "rhs_10Rnd_762x54mmR_7N1";
-		_mag_ar = "CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
+		_mag_ar = "rhs_100Rnd_762x54mmR_green";
 		_mag_mg = "rhs_100Rnd_762x54mmR_green";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_rpg26";
@@ -332,14 +315,22 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_RPG7V_PGO7V3";
 			_mag_hat = "CUP_PG7VL_M";
 		};	
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"rhs_6b23_6sh92","rhs_6b27m_ess_bala","rhs_6b27m_ess","rhs_6b27m_bala","rhs_6b27m","rhs_6b27m_green_ess_bala","rhs_6b27m_green_ess","rhs_6b27m_green_bala","rhs_6b27m_green","rhs_uniform_flora_patchless","rhs_acc_2dpzenit","rhs_1PN138",
+			"rhs_6b23_ML_6sh92","rhs_6b27m_ML_ess_bala","rhs_6b27m_ml_ess","rhs_6b27m_ml_bala","rhs_6b27m_ml","rhs_uniform_mflora_patchless","rhs_6b23_sniper","rhs_6b23_medic","rhs_6b23_engineer","rhs_6b23_crew","rhs_6b23_6sh92_vog","rhs_6b23_6sh92_radio",
+			"CUP_PG7VM_M","CUP_B_RPGPack_Khaki","CUP_PG7VM_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","rhs_6b23_ML_sniper","rhs_6b23_ML_medic","rhs_6b23_ML_engineer","rhs_6b23_ML_crew","rhs_6b23_ML_6sh92_vog","rhs_6b23_ML_6sh92_radio",
+			"rhs_30Rnd_545x39_7N10_AK","rhs_acc_dtk","rhs_weap_ak74m","rhs_assault_umbts","rhs_sidor","rhs_rpg7_TBG7V_mag","rhs_rpg_empty","rhs_rpg7_PG7VL_mag","rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","CUP_OG7_M",
+			"rhs_GDM40","rhs_VOG25","rhs_weap_ak74m_gp25","rhs_acc_1pn93_1","rhs_10Rnd_762x54mmR_7N14","rhs_acc_pso1m2","rhs_weap_svdp_wd","rhs_100Rnd_762x54mmR_green","rhs_weap_pkm","rhs_pdu4","rhs_mag_rdg2_white","rhs_mag_rgd5",
+			"rhs_acc_6p9_suppressor","rhs_weap_pb_6p9","rhs_acc_tgpv","rhs_zsh7a_mike","rhs_6sh92_radio","rhs_uniform_df15","rhs_tsh4_bala","rhs_tsh4","rhs_30Rnd_545x39_7N6M_AK","rhs_acc_pgs64_74u","rhs_weap_aks74u","rhs_VG40OP_green",
+			"rhs_scarf","rhs_Booniehat_flora","rhs_mag_9x18_8_57N181S"
+		];
 	};
 	//RUS2015
 	case 7 : {
 		_weap = "rhs_weap_ak74m";
 		_gre = "rhs_mag_rgd5";
 		_mag1 = "rhs_30Rnd_545x39_AK";
-		_mag2 = "rhs_10Rnd_762x54mmR_7N1";
+		_mag2 = "rhs_10Rnd_762x54mmR_7N14";
 		_mag_ar = "rhs_100Rnd_762x54mmR_green";
 		_mag_mg = "rhs_100Rnd_762x54mmR_green";
 		if (cc_rhsennemy) then {
@@ -359,7 +350,13 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_RPG7V_PGO7V3";
 			_mag_hat = "CUP_PG7VL_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"CUP_PG7VM_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","rhs_6b7_1m_emr","rhs_6b7_1m_bala1_emr","rhs_6b7_1m_bala2_emr","rhs_6b7_1m_emr_ess","rhs_6b7_1m_emr_ess_bala","rhs_6b7_1m_ess","rhs_6b7_1m_ess_bala","rhs_6b7_1m","rhs_uniform_vdv_emr","rhs_uniform_emr_des_patchless","rhs_acc_2dpzenit","rhs_1PN138",
+			"rhs_6b23_digi_medic","rhs_6b23_digi_engineer","rhs_6b23_digi_crew","rhs_6b23_6sh116_vog","rhs_6b23_digi_6sh92_radio","rhs_6b23_digi_6sh92_spetsnaz2","rhs_6b23_6sh116","rhs_rpg7_TBG7V_mag","rhs_rpg_empty","rhs_rpg7_PG7VL_mag","rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","CUP_B_RPGPack_Khaki","CUP_PG7VM_M","CUP_OG7_M",
+			"rhs_10Rnd_762x54mmR_7N14","rhs_acc_pso1m2","rhs_weap_svdp","rhs_acc_1p78","rhs_100Rnd_762x54mmR_green","rhs_acc_pkas","rhs_weap_pkp","rhs_pdu4","rhs_mag_rdg2_white","rhs_mag_rgd5","rhs_acc_ekp8_02","rhs_30Rnd_545x39_7N10_AK","rhs_acc_dtk","rhs_weap_ak74m","rhs_assault_umbts","rhs_6b23_digi_sniper",
+			"rhs_acc_dh520x56","rhs_weap_t5000","rhsusf_ANPVS_15","rhs_6sh92_digi_radio","rhs_uniform_df15","rhs_zsh7a_mike","rhs_tsh4","rhs_tsh4_bala","rhs_30Rnd_545x39_7N6M_AK","rhs_acc_pgs64_74u","rhs_weap_aks74u","rhs_VG40OP_green","rhs_GDM40","rhs_VOG25","rhs_weap_ak74m_gp25","rhs_acc_1pn93_1",
+			"rhs_acc_ekp8_02","rhs_acc_dtk4short","rhs_weap_ak105","rhs_6b47_bala","CUP_optic_GOSHAWK_RIS","rhs_mag_9x18_8_57N181S","rhs_acc_6p9_suppressor","rhs_weap_pb_6p9","rhs_acc_harris_swivel","rhs_5Rnd_338lapua_t5000"
+		];
 	};
 	//RUSF
 	case 8 : {
@@ -414,12 +411,12 @@ switch (CC_p_loaout) do {
 	};
 	//KSK
 	case 9 : {
-		_weap = "CUP_arifle_G36A";
-		_gre = "HandGrenade";
+		_weap = "CUP_arifle_G36K";
+		_gre = "CUP_HandGrenade_M67";
 		_mag1 = "CUP_30Rnd_556x45_G36";
-		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
-		_mag_ar = "CUP_100Rnd_TE1_Red_Tracer_556x45_BetaCMag";
-		_mag_mg = "rhsusf_100Rnd_762x51_m62_tracer";
+		_mag2 = "CUP_20Rnd_762x51_HK417";
+		_mag_ar = "CUP_100Rnd_556x45_BetaCMag";
+		_mag_mg = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
 			_at = "rhs_weap_maaws_optic";
@@ -437,7 +434,14 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"CUP_arifle_G36K_RIS_camo","cup_muzzle_snds_m16_desert","CUP_arifle_G36K_VFG_camo","CUP_20Rnd_762x51_HK417_Camo_Desert","CUP_100Rnd_556x45_BetaCMag_camo","CUP_30Rnd_556x45_G36_camo","H_ShemagOpen_khk","H_ShemagOpen_tan","B_AssaultPack_rgr","B_Kitbag_cbr","B_Carryall_cbr","CUP_U_B_GER_Tropentarn_2","CUP_U_B_GER_Tropentarn_1","cup_acc_xm8_light_module","cup_acc_anpeq_15_black","CUP_NVG_PVS15_black",
+			"CUP_100Rnd_556x45_BetaCMag","CUP_30Rnd_556x45_G36","H_Shemag_olive","B_AssaultPack_khk","B_Kitbag_rgr","B_Carryall_oli","CUP_U_B_GER_Flecktarn_1","CUP_U_B_GER_Flecktarn_2","bipod_01_f_snd","cup_optic_sb_11_4x20_pm","muzzle_snds_b_snd_f","CUP_arifle_HK417_20_Desert","cup_optic_compm2_low_coyote","CUP_1Rnd_HEDP_M203","CUP_arifle_G36K_AG36_camo","cup_optic_microt1_coyote",
+			"rhs_weap_M136","CUP_MAAWS_HEDP_M","CUP_MAAWS_HEAT_M","cup_optic_maaws_scope","CUP_launch_MAAWS","CUP_launch_M136","bipod_01_f_blk","muzzle_snds_b","CUP_arifle_HK417_20","cup_optic_compm2_low","CUP_arifle_G36K_AG36","cup_optic_microt1","CUP_arifle_G36K_RIS","cup_muzzle_snds_m16","CUP_arifle_G36K_VFG","CUP_20Rnd_762x51_HK417",
+			"CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","cup_optic_elcanm145","CUP_lmg_M240","CUP_HandGrenade_M67","CUP_17Rnd_9x19_glock17","cup_acc_cz_m3x","CUP_hgun_Glock17","CUP_V_B_GER_Carrier_Vest","CUP_V_B_GER_Carrier_Vest_3","G_Shades_Black","G_Shades_Green","G_Shades_Red","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_optic_maaws","rhs_weap_maaws",
+			"ACE_Vector","Rangefinder","Laserdesignator","cup_optic_an_pvs_4","bipod_01_f_blk","CUP_5Rnd_762x67_G22","cup_optic_leupold_vx3","CUP_srifle_G22_wdl","CUP_srifle_G22_des","H_PilotHelmetHeli_B","H_HelmetCrew_I","CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_optic_AN_PAS_13c2",
+			"optic_tws_mg","CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","CUP_lmg_MG3_rail"
+		];
 	};
 	//BAF
 	case 10 : {
@@ -464,34 +468,56 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"CUP_B_Kombat_Radio_Olive","B_Kitbag_rgr","B_Carryall_oli","CUP_U_B_BAF_DPM_UBACSROLLEDKNEE","CUP_U_B_BAF_DPM_UBACSROLLED","CUP_U_B_BAF_DPM_UBACSLONGKNEE","CUP_U_B_BAF_DPM_UBACSLONG","cup_acc_xm8_light_module","cup_acc_llm","CUP_NVG_HMNVS",
+			"CUP_V_B_BAF_DPM_Osprey_Mk3_Scout","CUP_V_B_BAF_DPM_Osprey_Mk3_AutomaticRifleman","CUP_V_B_BAF_DPM_Osprey_Mk3_Medic","CUP_V_B_BAF_DPM_Osprey_Mk3_Rifleman","H_Booniehat_oli","CUP_H_BAF_DPM_Mk6_CREW_PRR","CUP_H_BAF_DPM_Mk6_NETTING_PRR","CUP_H_BAF_DPM_Mk6_GOGGLES_PRR","CUP_H_BAF_DPM_Mk6_GLASS_PRR","CUP_H_BAF_DPM_Mk6_EMPTY_PRR",
+			"CUP_B_Motherlode_Radio_MTP","B_Kitbag_tan","B_Carryall_cbr","CUP_U_B_BAF_DDPM_UBACSROLLEDKNEE","CUP_U_B_BAF_DDPM_UBACSROLLED","CUP_U_B_BAF_DDPM_UBACSLONGKNEE","CUP_U_B_BAF_DDPM_UBACSLONG","CUP_V_B_BAF_DPM_Osprey_Mk3_Crewman","CUP_V_B_BAF_DPM_Osprey_Mk3_Officer","CUP_V_B_BAF_DPM_Osprey_Mk3_Grenadier",
+			"CUP_V_B_BAF_DDPM_Osprey_Mk3_Scout","CUP_V_B_BAF_DDPM_Osprey_Mk3_AutomaticRifleman","CUP_V_B_BAF_DDPM_Osprey_Mk3_Medic","CUP_V_B_BAF_DDPM_Osprey_Mk3_Rifleman","H_Booniehat_tan","CUP_H_BAF_DDPM_Mk6_CREW_PRR","CUP_H_BAF_DDPM_Mk6_NETTING_PRR","CUP_H_BAF_DDPM_Mk6_GOGGLES_PRR","CUP_H_BAF_DDPM_Mk6_GLASS_PRR","CUP_H_BAF_DDPM_Mk6_EMPTY_PRR",
+			"CUP_H_BAF_MTP_Mk7_PRR","CUP_B_Motherlode_MTP","CUP_B_Predator_MTP","CUP_U_B_BAF_MTP_UBACSROLLEDKNEE","CUP_U_B_BAF_MTP_UBACSROLLED","CUP_U_B_BAF_MTP_UBACSLONGKNEE","CUP_U_B_BAF_MTP_UBACSLONG","CUP_V_B_BAF_DDPM_Osprey_Mk3_Crewman","CUP_V_B_BAF_DDPM_Osprey_Mk3_Officer","CUP_V_B_BAF_DDPM_Osprey_Mk3_Grenadier",
+			"CUP_V_B_BAF_MTP_Osprey_Mk4_Crewman","CUP_V_B_BAF_MTP_Osprey_Mk4_Grenadier","CUP_V_B_BAF_MTP_Osprey_Mk4_Scout","CUP_V_B_BAF_MTP_Osprey_Mk4_AutomaticRifleman","CUP_V_B_BAF_MTP_Osprey_Mk4_Medic","CUP_V_B_BAF_MTP_Osprey_Mk4_Rifleman","H_Booniehat_khk","CUP_H_BAF_MTP_Mk6_CREW_PRR","CUP_H_BAF_MTP_Mk7_PRR_SCRIM_A","CUP_H_BAF_MTP_Mk7_PRR_SCRIM_B",
+			"rhs_mag_smaw_HEAA","rhs_weap_optic_smaw","rhs_weap_smaw","CUP_SMAW_Spotting","rhs_weap_M136","CUP_SMAW_HEAA_M","cup_optic_smaw_scope","CUP_launch_Mk153Mod0","CUP_launch_M136","CUP_V_B_BAF_MTP_Osprey_Mk4_Officer",
+			"CUP_30Rnd_556x45_Stanag_L85","cup_optic_elcan_reflex","CUP_arifle_L85A2_G","G_Shades_Black","G_Shades_Green","G_Shades_Red","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","rhs_mag_smaw_SR",
+			"CUP_srifle_L129A1_HG","CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","cup_optic_elcanm145","CUP_lmg_L7A2","CUP_200Rnd_TE4_Red_Tracer_556x45_L110A1","CUP_lmg_m249_para","CUP_30Rnd_556x45_Stanag_L85_Tracer_Red","CUP_HandGrenade_L109A1_HE","CUP_7Rnd_45ACP_1911","CUP_hgun_Colt1911",
+			"CUP_srifle_AWM_des","rhsusf_hgu56p","CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HEDP_M203","CUP_arifle_L85A2_GL","bipod_01_f_blk","CUP_20Rnd_762x51_L129_M","bipod_01_f_blk","cup_optic_sb_11_4x20_pm",
+			"cup_optic_elcan","CUP_arifle_L86A2","CUP_arifle_L85A2_NG","CUP_arifle_L85A2","cup_muzzle_snds_l85","CUP_NVG_PVS15_black","cup_optic_an_pvs_4","CUP_5Rnd_86x70_L115A1","cup_optic_leupold_vx3","CUP_srifle_AWM_wdl",
+			"CUP_smg_MP5SD6","CUP_smg_MP5A5_flashlight","CUP_30Rnd_9x19_MP5","CUP_smg_MP5A5","cup_optic_sb_3_12x50_pmii","CUP_5Rnd_127x99_as50_M","CUP_srifle_AS50","CUP_lmg_L7A2_Flat","cup_optic_susat","cup_optic_acog",
+			"CUP_launch_NLAW","CUP_H_BAF_PILOT","CUP_H_BAF_DPM_Mk6_EMPTY","CUP_H_BAF_DDPM_Mk6_EMPTY","CUP_H_BAF_PARA_BERET","CUP_H_BAF_PARA_PRROVER_BERET"
+		];
 	};
 	//RACS
 	case 11 : {
-		_weap = "CUP_arifle_M16A4_Base";
-		_gre = "HandGrenade";
-		_mag1 = "30Rnd_556x45_Stanag";
-		_mag2 = "20Rnd_762x51_Mag";
+		_weap = "CUP_arifle_M16A2";
+		_gre = "CUP_HandGrenade_M67";
+		_mag1 = "CUP_30Rnd_556x45_Stanag";
+		_mag2 = "CUP_20Rnd_556x45_Stanag";
 		_mag_ar = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
 		_mag_mg = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
 		if (cc_rhsennemy) then {
-			_lat = "rhs_weap_m72a7";
-			_at = "rhs_weap_maaws_optic";
-			_mag_at1 = "rhs_mag_maaws_HEAT";
-			_mag_at2 = "rhs_mag_maaws_HEDP";
-			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_lat = "rhs_weap_M136";
+			_at = "rhs_weap_smaw_gr_optic";
+			_mag_at1 = "rhs_mag_smaw_HEAA";
+			_mag_at2 = "rhs_mag_smaw_HEDP";
+			_mag_at3 = "rhs_mag_smaw_SR";
 			_hat = "rhs_weap_fgm148";
 			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
-			_lat = "CUP_launch_M72A6";
-			_at = "CUP_launch_MAAWS_Scope";
-			_mag_at1 = "CUP_MAAWS_HEAT_M";
-			_mag_at2 = "CUP_MAAWS_HEDP_M";
-			_mag_at3 = "CUP_MAAWS_HEAT_M";
+			_lat = "CUP_launch_M136";
+			_at = "CUP_launch_Mk153Mod0_SMAWOptics";
+			_mag_at1 = "CUP_SMAW_HEAA_M";
+			_mag_at2 = "CUP_SMAW_HEDP_M";
+			_mag_at3 = "CUP_SMAW_Spotting";
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"CUP_U_I_RACS_mech_1","CUP_U_I_RACS_mech_2","H_Bandanna_gry","CUP_V_B_Interceptor_Grenadier_Grey","CUP_V_B_Interceptor_Rifleman_Grey","CUP_H_RACS_Helmet_Headset_TPAT","CUP_H_RACS_Helmet_TPAT","B_FieldPack_blk","B_MU_Carryall_blk","CUP_U_I_RACS_Urban_1","cup_acc_flashlight","CUP_NVG_PVS7",
+			"CUP_H_RACS_Helmet_DES","B_FieldPack_cbr","B_Carryall_cbr","CUP_U_I_RACS_Desert_2","CUP_U_I_RACS_Desert_1","H_Bandanna_khk","CUP_V_B_Interceptor_Grenadier_Olive","CUP_V_B_Interceptor_Rifleman_Olive","CUP_H_RACS_Helmet_Headset_mech","CUP_H_RACS_Helmet_mech","CUP_B_AlicePack_OD","B_Carryall_oli",
+			"CUP_SMAW_HEAA_M","cup_optic_smaw_scope","CUP_launch_Mk153Mod0","CUP_launch_M136","CUP_H_RACS_Helmet_Headset_wdl","CUP_H_RACS_Helmet_wdl","CUP_U_I_RACS_WDL_2","CUP_U_I_RACS_WDL_1","H_Bandanna_sand","CUP_V_B_Interceptor_Grenadier_Coyote","CUP_V_B_Interceptor_Rifleman_Coyote","CUP_H_RACS_Helmet_Headset_DES",
+			"CUP_TK_NeckScarf","CUP_FR_NeckScarf","G_Shades_Black","G_Shades_Green","G_Shades_Red","rhs_mag_smaw_SR","rhs_mag_smaw_HEAA","rhs_mag_smaw_HEAA","rhs_weap_optic_smaw","rhs_weap_smaw","rhs_weap_M136","CUP_SMAW_Spotting",
+			"cup_optic_rco","cup_optic_sb_11_4x20_pm","CUP_srifle_Mk12SPR","CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","CUP_lmg_M240","CUP_200Rnd_TE4_Red_Tracer_556x45_M249","CUP_lmg_minimi","CUP_7Rnd_45ACP_1911","CUP_hgun_Colt1911","CUP_H_RACS_Beret_Blue","CUP_30Rnd_556x45_Stanag","CUP_arifle_M16A2",
+			"CUP_5Rnd_762x51_M24","cup_optic_leupoldmk4","CUP_srifle_M24_blk","CUP_srifle_M24_des","CUP_H_USMC_Helmet_Pilot","CUP_H_USMC_Crew_Helmet","CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HEDP_M203","CUP_arifle_M16A2_GL","bipod_01_f_blk","CUP_20Rnd_556x45_Stanag",
+			"CUP_SOFLAM","cup_optic_compm2_low","cup_acc_llm","cup_muzzle_snds_m16","CUP_arifle_Colt727","cup_optic_an_pvs_4"
+		];
 	};
 	//TAKI
 	case 12 : {
@@ -500,25 +526,33 @@ switch (CC_p_loaout) do {
 		_mag1 = "CUP_20Rnd_762x51_FNFAL_M";
 		_mag2 = "30Rnd_556x45_Stanag";
 		_mag_ar = "CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
-		_mag_mg = "rhs_100Rnd_762x54mmR_green";
+		_mag_mg = "CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_rpg26";
 			_at = "rhs_weap_rpg7_pgo";
-			_mag_at1 = "rhs_rpg7_PG7VR_mag";
+			_mag_at1 = "rhs_rpg7_PG7V_mag";
 			_mag_at2 = "rhs_rpg7_OG7V_mag";
 			_mag_at3 = "rhs_rpg7_TBG7V_mag";
 			_hat = "rhs_weap_rpg7_pgo";
-			_mag_hat = "rhs_rpg7_PG7VL_mag";
+			_mag_hat = "rhs_rpg7_PG7V_mag";
 		} else {
 			_lat = "CUP_launch_RPG18";
 			_at = "CUP_launch_RPG7V_PGO7V3";
-			_mag_at1 = "CUP_PG7VR_M";
+			_mag_at1 = "CUP_PG7V_M";
 			_mag_at2 = "CUP_OG7_M";
 			_mag_at3 = "CUP_TBG7V_M";
-			_hat = "CUP_launch_RPG7V_PGO7V3";
-			_mag_hat = "CUP_PG7VL_M";
+			_hat = "CUP_launch_Metis";
+			_mag_hat = "CUP_AT13_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","CUP_B_RPGPack_Khaki","CUP_PG7V_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","cup_acc_flashlight","CUP_NVG_HMNVS",
+			"CUP_TK_NeckScarf","CUP_V_O_TK_Vest_2","CUP_V_O_TK_Vest_1","CUP_H_TK_Lungee","CUP_H_TK_Helmet","CUP_B_AlicePack_Khaki","CUP_B_CivPack_WDL","CUP_U_O_TK_MixedCamo","CUP_U_O_TK_Green","rhs_rpg7_PG7V_mag",
+			"CUP_V_O_TK_OfficerBelt2","CUP_U_O_TK_Officer","CUP_HandGrenade_RGD5","CUP_8Rnd_9x18_Makarov_M","CUP_hgun_Makarov","CUP_arifle_FNFAL_OSW","CUP_arifle_FNFAL","CUP_20Rnd_762x51_FNFAL_M","CUP_FR_NeckScarf2","CUP_FR_NeckScarf",
+			"cup_optic_nspu","cup_optic_pso_1","CUP_srifle_SVD","CUP_100Rnd_TE4_LRT4_762x54_PK_Tracer_Green_M","CUP_lmg_PKM","CUP_75Rnd_TE4_LRT4_Green_Tracer_762x39_RPK_M","CUP_arifle_RPK74","CUP_B_TK_Medic_Desert","G_Aviator","CUP_H_TK_Beret",
+			"CUP_arifle_AKS74U","CUP_H_TK_TankerHelmet","CUP_V_O_SLA_M23_1_OD","CUP_U_O_SLA_Overalls_Tank","CUP_1Rnd_StarFlare_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HE_M203","CUP_30Rnd_556x45_Stanag","CUP_arifle_M16A2_GL","CUP_10Rnd_762x54_SVD_M",
+			"CUP_8Rnd_9x18_MakarovSD_M","cup_muzzle_pb6p9","CUP_hgun_PB6P9","CUP_5Rnd_127x108_KSVK_M","cup_optic_pso_3","CUP_srifle_ksvk","CUP_H_RUS_ZSH_Shield_Up","CUP_V_O_SLA_M23_1_BRN","CUP_U_O_SLA_Overalls_Pilot","CUP_30Rnd_545x39_AK_M",
+			"cup_muzzle_pbs4"
+		];
 	};
 	//INS
 	case 13 : {
@@ -605,29 +639,38 @@ switch (CC_p_loaout) do {
 	//SAF
 	case 15 : {
 		_weap = "rhs_weap_m21a";
-		_gre = "rhs_mag_rgd5";
+		_gre = "rhssaf_mag_br_m75";
 		_mag1 = "rhsgref_30rnd_556x45_m21";
-		_mag2 = "rhsgref_10Rnd_792x57_m76";
-		_mag_ar = "rhs_200rnd_556x45_M_SAW";
+		_mag2 = "rhssaf_10Rnd_792x57_m76_tracer";
+		_mag_ar = "rhsusf_100Rnd_556x45_mixed_soft_pouch";
 		_mag_mg = "rhs_100Rnd_762x54mmR_green";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_m80";
-			_at = "rhs_weap_rpg7_pgo";
-			_mag_at1 = "rhs_rpg7_PG7VL_mag";
-			_mag_at2 = "rhs_rpg7_OG7V_mag";
-			_mag_at3 = "rhs_rpg7_PG7VL_mag";
+			_at = "rhs_weap_smaw_gr_optic";
+			_mag_at1 = "rhs_mag_smaw_HEAA";
+			_mag_at2 = "rhs_mag_smaw_HEDP";
+			_mag_at3 = "rhs_mag_smaw_SR";
 			_hat = "rhs_weap_fgm148";
-			_mag_hat = "CUP_Javelin_M";
+			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
-			_lat = "CUP_launch_M72A6";
-			_at = "CUP_launch_RPG7V_PGO7V3";
-			_mag_at1 = "CUP_PG7VL_M";
-			_mag_at2 = "CUP_OG7_M";
-			_mag_at3 = "CUP_PG7VL_M";
-			_hat = "CUP_launch_M47";
-			_mag_hat = "CUP_Dragon_EP1_M";
+			_lat = "CUP_launch_M136";
+			_at = "CUP_launch_Mk153Mod0_SMAWOptics";
+			_mag_at1 = "CUP_SMAW_HEAA_M";
+			_mag_at2 = "CUP_SMAW_HEDP_M";
+			_mag_at3 = "CUP_SMAW_Spotting";
+			_hat = "CUP_launch_Javelin";
+			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"rhssaf_helmet_m97_digital","rhssaf_helmet_m97_digital_black_ess","rhssaf_helmet_m97_digital_black_ess_bare","rhssaf_helmet_m97_olive_nocamo_black_ess_bare","rhssaf_helmet_m97_olive_nocamo_black_ess","rhssaf_helmet_m97_olive_nocamo","B_AssaultPack_cbr","B_Kitbag_tan","B_Carryall_cbr","rhssaf_uniform_m10_digital_desert","rhs_acc_2dpzenit","rhsusf_ANPVS_14",
+			"CUP_launch_Mk153Mod0","CUP_launch_M136","rhssaf_vest_md12_digital","rhssaf_booniehat_digital","B_AssaultPack_khk","rhssaf_kitbag_digital","B_Carryall_oli","rhssaf_uniform_m10_digital_summer","rhssaf_vest_md12_digital_desert","rhssaf_bandana_digital_desert",
+			"CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2","G_Shades_Black","G_Shades_Green","rhs_googles_yellow","rhs_googles_orange","rhs_mag_smaw_SR","rhs_mag_smaw_HEAA","rhs_mag_smaw_HEAA","rhs_weap_optic_smaw","rhs_weap_smaw","rhs_weap_m80","CUP_SMAW_Spotting","CUP_SMAW_HEAA_M","cup_optic_smaw_scope",
+			"rhssaf_vest_md99_digital_rifleman_radio","rhssaf_mag_brd_m83_blue","rhssaf_mag_brd_m83_white","rhssaf_mag_br_m75","rhs_weap_m21s","rhsusf_acc_acog","rhs_weap_m21a_pr","rhs_acc_ekp8_02","rhsgref_30rnd_556x45_m21","rhs_weap_m21a",
+			"rhs_acc_pso1m2","rhs_weap_m76","rhs_100Rnd_762x54mmR_green","rhs_weap_m84","rhsusf_100Rnd_556x45_mixed_soft_pouch","rhsusf_acc_eotech_552","rhs_weap_minimi_para_railed","rhsgref_30rnd_556x45_m21_t","rhssaf_beret_green","rhssaf_mag_brd_m83_green",
+			"rhsusf_5Rnd_762x51_m118_special_Mag","rhsusf_acc_leupoldmk4_d","rhs_weap_m24sws_d","rhs_zsh7a_mike_green","rhs_tsh4","rhs_VG40OP_white","rhs_VG40MD_Red","rhs_VOG25","rhs_weap_m21a_pbg40","rhssaf_10Rnd_792x57_m76_tracer",
+			"rhsusf_acc_nt4_black","rhs_weap_g36c","cup_optic_an_pvs_4","rhsusf_5Rnd_762x51_m62_Mag","rhsusf_5Rnd_762x51_m993_Mag","rhssaf_vest_md99_digital_radio","rhsusf_mag_17Rnd_9x19_JHP","acc_flashlight_pistol","rhsusf_weap_glock17g4","rhsusf_acc_harris_swivel",
+			"rhsusf_acc_grip3","rhssaf_30rnd_556x45_EPR_G36","rhsusf_acc_acog_rmr","rhsusf_acc_anpeq16a"
+		];
 	};
 	//CDF
 	case 16 : {
@@ -658,30 +701,42 @@ switch (CC_p_loaout) do {
 	};
 	//PMC
 	case 17 : {
-		_weap = "rhs_weap_m4_carryhandle";
-		_gre = "CUP_HandGrenade_M67";
-		_mag1 = "rhs_mag_30Rnd_556x45_Mk318_Stanag";
-		_mag2 = "rhsusf_20Rnd_762x51_SR25_m118_special_Mag";
-		_mag_ar = "rhs_200rnd_556x45_M_SAW";
-		_mag_mg = "rhsusf_50Rnd_762x51";
+		_weap = "CUP_arifle_HK416_Black";
+		_gre = "HandGrenade";
+		_mag1 = "CUP_30Rnd_556x45_Stanag";
+		_mag2 = "CUP_20Rnd_762x51_HK417";
+		_mag_ar = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
+		_mag_mg = "CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
-			_at = "rhs_weap_smaw_gr_optic";
-			_mag_at1 = "rhs_mag_smaw_HEAA";
-			_mag_at2 = "rhs_mag_smaw_HEDP";
-			_mag_at3 = "rhs_mag_smaw_SR";
+			_at = "rhs_weap_maaws_optic";
+			_mag_at1 = "rhs_mag_maaws_HEAT";
+			_mag_at2 = "rhs_mag_maaws_HEDP";
+			_mag_at3 = "rhs_mag_maaws_HEAT";
 			_hat = "rhs_weap_fgm148";
 			_mag_hat = "rhs_fgm148_magazine_AT";
 		} else {
 			_lat = "CUP_launch_M136";
-			_at = "CUP_launch_Mk153Mod0_SMAWOptics";
-			_mag_at1 = "CUP_SMAW_HEAA_M";
-			_mag_at2 = "CUP_SMAW_HEDP_M";
-			_mag_at3 = "CUP_SMAW_Spotting";
+			_at = "CUP_launch_MAAWS_Scope";
+			_mag_at1 = "CUP_MAAWS_HEAT_M";
+			_mag_at2 = "CUP_MAAWS_HEDP_M";
+			_mag_at3 = "CUP_MAAWS_HEAT_M";
 			_hat = "CUP_launch_Javelin";
 			_mag_hat = "CUP_Javelin_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"B_AssaultPack_sgg","B_Kitbag_sgg","CPC_Snow_Backpack_1","CUP_I_B_PMC_Unit_30","CUP_I_B_PMC_Unit_25","CUP_I_B_PMC_Unit_29","CUP_I_B_PMC_Unit_33","acc_flashlight","cup_acc_anpeq_2_grey","CUP_NVG_PVS15_black",
+			"CUP_I_B_PMC_Unit_32","CUP_I_B_PMC_Unit_31","CUP_I_B_PMC_Unit_23","CUP_I_B_PMC_Unit_12","CUP_I_B_PMC_Unit_9","CUP_I_B_PMC_Unit_10","CUP_I_B_PMC_Unit_11","CUP_I_B_PMC_Unit_15","CUP_I_B_PMC_Unit_16","CUP_I_B_PMC_Unit_14","CUP_I_B_PMC_Unit_13","CUP_I_B_PMC_Unit_17","CUP_I_B_PMC_Unit_19","CUP_I_B_PMC_Unit_21","CUP_I_B_PMC_Unit_22","CUP_I_B_PMC_Unit_20","CUP_V_PMC_CIRAS_Winter_Veh","CUP_V_PMC_CIRAS_Winter_Grenadier","CUP_V_PMC_CIRAS_Winter_TL","CUP_V_PMC_CIRAS_Winter_Patrol","CUP_H_FR_BeanieGreen","CUP_H_PMC_Beanie_Headphones_Winter",
+			"CUP_TK_NeckScarf","CUP_FR_NeckScarf5","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","B_AssaultPack_blk","B_AssaultPack_cbr","B_AssaultPack_rgr","B_AssaultPack_khk","B_Kitbag_cbr","B_Kitbag_rgr","B_Kitbag_mcamo","B_Carryall_oli","B_Carryall_cbr","B_Carryall_khk",
+			"H_Cap_oli_hs","CUP_H_RUS_Bandana_HS","H_Bandanna_khk_hs","H_Watchcap_khk","H_Watchcap_camo","H_Watchcap_cbr","H_Watchcap_blk","CUP_H_PMC_Beanie_Headphones_Black","CUP_H_PMC_Beanie_Headphones_Khaki","CUP_H_PMC_Cap_Back_EP_Grey","CUP_H_PMC_Cap_Back_EP_Tan","CUP_H_PMC_Cap_Back_PRR_Grey","CUP_H_PMC_Cap_Back_PRR_Tan","CUP_H_PMC_Cap_EP_Grey","CUP_H_PMC_Cap_EP_Tan","CUP_H_PMC_Cap_PRR_Grey","CUP_H_PMC_Cap_PRR_Tan",
+			"CUP_MAAWS_HEAT_M","cup_optic_maaws_scope","CUP_launch_MAAWS","CUP_launch_M136","CUP_V_PMC_IOTV_Black_AR","CUP_V_PMC_IOTV_Coyote_AR","CUP_V_PMC_CIRAS_Black_Veh","CUP_V_PMC_CIRAS_Coyote_Veh","CUP_V_PMC_CIRAS_Black_Grenadier","CUP_V_PMC_CIRAS_Coyote_Grenadier","CUP_V_PMC_IOTV_Black_Grenadier","CUP_V_PMC_IOTV_Coyote_Grenadier","CUP_V_PMC_CIRAS_Black_TL","CUP_V_PMC_CIRAS_Coyote_TL","CUP_V_PMC_IOTV_Black_TL","CUP_V_PMC_IOTV_Coyote_TL","CUP_V_PMC_CIRAS_Black_Patrol","CUP_V_PMC_CIRAS_Coyote_Patrol","CUP_V_PMC_IOTV_Black_Patrol","CUP_V_PMC_IOTV_Coyote_Patrol",
+			"G_Shades_Black","G_Shades_Green","G_Shades_Black","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_optic_maaws","rhs_weap_maaws","rhs_weap_M136","CUP_MAAWS_HEDP_M",
+			"cup_optic_elcan","cup_optic_acog","cup_optic_microt1","cup_optic_eotech553_black","cup_optic_compm2_low","CUP_30Rnd_556x45_Emag","CUP_30Rnd_556x45_PMAG_QP","CUP_30Rnd_556x45_Stanag","CUP_arifle_HK416_M203_Black","CUP_arifle_M4A1_BUIS_GL","CUP_arifle_HK416_Black","CUP_arifle_M4A3_black",
+			"CUP_30Rnd_556x45_PMAG_QP_Olive","CUP_arifle_HK416_M203_Wood","CUP_arifle_M4A1_BUIS_camo_GL","CUP_arifle_HK416_Wood","CUP_arifle_M4A3_camo","cup_optic_elcan_coyote","cup_optic_acog_reflex_desert","cup_optic_compm2_low_od","cup_optic_compm2_low_coyote","CUP_30Rnd_556x45_EMAG_Tan","CUP_30Rnd_556x45_PMAG_QP_Tan","CUP_arifle_HK416_CQB_M203_Desert","CUP_arifle_M4A1_BUIS_desert_GL","CUP_arifle_HK416_Desert","CUP_arifle_M4A3_desert",
+			"cup_optic_elcanm145","CUP_lmg_MG3_rail","CUP_200Rnd_TE4_Red_Tracer_556x45_M249","CUP_lmg_m249_pip1","HandGrenade","16Rnd_9x21_Mag","hgun_Rook40_F","CUP_1Rnd_HEDP_M203","cup_optic_elcan_od","cup_optic_acog_reflex_wood","CUP_30Rnd_556x45_EMAG_Olive",
+			"CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HEDP_M203","CUP_20Rnd_TE1_Red_Tracer_762x51_HK417","cup_optic_elcan_reflex","bipod_01_f_blk","CUP_20Rnd_762x51_HK417","cup_optic_sb_11_4x20_pm","CUP_arifle_HK417_20","CUP_120Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",
+			"cup_optic_elcan_reflex","cup_acc_anpeq_15_black","cup_muzzle_snds_m16","CUP_arifle_HK416_CQB_Black","cup_optic_an_pvs_4","7Rnd_408_Mag","optic_lrps","srifle_LRR_F","H_PilotHelmetHeli_B","H_HelmetCrew_I"
+		];
 	};
 	//FR
 	case 18 : {
@@ -689,7 +744,7 @@ switch (CC_p_loaout) do {
 		_gre = "HandGrenade";
 		_mag1 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
 		_mag2 = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
-		_mag_ar = "rhs_200rnd_556x45_M_SAW";
+		_mag_ar = "rhsusf_100Rnd_556x45_mixed_soft_pouch";
 		_mag_mg = "rhsusf_100Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
 			_lat = "rhs_weap_M136";
@@ -708,7 +763,14 @@ switch (CC_p_loaout) do {
 			_hat = "CUP_launch_M47";
 			_mag_hat = "CUP_Dragon_EP1_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"rhssaf_booniehat_woodland","rhssaf_helmet_m97_woodland_black_ess_bare","rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland","B_AssaultPack_rgr","rhssaf_kitbag_md2camo","B_Carryall_oli","U_MU_B_soldier_wdl_vest","U_MU_B_soldier_wdl","rhsusf_acc_wmx_bk","rhsusf_acc_anpeq15_bk_top","CUP_NVG_PVS15_black",
+			"rhs_mag_smaw_HEAA","rhs_weap_optic_smaw","rhs_weap_smaw","rhs_weap_M136","CUP_SMAW_Spotting","CUP_SMAW_HEAA_M","CUP_SMAW_HEAA_M","cup_optic_smaw_scope","CUP_launch_Mk153Mod0","CUP_launch_M136","V_I_G_resistanceLeader_F","rhssaf_vest_otv_md2camo",
+			"bipod_01_f_blk","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhsusf_acc_eotech_552","rhs_weap_hk416d145","G_Shades_Black","G_Shades_Green","CUP_G_Oakleys_Drk","CUP_G_Oakleys_Embr","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","rhs_mag_smaw_SR",
+			"optic_tws","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhsusf_50Rnd_762x51_m62_tracer","rhsusf_acc_elcan","rhs_weap_m240G","rhsusf_100Rnd_556x45_mixed_soft_pouch","rhs_weap_minimi_para_railed","HandGrenade","rhsusf_mag_15Rnd_9x19_JHP","rhsusf_weap_m9","rhsusf_acc_acog2","rhs_weap_hk416d10_LMT",
+			"acc_flashlight_pistol","rhsusf_weap_glock17g4","5Rnd_127x108_APDS_Mag","5Rnd_127x108_Mag","rhsusf_acc_premier","srifle_GM6_F","H_PilotHelmetHeli_B","H_HelmetCrew_I","rhs_mag_M585_white","rhs_mag_m713_Red","rhs_mag_M433_HEDP","rhs_weap_hk416d145_m320",
+			"rhsusf_acc_anpeq16a_top","rhsusf_acc_nt4_black","rhsusf_mag_17Rnd_9x19_JHP"
+		];
 	};
 	// armée occident
 	case 19 : {
@@ -780,10 +842,51 @@ switch (CC_p_loaout) do {
 			_mag_at1 = "CUP_MAAWS_HEAT_M";
 			_mag_at2 = "CUP_MAAWS_HEDP_M";
 			_mag_at3 = "CUP_MAAWS_HEAT_M";
-			_hat = "CUP_launch_Javelin";
-			_mag_hat = "CUP_Javelin_M";
+			_hat = "CUP_launch_M47";
+			_mag_hat = "CUP_Dragon_EP1_M";
 		};
-		_arsenal_items_faction = [];
+		_arsenal_items_faction = [
+			"H_Booniehat_tan","CUP_H_US_patrol_cap_desert","CUP_H_US_H_PASGT_desert","CUP_U_B_US_BDU_desert","CUP_V_B_PASGT_winter","CUP_H_FR_BeanieGreen","CUP_H_US_patrol_cap_winter","CUP_H_US_H_PASGT_winter","CUP_B_AlicePack_OD","CUP_U_B_US_BDU_winter","cup_acc_flashlight","CUP_NVG_PVS7",
+			"CUP_MAAWS_HEDP_M","CUP_MAAWS_HEAT_M","cup_optic_maaws_scope","CUP_launch_MAAWS","CUP_launch_M72A6","CUP_V_B_PASGT_OD","CUP_H_FR_PRR_BoonieWDL","CUP_H_US_patrol_cap_WDL","CUP_H_US_H_PASGT_WDL","CUP_U_B_US_BDU_roll2","CUP_U_B_US_BDU","CUP_V_B_PASGT",
+			"CUP_lmg_M249_E2","CUP_G_PMC_RadioHeadset","CUP_HandGrenade_M67","CUP_7Rnd_45ACP_1911","CUP_hgun_Colt1911","CUP_20Rnd_556x45_Stanag","CUP_arifle_M16A1","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_optic_maaws","rhs_weap_maaws","rhs_weap_m72a7",
+			"CUP_H_USMC_Helmet_Pilot","CUP_H_USMC_Crew_Helmet","CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HE_M203","CUP_arifle_M16A2_GL","20Rnd_762x51_Mag","cup_optic_leupoldmk4","CUP_srifle_M14_DMR","CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","CUP_lmg_M60E4_norail","CUP_200Rnd_TE4_Red_Tracer_556x45_M249",
+			"CUP_SOFLAM","cup_optic_compm2_low","CUP_20Rnd_556x45_Stanag_Tracer_Red","cup_optic_sb_11_4x20_pm","cup_muzzle_snds_mk12","CUP_srifle_Mk12SPR","cup_optic_an_pvs_4","CUP_V_B_ALICE","bipod_02_f_blk","CUP_5Rnd_762x51_M24","cup_optic_leupoldmk4","CUP_srifle_M24_blk",
+			"CUP_launch_M47","CUP_smg_MP5SD6","CUP_smg_MP5A5_flashlight","CUP_30Rnd_9x19_MP5","CUP_smg_MP5A5","CUP_glaunch_M79","CUP_30Rnd_556x45_Stanag","CUP_arifle_Colt727","20Rnd_762x51_Mag","CUP_srifle_M14",
+			"CUP_Dragon_EP1_M","CUP_V_B_RRV_TL","CUP_V_B_RRV_Scout2","CUP_V_B_RRV_Scout","CUP_V_B_RRV_Officer","CUP_V_B_RRV_Medic","CUP_U_B_US_BDU_tigerstripe","CUP_H_US_patrol_cap_tigerstripe","CUP_H_USArmy_Helmet_M1_Olive","CUP_H_FR_BandanaGreen","H_Bandanna_sand","H_Bandanna_khk"
+		];
+	};
+	//RU 1980
+	case 21 : {
+		_weap = "CUP_arifle_AK74_Early";
+		_gre = "rhs_mag_rgd5";
+		_mag1 = "CUP_30Rnd_545x39_AK_M";
+		_mag2 = "CUP_10Rnd_762x54_SVD_M";
+		_mag_ar = "CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
+		_mag_mg = "rhs_100Rnd_762x54mmR_green";
+		if (cc_rhsennemy) then {
+			_lat = "rhs_weap_rpg26";
+			_at = "rhs_weap_rpg7_pgo";
+			_mag_at1 = "rhs_rpg7_PG7VR_mag";
+			_mag_at2 = "rhs_rpg7_OG7V_mag";
+			_mag_at3 = "rhs_rpg7_TBG7V_mag";
+			_hat = "rhs_weap_rpg7_pgo";
+			_mag_hat = "rhs_rpg7_PG7V_mag";
+		} else {
+			_lat = "CUP_launch_RPG18";
+			_at = "CUP_launch_RPG7V_PGO7V3";
+			_mag_at1 = "CUP_PG7VR_M";
+			_mag_at2 = "CUP_OG7_M";
+			_mag_at3 = "CUP_TBG7V_M";
+			_hat = "CUP_launch_RPG7V_PGO7V3";
+			_mag_hat = "CUP_PG7V_M";
+		};	
+		_arsenal_items_faction = [
+			"rhs_6b5_officer","rhs_6b5_rifleman","rhs_6b5","rhsgref_uniform_vsr","rhs_fieldcap_khk","rhs_6b5_sniper_khaki","rhs_6b5_medic_khaki","rhs_6b5_officer_khaki","rhs_6b5_rifleman_khaki","rhs_6b5_khaki","rhs_uniform_m88_patchless","rhs_acc_2dpzenit_ris",
+			"rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","rhs_rpg7_PG7V_mag","rhs_rpg_empty","CUP_PG7V_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","rhs_fieldcap_vsr","rhs_6b5_sniper","rhs_6b5_medic",
+			"CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M","CUP_arifle_RPK74_45","rhssaf_zrak_rd7j","rhs_mag_rdg2_white","rhs_mag_rgd5","CUP_8Rnd_9x18_Makarov_M","CUP_hgun_Makarov","CUP_arifle_AKS74_Early","CUP_30Rnd_545x39_AK_M","CUP_arifle_AK74_Early","rhs_sidor","rhs_ssh68",
+			"CUP_arifle_AKS74U","CUP_1Rnd_SmokeRed_GP25_M","CUP_IlumFlareWhite_GP25_M","CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M","CUP_1Rnd_HE_GP25_M","CUP_arifle_AK74_GL_Early","cup_optic_nspu","CUP_10Rnd_762x54_SVD_M","cup_optic_pso_1","CUP_srifle_SVD","rhs_100Rnd_762x54mmR_green","rhs_weap_pkm",
+			"CUP_20Rnd_9x39_SP5_VSS_M","cup_optic_pso_1_1","CUP_srifle_VSSVintorez","rhs_scarf","CUP_8Rnd_9x18_MakarovSD_M","cup_muzzle_pb6p9","CUP_hgun_PB6P9","cup_muzzle_snds_kzrzp_svd","rhs_zsh7a_mike","rhs_vydra_3m","rhs_uniform_df15_tan","rhs_tsh4"
+		];
 	};
 };
 
