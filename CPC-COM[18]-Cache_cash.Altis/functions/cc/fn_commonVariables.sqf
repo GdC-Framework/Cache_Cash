@@ -32,6 +32,7 @@ CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 2 : {"nato"};
 	case 3 : {"csat"};
 	case 4 : {"aaf"};
+	case 5 : {"ldf"};
 	case 101 : {"ins_rhs"};
 	case 102 : {"ru_rhs"};
 	case 103 : {"us_rhs"};

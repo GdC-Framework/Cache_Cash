@@ -37,7 +37,7 @@ cc_objOK = true;
 publicVariable "cc_objOK";
 
 //creation du camp
-if (random 100 < 70) then {
+if (random 100 < 50) then {
 	[] execVM "scripts\create_base.sqf";
 } else {
 	["1"] execVM "scripts\create_ville.sqf";
