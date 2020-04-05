@@ -22,7 +22,7 @@ private ["_rhsennemy","_uniform","_vest","_headgear","_nvg","_lamp","_weapon"];
 hard_setLoadout = 
 {
 	_unit = _this select 0;
-	_loadout = _unit getVariable "loadout";
+	_loadout = _unit getVariable ["loadout","cc_r"];
 	
 	_rhsennemy = cc_rhsennemy;
 	_nvg = false;

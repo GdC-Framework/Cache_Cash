@@ -73,21 +73,22 @@ cc_playerCount = if (isMultiplayer) then {count playableUnits} else {count switc
 // Camo en fonction du terrain
 cc_IAcamo = "polyvalent";
 switch (toLower worldName) do {
-	case "altis" : {cc_IAcamo = "polyvalent"};
+	case "altis";
 	case "sara" : {cc_IAcamo = "polyvalent"};
-	case "enoch" : {cc_IAcamo = "woodland"}; // Livonia
-	case "chernarus" : {cc_IAcamo = "woodland"};
-	case "chernarus_summer" : {cc_IAcamo = "woodland"};
-	case "fdf_isle1_a" : {cc_IAcamo = "woodland"}; // Podagorsk
-	case "woodland_acr" : {cc_IAcamo = "woodland"}; // Bystrica
-	case "noe" : {cc_IAcamo = "woodland"}; // Nogova
+	case "enoch"; // Livonia
+	case "chernarus";
+	case "chernarus_summer";
+	case "cup_chernarus_a3";
+	case "fdf_isle1_a"; // Podagorsk
+	case "woodland_acr"; // Bystrica
+	case "noe"; // Nogova
 	case "eden" : {cc_IAcamo = "woodland"}; // Everon
-	case "takistan" : {cc_IAcamo = "desert"};
-	case "pja307" : {cc_IAcamo = "desert"}; // dariyah
-	case "isladuala3" : {cc_IAcamo = "desert"};
+	case "takistan";
+	case "pja307"; // dariyah
+	case "isladuala3";
 	case "dingor" : {cc_IAcamo = "desert"};
-	case "tanoa" : {cc_IAcamo = "jungle"};
-	case "pja305" : {cc_IAcamo = "jungle"}; // Nazigogo
+	case "tanoa";
+	case "pja305"; // Nazigogo
 	case "lingor3" : {cc_IAcamo = "jungle"};
 	case "chernarus_winter" : {cc_IAcamo = "winter"};
 	default {cc_IAcamo = "polyvalent"};

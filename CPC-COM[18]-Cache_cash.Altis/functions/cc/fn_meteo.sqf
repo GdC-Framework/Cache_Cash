@@ -34,13 +34,13 @@ switch (CC_p_overcast) do {
 	
 	case 2 : // Nuageux
 	{
-		0 setOvercast (random [0.6,0.75,1]);
+		0 setOvercast (random [0.4,0.6,0.9]);
 		0 setWindForce 0.3;
 		0 setRain 0;
 		0 setRainbow 0;
 		0 setLightnings 0;
 		forceWeatherChange;
-		3600 setOvercast (random [0.6,0.75,1]);
+		3600 setOvercast (random [0.4,0.6,0.9]);
 		999999 setWindForce 0.3;
 		999999 setRain 0;
 		999999 setLightnings 0;

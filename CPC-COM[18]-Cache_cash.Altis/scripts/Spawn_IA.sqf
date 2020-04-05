@@ -357,7 +357,7 @@ _houselist = _houselist - _houseOutlist;
 	if (random 100 < 3.5) then {
 		_pos = getpos _x;
 		_type =  switch (CPC_WorldType) do {
-			case "vanilla": {["CUP_C_C_Citizen_02","CUP_C_C_Citizen_01","CUP_C_C_Citizen_04","CUP_C_C_Citizen_03""CUP_C_C_Functionary_01","CUP_C_C_Functionary_02","CUP_C_C_Profiteer_02","CUP_C_C_Profiteer_03","CUP_C_C_Profiteer_01","CUP_C_C_Profiteer_04","CUP_C_C_Rocker_01","CUP_C_C_Rocker_03","CUP_C_C_Rocker_02","CUP_C_C_Rocker_04","CUP_C_C_Schoolteacher_01","CUP_C_C_Villager_01","CUP_C_C_Villager_04","CUP_C_C_Villager_02","CUP_C_C_Villager_03","CUP_C_C_Worker_03","CUP_C_C_Worker_04","CUP_C_C_Worker_02","CUP_C_C_Worker_01","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_p_beggar_F"]};
+			case "vanilla": {["CUP_C_C_Citizen_02","CUP_C_C_Citizen_01","CUP_C_C_Citizen_04","CUP_C_C_Citizen_03","CUP_C_C_Functionary_01","CUP_C_C_Functionary_02","CUP_C_C_Profiteer_02","CUP_C_C_Profiteer_03","CUP_C_C_Profiteer_01","CUP_C_C_Profiteer_04","CUP_C_C_Rocker_01","CUP_C_C_Rocker_03","CUP_C_C_Rocker_02","CUP_C_C_Rocker_04","CUP_C_C_Schoolteacher_01","CUP_C_C_Villager_01","CUP_C_C_Villager_04","CUP_C_C_Villager_02","CUP_C_C_Villager_03","CUP_C_C_Worker_03","CUP_C_C_Worker_04","CUP_C_C_Worker_02","CUP_C_C_Worker_01","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_p_beggar_F"]};
 			case "desert": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro","C_man_p_beggar_F_asia","C_man_polo_1_F_asia","C_man_polo_2_F_asia","C_man_polo_3_F_asia","C_man_polo_4_F_asia","C_man_polo_5_F_asia","C_man_polo_6_F_asia"]};
 			case "afrique": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro"]};
 			case "jungle": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro"]};
@@ -426,10 +426,10 @@ if (CC_p_menace_veh_nbr > 0) then {
 	_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 	_group = _veh#0; _veh = _veh#1;
 	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	{_x assignAsCargo (_veh select 0); _x moveInCargo (_veh select 0);} foreach units _group;
-	units _group join (_veh select 2);
-	(_veh select 2) setVariable ["GAIA_ZONE_INTEND",["2", "MOVE"], false];
-	[(units (_veh select 2))] call STDR_fnc_setskill;
+	{_x assignAsCargo _veh; _x moveInCargo _veh;} foreach units _group;
+	units _group join _group;
+	_group setVariable ["GAIA_ZONE_INTEND",["2", "MOVE"], false];
+	[(units _group)] call STDR_fnc_setskill;
 };
 
 // Camion de renfort

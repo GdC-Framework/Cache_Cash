@@ -134,7 +134,7 @@ class Params
 			"US 1980", //20
 			"URSS 1980" //21
 		};
-		default = 19;
+		default = 12;
 	};
 	class nvg
 	{
@@ -434,7 +434,22 @@ class CC_ennemy
 			pilot = "";
 			plane = "";
 		};
-		class woodland: polyvalent {};
+		class woodland: polyvalent 
+		{
+			r = "O_MU_LIVP_soldier_r1";
+			tl = "O_MU_LIVP_soldier_tl";
+			gl = "O_MU_LIVP_soldier_gl";
+			lat = "O_MU_LIVP_soldier_at";
+			at = "O_MU_LIVP_soldier_at";
+			mg = "O_MU_LIVP_soldier_ar";
+			m = "O_MU_LIVP_soldier_m";
+			aa = "O_MU_LIVP_soldier_aa";
+			crew = "O_MU_LIVP_soldier_r2";
+			veharray_light[] = {"O_MU_LIVP_offroad_armed","O_MU_LIVP_jeep_armed"};
+			veharray_heavy[] = {"O_MU_LIVP_offroad_AT","O_MU_LIVP_jeep_AT","CUP_B_MTLB_pk_FIA","CUP_B_BTR60_FIA","CUP_I_T55_NAPA"};
+			veharray_transport[] = {"O_MU_LIVP_kamaz_covered","O_MU_LIVP_kamaz_covered","O_MU_LIVP_truck","O_MU_LIVP_van_transport"};
+			veharray_aa[] = {"O_MU_LIVP_offroad_armed"};
+		};
 		class desert: polyvalent
 		{
 			r = "O_MU_islam_R1_F";
@@ -863,7 +878,7 @@ class CC_ennemy
 			veharray_transport[] = {"CPC_JUN_B_AMIL_M998_2dr_fulltop"};
 			veharray_heli[] = {"CPC_JUN_B_AMIL_UH60M","CPC_JUN_B_AMIL_UH1H_unarmed"};
 			veharray_air[] = {"CPC_JUN_B_AMIL_UH1H_gunship","CPC_JUN_B_AMIL_UH1H_gunship","CPC_JUN_B_AMIL_AH1Z"};
-			veharray_aa[] = {"CPC_JUN_B_AMIL_UH1H_gunship"}; // placeholder
+			veharray_aa[] = {"CPC_JUN_B_AMIL_ZU23"}; // placeholder
 			hmg = "CPC_JUN_B_AMIL_M2_MiniTriPod";
 			pilot = "";
 			plane = "";
@@ -880,8 +895,8 @@ class CC_ennemy
 			r = "CUP_I_RACS_Soldier";
 			tl = "CUP_I_RACS_Officer";
 			gl = "CUP_I_RACS_GL";
-			lat = "CUP_I_RACS_Soldier_MAT"; // placeholder
-			at = "CUP_I_RACS_Soldier_HAT"; // placeholder
+			lat = "CUP_I_RACS_Soldier_LAT";
+			at = "CUP_I_RACS_Soldier_MAT";
 			mg = "CUP_I_RACS_MMG";
 			m = "CUP_I_RACS_Sniper";
 			aa = "CUP_I_RACS_Soldier_AA";
@@ -902,8 +917,8 @@ class CC_ennemy
 			r = "CUP_I_RACS_Soldier_wdl";
 			tl = "CUP_I_RACS_Officer_wdl";
 			gl = "CUP_I_RACS_GL_wdl";
-			lat = "CUP_I_RACS_Soldier_MAT_wdl"; // placeholder
-			at = "CUP_I_RACS_Soldier_HAT_wdl"; // placeholder
+			lat = "CUP_I_RACS_Soldier_LAT_wdl";
+			at = "CUP_I_RACS_Soldier_MAT_wdl";
 			mg = "CUP_I_RACS_MMG_wdl";
 			m = "CUP_I_RACS_Sniper_wdl";
 			aa = "CUP_I_RACS_Soldier_AA_wdl";
@@ -914,8 +929,8 @@ class CC_ennemy
 			r = "CUP_I_RACS_Soldier_Mech";
 			tl = "CUP_I_RACS_Officer_Mech";
 			gl = "CUP_I_RACS_GL_Mech";
-			lat = "CUP_I_RACS_Soldier_MAT_Mech"; // placeholder
-			at = "CUP_I_RACS_Soldier_HAT_Mech"; // placeholder
+			lat = "CUP_I_RACS_Soldier_LAT_Mech";
+			at = "CUP_I_RACS_Soldier_MAT_Mech";
 			mg = "CUP_I_RACS_MMG_Mech";
 			m = "CUP_I_RACS_Sniper_Mech";
 			aa = "CUP_I_RACS_Soldier_AA_Mech";
@@ -925,8 +940,8 @@ class CC_ennemy
 			r = "CUP_I_RACS_Soldier_Urban";
 			tl = "CUP_I_RACS_Officer_Urban";
 			gl = "CUP_I_RACS_GL_Urban";
-			lat = "CUP_I_RACS_Soldier_MAT_Urban"; // placeholder
-			at = "CUP_I_RACS_Soldier_HAT_Urban"; // placeholder
+			lat = "CUP_I_RACS_Soldier_LAT_Urban";
+			at = "CUP_I_RACS_Soldier_MAT_Urban";
 			mg = "CUP_I_RACS_MMG_Urban";
 			m = "CUP_I_RACS_Sniper_Urban";
 			aa = "CUP_I_RACS_Soldier_AA_Urban";
@@ -940,7 +955,7 @@ class CC_ennemy
 			r = "CUP_B_CDF_Soldier_MNT";
 			tl = "CUP_B_CDF_Soldier_TL_MNT";
 			gl = "CUP_B_CDF_Soldier_GL_MNT";
-			lat = "CUP_B_CDF_Soldier_LAT_MNT"; // placeholder
+			lat = "CUP_B_CDF_Soldier_RPG18_MNT";
 			at = "CUP_B_CDF_Soldier_LAT_MNT";
 			mg = "CUP_B_CDF_Soldier_MG_MNT";
 			m = "CUP_B_CDF_Soldier_Marksman_MNT";
@@ -963,7 +978,7 @@ class CC_ennemy
 			r = "CUP_B_CDF_Soldier_DST";
 			tl = "CUP_B_CDF_Soldier_TL_DST";
 			gl = "CUP_B_CDF_Soldier_GL_DST";
-			lat = "CUP_B_CDF_Soldier_LAT_DST"; // placeholder
+			lat = "CUP_B_CDF_Soldier_RPG18_DST";
 			at = "CUP_B_CDF_Soldier_LAT_DST";
 			mg = "CUP_B_CDF_Soldier_MG_DST";
 			m = "CUP_B_CDF_Soldier_Marksman_DST";
@@ -975,7 +990,7 @@ class CC_ennemy
 			r = "CUP_B_CDF_Soldier_FST";
 			tl = "CUP_B_CDF_Soldier_TL_FST";
 			gl = "CUP_B_CDF_Soldier_GL_FST";
-			lat = "CUP_B_CDF_Soldier_LAT_FST"; // placeholder
+			lat = "CUP_B_CDF_Soldier_RPG18_FST";
 			at = "CUP_B_CDF_Soldier_LAT_FST";
 			mg = "CUP_B_CDF_Soldier_MG_FST";
 			m = "CUP_B_CDF_Soldier_Marksman_FST";
@@ -987,7 +1002,7 @@ class CC_ennemy
 			r = "CUP_B_CDF_Soldier_SNW";
 			tl = "CUP_B_CDF_Soldier_TL_SNW";
 			gl = "CUP_B_CDF_Soldier_GL_SNW";
-			lat = "CUP_B_CDF_Soldier_LAT_SNW"; // placeholder
+			lat = "CUP_B_CDF_Soldier_RPG18_SNW";
 			at = "CUP_B_CDF_Soldier_LAT_SNW";
 			mg = "CUP_B_CDF_Soldier_MG_SNW";
 			m = "CUP_B_CDF_Soldier_Marksman_SNW";
@@ -1068,7 +1083,7 @@ class CC_ennemy
 			veharray_light[] = {"CUP_B_BAF_Coyote_L2A1_W","CUP_B_Jackal2_L2A1_GB_W","CUP_B_LR_MG_GB_W","CUP_B_LR_Special_M2_GB_W"};
 			veharray_medium[] = {"CUP_B_Ridgback_HMG_GB_W","CUP_B_Mastiff_GMG_GB_W","CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W"};
 			veharray_heavy[] = {"CUP_B_FV510_GB_W","CUP_B_MCV80_GB_W","CUP_B_Challenger2_Woodland_BAF","CUP_B_Challenger2_2CW_BAF"};
-			veharray_transport[] = {"CUP_B_Mastiff_LMG_GB_W","CUP_B_LR_Transport_GB_W"};
+			veharray_transport[] = {"CUP_B_MTVR_BAF_WOOD"};
 			veharray_heli[] = {"CUP_B_CH47F_GB","CUP_B_Merlin_HC3_GB","CUP_B_Merlin_HC3A_GB","CUP_B_SA330_Puma_HC2_BAF"};
 			veharray_air[] = {"CUP_B_AH1_DL_BAF","CUP_B_AW159_GB","CUP_B_AW159_GB","CUP_B_GR9_DYN_GB"};
 			veharray_aa[] = {"CUP_B_HMMWV_Avenger_USMC","CUP_B_M163_USA"};
@@ -1102,7 +1117,7 @@ class CC_ennemy
 			veharray_light[] = {"CUP_B_BAF_Coyote_L2A1_D","CUP_B_Jackal2_L2A1_GB_D","CUP_B_LR_MG_GB_D","CUP_B_LR_Special_M2_GB_D"};
 			veharray_medium[] = {"CUP_B_Ridgback_HMG_GB_D","CUP_B_Mastiff_GMG_GB_D","CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV432_Bulldog_GB_D"};
 			veharray_heavy[] = {"CUP_B_FV510_GB_D_SLAT","CUP_B_MCV80_GB_D_SLAT","CUP_B_Challenger2_Desert_BAF","CUP_B_Challenger2_2CD_BAF"};
-			veharray_transport[] = {"CUP_B_Mastiff_LMG_GB_D","CUP_B_LR_Transport_GB_D"};
+			veharray_transport[] = {"CUP_B_MTVR_BAF_DES"};
 			veharray_aa[] = {"CUP_B_HMMWV_Avenger_USA","CUP_B_M163_USA"};
 		};
 		class jungle: woodland {};
@@ -1119,13 +1134,13 @@ class CC_ennemy
 			r = "CUP_I_GUE_Soldier_AKS74";
 			tl = "CUP_I_GUE_Officer";
 			gl = "CUP_I_GUE_Soldier_GL";
-			lat = "CUP_I_GUE_Soldier_AT"; // placeholder
+			lat = "CUP_I_GUE_Soldier_LAT";
 			at = "CUP_I_GUE_Soldier_AT";
 			mg = "CUP_I_GUE_Soldier_AR";
 			m = "CUP_I_GUE_Sniper";
 			aa = "CUP_I_GUE_Soldier_AA2";
 			crew = "CUP_I_GUE_Crew";
-			veharray_light[] = {"CUP_I_Datsun_PK"};
+			veharray_light[] = {"CUP_I_Datsun_PK","CPC_LAT_I_PIC_Hilux_DSHKM","CPC_LAT_I_PIC_Hilux_M2"};
 			veharray_medium[] = {"CUP_I_BRDM2_NAPA","CUP_I_MTLB_pk_NAPA","CUP_I_MTLB_pk_NAPA"};
 			veharray_heavy[] = {"CUP_I_BMP2_NAPA","CUP_I_T34_NAPA","CUP_I_T55_NAPA"};
 			veharray_transport[] = {"CUP_V3S_Open_NAPA"};
@@ -1154,7 +1169,7 @@ class CC_ennemy
 			m = "CPC_Duala_O_NPFD_soldier_sniper";
 			aa = "CPC_Duala_O_NPFD_soldier_AA";
 			crew = "CPC_Duala_O_NPFD_soldier_5";
-			veharray_light[] = {"CPC_Duala_O_NPFD_Datsun_PK"};
+			veharray_light[] = {"CPC_Duala_O_NPFD_Datsun_PK","CPC_Afrique_O_NPFD_Hilux_DSHKM","CPC_Afrique_O_NPFD_Hilux_M2"};
 			veharray_medium[] = {"CPC_Duala_O_NPFD_BTR40_MG","CUP_I_MTLB_pk_NAPA"};
 			veharray_heavy[] = {"CUP_I_MTLB_pk_NAPA","CUP_I_T55_NAPA"};
 			veharray_transport[] = {"CPC_Afrique_O_NPFD_V3S_Open","CPC_Afrique_O_NPFD_V3S_Covered","CPC_Duala_O_NPFD_Ural_1","CPC_Duala_O_NPFD_Ural_3"};
@@ -1181,15 +1196,15 @@ class CC_ennemy
 			at = "CPC_LAT_I_PIC_soldier_AT";
 			mg = "CPC_LAT_I_PIC_soldier_MG";
 			m = "CPC_LAT_I_PIC_soldier_M";
-			aa = "CPC_Duala_O_NPFD_soldier_AA"; // placeholder
+			aa = "CPC_LAT_I_PIC_soldier_AA";
 			crew = "CPC_LAT_I_PIC_soldier_4";
-			veharray_light[] = {"CPC_LAT_I_PIC_Datsun_PK"};
+			veharray_light[] = {"CPC_LAT_I_PIC_Datsun_PK","CPC_LAT_I_PIC_Hilux_DSHKM","CPC_LAT_I_PIC_Hilux_M2"};
 			veharray_medium[] = {"CPC_LAT_I_PIC_BTR40_MG","CUP_I_MTLB_pk_NAPA"};
 			veharray_heavy[] = {"CUP_I_MTLB_pk_NAPA","CUP_I_T55_NAPA"};
 			veharray_transport[] = {"CPC_LAT_I_PIC_V3S_Covered","CPC_LAT_I_PIC_V3S_Open","CPC_LAT_I_PIC_Ural_3","CPC_LAT_I_PIC_Ural_Open_3"};
 			veharray_heli[] = {};
 			veharray_air[] = {};
-			veharray_aa[] = {"CPC_LAT_I_PIC_Ural_ZU23"};
+			veharray_aa[] = {"CPC_LAT_I_PIC_Ural_ZU23","CPC_LAT_I_PIC_Hilux_zu23"};
 			hmg = "CPC_LAT_I_PIC_DSHkM_MiniTriPod";
 			pilot = "";
 			plane = "";
@@ -1206,13 +1221,13 @@ class CC_ennemy
 			r = "CUP_O_INS_Soldier";
 			tl = "CUP_O_INS_Soldier_AK74";
 			gl = "CUP_O_INS_Soldier_GL";
-			lat = "CUP_O_INS_Soldier_AT"; // placeholder
+			lat = "CUP_O_INS_Soldier_LAT";
 			at = "CUP_O_INS_Soldier_AT";
 			mg = "CUP_O_INS_Soldier_MG";
 			m = "CUP_O_INS_Sniper";
 			aa = "CUP_O_INS_Soldier_AA";
 			crew = "CUP_O_INS_Crew";
-			veharray_light[] = {"CUP_O_Datsun_PK","CUP_O_UAZ_MG_CHDKZ","CUP_O_UAZ_MG_CHDKZ","CUP_O_UAZ_AGS30_CHDKZ"};
+			veharray_light[] = {"CUP_O_Datsun_PK","CUP_O_UAZ_MG_CHDKZ","CUP_O_UAZ_MG_CHDKZ","CUP_O_UAZ_AGS30_CHDKZ","CUP_O_Hilux_DSHKM_TK_INS"};
 			veharray_medium[] = {"CUP_O_BRDM2_CHDKZ","CUP_O_MTLB_pk_ChDKZ"};
 			veharray_heavy[] = {"CUP_O_T55_CHDKZ","CUP_O_T72_CHDKZ","CUP_O_BMP2_CHDKZ"};
 			veharray_transport[] = {"CUP_O_Ural_CHDKZ","CUP_O_Ural_Open_CHDKZ"};
@@ -1287,11 +1302,11 @@ class CC_ennemy
 			lat = "CUP_O_TK_Soldier_LAT";
 			at = "CUP_O_TK_Soldier_AT";
 			mg = "CUP_O_TK_Soldier_MG";
-			m = "CUP_O_TK_Soldier"; // placeholder
+			m = "CUP_O_TK_Soldier_M";
 			aa = "CUP_O_TK_Soldier_AA";
 			crew = "CUP_O_TK_Crew";
 			veharray_light[] = {"CUP_O_UAZ_MG_TKA","CUP_O_LR_MG_TKA","CUP_O_UAZ_AGS30_TKA"};
-			veharray_medium[] = {"CUP_O_BMP1_TKA","CUP_O_BRDM2_TKA","CUP_O_BTR40_MG_TKA","CUP_O_M113_TKA","CUP_O_MTLB_pk_TKA"};
+			veharray_medium[] = {"CUP_O_BMP1_TKA","CUP_O_BRDM2_TKA","CUP_O_BTR40_MG_TKA","CUP_O_M113_TKA","CUP_O_MTLB_pk_TKA","CUP_O_BTR80_TK"};
 			veharray_heavy[] = {"CUP_O_T34_TKA","CUP_O_T55_TK","CUP_O_T55_TK","CUP_O_T72_TKA","CUP_O_BMP2_TKA"};
 			veharray_transport[] = {"CUP_O_V3S_Covered_TKA","CUP_O_V3S_Open_TKA","CUP_O_Ural_TKA"};
 			veharray_heli[] = {"CUP_O_Mi17_TK"};
@@ -1313,19 +1328,19 @@ class CC_ennemy
 			r = "CUP_I_TK_GUE_Soldier";
 			tl = "CUP_I_TK_GUE_Commander";
 			gl = "CUP_I_TK_GUE_Soldier_GL";
-			lat = "CUP_I_TK_GUE_Soldier_AT"; // placeholder
+			lat = "CUP_I_TK_GUE_Soldier_LAT";
 			at = "CUP_I_TK_GUE_Soldier_AT";
 			mg = "CUP_I_TK_GUE_Soldier_MG";
 			m = "CUP_I_TK_GUE_Sniper";
 			aa = "CUP_I_TK_GUE_Soldier_AA";
 			crew = "CUP_I_TK_GUE_Guerilla_Enfield";
-			veharray_light[] = {"CUP_I_Datsun_PK_TK"};
+			veharray_light[] = {"CUP_I_Datsun_PK_TK","CUP_I_Hilux_DSHKM_TK","CUP_I_Hilux_M2_TK","CUP_I_Hilux_armored_DSHKM_TK"};
 			veharray_medium[] = {"CUP_I_BRDM2_TK_Gue","CUP_I_BTR40_MG_TKG","CUP_I_BMP1_TK_GUE"};
 			veharray_heavy[] = {"CUP_I_T34_TK_GUE","CUP_I_T55_TK_GUE"};
 			veharray_transport[] = {"CUP_I_V3S_Covered_TKG","CUP_I_V3S_Open_TKG"};
 			veharray_heli[] = {};
 			veharray_air[] = {};
-			veharray_aa[] = {"CUP_I_Ural_ZU23_TK_Gue"};
+			veharray_aa[] = {"CUP_I_Ural_ZU23_TK_Gue","CUP_I_Hilux_zu23_TK"};
 			hmg = "CUP_I_DSHkM_MiniTriPod_TK_GUE";
 			pilot = "";
 			plane = "";
@@ -1370,12 +1385,12 @@ class CC_ennemy
 		{
 			r = "CPC_LAT_B_EJE_soldier_1";
 			tl = "CPC_LAT_B_EJE_soldier_TL";
-			gl = "CPC_LAT_B_EJE_soldier_1"; // placeholder
-			lat = "CPC_LAT_B_EJE_soldier_AT"; // placeholder
-			at = "CPC_LAT_B_EJE_soldier_AT"; // placeholder
+			gl = "CPC_LAT_B_EJE_soldier_GL";
+			lat = "CPC_LAT_B_EJE_soldier_LAT";
+			at = "CPC_LAT_B_EJE_soldier_AT";
 			mg = "CPC_LAT_B_EJE_soldier_MG";
 			m = "CPC_LAT_B_EJE_soldier_M";
-			aa = "CUP_I_RACS_Soldier_AA_Mech"; // placeholder
+			aa = "CPC_LAT_B_EJE_soldier_AA";
 			crew = "CPC_LAT_B_EJE_soldier_crew";
 			veharray_light[] = {"CPC_LAT_B_EJE_LR_MG"};
 			veharray_medium[] = {"CPC_LAT_B_EJE_BTR40_MG","CPC_LAT_B_EJE_M113","CPC_LAT_B_EJE_M113"};

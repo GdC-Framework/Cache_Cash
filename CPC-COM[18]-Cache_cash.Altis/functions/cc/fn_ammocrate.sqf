@@ -521,7 +521,7 @@ switch (CC_p_loaout) do {
 	};
 	//TAKI
 	case 12 : {
-		_weap = "CUP_arifle_FNFAL";
+		_weap = "CUP_arifle_IMI_Romat";
 		_gre = "CUP_HandGrenade_RGD5";
 		_mag1 = "CUP_20Rnd_762x51_FNFAL_M";
 		_mag2 = "30Rnd_556x45_Stanag";
@@ -740,10 +740,10 @@ switch (CC_p_loaout) do {
 	};
 	//FR
 	case 18 : {
-		_weap = "rhs_weap_hk416d145";
+		_weap = "CUP_Famas_F1_Rail";
 		_gre = "HandGrenade";
-		_mag1 = "rhs_mag_30Rnd_556x45_M855A1_Stanag";
-		_mag2 = "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red";
+		_mag1 = "CUP_25Rnd_556x45_Famas";
+		_mag2 = "CUP_25Rnd_556x45_Famas_Tracer_Red";
 		_mag_ar = "rhsusf_100Rnd_556x45_mixed_soft_pouch";
 		_mag_mg = "rhsusf_100Rnd_762x51_m62_tracer";
 		if (cc_rhsennemy) then {
@@ -764,7 +764,7 @@ switch (CC_p_loaout) do {
 			_mag_hat = "CUP_Dragon_EP1_M";
 		};
 		_arsenal_items_faction = [
-			"rhssaf_booniehat_woodland","rhssaf_helmet_m97_woodland_black_ess_bare","rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland","B_AssaultPack_rgr","rhssaf_kitbag_md2camo","B_Carryall_oli","U_MU_B_soldier_wdl_vest","U_MU_B_soldier_wdl","rhsusf_acc_wmx_bk","rhsusf_acc_anpeq15_bk_top","CUP_NVG_PVS15_black",
+			"H_Booniehat_eaf","CUP_U_B_BDUv2_CEU","CUP_U_B_BDUv2_dirty_CEU","CUP_U_B_BDUv2_gloves_CEU","CUP_U_B_BDUv2_gloves_dirty_CEU","CUP_U_B_BDUv2_roll2_CEU","CUP_U_B_BDUv2_roll2_dirty_CEU","CUP_U_B_BDUv2_roll2_gloves_CEU","CUP_U_B_BDUv2_roll2_gloves_dirty_CEU","CUP_U_B_BDUv2_roll_CEU","CUP_U_B_BDUv2_roll_dirty_CEU","CUP_U_B_BDUv2_roll_gloves_CEU","CUP_U_B_BDUv2_roll_gloves_dirty_CEU","rhssaf_booniehat_woodland","rhssaf_helmet_m97_woodland_black_ess_bare","rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland","B_AssaultPack_rgr","rhssaf_kitbag_md2camo","B_Carryall_oli","U_MU_B_soldier_wdl_vest","U_MU_B_soldier_wdl","rhsusf_acc_wmx_bk","rhsusf_acc_anpeq15_bk_top","CUP_NVG_PVS15_black",
 			"rhs_mag_smaw_HEAA","rhs_weap_optic_smaw","rhs_weap_smaw","rhs_weap_M136","CUP_SMAW_Spotting","CUP_SMAW_HEAA_M","CUP_SMAW_HEAA_M","cup_optic_smaw_scope","CUP_launch_Mk153Mod0","CUP_launch_M136","V_I_G_resistanceLeader_F","rhssaf_vest_otv_md2camo",
 			"bipod_01_f_blk","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhsusf_acc_eotech_552","rhs_weap_hk416d145","G_Shades_Black","G_Shades_Green","CUP_G_Oakleys_Drk","CUP_G_Oakleys_Embr","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","rhs_mag_smaw_SR",
 			"optic_tws","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhsusf_50Rnd_762x51_m62_tracer","rhsusf_acc_elcan","rhs_weap_m240G","rhsusf_100Rnd_556x45_mixed_soft_pouch","rhs_weap_minimi_para_railed","HandGrenade","rhsusf_mag_15Rnd_9x19_JHP","rhsusf_weap_m9","rhsusf_acc_acog2","rhs_weap_hk416d10_LMT",

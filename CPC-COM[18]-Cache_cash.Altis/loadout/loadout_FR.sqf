@@ -19,7 +19,7 @@
 hard_setLoadout = 
 {
 	_unit = _this select 0;
-	_loadout = _unit getVariable "loadout";
+	_loadout = _unit getVariable ["loadout","cc_r"];
 	_uniform = "";
 	_backpack_big = "";
 	_backpack_med = "";
@@ -37,8 +37,8 @@ hard_setLoadout =
 
 	switch (CC_p_nvg) do {
 		case 0: {_nvg = ""; _lamp = "";};
-		case 1: {_nvg = "CUP_NVG_PVS15_black"; _lamp = "rhsusf_acc_anpeq15_bk_top";};
-		case 2: {_nvg = ""; _lamp = "rhsusf_acc_wmx_bk";};
+		case 1: {_nvg = "CUP_NVG_PVS15_black"; _lamp = "cup_acc_llm_black";};
+		case 2: {_nvg = ""; _lamp = "cup_acc_flashlight";};
 		default {_nvg = ""; _lamp = "";};
 	};
 	
@@ -49,7 +49,7 @@ hard_setLoadout =
 		case "jungle";
 		case "polyvalent";
 		default {
-			_uniform = selectRandom ["U_MU_B_soldier_wdl","U_MU_B_soldier_wdl_vest"];
+			_uniform = selectRandom ["CUP_U_B_BDUv2_CEU","CUP_U_B_BDUv2_dirty_CEU","CUP_U_B_BDUv2_gloves_CEU","CUP_U_B_BDUv2_gloves_dirty_CEU","CUP_U_B_BDUv2_roll2_CEU","CUP_U_B_BDUv2_roll2_dirty_CEU","CUP_U_B_BDUv2_roll2_gloves_CEU","CUP_U_B_BDUv2_roll2_gloves_dirty_CEU","CUP_U_B_BDUv2_roll_CEU","CUP_U_B_BDUv2_roll_dirty_CEU","CUP_U_B_BDUv2_roll_gloves_CEU","CUP_U_B_BDUv2_roll_gloves_dirty_CEU"];
 			_backpack_big = "B_Carryall_oli";
 			_backpack_med = "rhssaf_kitbag_md2camo";
 			_backpack_small = "B_AssaultPack_rgr";
@@ -58,7 +58,7 @@ hard_setLoadout =
 			} else {
 				_helmet = selectRandom ["rhssaf_helmet_m97_woodland","rhssaf_helmet_m97_woodland_black_ess","rhssaf_helmet_m97_woodland_black_ess_bare"];
 			};
-			_hat = "rhssaf_booniehat_woodland";
+			_hat = "H_Booniehat_eaf";
 			_vest_1 = "rhssaf_vest_otv_md2camo";
 			_vest_2 = "V_I_G_resistanceLeader_F";
 		};
@@ -83,14 +83,14 @@ hard_setLoadout =
 		_facewear = selectRandomWeighted ["CUP_TK_NeckScarf",0.5,"CUP_FR_NeckScarf",0.5,"CUP_FR_NeckScarf2",0.5,"",0.9];
 	};
 
-	_weap_cco = ["rhs_weap_hk416d145","",_lamp,"rhsusf_acc_eotech_552",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"bipod_01_f_blk"];
-	_weap_cco_s = ["rhs_weap_hk416d10_LMT","",_lamp,"rhsusf_acc_eotech_552",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],""];
-	_weap_rco = ["rhs_weap_hk416d145","",_lamp,"rhsusf_acc_acog2",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"bipod_01_f_blk"];
+	_weap_cco = ["CUP_Famas_F1_Rail","",_lamp,"cup_optic_compm2_low",["CUP_25Rnd_556x45_Famas",25],[],""];
+	_weap_cco_s = ["CUP_Famas_F1","","","",["CUP_25Rnd_556x45_Famas",25],[],""];
+	_weap_rco = ["CUP_Famas_F1_Rail","",_lamp,"optic_mrco",["CUP_25Rnd_556x45_Famas",25],[],""];
 	_pistol = ["rhsusf_weap_m9","","","",["rhsusf_mag_15Rnd_9x19_JHP",15],[],""];
 
 	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_MX991",1],["ACRE_PRC343",1],["ACE_CableTie",1],["ACE_IR_Strobe_Item",1],["SmokeShell",2,1]];
 	_itemsU_tl = _itemsU_base + [["ACRE_PRC148",1],["ACE_microDAGR",1],["ACE_MapTools",1]];
-	_itemsV_base = [["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",7,30]];
+	_itemsV_base = [["HandGrenade",2,1],["CUP_25Rnd_556x45_Famas",7,25]];
 	_itemsB_medic = [["ACE_personalAidKit",1],["ACE_surgicalKit",1],["ACE_salineIV",2],["ACE_salineIV_250",2],["ACE_salineIV_500",2],["ACE_packingBandage",15],["ACE_fieldDressing",15],["ACE_elasticBandage",10],["ACE_quikclot",10],["ACE_morphine",8],["ACE_epinephrine",4],["ACE_tourniquet",4]];
 	
 	switch _loadout do 
@@ -129,7 +129,7 @@ loadoutCC_OFF = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest_1,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",3,30],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red",4,30]]],
+		[_vest_1,[["HandGrenade",2,1],["CUP_25Rnd_556x45_Famas",3,25],["CUP_25Rnd_556x45_Famas_Tracer_Red",4,25]]],
 		[_backpack_small,[["ACRE_PRC117F",1],["SmokeShellPurple",2,1],["SmokeShellGreen",2,1]]],
 		_helmet,
 		_facewear,
@@ -147,7 +147,7 @@ loadoutCC_TL = //
 		_weap_lat,
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest_1,[["HandGrenade",2,1],["SmokeShellGreen",1,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",3,30],["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red",4,30]]],
+		[_vest_1,[["HandGrenade",2,1],["SmokeShellGreen",1,1],["CUP_25Rnd_556x45_Famas",3,25],["CUP_25Rnd_556x45_Famas_Tracer_Red",4,25]]],
 		[],
 		_helmet,
 		_facewear,
@@ -210,7 +210,7 @@ loadoutCC_MG = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_m240G","",_lamp,"optic_tws_mg",["rhsusf_50Rnd_762x51_m62_tracer",50],[],""],
+		["rhs_weap_m240G","","","rhsusf_acc_acog_mdo",["rhsusf_50Rnd_762x51_m62_tracer",50],[],""],
 		[],
 		_pistol,
 		[_uniform,_itemsU_base],
@@ -295,11 +295,11 @@ loadoutCC_M = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_hk416d145","",_lamp,"optic_tws",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"bipod_01_f_blk"],
+		["CUP_srifle_Mk12SPR","",_lamp,"cup_optic_sb_11_4x20_pm",["CUP_20Rnd_556x45_Stanag",20],[],"bipod_01_f_blk"],
 		[],
 		_pistol,
-		[_uniform,(_itemsU_base + [["rhsusf_acc_acog2",1],["ACE_Kestrel4500",1],["ACE_RangeCard",1]])],
-		[_vest_1,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",7,30]]],
+		[_uniform,(_itemsU_base + [["optic_mrco",1],["ACE_Kestrel4500",1],["ACE_RangeCard",1]])],
+		[_vest_1,[["HandGrenade",2,1],["CUP_20Rnd_556x45_Stanag",7,20]]],
 		[],
 		_helmet,
 		_facewear,
@@ -312,12 +312,12 @@ loadoutCC_GL = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_hk416d145_m320","",_lamp,"rhsusf_acc_eotech_552",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],["rhs_mag_M433_HEDP",1],""],
+		_weap_cco,
 		[],
 		_pistol,
 		[_uniform,_itemsU_base],
-		[_vest_1,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",5,30],["rhs_mag_M433_HEDP",4,1]]],
-		[_backpack_med,[["rhs_mag_30Rnd_556x45_M855A1_Stanag",2,30],["rhs_mag_M433_HEDP",10,1],["rhs_mag_m713_Red",6,1],["rhs_mag_M585_white",6,1],["ACE_HandFlare_Green",2,1],["HandGrenade",2,1],["SmokeShell",2,1]]],
+		[_vest_1,[["HandGrenade",4,1],["CUP_25Rnd_556x45_Famas",5,25]]],
+		[_backpack_med,[["CUP_25Rnd_556x45_Famas",2,25],["HandGrenade",6,1],["SmokeShellBlue",6,1],["ACE_HandFlare_Green",6,1],["SmokeShell",2,1]]],
 		_helmet,
 		_facewear,
 		["ACE_Vector","","","",[],[],""],
@@ -334,7 +334,7 @@ loadoutCC_A = //
 		_pistol,
 		[_uniform,_itemsU_base],
 		[_vest_1,_itemsV_base],
-		[_backpack_med,[["rhs_mag_30Rnd_556x45_M855A1_Stanag",8,30],["SmokeShell",2,1],["HandGrenade",2,1],["ACE_HandFlare_Green",2,1]]],
+		[_backpack_med,[["CUP_25Rnd_556x45_Famas",8,25],["SmokeShell",2,1],["HandGrenade",2,1],["ACE_HandFlare_Green",2,1]]],
 		_helmet,
 		_facewear,
 		["Binocular","","","",[],[],""],
@@ -384,7 +384,7 @@ loadoutCC_CREW = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest_2,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",5,30]]],
+		[_vest_2,[["HandGrenade",2,1],["CUP_25Rnd_556x45_Famas",5,25]]],
 		[],
 		"H_HelmetCrew_I",
 		_facewear,
@@ -401,7 +401,7 @@ loadoutCC_PILOT = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest_2,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",5,30]]],
+		[_vest_2,[["HandGrenade",2,1],["CUP_25Rnd_556x45_Famas",5,25]]],
 		[],
 		"H_PilotHelmetHeli_B",
 		"",
@@ -414,12 +414,12 @@ loadoutCC_SNIPER = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["srifle_GM6_F","","","rhsusf_acc_premier",["5Rnd_127x108_Mag",5],[],""],
+		["CUP_srifle_G22_blk","","","rhsusf_acc_premier_low",["CUP_5Rnd_762x67_G22",5],[],"bipod_01_f_blk"],
 		[],
 		["rhsusf_weap_glock17g4","","acc_flashlight_pistol","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 		[_uniform,_itemsU_tl],
-		[_vest_2,[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["ACE_ATragMX",1],["HandGrenade",2,1],["5Rnd_127x108_Mag",1,5],["rhsusf_mag_17Rnd_9x19_JHP",4,17]]],
-		[_backpack_small,[["optic_tws",1],["5Rnd_127x108_Mag",4,5],["5Rnd_127x108_APDS_Mag",4,5]]],
+		[_vest_2,[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["ACE_ATragMX",1],["HandGrenade",2,1],["CUP_5Rnd_762x67_G22",1,5],["rhsusf_mag_17Rnd_9x19_JHP",4,17]]],
+		[_backpack_small,[["optic_tws",1],["CUP_5Rnd_762x67_G22",8,5]]],
 		_hat,
 		_facewear,
 		["ACE_Vector","","","",[],[],""],
@@ -431,12 +431,12 @@ loadoutCC_OBS = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_hk416d10_LMT","rhsusf_acc_nt4_black","rhsusf_acc_anpeq16a_top","optic_tws",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"bipod_01_f_blk"],
+		["rhs_weap_hk416d10_LMT","rhsusf_acc_nt4_black","rhsusf_acc_anpeq16a_top","cup_optic_aimm_compm2_blk",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"bipod_01_f_blk"],
 		[],
 		["rhsusf_weap_glock17g4","","acc_flashlight_pistol","",["rhsusf_mag_17Rnd_9x19_JHP",17],[],""],
 		[_uniform,_itemsU_tl],
 		[_vest_2,[["ACE_Kestrel4500",1],["ACE_ATragMX",1],["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",5,30],["rhsusf_mag_17Rnd_9x19_JHP",2,17]]],
-		[_backpack_med,[["rhsusf_acc_eotech_552",1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",2,30]]],
+		[_backpack_med,[["rhs_mag_30Rnd_556x45_M855A1_Stanag",2,30]]],
 		_hat,
 		_facewear,
 		["Rangefinder","","","",[],[],""],
@@ -452,7 +452,7 @@ loadoutCC_JTAC = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest_1,[["HandGrenade",2,1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",7,30]]],
+		[_vest_1,[["HandGrenade",2,1],["CUP_25Rnd_556x45_Famas",7,25]]],
 		[_backpack_small,[["ACRE_PRC117F",1],["SmokeShellGreen",4,1],["ACE_HandFlare_Green",1,1]]],
 		_helmet,
 		_facewear,

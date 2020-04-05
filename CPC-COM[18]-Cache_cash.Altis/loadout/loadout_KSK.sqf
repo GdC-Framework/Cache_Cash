@@ -19,7 +19,7 @@
 hard_setLoadout = 
 {
 	_unit = _this select 0;
-	_loadout = _unit getVariable "loadout";
+	_loadout = _unit getVariable ["loadout","cc_r"];
 	_uniform = "";
 	_backpack_big = "";
 	_backpack_med = "";
@@ -76,9 +76,9 @@ hard_setLoadout =
 			_mag = "CUP_30Rnd_556x45_G36";
 			_mag_ar = "CUP_100Rnd_556x45_BetaCMag";
 			_mag_dmr = "CUP_20Rnd_762x51_HK417";
-			_weap_1 = ["CUP_arifle_G36K_VFG","cup_muzzle_snds_m16",_lamp,"",[_mag,30],[],""];
+			_weap_1 = ["CUP_arifle_G36K_VFG","cup_muzzle_snds_m16",_lamp,"cup_optic_g36dualoptics",[_mag,30],[],""];
 			_weap_2 = ["CUP_arifle_G36K_RIS","cup_muzzle_snds_m16",_lamp,"cup_optic_compm2_low",[_mag,30],[],""];
-			_weap_3 = ["CUP_arifle_G36K_AG36","cup_muzzle_snds_m16",_lamp,"",[_mag,30],["CUP_1Rnd_HEDP_M203",1],""];
+			_weap_3 = ["CUP_arifle_G36K_AG36","cup_muzzle_snds_m16",_lamp,"cup_optic_g36dualoptics",[_mag,30],["CUP_1Rnd_HEDP_M203",1],""];
 			_weap_4 = ["CUP_arifle_G36K_RIS","cup_muzzle_snds_m16",_lamp,"cup_optic_compm2_low",[_mag_ar,100],[],""];
 			_weap_5 = ["CUP_arifle_HK417_20","muzzle_snds_b",_lamp,"cup_optic_sb_11_4x20_pm",[_mag_dmr,20],[],"bipod_01_f_blk"];
 		};

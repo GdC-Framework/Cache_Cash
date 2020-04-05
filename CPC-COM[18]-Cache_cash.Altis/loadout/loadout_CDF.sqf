@@ -19,7 +19,7 @@
 hard_setLoadout = 
 {
 	_unit = _this select 0;
-	_loadout = _unit getVariable "loadout";
+	_loadout = _unit getVariable ["loadout","cc_r"];
 	_uniform = "";
 	_backpack_1 = "";
 	_backpack_2 = "";

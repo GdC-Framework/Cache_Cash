@@ -19,7 +19,7 @@
 hard_setLoadout = 
 {
 	_unit = _this select 0;
-	_loadout = _unit getVariable "loadout";
+	_loadout = _unit getVariable ["loadout","cc_r"];
 	_nvg = "";
 	_lamp = "";
 	_weap_lat = [];
@@ -69,7 +69,7 @@ hard_setLoadout =
 	_facewear = selectrandom ["CUP_TK_NeckScarf","CUP_FR_NeckScarf","CUP_FR_NeckScarf2"];
 
 	_mag = "CUP_20Rnd_762x51_FNFAL_M";
-	_weap = ["CUP_arifle_FNFAL","","","",[_mag,20],[],""];
+	_weap = ["CUP_arifle_IMI_Romat","","","",[_mag,20],[],""];
 	_pistol = ["CUP_hgun_Makarov","","","",["CUP_8Rnd_9x18_Makarov_M",8],[],""];
 
 	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_KSF1",1],["ACRE_PRC343",1],["ACE_CableTie",1]];
@@ -127,7 +127,7 @@ loadoutCC_TL = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		_weap,
+		["CUP_arifle_IMI_Romat_railed","","","cup_optic_susat",[_mag,20],[],""],
 		_weap_lat,
 		_pistol,
 		[_uniform,_itemsU_tl],
