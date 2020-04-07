@@ -55,4 +55,19 @@ if (CC_p_extraction == 1) then {
 	_mk setMarkerText "RDV";
 };
 
+// loadout pour les IA
+call compile preprocessFileLineNumbers ("loadout\loadout_" + CC_loadout + ".sqf");
+{
+	if !(isNil {_x getVariable "loadout"}) then 
+	{
+		if (isNil {_x getVariable "loadout_done"}) then 
+		{
+			[_x] call hard_setLoadout;
+			_x setVariable ["loadout_done", true, true];
+		};
+	};
+} foreach (allUnits select {((side _x) == blufor) && (!isPlayer _x)});
+
+
 [] call STDR_fnc_ammocrate;
+

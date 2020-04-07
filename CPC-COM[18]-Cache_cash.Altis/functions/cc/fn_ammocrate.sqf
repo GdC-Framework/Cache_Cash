@@ -825,7 +825,7 @@ switch (CC_p_loaout) do {
 		_weap = "CUP_arifle_M16A1";
 		_gre = "CUP_HandGrenade_M67";
 		_mag1 = "CUP_20Rnd_556x45_Stanag";
-		_mag2 = "20Rnd_762x51_Mag";
+		_mag2 = "CUP_20Rnd_762x51_DMR";
 		_mag_ar = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
 		_mag_mg = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
 		if (cc_rhsennemy) then {
@@ -886,6 +886,41 @@ switch (CC_p_loaout) do {
 			"CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M","CUP_arifle_RPK74_45","rhssaf_zrak_rd7j","rhs_mag_rdg2_white","rhs_mag_rgd5","CUP_8Rnd_9x18_Makarov_M","CUP_hgun_Makarov","CUP_arifle_AKS74_Early","CUP_30Rnd_545x39_AK_M","CUP_arifle_AK74_Early","rhs_sidor","rhs_ssh68",
 			"CUP_arifle_AKS74U","CUP_1Rnd_SmokeRed_GP25_M","CUP_IlumFlareWhite_GP25_M","CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M","CUP_1Rnd_HE_GP25_M","CUP_arifle_AK74_GL_Early","cup_optic_nspu","CUP_10Rnd_762x54_SVD_M","cup_optic_pso_1","CUP_srifle_SVD","rhs_100Rnd_762x54mmR_green","rhs_weap_pkm",
 			"CUP_20Rnd_9x39_SP5_VSS_M","cup_optic_pso_1_1","CUP_srifle_VSSVintorez","rhs_scarf","CUP_8Rnd_9x18_MakarovSD_M","cup_muzzle_pb6p9","CUP_hgun_PB6P9","cup_muzzle_snds_kzrzp_svd","rhs_zsh7a_mike","rhs_vydra_3m","rhs_uniform_df15_tan","rhs_tsh4"
+		];
+	};
+	//US NAM
+	case 22 : {
+		_weap = "CUP_arifle_M16A1";
+		_gre = "CUP_HandGrenade_M67";
+		_mag1 = "CUP_20Rnd_556x45_Stanag";
+		_mag2 = "CUP_20Rnd_762x51_DMR";
+		_mag_ar = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
+		_mag_mg = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
+		if (cc_rhsennemy) then {
+			_lat = "rhs_weap_m72a7";
+			_at = "rhs_weap_maaws_optic";
+			_mag_at1 = "rhs_mag_maaws_HEAT";
+			_mag_at2 = "rhs_mag_maaws_HEDP";
+			_mag_at3 = "rhs_mag_maaws_HEAT";
+			_hat = "rhs_weap_fgm148";
+			_mag_hat = "rhs_fgm148_magazine_AT";
+		} else {
+			_lat = "CUP_launch_M72A6";
+			_at = "CUP_launch_MAAWS_Scope";
+			_mag_at1 = "CUP_MAAWS_HEAT_M";
+			_mag_at2 = "CUP_MAAWS_HEDP_M";
+			_mag_at3 = "CUP_MAAWS_HEAT_M";
+			_hat = "CUP_launch_M47";
+			_mag_hat = "CUP_Dragon_EP1_M";
+		};
+		_arsenal_items_faction = [
+			"CPC_NAM_Uniform_B_BDU_OD","CPC_NAM_Uniform_B_BDU_OD_Dirty","CPC_NAM_Uniform_B_BDU_OD_Roll2","CPC_NAM_Uniform_B_BDU_OD_Roll2_Dirty","CPC_NAM_Uniform_B_BDU_OD_Roll","CPC_NAM_Uniform_B_BDU_OD_Roll_Dirty","CUP_H_USArmy_Helmet_M1_Vine","CUP_H_USArmy_Helmet_M1_Olive","CUP_H_USArmy_Helmet_M1_plain_Olive","CUP_H_USArmy_Helmet_M1_plain_Vine","CUP_B_AlicePack_OD","CUP_V_B_ALICE","cup_acc_flashlight","CUP_NVG_PVS7",
+			"CUP_MAAWS_HEDP_M","CUP_MAAWS_HEAT_M","cup_optic_maaws_scope","CUP_launch_MAAWS","CUP_launch_M72A6","H_Booniehat_oli","CUP_6Rnd_762x51_R700","cup_optic_remington","CUP_srifle_Remington700","CUP_U_B_BDUv2_roll_dirty_Tigerstripe","CUP_U_B_BDUv2_roll2_dirty_Tigerstripe","CUP_U_B_BDUv2_dirty_Tigerstripe",
+			"CUP_lmg_M60","CUP_HandGrenade_M67","CUP_7Rnd_45ACP_1911","CUP_hgun_Colt1911","CUP_20Rnd_556x45_Stanag","CUP_arifle_M16A1","rhs_mag_maaws_HEDP","rhs_mag_maaws_HEAT","rhs_optic_maaws","rhs_weap_maaws","rhs_weap_m72a7",
+			"CUP_H_USMC_Helmet_Pilot","CUP_H_USMC_Crew_Helmet","CUP_1Rnd_StarCluster_White_M203","CUP_1Rnd_SmokeRed_M203","CUP_1Rnd_HE_M203","CUP_20Rnd_762x51_DMR","cup_optic_leupoldmk4","CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M","CUP_lmg_M60E4_norail","CUP_200Rnd_TE4_Red_Tracer_556x45_M249",
+			"CUP_SOFLAM","CUP_20Rnd_556x45_Stanag_Tracer_Red","cup_optic_sb_11_4x20_pm","cup_optic_an_pvs_4","optic_khs_old","cup_optic_an_pvs_4_m14","CUP_H_CZ_Helmet05","CUP_H_US_patrol_cap_OD","CUP_arifle_M16A1GL",
+			"CUP_launch_M47","CUP_glaunch_M79","CUP_srifle_M14","CUP_arifle_Colt727","CUP_H_US_patrol_cap_tigerstripe","CUP_smg_Mac10","cup_muzzle_mfsup_suppressor_mac10","CUP_30Rnd_45ACP_MAC10_M",
+			"CUP_Dragon_EP1_M","CUP_H_FR_BandanaGreen","H_Bandanna_khk"
 		];
 	};
 };

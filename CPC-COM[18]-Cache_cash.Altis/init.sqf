@@ -7,7 +7,6 @@ MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
-createMarkerLocal ["mkr_spawn_static_unit",[0,0,0]];
 [1.0,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
 
 if !(isMultiplayer) then {
@@ -64,6 +63,7 @@ if (CC_p_extraction == 2) then {
 		case 19 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // occident
 		case 20 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // us 80s
 		case 21 : {"RHS_Mi8AMT_vvsc"}; // RU 1980
+		case 22 : {if (cc_playerCount > 8) then {"RHS_CH_47F"} else {"CPC_JUN_B_AMIL_UH1H_unarmed"}}; // us NAM
 		default {"RHS_CH_47F"};
 	};
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;

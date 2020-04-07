@@ -47,6 +47,7 @@ _type = switch (CC_p_loaout) do {
 	case 19 : {"RHS_C130J"}; //occident
 	case 20 : {"RHS_C130J"}; //US 80s
 	case 21 : {"RHS_C130J"}; //RU 1980
+	case 22 : {"CPC_NAM_B_US_C47"}; //US NAM
 	default {"RHS_C130J"};
 };
 [cc_objet_lalo,"",false,true,true,_type] call GDC_fnc_halo;

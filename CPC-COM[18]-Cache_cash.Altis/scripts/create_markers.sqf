@@ -19,7 +19,7 @@ copyToClipboard _strmk;
 
 */
 
-private ["_mkz_whitelist","_mkz_blacklist"];
+private ["_mkz_whitelist","_mkz_blacklist","_spawnpos","_mk"];
 CPC_MAP = toLower worldName;
 publicVariable "CPC_MAP";
 cc_mkz_whitelist = [];
@@ -57,6 +57,7 @@ switch (CPC_MAP) do {
 			[[6383.18,12281.6,0],"ELLIPSE",[385.557,370.922],306.511]
 		];
 		"Mark_Inser" setMarkerPos [14738.1,16662.9,0];
+		_spawnpos = [8456.56,25132.1,0];
 	};
 
 	//Tanoa
@@ -86,6 +87,7 @@ switch (CPC_MAP) do {
 			[[10641.5,8622.13,0],"ELLIPSE",[392.775,1166.13],263.57]
 		];
 		"Mark_Inser" setMarkerPos [12283.4,13971.9,0];
+		_spawnpos = [12283,13969,0];
 	};
 
 	//Takistan
@@ -115,6 +117,7 @@ switch (CPC_MAP) do {
 			[[8024.5,6201.59,0],"ELLIPSE",[294.03,265.703],222.152]
 		];
 		"Mark_Inser" setMarkerPos [5821.4,11233.8,0];
+		_spawnpos = [6025.07,11102.2,0];
 	};
 
 	//Livonia
@@ -148,6 +151,7 @@ switch (CPC_MAP) do {
 			[[2595.49,5514.56,0],"RECTANGLE",[233.768,142.489],226.179]
 		];
 		"Mark_Inser" setMarkerPos [3981.46,10188.6,0];
+		_spawnpos = [133.815,229.94,0];
 	};
 
 	//chernarus
@@ -171,6 +175,7 @@ switch (CPC_MAP) do {
 			[[2718.37,5294.47,0],"ELLIPSE",[545.108,320.627],286.728]
 		];
 		"Mark_Inser" setMarkerPos [4648.93,10264,0];
+		_spawnpos = [13708.8,2869.94,0];
 	};
 
 	//chernarus summer
@@ -194,6 +199,7 @@ switch (CPC_MAP) do {
 			[[2718.37,5294.47,0],"ELLIPSE",[545.108,320.627],286.728]
 		];
 		"Mark_Inser" setMarkerPos [4648.93,10264,0];
+		_spawnpos = [13708.8,2869.94,0];
 	};
 
 	//chernarus winter
@@ -217,6 +223,7 @@ switch (CPC_MAP) do {
 			[[2718.37,5294.47,0],"ELLIPSE",[545.108,320.627],286.728]
 		];
 		"Mark_Inser" setMarkerPos [4648.93,10264,0];
+		_spawnpos = [13708.8,2869.94,0];
 	};
 
 	//chernarus 2020
@@ -241,6 +248,7 @@ switch (CPC_MAP) do {
 			[[4081.61,11691.5,0],"ELLIPSE",[359.251,396.318],265.846]
 		];
 		"Mark_Inser" setMarkerPos [4648.93,10264,0];
+		_spawnpos = [13673.2,2971.31,0];
 	};
 
 
@@ -270,6 +278,7 @@ switch (CPC_MAP) do {
 			[[5870.11,4743.62,0],"ELLIPSE",[184.211,229.611],87.1828]
 		];
 		"Mark_Inser" setMarkerPos [5949.44,6190.24,0];
+		_spawnpos = [4313.08,6510.6,0];
 	};
 
 
@@ -299,6 +308,7 @@ switch (CPC_MAP) do {
 			[[4246.05,5312.41,0],"RECTANGLE",[1371.97,1256.13],0]
 		];
 		"Mark_Inser" setMarkerPos [6754.69,6935.87,0];
+		_spawnpos = [9923.75,208.365,0]
 	};
 
 	//Dingor
@@ -324,6 +334,7 @@ switch (CPC_MAP) do {
 			[[4246.05,5312.41,0],"RECTANGLE",[1371.97,1256.13],0]
 		];
 		"Mark_Inser" setMarkerPos [6832.08,6908.56,0];
+		_spawnpos = [935.23,9209.41,0];
 	};
 
 	//Sahrani
@@ -364,6 +375,7 @@ switch (CPC_MAP) do {
 			[[10795.7,7843.18,0],"ELLIPSE",[1295.82,552.801],317.342]
 		];
 		"Mark_Inser" setMarkerPos [2582.69,2710.45,0];
+		_spawnpos = [9493.33,3448.66,0];
 	};
 
 	//Podagorsk
@@ -395,7 +407,8 @@ switch (CPC_MAP) do {
 			[[8612.88,7820.9,0],"ELLIPSE",[353.617,354.597],194.53],
 			[[10796.8,6922.09,0],"ELLIPSE",[408.533,354.597],215.637]
 		];
-		"Mark_Inser" setMarkerPos [15880,6584.53,0];	
+		"Mark_Inser" setMarkerPos [15880,6584.53,0];
+		_spawnpos = [14046.6,5865.5,0];	
 	};
 
 	//Bystrica
@@ -427,6 +440,7 @@ switch (CPC_MAP) do {
 			[[6744.38,6486.92,0],"ELLIPSE",[280.934,184.281],169.2]
 		];
 		"Mark_Inser" setMarkerPos [161.665,7588.38,0];	
+		_spawnpos = [381.451,7649.95,0];
 	};
 
 	//N'Ziwasogo
@@ -448,6 +462,7 @@ switch (CPC_MAP) do {
 			[[7058.98,3683.06,0],"ELLIPSE",[589.038,1036.12],304.489]
 		];
 		"Mark_Inser" setMarkerPos [13027,885.263,0];
+		_spawnpos = [11786.9,1540.46,0];
 	};
 
 	//daryiah
@@ -484,6 +499,7 @@ switch (CPC_MAP) do {
 			[[11869.8,8830.69,0],"ELLIPSE",[500,500],0]
 		];
 		"Mark_Inser" setMarkerPos [5287.35,14565.9,0];
+		_spawnpos = [302.839,422.334,0];
 	};
 
 	//Nogova
@@ -508,6 +524,7 @@ switch (CPC_MAP) do {
 			[[8528.03,7471.29,0],"ELLIPSE",[299.526,300.679],0]
 		];
 		"Mark_Inser" setMarkerPos [8917.49,12508.5,0];
+		_spawnpos = [7630.57,1195.23,0];
 	};
 
 	//Everon
@@ -528,6 +545,7 @@ switch (CPC_MAP) do {
 			[[4892.87,11687.4,0],"RECTANGLE",[1010.89,900.834],0]
 		];
 		"Mark_Inser" setMarkerPos [4859.88,11799.2,0];
+		_spawnpos = [1128.99,11508.8,0];
 	};
 };
 
@@ -544,6 +562,12 @@ publicVariable "cc_mkz_whitelist";
 	if (isMultiplayer) then {_mk setMarkerAlpha 0;};
 } forEach _mkz_blacklist;
 publicVariable "cc_mkz_blacklist";
+
+//marker de spawn
+_mk = createMarker ["mkr_spawn_static_unit",_spawnpos];
+_mk setMarkerShape "ICON";
+_mk setMarkerType "mil_end";
+_mk setMarkerAlpha 0;
 
 //Cacher les marqueurs de zone
 if (isMultiplayer) then {

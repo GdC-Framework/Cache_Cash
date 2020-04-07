@@ -361,7 +361,7 @@ _houselist = _houselist - _houseOutlist;
 			case "desert": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro","C_man_p_beggar_F_asia","C_man_polo_1_F_asia","C_man_polo_2_F_asia","C_man_polo_3_F_asia","C_man_polo_4_F_asia","C_man_polo_5_F_asia","C_man_polo_6_F_asia"]};
 			case "afrique": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro"]};
 			case "jungle": {["C_man_p_beggar_F_afro","C_man_polo_1_F_afro","C_man_polo_2_F_afro","C_man_polo_3_F_afro","C_man_polo_4_F_afro","C_man_polo_5_F_afro","C_man_polo_6_F_afro"]};
-			case "chern": {["CUP_C_C_Citizen_02","CUP_C_C_Citizen_01","CUP_C_C_Citizen_04","CUP_C_C_Citizen_03""CUP_C_C_Functionary_01","CUP_C_C_Functionary_02","CUP_C_C_Priest_01","CUP_C_C_Profiteer_02","CUP_C_C_Profiteer_03","CUP_C_C_Profiteer_01","CUP_C_C_Profiteer_04","CUP_C_C_Rocker_01","CUP_C_C_Rocker_03","CUP_C_C_Rocker_02","CUP_C_C_Rocker_04","CUP_C_C_Schoolteacher_01","CUP_C_C_Villager_01","CUP_C_C_Villager_04","CUP_C_C_Villager_02","CUP_C_C_Villager_03","CUP_C_C_Woodlander_01","CUP_C_C_Woodlander_02","CUP_C_C_Woodlander_03","CUP_C_C_Woodlander_04","CUP_C_C_Worker_03","CUP_C_C_Worker_04","CUP_C_C_Worker_02","CUP_C_C_Worker_01"]};
+			case "chern": {["CUP_C_C_Worker_01","CUP_C_C_Worker_02","CUP_C_C_Worker_04","CUP_C_C_Worker_03","CUP_C_C_Woodlander_04","CUP_C_C_Woodlander_03","CUP_C_C_Woodlander_02","CUP_C_C_Woodlander_01","CUP_C_C_Villager_03","CUP_C_C_Villager_02","CUP_C_C_Villager_04","CUP_C_C_Villager_01","CUP_C_C_Schoolteacher_01","CUP_C_C_Rocker_04","CUP_C_C_Rocker_02","CUP_C_C_Rocker_03","CUP_C_C_Rocker_01","CUP_C_C_Racketeer_04","CUP_C_C_Racketeer_03","CUP_C_C_Racketeer_02","CUP_C_C_Racketeer_01","CUP_C_C_Profiteer_04","CUP_C_C_Profiteer_01","CUP_C_C_Profiteer_03","CUP_C_C_Profiteer_02","CUP_C_C_Priest_01","CUP_C_C_Worker_05","CUP_C_C_Functionary_jacket_02","CUP_C_C_Functionary_jacket_01","CUP_C_C_Functionary_jacket_03","CUP_C_C_Citizen_03","CUP_C_C_Citizen_04","CUP_C_C_Citizen_02","CUP_C_C_Assistant_01","CUP_C_C_Functionary_01","CUP_C_C_Functionary_02","CUP_C_C_Functionary_03"]};
 			case "fidji": {["C_Man_casual_1_F_tanoan","C_Man_casual_2_F_tanoan","C_Man_casual_3_F_tanoan","C_man_sport_1_F_tanoan""C_man_sport_2_F_tanoan","C_man_sport_3_F_tanoan","C_Man_casual_4_F_tanoan","C_Man_casual_5_F_tanoan","C_Man_casual_6_F_tanoan"]};
 		};
 		_group = [_pos,civilian,[(selectrandom _type),(selectrandom _type)]] call GDC_fnc_lucySpawnGroupInf;
@@ -383,7 +383,7 @@ _markEx = "1";
 		_veh setVectorUp surfaceNormal position _veh;
 		sleep 0.5;
 	};
-} foreach [80,70,60,50,40,30,10];
+} foreach [100,90,80,70,60,50,40,30,10];
 
 // réglage des skills
 [(allUnits select {side _x == _side})] call STDR_fnc_setskill;

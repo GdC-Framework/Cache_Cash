@@ -11,30 +11,7 @@ waitUntil {!isnil "cc_MarkersCreated"};
 //	2) CALL / COMPILE
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-switch (CC_p_loaout) do {
-	case 0 : {call compile preprocessFileLineNumbers "loadout\loadout_NATO.sqf";};
-	case 1 : {call compile preprocessFileLineNumbers "loadout\loadout_CSAT.sqf";};
-	case 2 : {call compile preprocessFileLineNumbers "loadout\loadout_AAF.sqf";};
-	case 3 : {call compile preprocessFileLineNumbers "loadout\loadout_USArmy.sqf";};
-	case 4 : {call compile preprocessFileLineNumbers "loadout\loadout_USMC.sqf";};
-	case 5 : {call compile preprocessFileLineNumbers "loadout\loadout_USsf.sqf";};
-	case 6 : {call compile preprocessFileLineNumbers "loadout\loadout_RU2000_RHS.sqf";};
-	case 7 : {call compile preprocessFileLineNumbers "loadout\loadout_RU2015_RHS.sqf";};
-	case 8 : {call compile preprocessFileLineNumbers "loadout\loadout_RUsf.sqf";};
-	case 9 : {call compile preprocessFileLineNumbers "loadout\loadout_KSK.sqf";};
-	case 10 : {call compile preprocessFileLineNumbers "loadout\loadout_BAF.sqf";};
-	case 11 : {call compile preprocessFileLineNumbers "loadout\loadout_RACS.sqf";};
-	case 12 : {call compile preprocessFileLineNumbers "loadout\loadout_TAK.sqf";};
-	case 13 : {call compile preprocessFileLineNumbers "loadout\loadout_INS.sqf";};
-	case 14 : {call compile preprocessFileLineNumbers "loadout\loadout_TAK_INS.sqf";};
-	case 15 : {call compile preprocessFileLineNumbers "loadout\loadout_SAF.sqf";};
-	case 16 : {call compile preprocessFileLineNumbers "loadout\loadout_CDF.sqf";};
-	case 17 : {call compile preprocessFileLineNumbers "loadout\loadout_PMC.sqf";};
-	case 18 : {call compile preprocessFileLineNumbers "loadout\loadout_FR.sqf";};
-	case 19 : {call compile preprocessFileLineNumbers "loadout\loadout_occident.sqf";};
-	case 20 : {call compile preprocessFileLineNumbers "loadout\loadout_US80.sqf";};
-	case 21 : {call compile preprocessFileLineNumbers "loadout\loadout_RU1980.sqf";};
-};
+call compile preprocessFileLineNumbers ("loadout\loadout_" + CC_loadout + ".sqf");
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //	3) LOADOUT

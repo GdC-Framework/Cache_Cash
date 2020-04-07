@@ -26,6 +26,34 @@ CC_p_menace_aa = "menace_aa" call BIS_fnc_getParamValue;
 CC_p_menace_air = "menace_air" call BIS_fnc_getParamValue;
 CC_p_skillia = "skillIA" call BIS_fnc_getParamValue;
 
+// Loadout
+CC_loadout = switch (CC_p_loaout) do {
+	case 0 : {"NATO"};
+	case 1 : {"CSAT"};
+	case 2 : {"AAF"};
+	case 3 : {"USArmy"};
+	case 4 : {"USMC"};
+	case 5 : {"USsf"};
+	case 6 : {"RU2000_RHS"};
+	case 7 : {"RU2015_RHS"};
+	case 8 : {"RUsf"};
+	case 9 : {"KSK"};
+	case 10 : {"BAF"};
+	case 11 : {"RACS"};
+	case 12 : {"TAK"};
+	case 13 : {"INS"};
+	case 14 : {"TAK_INS"};
+	case 15 : {"SAF"};
+	case 16 : {"CDF"};
+	case 17 : {"PMC"};
+	case 18 : {"FR"};
+	case 19 : {"occident"};
+	case 20 : {"US80"};
+	case 21 : {"RU1980"};
+	case 22 : {"USNAM"};
+	default {"occident"};
+};
+
 // Faction IA
 CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 1 : {"fia"};
@@ -53,6 +81,8 @@ CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 211 : {"tak_cup"};
 	case 212 : {"acr_cup"};
 	case 213 : {"ejercito_cup"};
+	case 214 : {"vc_cup"};
+	case 215 : {"usnam_cup"};
 	default {"ins_rhs"};
 };
 
