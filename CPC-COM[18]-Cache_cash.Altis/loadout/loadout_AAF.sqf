@@ -26,6 +26,19 @@ hard_setLoadout =
 	_weap_at = [];
 	_mun_at = [];
 	_facewear =  "";
+	_uniform ="";
+	_backpack_big = "";
+	_backpack_med = "";
+	_backpack_small = "";
+	_helmet = "";
+	_hat = "";
+	_cap = "";
+	_vest_1 = "";
+	_vest_2 = "";
+	_weap_cco = [];
+	_weap_rco = [];
+	_weap_gl = [];
+	_weap_c = "";
 
 	switch (CC_p_nvg) do {
 		case 0: {_nvg = ""; _lamp = "";};
@@ -34,14 +47,55 @@ hard_setLoadout =
 		default {_nvg = ""; _lamp = "";};
 	};
 	
+	_mag = "30Rnd_556x45_Stanag";
 	switch (cc_loadoutcamo) do {
-		case "jungle";
+		case "jungle" : {
+			_uniform = selectRandom ["U_MU_I_CombatUniform_para","U_MU_I_CombatUniform_para_vest"];
+			_backpack_big = "B_Carryall_oli";
+			_backpack_med = "B_Kitbag_rgr";
+			_backpack_small = "B_AssaultPack_rgr";
+			_helmet = "H_MU_HelmetB_light2";
+			_hat = "H_Booniehat_oli";
+			_cap = "H_MilCap_grn";
+			_vest_1 = "V_MU_PlateCarrier2_2_rgr";
+			_vest_2 = "V_MU_PlateCarrier2_2_rgr";
+			_weap_cco = ["arifle_SPAR_01_blk_F","",_lamp,"optic_holosight_blk_f",[_mag,30],[],""];
+			_weap_rco = ["arifle_SPAR_01_blk_F","",_lamp,"optic_mrco",[_mag,30],[],""];
+			_weap_gl = ["arifle_SPAR_01_GL_blk_F","",_lamp,"optic_mrco",[_mag,30],["1Rnd_HE_Grenade_shell",1],""];
+			_weap_c = "arifle_SPAR_01_blk_F";
+		};
+		case "desert" : {
+			_uniform = selectRandom ["U_MU_I_CombatUniform_sand","U_MU_I_CombatUniform_sand_vest"];
+			_backpack_big = "B_Carryall_cbr";
+			_backpack_med = "B_Kitbag_cbr";
+			_backpack_small = "B_AssaultPack_cbr";
+			_helmet = "H_MU_HelmetB_light2_sand";
+			_hat = "H_Booniehat_khk";
+			_cap = "H_MU_MilCap_cbr";
+			_vest_1 = "V_MU_PlateCarrier2_2_cbr";
+			_vest_2 = "V_MU_PlateCarrier2_2_cbr";
+			_weap_cco = ["arifle_Mk20_plain_F","",_lamp,"optic_holosight",[_mag,30],[],""];
+			_weap_rco = ["arifle_Mk20_plain_F","",_lamp,"optic_mrco",[_mag,30],[],""];
+			_weap_gl = ["arifle_Mk20_GL_plain_F","",_lamp,"optic_mrco",[_mag,30],["1Rnd_HE_Grenade_shell",1],""];
+			_weap_c = "arifle_Mk20C_plain_F";
+		};
 		case "woodland";
 		case "winter";
-		case "desert";
 		case "polyvalent";
 		default {
-
+			_uniform = selectRandom ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve"];
+			_backpack_big = "B_Carryall_oli";
+			_backpack_med = "B_Kitbag_rgr";
+			_backpack_small = "B_AssaultPack_dgtl";
+			_helmet = "H_HelmetIA";
+			_hat = "H_Booniehat_dgtl";
+			_cap = "H_MilCap_dgtl";
+			_vest_1 = "V_PlateCarrierIA2_dgtl";
+			_vest_2 = "V_PlateCarrierIA1_dgtl";
+			_weap_cco = ["arifle_Mk20_F","",_lamp,"optic_aco_grn",[_mag,30],[],""];
+			_weap_rco = ["arifle_Mk20_F","",_lamp,"optic_mrco",[_mag,30],[],""];
+			_weap_gl = ["arifle_Mk20_GL_F","",_lamp,"optic_mrco",[_mag,30],["1Rnd_HE_Grenade_shell",1],""];
+			_weap_c = "arifle_Mk20C_F";
 		};
 	};
 	switch (cc_rhsennemy) do {
@@ -59,15 +113,6 @@ hard_setLoadout =
 	};
 
 	
-	_uniform = "U_I_CombatUniform";
-	_backpack_big = "B_Carryall_oli";
-	_backpack_med = "B_Kitbag_rgr";
-	_backpack_small = "B_AssaultPack_dgtl";
-	_helmet = "H_HelmetIA";
-	_hat = "H_Booniehat_dgtl";
-	_cap = "H_MilCap_dgtl";
-	_vest_1 = "V_PlateCarrierIA2_dgtl";
-	_vest_2 = "V_PlateCarrierIA1_dgtl";
 
 	if (CC_p_nvg < 1) then {
 		_facewear = selectRandomWeighted ["G_Shades_Red",0.3,"G_Shades_Green",0.3,"G_Shades_Blue",0.3,"G_Shades_Black",0.4,"",0.9];
@@ -75,10 +120,6 @@ hard_setLoadout =
 		_facewear = "";
 	};
 
-	_mag = "30Rnd_556x45_Stanag";
-	_weap_cco = ["arifle_Mk20_F","",_lamp,"optic_aco_grn",[_mag,30],[],""];
-	_weap_rco = ["arifle_Mk20_F","",_lamp,"optic_mrco",[_mag,30],[],""];
-	_weap_gl = ["arifle_Mk20_GL_F","",_lamp,"optic_mrco",[_mag,30],["1Rnd_HE_Grenade_shell",1],""];
 	_pistol = ["hgun_ACPC2_F","","","",["9Rnd_45ACP_Mag",8],[],""];
 
 	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_MX991",1],["ACRE_PRC343",1],["ACE_CableTie",1],["ACE_IR_Strobe_Item",1]];
@@ -203,7 +244,7 @@ loadoutCC_MG = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["LMG_Mk200_F","",_lamp,"optic_mrco",["200Rnd_65x39_cased_Box_Tracer",200],[],"bipod_03_f_blk"],
+		["LMG_Mk200_black_F","",_lamp,"optic_mrco",["200Rnd_65x39_cased_Box_Tracer",200],[],"bipod_03_f_blk"],
 		[],
 		_pistol,
 		[_uniform,_itemsU_base],
@@ -424,7 +465,7 @@ loadoutCC_OBS = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["arifle_Mk20C_F","muzzle_snds_m","acc_pointer_ir","optic_mrco",[_mag,30],[],""],
+		[_weap_c,"muzzle_snds_m","acc_pointer_ir","optic_mrco",[_mag,30],[],""],
 		[],
 		["hgun_Pistol_heavy_01_F","muzzle_snds_acp","acc_flashlight_pistol","",["11Rnd_45ACP_Mag",11],[],""],
 		[_uniform,_itemsU_tl],

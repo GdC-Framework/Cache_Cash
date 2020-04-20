@@ -108,7 +108,8 @@ switch (CC_p_loaout) do {
 			"HandGrenade","9Rnd_45ACP_Mag","hgun_ACPC2_F","1Rnd_HE_Grenade_shell","arifle_Mk20_GL_F","optic_mrco","optic_aco_grn","arifle_Mk20_F","30Rnd_556x45_Stanag","V_PlateCarrierIA2_dgtl",
 			"1Rnd_SmokeRed_Grenade_shell","20Rnd_762x51_Mag","optic_sos","srifle_EBR_F","bipod_03_f_blk","200Rnd_65x39_cased_Box_Tracer","LMG_Mk200_F","200Rnd_556x45_Box_Tracer_F","optic_holosight_blk_f","LMG_03_F",
 			"acc_flashlight_pistol","muzzle_snds_acp","hgun_Pistol_heavy_01_F","7Rnd_408_Mag","optic_lrps","srifle_LRR_F","H_PilotHelmetHeli_I","H_HelmetCrew_I","V_TacVest_oli","UGL_FlareWhite_F",
-			"muzzle_snds_m","arifle_Mk20C_F","optic_nightstalker","11Rnd_45ACP_Mag"
+			"muzzle_snds_m","arifle_Mk20C_F","optic_nightstalker","11Rnd_45ACP_Mag",
+			"arifle_Mk20C_plain_F","arifle_Mk20_GL_plain_F","optic_holosight","arifle_Mk20_plain_F","V_MU_PlateCarrier2_2_cbr","H_MU_MilCap_cbr","H_Booniehat_khk","H_MU_HelmetB_light2_sand","B_AssaultPack_cbr","B_Kitbag_cbr","B_Carryall_cbr","U_MU_I_CombatUniform_sand_vest","U_MU_I_CombatUniform_sand","arifle_SPAR_01_GL_blk_F","optic_holosight_blk_f","arifle_SPAR_01_blk_F","V_MU_PlateCarrier2_2_rgr","H_MilCap_grn","H_Booniehat_oli","H_MU_HelmetB_light2","U_MU_I_CombatUniform_para_vest","U_MU_I_CombatUniform_para"
 		];
 	};
 	//USArmy
@@ -769,7 +770,7 @@ switch (CC_p_loaout) do {
 			"bipod_01_f_blk","rhs_mag_30Rnd_556x45_M855A1_Stanag","rhsusf_acc_eotech_552","rhs_weap_hk416d145","G_Shades_Black","G_Shades_Green","CUP_G_Oakleys_Drk","CUP_G_Oakleys_Embr","CUP_FR_NeckScarf2","CUP_FR_NeckScarf","CUP_TK_NeckScarf","rhs_mag_smaw_SR",
 			"optic_tws","rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red","rhsusf_50Rnd_762x51_m62_tracer","rhsusf_acc_elcan","rhs_weap_m240G","rhsusf_100Rnd_556x45_mixed_soft_pouch","rhs_weap_minimi_para_railed","HandGrenade","rhsusf_mag_15Rnd_9x19_JHP","rhsusf_weap_m9","rhsusf_acc_acog2","rhs_weap_hk416d10_LMT",
 			"acc_flashlight_pistol","rhsusf_weap_glock17g4","5Rnd_127x108_APDS_Mag","5Rnd_127x108_Mag","rhsusf_acc_premier","srifle_GM6_F","H_PilotHelmetHeli_B","H_HelmetCrew_I","rhs_mag_M585_white","rhs_mag_m713_Red","rhs_mag_M433_HEDP","rhs_weap_hk416d145_m320",
-			"rhsusf_acc_anpeq16a_top","rhsusf_acc_nt4_black","rhsusf_mag_17Rnd_9x19_JHP"
+			"rhsusf_acc_anpeq16a_top","rhsusf_acc_nt4_black","rhsusf_mag_17Rnd_9x19_JHP","","CUP_20Rnd_762x51_HK417","CUP_arifle_HK417_20"
 		];
 	};
 	// armée occident

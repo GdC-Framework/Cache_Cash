@@ -295,12 +295,12 @@ loadoutCC_M = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["CUP_srifle_Mk12SPR","",_lamp,"cup_optic_sb_11_4x20_pm",["CUP_20Rnd_556x45_Stanag",20],[],"bipod_01_f_blk"],
+		["CUP_arifle_HK417_20","",_lamp,"cup_optic_leupoldmk4_pip",["CUP_20Rnd_762x51_HK417",20],[],"bipod_01_f_blk"],
 		[],
 		_pistol,
 		[_uniform,(_itemsU_base + [["optic_mrco",1],["ACE_Kestrel4500",1],["ACE_RangeCard",1]])],
-		[_vest_1,[["HandGrenade",2,1],["CUP_20Rnd_556x45_Stanag",7,20]]],
-		[],
+		[_vest_1,[["HandGrenade",2,1],["CUP_20Rnd_762x51_HK417",5,20]]],
+		[_backpack_small,[["CUP_20Rnd_762x51_HK417",4,20]]],
 		_helmet,
 		_facewear,
 		["ACE_Vector","","","",[],[],""],
