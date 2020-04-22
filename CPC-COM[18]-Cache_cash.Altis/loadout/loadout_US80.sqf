@@ -25,17 +25,17 @@ hard_setLoadout =
 	
 	switch (cc_loadoutcamo) do {
 		case "winter": {
-			_uniform = "CUP_U_B_US_BDU_winter";
+			_uniform = selectrandom ["CUP_U_B_BDUv2_Winter","CUP_U_B_BDUv2_gloves_Winter"];
 			_backpack = "CUP_B_AlicePack_OD";
-			_helmet = "CUP_H_US_H_PASGT_winter";
+			_helmet = "CUP_H_PASGTv2_NVG_winter";
 			_hat = "CUP_H_US_patrol_cap_winter";
 			_hat2 = "CUP_H_FR_BeanieGreen";
 			_vest = "CUP_V_B_PASGT_winter";
 		};
 		case "desert": {
-			_uniform = "CUP_U_B_US_BDU_desert";
+			_uniform = selectrandom ["CUP_U_B_BDUv2_desert_US","CUP_U_B_BDUv2_desert_US","CUP_U_B_BDUv2_roll2_desert_US","CUP_U_B_BDUv2_roll_desert_US"];
 			_backpack = "CUP_B_AlicePack_OD";
-			_helmet = "CUP_H_US_H_PASGT_desert";
+			_helmet = "CUP_H_PASGTv2_NVG_desert";
 			_hat = "CUP_H_US_patrol_cap_desert";
 			_hat2 = "H_Booniehat_tan";
 			_vest = "CUP_V_B_PASGT";
@@ -44,9 +44,9 @@ hard_setLoadout =
 		case "woodland";
 		case "polyvalent";
 		default {
-			_uniform = selectrandom ["CUP_U_B_US_BDU","CUP_U_B_US_BDU","CUP_U_B_US_BDU_roll2"];
+			_uniform = selectrandom ["CUP_U_B_BDUv2_M81_US","CUP_U_B_BDUv2_M81_US","CUP_U_B_BDUv2_roll2_M81_US","CUP_U_B_BDUv2_roll_M81_US"];
 			_backpack = "CUP_B_AlicePack_OD";
-			_helmet = "CUP_H_US_H_PASGT_WDL";
+			_helmet = "CUP_H_PASGTv2_NVG_OD";
 			_hat = "CUP_H_US_patrol_cap_WDL";
 			_hat2 = "CUP_H_FR_PRR_BoonieWDL";
 			_vest = "CUP_V_B_PASGT_OD";
@@ -66,12 +66,12 @@ hard_setLoadout =
 		};
 	
 	};
-	_weap = ["CUP_arifle_M16A1","",_lamp,"",["CUP_20Rnd_556x45_Stanag",20],[],""];
+	_weap = ["CUP_arifle_M16A1","",_lamp,"",["CUP_30Rnd_556x45_Stanag",30],[],""];
 	_pistol = ["CUP_hgun_Colt1911","","","",["CUP_7Rnd_45ACP_1911",7],[],""];
 
-	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_MX991",1],["ACRE_PRC343",1],["ACE_CableTie",1]];
-	_itemsU_tl = _itemsU_base + [["ACRE_PRC148",1],["ACE_MapTools",1]];
-	_itemsV_base = [["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_20Rnd_556x45_Stanag",9,20]];
+	_itemsU_base = [["ACE_fieldDressing",4],["ACE_tourniquet",1],["ACE_EarPlugs",1],["ACE_Flashlight_MX991",1],["ACRE_PRC343",1],["ACE_CableTie",1],["SmokeShell",1,1]];
+	_itemsU_tl = _itemsU_base + [["ACRE_PRC148",1],["ACE_MapTools",1],["CUP_7Rnd_45ACP_1911",1,7]];
+	_itemsV_base = [["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_30Rnd_556x45_Stanag",7,30]];
 	_itemsB_medic = [["ACE_personalAidKit",1],["ACE_surgicalKit",1],["ACE_salineIV",2],["ACE_salineIV_250",2],["ACE_salineIV_500",2],["ACE_packingBandage",15],["ACE_fieldDressing",15],["ACE_elasticBandage",10],["ACE_quikclot",10],["ACE_morphine",8],["ACE_epinephrine",4],["ACE_tourniquet",4]];
 	
 	switch _loadout do 
@@ -110,7 +110,7 @@ loadoutCC_OFF = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest,[["CUP_HandGrenade_M67",1,1],["SmokeShellGreen",4,1],["CUP_20Rnd_556x45_Stanag",9,20],["CUP_7Rnd_45ACP_1911",2,7]]],
+		[_vest,[["rhs_mag_m67",1,1],["SmokeShellGreen",3,1],["CUP_30Rnd_556x45_Stanag",7,30]]],
 		[_backpack,[["ACRE_PRC117F",1],["SmokeShellPurple",2,1]]],
 		_hat,
 		"",
@@ -128,7 +128,7 @@ loadoutCC_TL = //
 		_weap_lat,
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest,[["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["SmokeShellGreen",2,1],["CUP_20Rnd_556x45_Stanag",9,20],["CUP_7Rnd_45ACP_1911",2,7]]],
+		[_vest,[["rhs_mag_m67",2,1],["SmokeShellGreen",1,1],["CUP_30Rnd_556x45_Stanag",7,30]]],
 		[],
 		_helmet,
 		"CUP_G_PMC_RadioHeadset",
@@ -162,7 +162,7 @@ loadoutCC_AR = //
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest,[["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",1,200]]],
+		[_vest,[["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",1,200]]],
 		[_backpack,[["CUP_200Rnd_TE4_Red_Tracer_556x45_M249",2,200]]],
 		_helmet,
 		"",
@@ -195,7 +195,7 @@ loadoutCC_MG = //
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest,[["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",1,100]]],
+		[_vest,[["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",1,100]]],
 		[_backpack,[["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",2,100]]],
 		_helmet,
 		"",
@@ -280,7 +280,7 @@ loadoutCC_M = //
 		[],
 		_pistol,
 		[_uniform,(_itemsU_base + [["ACE_RangeCard",1]])],
-		[_vest,[["CUP_HandGrenade_M67",1,1],["SmokeShell",1,1],["CUP_20Rnd_762x51_DMR",7,20]]],
+		[_vest,[["rhs_mag_m67",1,1],["SmokeShell",1,1],["CUP_20Rnd_762x51_DMR",6,20]]],
 		[],
 		_helmet,
 		"",
@@ -293,12 +293,12 @@ loadoutCC_GL = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["CUP_arifle_M16A1GL","","","",["CUP_20Rnd_556x45_Stanag",20],["CUP_1Rnd_HE_M203",1],""],
+		["CUP_arifle_M16A1GL","","","",["CUP_30Rnd_556x45_Stanag",30],["CUP_1Rnd_HE_M203",1],""],
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest,[["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_20Rnd_556x45_Stanag",9,20],["CUP_1Rnd_HE_M203",4,1]]],
-		[_backpack,[["CUP_1Rnd_HE_M203",10,1],["CUP_1Rnd_SmokeRed_M203",6,1],["CUP_1Rnd_StarCluster_White_M203",6,1],["ACE_HandFlare_Green",2,1],["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1]]],
+		[_vest,[["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_30Rnd_556x45_Stanag",5,30],["CUP_1Rnd_HE_M203",4,1]]],
+		[_backpack,[["CUP_1Rnd_HE_M203",10,1],["CUP_1Rnd_SmokeRed_M203",6,1],["CUP_1Rnd_StarCluster_White_M203",6,1],["ACE_HandFlare_Green",2,1],["rhs_mag_m67",2,1],["SmokeShell",2,1],["CUP_30Rnd_556x45_Stanag",2,30]]],
 		_helmet,
 		"",
 		["Binocular","","","",[],[],""],
@@ -315,7 +315,7 @@ loadoutCC_A = //
 		[],
 		[_uniform,_itemsU_base],
 		[_vest,_itemsV_base],
-		[_backpack,[["CUP_20Rnd_556x45_Stanag",8,20],["SmokeShell",2,1],["CUP_HandGrenade_M67",2,1],["ACE_HandFlare_Green",2,1]]],
+		[_backpack,[["CUP_30Rnd_556x45_Stanag",8,30],["SmokeShell",2,1],["rhs_mag_m67",2,1],["ACE_HandFlare_Green",2,1]]],
 		_helmet,
 		"",
 		["Binocular","","","",[],[],""],
@@ -365,7 +365,7 @@ loadoutCC_CREW = //
 		[],
 		[],
 		[_uniform,_itemsU_tl],
-		[_vest,[["CUP_HandGrenade_M67",1,1],["SmokeShell",1,1],["CUP_20Rnd_556x45_Stanag",7,20]]],
+		[_vest,[["rhs_mag_m67",1,1],["SmokeShell",1,1],["CUP_30Rnd_556x45_Stanag",5,30]]],
 		[],
 		"CUP_H_USMC_Crew_Helmet",
 		"",
@@ -382,7 +382,7 @@ loadoutCC_PILOT = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest,[["CUP_HandGrenade_M67",1,1],["SmokeShell",1,1],["CUP_20Rnd_556x45_Stanag",5,20],["CUP_7Rnd_45ACP_1911",2,7]]],
+		[_vest,[["rhs_mag_m67",1,1],["SmokeShell",1,1],["CUP_30Rnd_556x45_Stanag",5,30]]],
 		[],
 		"CUP_H_USMC_Helmet_Pilot",
 		"",
@@ -399,7 +399,7 @@ loadoutCC_SNIPER = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		["CUP_V_B_ALICE",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["SmokeShell",2,1],["CUP_HandGrenade_M67",2,1],["CUP_5Rnd_762x51_M24",4,5],["CUP_7Rnd_45ACP_1911",3,7]]],
+		["CUP_V_B_ALICE",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["SmokeShell",21,1],["rhs_mag_m67",2,1],["CUP_5Rnd_762x51_M24",4,5],["CUP_7Rnd_45ACP_1911",2,7]]],
 		[_backpack,[["cup_optic_an_pvs_4",1],["CUP_5Rnd_762x51_M24",8,5]]],
 		_hat2,
 		"",
@@ -416,7 +416,7 @@ loadoutCC_OBS = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		["CUP_V_B_ALICE",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_20Rnd_556x45_Stanag",5,20],["CUP_7Rnd_45ACP_1911",3,7]]],
+		["CUP_V_B_ALICE",[["ACE_Kestrel4500",1],["ACE_RangeCard",1],["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_20Rnd_556x45_Stanag",5,20],["CUP_7Rnd_45ACP_1911",2,7]]],
 		[_backpack,[["CUP_20Rnd_556x45_Stanag_Tracer_Red",5,20],["cup_optic_compm2_low",1]]],
 		_hat2,
 		"",
@@ -433,7 +433,7 @@ loadoutCC_JTAC = //
 		[],
 		_pistol,
 		[_uniform,_itemsU_tl],
-		[_vest,[["CUP_HandGrenade_M67",2,1],["SmokeShell",2,1],["CUP_20Rnd_556x45_Stanag",7,20],["CUP_7Rnd_45ACP_1911",2,7]]],
+		[_vest,[["rhs_mag_m67",2,1],["SmokeShell",1,1],["CUP_30Rnd_556x45_Stanag",7,30]]],
 		[_backpack,[["ACRE_PRC117F",1],["SmokeShellGreen",4,1],["ACE_HandFlare_Green",1,1]]],
 		_helmet,
 		"CUP_G_PMC_RadioHeadset",
