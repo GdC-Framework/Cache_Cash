@@ -26,7 +26,9 @@ hard_setLoadout =
 	_vest_tl = "";
 	_vest_doc = "";
 	_vest_m = "";
+	_vest_mg = "";
 	_hat = "";
+	_hat_off = "";
 	_nvg = "";
 	_lamp = "";
 	_weap_lat = [];
@@ -42,45 +44,55 @@ hard_setLoadout =
 	
 	switch (cc_loadoutcamo) do {
 		case "desert": {
-			_uniform = "rhs_uniform_m88_patchless";
-			_vest = "rhs_6b5_khaki";
-			_vest_r = "rhs_6b5_rifleman_khaki";
-			_vest_tl = "rhs_6b5_officer_khaki";
-			_vest_doc = "rhs_6b5_medic_khaki";
-			_vest_m = "rhs_6b5_sniper_khaki";
-			_hat = "rhs_fieldcap_khk";
+			_uniform = "rhs_uniform_afghanka";
+			_hat = "rhs_fieldcap_m88";
+			_hat_off = "rhs_beret_vdv_early";
 		};
-		case "woodland";
-		case "jungle";
-		case "winter";
+		case "jungle": {
+			_uniform = "rhs_uniform_afghanka_vsr_1";
+			_hat = "rhs_fieldcap_m88_vsr";
+			_hat_off = "rhs_beret_vdv_early";
+		};
+		case "woodland": {
+			_uniform = "rhs_uniform_afghanka_klmk";
+			_hat = "rhs_fieldcap_m88_klmk";
+			_hat_off = "rhs_beret_vdv_early";
+		};
+		case "winter": {
+			_uniform = "rhs_uniform_afghanka_winter";
+			_hat = "rhs_fieldcap_m88";
+			_hat_off = "rhs_ushanka";
+		};
 		case "polyvalent";
 		default {
-			_uniform = "rhsgref_uniform_vsr";
-			_vest = "rhs_6b5";
-			_vest_r = "rhs_6b5_rifleman";
-			_vest_tl = "rhs_6b5_officer";
-			_vest_doc = "rhs_6b5_medic";
-			_vest_m = "rhs_6b5_sniper";
-			_hat = "rhs_fieldcap_vsr";
+			_uniform = "rhs_uniform_afghanka";
+			_hat = "rhs_fieldcap_m88";
+			_hat_off = "rhs_beret_vdv_early";
 		};
 	};
 	switch (cc_rhsennemy) do {
 		case false: {
 			_weap_lat = ["CUP_launch_RPG18","","","",[],[],""];
 			_weap_at = ["CUP_launch_RPG7V","","","cup_optic_pgo7v3",["CUP_PG7V_M",1],[],""];
-			_mun_at = ["rhs_rpg_empty",[["CUP_PG7V_M",2,1]]];
+			_mun_at = ["rhs_rpg_6b2",[["CUP_PG7V_M",2,1]]];
 		};
 		case true;
 		default {
-			_weap_lat = ["rhs_weap_rpg26","","","",[],[],""];
+			_weap_lat = ["rhs_weap_rpg18","","","",[],[],""];
 			_weap_at = ["rhs_weap_rpg7","","","rhs_acc_pgo7v3",["rhs_rpg7_PG7V_mag",1],[],""];
-			_mun_at = ["rhs_rpg_empty",[["rhs_rpg7_PG7V_mag",4,1]]];
+			_mun_at = ["rhs_rpg_6b2",[["rhs_rpg7_PG7V_mag",4,1]]];
 		};
 	
 	};
 
-	_helmet = "rhs_ssh68";
-	_backpack = "rhs_sidor";
+	_vest = "rhs_6b2_AK";
+	_vest_r = "rhs_6b2_lifchik";
+	_vest_tl = "rhs_6b3_off";
+	_vest_doc = "rhs_6b2_chicom";
+	_vest_mg = "rhs_6b2_RPK";
+	_vest_m = "rhs_6b2_SVD";
+	_helmet = "rhs_ssh68_2";
+	_backpack = "rhs_rd54_vest";
 	_weap = ["CUP_arifle_AK74_Early","",_lamp,"",["CUP_30Rnd_545x39_AK_M",30],[],""];
 	_weap_2 = ["CUP_arifle_AKS74_Early","",_lamp,"",["CUP_30Rnd_545x39_AK_M",30],[],""];
 	_pistol = ["CUP_hgun_Makarov","","","",["CUP_8Rnd_9x18_Makarov_M",8],[],""];
@@ -128,7 +140,7 @@ loadoutCC_OFF = //
 		[_uniform,(_itemsU_tl + [["CUP_8Rnd_9x18_Makarov_M",1,8]])],
 		[_vest_tl,_itemsV_base],
 		[_backpack,[["ACRE_PRC117F",1],["SmokeShellPurple",2,1]]],
-		_hat,
+		_hat_off,
 		"",
 		["rhssaf_zrak_rd7j","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
@@ -211,8 +223,8 @@ loadoutCC_MG = //
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest_r,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["rhs_100Rnd_762x54mmR_green",1,100]]],
-		[_backpack,[["rhs_100Rnd_762x54mmR_green",2,100]]],
+		[_vest_r,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1]]],
+		[_backpack,[["rhs_100Rnd_762x54mmR_green",3,100]]],
 		_helmet,
 		"",
 		[],
@@ -229,7 +241,7 @@ loadoutCC_AMG = //
 		[],
 		[_uniform,_itemsU_base],
 		[_vest_r,_itemsV_base],
-		[_backpack,[["rhs_100Rnd_762x54mmR_green",2,100]]],
+		[_backpack,[["rhs_100Rnd_762x54mmR_green",3,100]]],
 		_helmet,
 		"",
 		["rhssaf_zrak_rd7j","","","",[],[],""],
@@ -295,9 +307,9 @@ loadoutCC_M = //
 		["CUP_srifle_SVD","","","cup_optic_pso_1",["CUP_10Rnd_762x54_SVD_M",10],[],""],
 		[],
 		[],
-		[_uniform,(_itemsU_base + [["cup_optic_nspu",1]])],
-		[_vest_m,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_10Rnd_762x54_SVD_M",9,10]]],
-		[],
+		[_uniform,_itemsU_base],
+		[_vest_m,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_10Rnd_762x54_SVD_M",5,10]]],
+		[_backpack,[["cup_optic_nspu",1],["CUP_10Rnd_762x54_SVD_M",4,10]]],
 		_helmet,
 		"",
 		[],
@@ -313,8 +325,8 @@ loadoutCC_GL = //
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest_r,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_30Rnd_545x39_AK_M",5,30],["CUP_1Rnd_HE_GP25_M",9,1]]],
-		[_backpack,[["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",4,30],["CUP_IlumFlareWhite_GP25_M",4,1],["CUP_1Rnd_SmokeRed_GP25_M",2,1],["ACE_HandFlare_Green",4,1],["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1]]],
+		[_vest_r,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_30Rnd_545x39_AK_M",5,30],["CUP_1Rnd_HE_GP25_M",6,1]]],
+		[_backpack,[["CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M",4,30],["CUP_1Rnd_HE_GP25_M",5,1],["CUP_IlumFlareWhite_GP25_M",4,1],["CUP_1Rnd_SmokeRed_GP25_M",2,1],["ACE_HandFlare_Green",4,1],["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1]]],
 		_helmet,
 		"",
 		[],
@@ -398,7 +410,7 @@ loadoutCC_PILOT = //
 		[],
 		[],
 		["rhs_uniform_df15_tan",_itemsU_tl],
-		["rhs_vydra_3m",[["rhs_mag_rgd5",1,1],["rhs_mag_rdg2_white",1,1],["CUP_30Rnd_545x39_AK_M",5,30]]],
+		["rhs_chicom_khk",[["rhs_mag_rgd5",1,1],["rhs_mag_rdg2_white",1,1],["CUP_30Rnd_545x39_AK_M",5,30]]],
 		[],
 		"rhs_zsh7a_mike",
 		"",
@@ -415,9 +427,9 @@ loadoutCC_SNIPER = //
 		[],
 		["CUP_hgun_PB6P9","cup_muzzle_pb6p9","","",["CUP_8Rnd_9x18_MakarovSD_M",8],[],""],
 		[_uniform,_itemsU_tl],
-		["rhs_vydra_3m",[["ACE_RangeCard",1],["rhs_mag_rdg2_white",2,1],["rhs_mag_rgd5",2,1],["CUP_10Rnd_762x54_SVD_M",5,10],["CUP_8Rnd_9x18_MakarovSD_M",5,8]]],
-		[_backpack,[["CUP_10Rnd_762x54_SVD_M",5,10],["cup_optic_nspu",1]]],
-		_hat,
+		["rhs_chicom_khk",[["ACE_RangeCard",1],["rhs_mag_rdg2_white",2,1],["rhs_mag_rgd5",2,1],["CUP_10Rnd_762x54_SVD_M",5,10],["CUP_8Rnd_9x18_MakarovSD_M",5,8]]],
+		["rhs_rd54",[["CUP_10Rnd_762x54_SVD_M",5,10],["cup_optic_nspu",1]]],
+		"",
 		"rhs_scarf",
 		["rhssaf_zrak_rd7j","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ItemWatch",_nvg]
@@ -432,9 +444,9 @@ loadoutCC_OBS = //
 		[],
 		["CUP_hgun_PB6P9","cup_muzzle_pb6p9","","",["CUP_8Rnd_9x18_MakarovSD_M",8],[],""],
 		[_uniform,_itemsU_tl],
-		["rhs_vydra_3m",[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_20Rnd_9x39_SP5_VSS_M",3,20],["rhs_mag_9x18_8_57N181S",3,8]]],
-		[_backpack,[["CUP_20Rnd_9x39_SP5_VSS_M",6,20],["ACE_HandFlare_Green",4,1]]],
-		_hat,
+		["rhs_chicom_khk",[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["CUP_20Rnd_9x39_SP5_VSS_M",3,20],["rhs_mag_9x18_8_57N181S",3,8]]],
+		["rhs_rd54",[["CUP_20Rnd_9x39_SP5_VSS_M",6,20],["ACE_HandFlare_Green",4,1]]],
+		"",
 		"rhs_scarf",
 		["rhssaf_zrak_rd7j","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ItemWatch",_nvg]

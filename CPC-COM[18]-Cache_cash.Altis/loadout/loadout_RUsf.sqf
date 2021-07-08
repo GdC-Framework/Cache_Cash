@@ -39,7 +39,7 @@ hard_setLoadout =
 			_hat = "H_Booniehat_tan";
 		};
 		case "jungle": {
-			_uniform = ["rhs_uniform_emr_patchless"];
+			_uniform = ["rhs_uniform_6sh122_v1"];
 			_backpack_big = ["B_Carryall_khk","B_Carryall_oli"];
 			_backpack_small = ["B_FieldPack_oli","B_FieldPack_khk"];
 			_hat = "rhs_Booniehat_digi";
@@ -53,10 +53,10 @@ hard_setLoadout =
 		case "woodland";
 		case "polyvalent";
 		default {
-			_uniform = ["rhs_uniform_gorka_r_g","rhs_uniform_gorka_r_y"];
+			_uniform = ["rhs_uniform_6sh122_gloves_v1","rhs_uniform_6sh122_v1"];
 			_backpack_big = ["B_Carryall_khk","B_Carryall_oli"];
 			_backpack_small = ["B_FieldPack_oli","B_FieldPack_khk"];
-			_hat = "rhs_Booniehat_flora";
+			_hat = "rhs_Booniehat_digi";
 		};
 	};
 	switch (CC_p_nvg) do {
@@ -131,7 +131,7 @@ loadoutCC_OFF = //
 		[(selectrandom _uniform),(_itemsU_base + _itemsU_tl)],
 		[_vest_radio,[["rhs_mag_rgd5",2,1],["rhs_30Rnd_545x39_7N22_AK",7,30],["SmokeShellGreen",2,1]]],
 		["rhs_assault_umbts",[["ACRE_PRC117F",1],["SmokeShellPurple",2,1]]],
-		"rhs_fieldcap_digi",
+		"rhs_vkpo_cap_alt",
 		"",
 		["rhs_pdu4","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ACE_Altimeter",(if (CC_p_nvg == 1) then {"NVGoggles_OPFOR"} else {""})]
@@ -177,7 +177,7 @@ loadoutCC_AR = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_ak74mr","rhs_acc_dtk4short",_lamp,"rhs_acc_1p87",["rhs_45Rnd_545X39_7N22_AK",30],[],"rhs_acc_grip_rk2"],
+		["rhs_weap_rpk74m_npz","rhs_acc_dtk4short",_lamp,"rhs_acc_1p87",["rhs_45Rnd_545X39_7N22_AK",45],[],"rhs_acc_grip_rk2"],
 		[],
 		[],
 		[(selectrandom _uniform),_itemsU_base],
@@ -386,7 +386,7 @@ loadoutCC_CREW = //
 		[(selectrandom _uniform),(_itemsU_base + _itemsU_tl)],
 		[_vest_crew,[["rhs_mag_rgd5",2,1],["rhs_30Rnd_545x39_7N22_AK",7,30]]],
 		[],
-		"rhs_tsh4_bala",
+		"rhs_6b48",
 		"",
 		["Binocular","","","",[],[],""],
 		["ItemMap","","","ItemCompass","ACE_Altimeter",_nvg]

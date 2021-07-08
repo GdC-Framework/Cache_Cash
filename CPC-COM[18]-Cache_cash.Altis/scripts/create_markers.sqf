@@ -547,6 +547,44 @@ switch (CPC_MAP) do {
 		"Mark_Inser" setMarkerPos [4859.88,11799.2,0];
 		_spawnpos = [1128.99,11508.8,0];
 	};
+
+	//Kujari
+	case "tem_kujari" : {
+
+		CPC_WorldType = "afrique";
+		publicVariable "CPC_WorldType";
+		CPC_FullMoon = [2016,6,29,0,0];
+		publicVariable "CPC_FullMoon";
+		_mkz_whitelist = [
+			[[8178.86,8046.74,0],"RECTANGLE",[7595.73,7617.96],0]
+		];
+		_mkz_blacklist = [
+			[[11805,14823.9,0],"RECTANGLE",[1802.54,928.486],0]
+		];
+		"Mark_Inser" setMarkerPos [11974.1,15103.8,0];
+		_spawnpos = [8013.77,28.4434,0];
+	};
+
+	// old PKL
+		case "prei_khmaoch_luong" : {
+
+		CPC_WorldType = "jungle";
+		publicVariable "CPC_WorldType";
+		CPC_FullMoon = [2016,6,30,0,0];
+		publicVariable "CPC_FullMoon";
+		_mkz_whitelist = [
+			[[4115.72,4137.93,0],"RECTANGLE",[3543.66,3608.95],0]
+		];
+		_mkz_blacklist = [
+			[[7042.53,2537.15,0],"RECTANGLE",[524.161,287.551],25.0685],
+			[[5686.11,4167.89,0],"RECTANGLE",[429.416,187.525],0],
+			[[6945.69,4880.06,0],"RECTANGLE",[361.753,362.503],0],
+			[[6087.71,6710.18,0],"RECTANGLE",[346.388,239.755],0],
+			[[955.082,1452.27,0],"RECTANGLE",[79.4979,77.4629],0]
+		];
+		"Mark_Inser" setMarkerPos [7379.08,757.978,0];
+		_spawnpos = [7939,8405,0];
+	};
 };
 
 // Création des markers

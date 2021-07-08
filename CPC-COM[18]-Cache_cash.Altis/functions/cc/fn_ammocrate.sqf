@@ -865,7 +865,7 @@ switch (CC_p_loaout) do {
 		_mag_ar = "CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M";
 		_mag_mg = "rhs_100Rnd_762x54mmR_green";
 		if (cc_rhsennemy) then {
-			_lat = "rhs_weap_rpg26";
+			_lat = "rhs_weap_rpg18";
 			_at = "rhs_weap_rpg7_pgo";
 			_mag_at1 = "rhs_rpg7_PG7VR_mag";
 			_mag_at2 = "rhs_rpg7_OG7V_mag";
@@ -882,9 +882,9 @@ switch (CC_p_loaout) do {
 			_mag_hat = "CUP_PG7V_M";
 		};	
 		_arsenal_items_faction = [
-			"rhs_6b5_officer","rhs_6b5_rifleman","rhs_6b5","rhsgref_uniform_vsr","rhs_fieldcap_khk","rhs_6b5_sniper_khaki","rhs_6b5_medic_khaki","rhs_6b5_officer_khaki","rhs_6b5_rifleman_khaki","rhs_6b5_khaki","rhs_uniform_m88_patchless","rhs_acc_2dpzenit_ris",
-			"rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg26","rhs_rpg7_PG7V_mag","rhs_rpg_empty","CUP_PG7V_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","rhs_fieldcap_vsr","rhs_6b5_sniper","rhs_6b5_medic",
-			"CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M","CUP_arifle_RPK74_45","rhssaf_zrak_rd7j","rhs_mag_rdg2_white","rhs_mag_rgd5","CUP_8Rnd_9x18_Makarov_M","CUP_hgun_Makarov","CUP_arifle_AKS74_Early","CUP_30Rnd_545x39_AK_M","CUP_arifle_AK74_Early","rhs_sidor","rhs_ssh68",
+			"rhs_uniform_afghanka_winter","rhs_uniform_afghanka_klmk","rhs_6b2_AK","rhs_6b2_lifchik","rhs_6b3_off","rhs_uniform_afghanka","rhs_fieldcap_m88","rhs_6b2_chicom","rhs_6b2_RPK","rhs_6b2_SVD","rhs_uniform_afghanka_vsr_1","rhs_acc_2dpzenit_ris",
+			"rhs_acc_pgo7v3","rhs_weap_rpg7","rhs_weap_rpg18","rhs_rpg7_PG7V_mag","rhs_rpg_empty","CUP_PG7V_M","cup_optic_pgo7v3","CUP_launch_RPG7V","CUP_launch_RPG18","rhs_fieldcap_m88_vsr","rhs_beret_vdv_early","rhs_fieldcap_m88_klmk",
+			"CUP_45Rnd_TE4_LRT4_Green_Tracer_545x39_RPK_M","CUP_arifle_RPK74_45","rhssaf_zrak_rd7j","rhs_mag_rdg2_white","rhs_mag_rgd5","CUP_8Rnd_9x18_Makarov_M","CUP_hgun_Makarov","CUP_arifle_AKS74_Early","CUP_30Rnd_545x39_AK_M","CUP_arifle_AK74_Early","rhs_rd54","rhs_rd54_vest","rhs_ssh68_2",
 			"CUP_arifle_AKS74U","CUP_1Rnd_SmokeRed_GP25_M","CUP_IlumFlareWhite_GP25_M","CUP_30Rnd_TE1_Green_Tracer_545x39_AK_M","CUP_1Rnd_HE_GP25_M","CUP_arifle_AK74_GL_Early","cup_optic_nspu","CUP_10Rnd_762x54_SVD_M","cup_optic_pso_1","CUP_srifle_SVD","rhs_100Rnd_762x54mmR_green","rhs_weap_pkm",
 			"CUP_20Rnd_9x39_SP5_VSS_M","cup_optic_pso_1_1","CUP_srifle_VSSVintorez","rhs_scarf","CUP_8Rnd_9x18_MakarovSD_M","cup_muzzle_pb6p9","CUP_hgun_PB6P9","cup_muzzle_snds_kzrzp_svd","rhs_zsh7a_mike","rhs_vydra_3m","rhs_uniform_df15_tan","rhs_tsh4"
 		];

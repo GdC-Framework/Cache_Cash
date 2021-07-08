@@ -83,6 +83,7 @@ CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 213 : {"ejercito_cup"};
 	case 214 : {"vc_cup"};
 	case 215 : {"usnam_cup"};
+	case 216 : {"hil_cup"};
 	default {"ins_rhs"};
 };
 
@@ -116,9 +117,11 @@ switch (toLower worldName) do {
 	case "takistan";
 	case "pja307"; // dariyah
 	case "isladuala3";
+	case "tem_kujari";
 	case "dingor" : {cc_IAcamo = "desert"};
 	case "tanoa";
 	case "pja305"; // Nazigogo
+	case "prei_khmaoch_luong"; //old pkl
 	case "lingor3" : {cc_IAcamo = "jungle"};
 	case "chernarus_winter" : {cc_IAcamo = "winter"};
 	default {cc_IAcamo = "polyvalent"};

@@ -232,7 +232,7 @@ loadoutCC_MG = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["CUP_lmg_M240","","","",["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",100],[],""],
+		["CUP_lmg_M240_norail","","","",["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M",100],[],""],
 		[],
 		[],
 		[_uniform,_itemsU_base],

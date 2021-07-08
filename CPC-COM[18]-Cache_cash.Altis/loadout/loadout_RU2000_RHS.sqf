@@ -178,12 +178,12 @@ loadoutCC_AR = //
 {
 	_unit = _this select 0;
 	_unit setUnitLoadout [
-		["rhs_weap_pkm","","","",["rhs_100Rnd_762x54mmR_green",100],[],""],
+		["rhs_weap_rpk74m","","","",["rhs_45Rnd_545X39_AK_Green",45],[],""],
 		[],
 		[],
 		[_uniform,_itemsU_base],
-		[_vest_mg,[["rhs_mag_rdg2_white",1,1],["rhs_100Rnd_762x54mmR_green",1,100]]],
-		[_backpack1,[["rhs_100Rnd_762x54mmR_green",2,100]]],
+		[_vest_r,[["rhs_mag_rgd5",2,1],["rhs_mag_rdg2_white",2,1],["rhs_45Rnd_545X39_AK_Green",4,45]]],
+		[_backpack1,[["rhs_45Rnd_545X39_AK_Green",7,45]]],
 		_helmet,
 		"",
 		[],
