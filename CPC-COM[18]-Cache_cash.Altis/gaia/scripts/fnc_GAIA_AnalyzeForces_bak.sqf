@@ -16,7 +16,7 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-private ["_side","_TempGroups","__ZoneStatus","_Targets","_TargetInZone","_TargetNear"];
+private ["_side", "_TempGroups", "__ZoneStatus", "_Targets", "_TargetInZone", "_TargetNear"];
 
 _side = _this select 0;
 _TempGroups 			= [];
@@ -45,8 +45,8 @@ switch (_side) do
 		  									};
 		};
 
-		
-		
+
+
  //Get all zones that still hold forces.
  {
 	 if (
@@ -57,14 +57,14 @@ switch (_side) do
  			)
  	 then
  	 		{
- 	 			if (count([_x] call fnc_GetZoneIntendFomGroup)>0) then {_TempGroups = _TempGroups + [_x];};
+ 	 			if (count([_x] call gaia_fnc_GetZoneIntendFomGroup)>0) then {_TempGroups = _TempGroups + [_x];};
  	 			_gaia_zone_intend = _x getVariable ["GAIA_ZONE_INTEND",[]];
  	 			if ((count _gaia_zone_intend)>0) then
  	 			{
  	 				_zone = _gaia_zone_intend select 0;
  	 				if !(_zone in _TempZones) then
  	 					{
- 	 						
+
  	 						_TempZones = _TempZones + [_Zone];
  	 					};
  	 			};
@@ -73,77 +73,65 @@ switch (_side) do
 
 
 
-//Update ZONE status 	
-_zone							= "";
-_TempTargets			= (_Targets select 0)+(_Targets select 1)+(_Targets select 2)+(_Targets select 3);
+//Update ZONE status
+_zone = "";
+_TempTargets = (_Targets select 0)+(_Targets select 1)+(_Targets select 2)+(_Targets select 3);
 {
 	//For anything we have not cleared yet, we keep the zone alarm ringing "ALL ON BOARD!"
-	_TargetInZone 			= false;
-	_TargetNear					= false;
-	_Zone	= _x;
+	_TargetInZone = false;
+	_TargetNear = false;
+	_Zone = _x;
 	if ((count(getmarkerpos _Zone))>0) then
 	{
-			for "_T" from 0 to (count(_TempTargets)-1) do 
-				{ 
-					
-					//Target is in the zone
-					if ([(position (_TempTargets select _T)),_Zone] call fnc_PosIsInMarker				) exitWith {_TargetInZone= true;}; 
-					
-					//Check if we got a target close by (Relatively 2 times bigger then largest of x and y of the marker size)
-					_Dist	= ((((Getmarkersize _Zone)select 0) max ((Getmarkersize _Zone)select 1))*2);
-					if (((position (_TempTargets select _T)) distance (getmarkerpos _Zone))<_Dist) then {_TargetNear= true;};
-				}; 
-				
-				switch(true)do
-				{						
-						//Status Red
-						case (_TargetInZone): {	
-																		_ZoneStatus set  [(parseNumber _zone ),2];
-																		if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal 	"ColorRed"};
-																	};
-						//Orange
-						case (_TargetNear)	: {	
-																		_ZoneStatus set  [(parseNumber _zone ),1];
-																		if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal 	"ColorOrange"};
-																	};
-						//Green
-						default							  {	
-																		_ZoneStatus set  [(parseNumber _zone ),0];
-																		if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal 	"ColorGreen"};
-																	};
-				};	
+		for "_T" from 0 to (count(_TempTargets)-1) do
+			{
+				//Target is in the zone
+				if ((position (_TempTargets select _T)) inArea _Zone) exitWith {_TargetInZone= true;};
+
+				//Check if we got a target close by (Relatively 2 times bigger then largest of x and y of the marker size)
+				_Dist	= ((((Getmarkersize _Zone)select 0) max ((Getmarkersize _Zone)select 1))*2);
+				if (((position (_TempTargets select _T)) distance (getmarkerpos _Zone))<_Dist) then {_TargetNear= true;};
+			};
+
+			switch(true)do
+			{
+				//Status Red
+				case (_TargetInZone): {
+					_ZoneStatus set  [(parseNumber _zone ),2];
+					if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal "ColorRed"};
+				};
+				//Orange
+				case (_TargetNear)	: {
+					_ZoneStatus set  [(parseNumber _zone ),1];
+					if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal "ColorOrange"};
+				};
+				//Green
+				default							  {
+					_ZoneStatus set  [(parseNumber _zone ),0];
+					if (MCC_GAIA_DEBUG and _side==(Side player)) then {_zone setMarkerColorLocal "ColorGreen"};
+				};
+			};
 	};
-}ForEAch _TempZones;
+} ForEAch _TempZones;
 
 //Update Child Zones of the danger.
-
 //Update FORCES based on Zone Status
+switch (_side) do {
+	case west: {
+		MCC_GAIA_GROUPS_WEST =_TempGroups;
+		MCC_GAIA_ZONES_WEST =_TempZones;
+		MCC_GAIA_ZONESTATUS_WEST =_ZoneStatus;
+	};
+	case east: {
+		MCC_GAIA_GROUPS_EAST =_TempGroups;
+		MCC_GAIA_ZONES_EAST =_TempZones;
+		MCC_GAIA_ZONESTATUS_EAST =_ZoneStatus;
+	};
+	case independent: {
+		MCC_GAIA_GROUPS_INDEP =_TempGroups;
+		MCC_GAIA_ZONES_INDEP =_TempZones;
+		MCC_GAIA_ZONESTATUS_INDEP =_ZoneStatus;
+	};
+};
 
-
-switch (_side) do
-		{
-		  case west				: {
-		  										MCC_GAIA_GROUPS_WEST		=_TempGroups;
-		  										MCC_GAIA_ZONES_WEST			=_TempZones;
-		  										MCC_GAIA_ZONESTATUS_WEST=_ZoneStatus;
-		  									};
-		  case east				: {
-		  										MCC_GAIA_GROUPS_EAST		=_TempGroups;
-		  										MCC_GAIA_ZONES_EAST			=_TempZones;
-		  										MCC_GAIA_ZONESTATUS_EAST=_ZoneStatus;
-		  									};
-		  case independent: {
-		  										MCC_GAIA_GROUPS_INDEP 	=_TempGroups;
-		  										MCC_GAIA_ZONES_INDEP		=_TempZones;
-		  										MCC_GAIA_ZONESTATUS_INDEP=_ZoneStatus;
-		  									};
-		};
-	
-	
-
-
-
-
-	
-	 
 true;

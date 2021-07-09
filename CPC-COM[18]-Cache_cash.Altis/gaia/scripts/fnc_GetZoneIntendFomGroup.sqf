@@ -15,7 +15,7 @@ Author:
 
 ---------------------------------------------------------------------------- */
 
-private ["_group","_zone_intend"];
+private ["_group", "_zone_intend"];
 
 _group 				= _this select 0;
 

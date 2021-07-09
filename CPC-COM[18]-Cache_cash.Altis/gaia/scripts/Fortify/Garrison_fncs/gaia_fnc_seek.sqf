@@ -11,10 +11,10 @@ if (!isnil("_build")) then
 		_buildpositions set [count _buildpositions, _pos];
 		_pcnt = _pcnt + 1;
 	};
-	
+
 	_cdist = 100;
 	_closest = 0;
-	
+
 	for "_i" from 0 to ((count _buildpositions) - 1) do
 	{
 		_sel = _buildpositions select _i;
@@ -24,7 +24,7 @@ if (!isnil("_build")) then
 			_closest = _i;
 		};
 	};
-	
+
 	{
 		_x forcespeed 2;
 		_x setVariable ["Garrison_Moving", true];

@@ -3,7 +3,7 @@
 // ====================================================================================
 
 // DECLARE VARIABLES AND FUNCTIONS
-private ["_ent","_distance","_pos","_players"];
+private ["_ent", "_distance", "_pos", "_players"];
 
 _pos =  (_this select 0);
 _distance = _this select 1;
@@ -13,7 +13,7 @@ _distance = _this select 1;
 // Create a list of all players
 _players = [];
 
-if (count(playableUnits)==0) then 
+if (count(playableUnits)==0) then
 {
 	_players = [player];
 }
