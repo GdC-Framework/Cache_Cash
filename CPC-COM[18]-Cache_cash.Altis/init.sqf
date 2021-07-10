@@ -69,13 +69,6 @@ if (CC_p_extraction == 2) then {
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;
 };
 
-//SSS
-if (CC_P_ssscas > 0) then {
-	[] call STDR_fnc_setupssscas;
-};
-if (CC_P_sssdrone > 0) then {
-	[] call STDR_fnc_setupsssdrone;
-};
 
 // Trigger de fin de mission
 _trg = createTrigger ["EmptyDetector",[0,0,0],true];

@@ -20,7 +20,7 @@ private _ammo = switch (_vehtype) do {
 	case "RHS_Su25SM_vvsc": {["rhs_weap_gsh302","rhs_weap_s8","rhs_weap_kh29_Launcher"]};
 	default{[]};
 };
-[_vehtype,"",_ammo,240,{},blufor,[],{[player,"ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio},{true}] call SSS_support_fnc_addCASPlane;
+[_vehtype,"",_ammo,300,{},blufor,[],{[player,"ACRE_PRC148"] call acre_api_fnc_hasKindOfRadio},{true}] call SSS_support_fnc_addCASPlane;
 
 
 

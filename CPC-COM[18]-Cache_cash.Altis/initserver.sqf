@@ -71,3 +71,10 @@ call compile preprocessFileLineNumbers ("loadout\loadout_" + CC_loadout + ".sqf"
 
 [] call STDR_fnc_ammocrate;
 
+//SSS
+if (CC_P_ssscas > 0) then {
+	[] call STDR_fnc_setupssscas;
+};
+if (CC_P_sssdrone > 0) then {
+	[] call STDR_fnc_setupsssdrone;
+};
