@@ -92,7 +92,7 @@ _NewTargetInfo	= [];
       			 	!captive(_target)
 	     			 	and	      			 
       			 	//How sure are we? For now accuracy of 18 seems to work ok
-      			 	_Target_PosAcc < 18
+      			 	_Target_PosAcc < 100
       			 	and
       			 	(_Target iskindof "AllVehicles")
       			 	//and      			 	

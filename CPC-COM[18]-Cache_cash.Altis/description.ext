@@ -150,7 +150,7 @@ class Params
 		values[] = {
 			1,2,3,4,5,
 			101,102,103,104,105,106,107,
-			201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216
+			201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217
 		};
 		texts[] = 
 		{
@@ -181,7 +181,8 @@ class Params
 			"CUP : Armée Lingor",
 			"CUP : Viet Cong", //214
 			"CUP : US (vietnam)", //215
-			"CUP : Horizon Island Legion" //216
+			"CUP : Horizon Island Legion", //216
+			"CUP : Allemagne" //217
 		};
 		default = 101;
 	};
@@ -1504,6 +1505,51 @@ class CC_ennemy
 		};
 		class woodland: polyvalent {};
 		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
+	};
+	class ger_cup: cc_faction_army
+	{
+		class polyvalent
+		{
+			r = "CUP_B_GER_BW_Fleck_Soldier";
+			tl = "CUP_B_GER_BW_Fleck_Soldier_TL";
+			gl = "CUP_B_GER_BW_Fleck_Soldier_GL";
+			lat = "CUP_B_GER_BW_Fleck_Soldier_PZF_AT";
+			at = "CUP_B_GER_BW_Fleck_Soldier_AT";
+			mg = "CUP_B_GER_BW_Fleck_Soldier_MG3";
+			m = "CUP_B_GER_BW_Fleck_Soldier_Marksman";
+			aa = "CUP_B_GER_BW_Fleck_Soldier_AA";
+			crew = "CUP_B_GER_Fleck_Crew";
+			veharray_light[] = {"CUP_B_nM1025_M240_NATO_T"}; //placeholder
+			veharray_medium[] = {"CUP_B_M113A3_GER","CUP_B_Dingo_GER_Wdl","CUP_B_Dingo_GL_GER_Wdl"};
+			veharray_heavy[] = {"CUP_B_Boxer_HMG_GER_WDL","CUP_B_Leopard2A6_GER"};
+			veharray_transport[] = {"B_T_Truck_01_covered_F"}; //placeholder
+			veharray_heli[] = {"CUP_B_CH53E_GER"};
+			veharray_air[] = {"CUP_B_AW159_GER"};
+			veharray_aa[] = {"CUP_B_M163_Vulcan_USA"}; //placeholder
+			hmg = "CUP_B_M2StaticMG_MiniTripod_GER";
+			pilot = "CUP_B_GER_Fleck_HPilot";
+			plane = "CUP_B_C130J_USMC"; //placeholder
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			r = "CUP_B_GER_BW_Soldier";
+			tl = "CUP_B_GER_BW_Soldier_TL";
+			gl = "CUP_B_GER_BW_Soldier_GL";
+			lat = "CUP_B_GER_BW_Soldier_PZF_AT";
+			at = "CUP_B_GER_BW_Soldier_AT";
+			mg = "CUP_B_GER_BW_Soldier_MG3";
+			m = "CUP_B_GER_BW_Soldier_Marksman";
+			aa = "CUP_B_GER_BW_Soldier_AA";
+			crew = "CUP_B_GER_Crew";
+			veharray_light[] = {"CUP_B_nM1025_M240_NATO"}; //placeholder
+			veharray_medium[] = {"CUP_B_Dingo_GER_Des","CUP_B_Dingo_GER_Des","CUP_B_Dingo_GL_GER_Des"};
+			veharray_heavy[] = {"CUP_B_Boxer_HMG_GER_DES","CUP_B_Leopard2A6DST_GER"};
+			veharray_transport[] = {"B_Truck_01_covered_F"}; //placeholder
+			pilot = "CUP_B_GER_HPilot";
+		};
 		class jungle: woodland {};
 		class winter: woodland {};
 	};

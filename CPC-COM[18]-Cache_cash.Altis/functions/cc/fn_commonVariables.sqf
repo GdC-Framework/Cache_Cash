@@ -86,6 +86,7 @@ CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 214 : {"vc_cup"};
 	case 215 : {"usnam_cup"};
 	case 216 : {"hil_cup"};
+	case 217 : {"ger_cup"};
 	default {"ins_rhs"};
 };
 
@@ -115,11 +116,14 @@ switch (toLower worldName) do {
 	case "fdf_isle1_a"; // Podagorsk
 	case "woodland_acr"; // Bystrica
 	case "noe"; // Nogova
+	case "vt7";
+	case "wl_rosche";
 	case "eden" : {cc_IAcamo = "woodland"}; // Everon
 	case "takistan";
 	case "pja307"; // dariyah
 	case "isladuala3";
 	case "tem_kujari";
+	case "tem_anizay";
 	case "dingor" : {cc_IAcamo = "desert"};
 	case "tanoa";
 	case "pja305"; // Nazigogo

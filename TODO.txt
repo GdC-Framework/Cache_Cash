@@ -1,3 +1,6 @@
+- nouveau inventaire briefing
+- zeus de debug
+- transition de GAIA vers VCOM
 - revoir le spawn des IA ?
 - Améliorer le spawn des campements
 - utiliser des batiments A2/APEX dans les campements/villes WIP
