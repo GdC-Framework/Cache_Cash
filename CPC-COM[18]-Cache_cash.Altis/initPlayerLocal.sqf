@@ -5,7 +5,7 @@
 //Add Zeus to player if player is admin or player is hosting (local) server
 _isAdmin = serverCommandAvailable "#logout";
 if (_isAdmin || (isServer && hasInterface)) then {
-	[] call gdc_fnc_addZeusToPlayer;
+	[] call gdc_fnc_addZeusToPlayerRemote;
 };
 
 // Variables pour les loadouts
