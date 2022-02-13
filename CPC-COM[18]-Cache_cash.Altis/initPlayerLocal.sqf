@@ -2,6 +2,12 @@
 // We need tones of variables
 [] call STDR_fnc_commonVariables;
 
+//Add Zeus to player if player is admin or player is hosting (local) server
+_isAdmin = serverCommandAvailable "#logout";
+if (_isAdmin || (isServer && hasInterface)) then {
+	[] call gdc_fnc_addZeusToPlayer;
+};
+
 // Variables pour les loadouts
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)
 playerIsJIP = _this select 1;	// boolean (true ou false). True = le joueur se connecte en cours de partie.

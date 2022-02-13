@@ -6,7 +6,8 @@ CC_variables_defined = true;
 
 // définition manuelle des paramètres pour le débug
 
-// Variables liées au paramètres de la mission
+// Variables liées aux paramètres de la mission
+CC_p_game_type = "gameType" call BIS_fnc_getParamValue;
 CC_p_difficulty = "difficulte" call BIS_fnc_getParamValue;
 CC_p_time = "heure" call BIS_fnc_getParamValue;
 CC_p_overcast = "meteo" call BIS_fnc_getParamValue;
