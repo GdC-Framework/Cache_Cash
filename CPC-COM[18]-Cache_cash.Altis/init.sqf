@@ -22,18 +22,24 @@ if (is3DENPreview) then {
 // Launch game type from mission parameter
 switch CC_p_game_type do {
 	case 1: {[] spawn STDR_fnc_buildCacheCash;};
-	case 2: {SystemChat "Le mode de jeu choisi est en cours d'implémentation : mode Cache cash lancé";[] spawn STDR_fnc_buildCacheCash;};
+	case 2: {
+		SystemChat "Le mode de jeu choisi est en cours d'implémentation : mode Cache cash lancé";
+		[] spawn STDR_fnc_buildCacheCash;
+		//[] spawn STDR_fnc_buildCconvoyDefense;
+	};
 };
 
 waitUntil {!isnil "cc_MarkersCreated"};
 
+
+// DAL : Les deux fonctions suivantes devraient être déplacées dans le initServer.sqf
 // Date et heure
 [] call STDR_fnc_setDate;
-
 //METEO
 [] call STDR_fnc_setWeather;
 
 /*SCRIPTS*/
+// DAL : il faut revoir le truc car il va aussi être conditionné par le mode de jeu (ex. Défense de convoi : pas de spawn HALO ou LALO, en théorie)
 switch (CC_p_insertion) do {
 	case 0 : {null = [] execVM "scripts\insert_random.sqf";};
 	case 1 : {null = [] execVM "scripts\insert_gdc_choose.sqf";};

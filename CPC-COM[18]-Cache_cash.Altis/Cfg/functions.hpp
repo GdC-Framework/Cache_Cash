@@ -14,6 +14,7 @@ class CfgFunctions
 			class setupssscas {};
 			class setupsssdrone {};
 			class buildCacheCash {};
+			class buildConvoyDefense {};
 		};
 	};
 };
