@@ -1,35 +1,45 @@
-﻿
-// We need tones of variables
+﻿// We need tones of variables
 [] call STDR_fnc_commonVariables;
 
-// déterminer la localité pour faire pop les IAs(HC ou éditeur)
+// déterminer la localité pour faire pop les IAs (HC ou éditeur)
 MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
+// Initialize LUCY
 [1.0,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
 
-if !(isMultiplayer) then {
+if (is3DENPreview) then {
 	MODE_EDITEUR = true;
-	null = [] execVM "scripts\spawn_ia.sqf";
 } else {
 	if !(hasInterface or isServer) then {
 		MODE_HC = true;
 		HC_IsPresent = true;
 		publicVariableServer "HC_IsPresent";
-		null = [] execVM "scripts\spawn_ia.sqf";
+	};
+};
+
+// Launch game type from mission parameter
+switch CC_p_game_type do {
+	case 1: {[] spawn STDR_fnc_buildCacheCash;};
+	case 2: {
+		SystemChat "Le mode de jeu choisi est en cours d'implémentation : mode Cache cash lancé";
+		[] spawn STDR_fnc_buildCacheCash;
+		//[] spawn STDR_fnc_buildCconvoyDefense;
 	};
 };
 
 waitUntil {!isnil "cc_MarkersCreated"};
 
-// Date et heure
-[] call STDR_fnc_setdate;
 
+// DAL : Les deux fonctions suivantes devraient être déplacées dans le initServer.sqf
+// Date et heure
+[] call STDR_fnc_setDate;
 //METEO
-[] call STDR_fnc_meteo;
+[] call STDR_fnc_setWeather;
 
 /*SCRIPTS*/
+// DAL : il faut revoir le truc car il va aussi être conditionné par le mode de jeu (ex. Défense de convoi : pas de spawn HALO ou LALO, en théorie)
 switch (CC_p_insertion) do {
 	case 0 : {null = [] execVM "scripts\insert_random.sqf";};
 	case 1 : {null = [] execVM "scripts\insert_gdc_choose.sqf";};
@@ -69,7 +79,6 @@ if (CC_p_extraction == 2) then {
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;
 };
 
-
 // Trigger de fin de mission
 _trg = createTrigger ["EmptyDetector",[0,0,0],true];
 _trg setTriggerActivation ["ALPHA","PRESENT",false];
@@ -85,4 +94,4 @@ if (CC_p_vehicle > 0) then {
 };
 
 //METEO
-[] call STDR_fnc_meteo;
+[] call STDR_fnc_setWeather;

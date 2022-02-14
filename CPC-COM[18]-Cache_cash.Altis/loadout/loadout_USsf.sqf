@@ -175,8 +175,6 @@ hard_setLoadout =
 	};
 };
 
-
-
 loadoutCC_OFF = //
 {
 	_unit = _this select 0;

@@ -1,6 +1,16 @@
+#define DBG_OUTPUT_SCREEN
+#define DBG_LEVEL_FULL
+#include "include\debug_macros.hpp"
 
 // We need tones of variables
 [] call STDR_fnc_commonVariables;
+
+//Add Zeus to player if player is admin or player is hosting (local) server
+_isAdmin = serverCommandAvailable "#logout";
+if (_isAdmin || (isServer && hasInterface)) then {
+	[] call gdc_fnc_addZeusToPlayerRemote;
+};
+INF2("_isAdmin a la valeur", _isAdmin);
 
 // Variables pour les loadouts
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)
@@ -41,7 +51,6 @@ if !(isMultiplayer) then
 		};
 	} foreach allUnits;
 };
-
 
 execVM "briefing.sqf";
 [] call GDC_fnc_inventoryBriefing; // lancement du script qui affiche le loadout lors du briefing.
