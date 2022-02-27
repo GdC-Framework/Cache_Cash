@@ -1,7 +1,25 @@
 /*
-	Création de markers en fonctions de la map
 
-	Pour récup les markers rouges de la map :
+** Refactoring **
+	
+	Etat initial du script :
+	A partir des paramètres de la carte, initialise plusieurs éléments importants pour une mission de type cache-cash :
+	- Initialise plusieurs variables publiques : CPC_MAP, CPC_WorldType, CPC_FullMoon
+	- Créé des marqueurs de zone de white et black list et les tableaux associés
+	- Créé un marqueur de spawn pour Lucy
+	- Déplace le marqueur de spawn par défaut des joueurs
+
+	TODO :
+	- Le script ne devrait créer que les marqueurs de white et black lists et le marqueur de spawn Lucy
+	
+	DONE :
+	- Supprimer le switch et la description des cartes en déportant les données dans un fichier de config
+	- Initialisation de CPC_MAP, CPC_WorldType et de CPC_FullMoon déplacée dans fn_commonVariables.sqf
+	- Les marqueurs de white et black lists ne sont créés que localement, sur la même localité que le script qui l'utilise (obj_cache.sqf) : server only (performance !)
+	
+** Refactoring **
+
+Pour récup les markers rouges de la map :
 _br = toString [13,10];
 _arraymk = [];
 _strmk = "";
@@ -20,21 +38,21 @@ copyToClipboard _strmk;
 */
 
 private ["_mkz_whitelist","_mkz_blacklist","_spawnpos","_mk"];
-CPC_MAP = toLower worldName;
-publicVariable "CPC_MAP";
+
 cc_mkz_whitelist = [];
 cc_mkz_blacklist = [];
 
 cc_createAreaMarker = {
 	params ["_mkCfg"];
 	private ["_mk"];
-	_mk = createMarker [(format ["mkz_ex_%1",(_mkCfg select 0)]),(_mkCfg select 0)];
-	_mk setMarkerShape (_mkCfg select 1);
-	_mk setMarkerSize (_mkCfg select 2);
-	_mk setMarkerDir (_mkCfg select 3);
+	_mk = createMarkerLocal [(format ["mkz_ex_%1",(_mkCfg select 0)]),(_mkCfg select 0)];
+	_mk setMarkerShapeLocal (_mkCfg select 1);
+	_mk setMarkerSizeLocal (_mkCfg select 2);
+	_mk setMarkerDirLocal (_mkCfg select 3);
 	_mk
 };
 
+/* Code sorti dans le fichier de config mapParams.hpp
 switch (CPC_MAP) do {
 	//Altis
 	case "altis" : {
@@ -669,32 +687,41 @@ switch (CPC_MAP) do {
 		_spawnpos = [15313.6,14936.7,0];
 	};
 };
+*/
 
-// Création des markers
+_mkz_whitelist = call(compile(getText (missionConfigFile >> "mapParams" >> CPC_MAP >> "whiteListArea")));
+_mkz_blacklist = call(compile(getText (missionConfigFile >> "mapParams" >> CPC_MAP >> "blackListArea")));
+_lucySpawnPos = getArray (missionConfigFile >> "mapParams" >> CPC_MAP >> "lucySpawnPos");
+_playerSpawnPos = getArray (missionConfigFile >> "mapParams" >> CPC_MAP >> "defaultPlayerSpawnPos");
+"Mark_Inser" setMarkerPos _playerSpawnPos;
+
+// Création des markers white et black lists
 {
 	_mk = [_x] call cc_createAreaMarker;
 	cc_mkz_whitelist = cc_mkz_whitelist + [_mk];
-	if (isMultiplayer) then {_mk setMarkerAlpha 0;};
+	if (isMultiplayer) then {_mk setMarkerAlphaLocal 0;};
 } forEach _mkz_whitelist;
-publicVariable "cc_mkz_whitelist";
+//publicVariable "cc_mkz_whitelist";
+
 {
 	_mk = [_x] call cc_createAreaMarker;
 	cc_mkz_blacklist = cc_mkz_blacklist + [_mk];
-	if (isMultiplayer) then {_mk setMarkerAlpha 0;};
+	if (isMultiplayer) then {_mk setMarkerAlphaLocal 0;};
 } forEach _mkz_blacklist;
-publicVariable "cc_mkz_blacklist";
+//publicVariable "cc_mkz_blacklist";
 
-//marker de spawn
-_mk = createMarker ["mkr_spawn_static_unit",_spawnpos];
+//marker de spawn Lucy
+_mk = createMarker ["mkr_spawn_static_unit",_lucySpawnPos];
 _mk setMarkerShape "ICON";
 _mk setMarkerType "mil_end";
 _mk setMarkerAlpha 0;
 
 //Cacher les marqueurs de zone
+//DAL : Bouh que c'est cochon !!
 if (isMultiplayer) then {
 	for "_x" from 1 to 100 do
 	{
-		format ["%1",_x] setMarkerAlpha 0;
+		format ["%1",_x] setMarkerAlphaLocal 0;
 	};
 };
 
@@ -718,6 +745,4 @@ for "_i" from 1 to 6000 do {
 	_mk setMarkerShape "ICON";
 	_mk setmarkertype "hd_dot";
 };
-
-
 */

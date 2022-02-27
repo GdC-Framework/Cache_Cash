@@ -24,7 +24,7 @@ if (isserver) then {
 	};
 };
 waitUntil {!isnil "cc_objet_lalo"};
-_type = switch (CC_p_loaout) do {
+_type = switch (CC_p_playerFaction) do {
 	case 0 : {"B_T_VTOL_01_infantry_F"}; //NATO
 	case 1 : {"B_T_VTOL_01_infantry_F"}; //CSAT
 	case 2 : {"CUP_I_C130J_AAF"}; //AAF

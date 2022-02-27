@@ -4,36 +4,5 @@ enableDebugConsole = 1;
 #include "Cfg\functions.hpp"
 #include "Cfg\missionParams.hpp"
 #include "Cfg\factions.hpp"
-
-/*
-	class nato: cc_faction_army
-	{
-		class polyvalent
-		{
-			r = "";
-			tl = "";
-			gl = "";
-			lat = "";
-			at = "";
-			mg = "";
-			m = "";
-			aa = "";
-			crew = "";
-			veharray_light[] = {"",""};
-			veharray_medium[] = {"","","","",""};
-			veharray_heavy[] = {"","","","","",""};
-			veharray_transport[] = {"",""};
-			veharray_heli[] = {"",""};
-			veharray_air[] = {"","",""};
-			veharray_aa[] = {"",""};
-			hmg = "";
-			pilot = "";
-			plane = "";
-		};
-		class woodland: polyvalent {};
-		class desert: polyvalent {};
-		class jungle: woodland {};
-		class winter: woodland {};
-	};
-*/
+#include "Cfg\mapParams.hpp"
 

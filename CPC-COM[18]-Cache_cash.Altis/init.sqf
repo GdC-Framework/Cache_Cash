@@ -1,13 +1,24 @@
-﻿// We need tones of variables
-[] call STDR_fnc_commonVariables;
+﻿/*
+	** Refactoring **
+		
+		Globalement, on lance la plupart (voire tous) les scripts à partir d'ici. Le lancement des scripts lancés initialement
+		dans le initServer.sqf est relocalisé ici. 
 
-// déterminer la localité pour faire pop les IAs (HC ou éditeur)
-MODE_EDITEUR = false;
-MODE_HC = false;
-HC_IsPresent = false;
+	** Refactoring **
+*/
+
+/* Everywhere shared variables */
+	[] call STDR_fnc_commonVariables;
+/* Everywhere shared variables */
 
 // Initialize LUCY
 [1.0,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
+
+// déterminer la localité pour faire pop les IAs (HC ou éditeur)
+// DAL : Lucy n'est pas censé s'occuper de ça (en dehors du isEdenPreview) ? 
+MODE_EDITEUR = false;
+MODE_HC = false;
+HC_IsPresent = false;
 
 if (is3DENPreview) then {
 	MODE_EDITEUR = true;
@@ -19,21 +30,35 @@ if (is3DENPreview) then {
 	};
 };
 
+waitUntil {CC_variables_defined};
+
+/* Server only scripts */
+	if (isServer) then {
+		//Mission date and time
+		[] call STDR_fnc_setDate;
+		//Weather
+		[] call STDR_fnc_setWeather;
+		//Cache-cash markers
+		[] call STDR_fnc_create_markers;
+		//Cache-cash buildings
+		[] call STDR_fnc_obj_cache;
+	};
+/* Server only scripts */
+
 // Launch game type from mission parameter
 switch CC_p_game_type do {
-	case 1: {[] spawn STDR_fnc_buildCacheCash;};
-	case 2: {SystemChat "Le mode de jeu choisi est en cours d'implémentation : mode Cache cash lancé";[] spawn STDR_fnc_buildCacheCash;};
+	case 1: {[] execVM "scripts\Spawn_IA.sqf";};
+	case 2: {
+		SystemChat "Le mode de jeu choisi est en cours d'implémentation : mode Cache cash lancé";
+		[] execVM "scripts\Spawn_IA.sqf";
+		//[] spawn STDR_fnc_buildCconvoyDefense;
+	};
 };
 
 waitUntil {!isnil "cc_MarkersCreated"};
 
-// Date et heure
-[] call STDR_fnc_setDate;
-
-//METEO
-[] call STDR_fnc_setWeather;
-
 /*SCRIPTS*/
+// DAL : il faut revoir le truc car il va aussi être conditionné par le mode de jeu (ex. Défense de convoi : pas de spawn HALO ou LALO, en théorie)
 switch (CC_p_insertion) do {
 	case 0 : {null = [] execVM "scripts\insert_random.sqf";};
 	case 1 : {null = [] execVM "scripts\insert_gdc_choose.sqf";};
@@ -44,7 +69,7 @@ switch (CC_p_insertion) do {
 };
 
 if (CC_p_extraction == 2) then {
-	_type = switch (CC_p_loaout) do {
+	_type = switch (CC_p_playerFaction) do {
 		case 0 : {if (cc_playerCount > 8) then {"B_Heli_Transport_03_unarmed_F"} else {"B_Heli_Transport_01_F"}}; // NATO
 		case 1 : {if (cc_playerCount > 8) then {"O_Heli_Transport_04_covered_F"} else {"O_Heli_Light_02_unarmed_F"}}; // CSAT
 		case 2 : {if (cc_playerCount > 8) then {"I_Heli_Transport_02_F"} else {"MU_AAF_Orca_unarmed"}}; // AAF
@@ -86,6 +111,3 @@ waitUntil {time > 0};
 if (CC_p_vehicle > 0) then {
 	null = [] execVM "scripts\vehicle_creator.sqf";
 };
-
-//METEO
-[] call STDR_fnc_setWeather;

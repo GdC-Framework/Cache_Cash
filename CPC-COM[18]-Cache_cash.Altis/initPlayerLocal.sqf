@@ -1,3 +1,6 @@
+#define DBG_OUTPUT_SCREEN
+#define DBG_LEVEL_FULL
+#include "include\debug_macros.hpp"
 
 // We need tones of variables
 [] call STDR_fnc_commonVariables;
@@ -48,7 +51,6 @@ if !(isMultiplayer) then
 	} foreach allUnits;
 };
 
-
 execVM "briefing.sqf";
 [] call GDC_fnc_inventoryBriefing; // lancement du script qui affiche le loadout lors du briefing.
 [] call GDC_fnc_rosterBriefing; // lancement du script qui affiche le roster lors du briefing.
@@ -56,7 +58,7 @@ execVM "briefing.sqf";
 player allowdamage false;
 
 waitUntil {time > 1};
-if ((uniform playerUnit) == "") then {
+if ((uniform playerUnit) isEqualTo "") then {
 [playerUnit] call hard_setLoadout;
 playerUnit setVariable ["loadout_done", true, true];
 playerUnit action ["WeaponOnBack", playerUnit];

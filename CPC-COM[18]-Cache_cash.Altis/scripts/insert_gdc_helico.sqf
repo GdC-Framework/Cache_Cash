@@ -5,7 +5,7 @@
 if (didJIP) exitwith {};
 private["_type"];
 
-_type = switch (CC_p_loaout) do {
+_type = switch (CC_p_playerFaction) do {
 	case 0 : {if (cc_playerCount > 8) then {"B_Heli_Transport_03_unarmed_F"} else {"B_Heli_Transport_01_F"}}; // NATO
 	case 1 : {if (cc_playerCount > 8) then {"O_Heli_Transport_04_covered_F"} else {"O_Heli_Light_02_unarmed_F"}}; // CSAT
 	case 2 : {if (cc_playerCount > 8) then {"I_Heli_Transport_02_F"} else {"MU_AAF_Orca_unarmed"}}; // AAF
