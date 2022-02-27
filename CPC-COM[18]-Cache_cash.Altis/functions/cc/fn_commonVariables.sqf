@@ -1,12 +1,21 @@
-/*
-
+/**
+* @description 
+* Initialize everywhere shared variables. Must contain only static variables !
+* Called from init.sqf
+*
+*
 */
 if (!isNil "CC_variables_defined") exitWith {};
-CC_variables_defined = true;
 
 // définition manuelle des paramètres pour le débug
 
-// Variables liées aux paramètres de la mission
+// Map variables
+CPC_MAP = toLower worldName;
+CPC_WorldType = getText (missionConfigFile >> "mapParams" >> CPC_MAP >> "worldType");
+publicVariable "CPC_WorldType";
+CPC_FullMoon = getArray (missionConfigFile >> "mapParams" >> CPC_MAP >> "timeFullMoon");;
+
+// Mission parameters
 CC_p_game_type = "gameType" call BIS_fnc_getParamValue;
 CC_p_difficulty = "difficulte" call BIS_fnc_getParamValue;
 CC_p_time = "heure" call BIS_fnc_getParamValue;
@@ -15,7 +24,7 @@ CC_p_fog = "fog" call BIS_fnc_getParamValue;
 CC_p_fullmoon = "fullmoon" call BIS_fnc_getParamValue;
 CC_p_insertion = "insertion" call BIS_fnc_getParamValue;
 CC_p_extraction = "extraction" call BIS_fnc_getParamValue;
-CC_p_loaout = "faction" call BIS_fnc_getParamValue;
+CC_p_playerFaction = "faction_player" call BIS_fnc_getParamValue;
 CC_p_nvg = "nvg" call BIS_fnc_getParamValue;
 CC_p_ammocrate = "ammocrate" call BIS_fnc_getParamValue;
 CC_p_vehicle = "vehicule" call BIS_fnc_getParamValue;
@@ -30,7 +39,7 @@ CC_P_ssscas = "sss_cas" call BIS_fnc_getParamValue;
 CC_P_sssdrone = "sss_drone" call BIS_fnc_getParamValue;
 
 // Loadout
-CC_loadout = switch (CC_p_loaout) do {
+CC_loadout = switch (CC_p_playerFaction) do {
 	case 0 : {"NATO"};
 	case 1 : {"CSAT"};
 	case 2 : {"AAF"};
@@ -134,3 +143,5 @@ switch (toLower worldName) do {
 	default {cc_IAcamo = "polyvalent"};
 };
 cc_loadoutcamo = cc_IAcamo;
+
+CC_variables_defined = true;

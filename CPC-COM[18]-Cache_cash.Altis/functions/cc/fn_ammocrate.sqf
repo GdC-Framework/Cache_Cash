@@ -4,7 +4,7 @@ Script pour créer une caisse avec du matos en plus près du spawn des joueurs
 private ["_pos","_veh","_weap","_lat","_at","_mag_at1","_mag_at2","_mag_at3","_hat","_mag_hat","_gre","_mag1","_mag2","_mag_ar","_mag_mg","_arsenal_items_faction","_arsenal_items_base"];
 
 
-switch (CC_p_loaout) do {
+switch (CC_p_playerFaction) do {
 	//OTAN
 	case 0 : {
 		_weap = "arifle_MX_Black_F";

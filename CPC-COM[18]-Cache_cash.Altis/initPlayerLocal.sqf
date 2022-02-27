@@ -10,7 +10,6 @@ _isAdmin = serverCommandAvailable "#logout";
 if (_isAdmin || (isServer && hasInterface)) then {
 	[] call gdc_fnc_addZeusToPlayerRemote;
 };
-INF2("_isAdmin a la valeur", _isAdmin);
 
 // Variables pour les loadouts
 playerUnit = _this select 0;	// unité du joueur (sélectionnée dans l'écran des slots)
@@ -59,7 +58,7 @@ execVM "briefing.sqf";
 player allowdamage false;
 
 waitUntil {time > 1};
-if ((uniform playerUnit) == "") then {
+if ((uniform playerUnit) isEqualTo "") then {
 [playerUnit] call hard_setLoadout;
 playerUnit setVariable ["loadout_done", true, true];
 playerUnit action ["WeaponOnBack", playerUnit];

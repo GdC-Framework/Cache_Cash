@@ -13,8 +13,9 @@ class CfgFunctions
 			class setskill {};
 			class setupssscas {};
 			class setupsssdrone {};
-			class buildCacheCash {};
 			class buildConvoyDefense {};
+			class create_markers {};
+			class obj_cache {};
 		};
 	};
 };

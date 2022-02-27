@@ -13,25 +13,12 @@ class Params
 	};
 
 	/* METEO */
-	class meteo
-	{
-		title = "==| Environnement : Météo |";
-		values[] = {0,1,2,3,4};
-		texts[] = {"Ciel dégagé","Ciel légèrement nuageux","Ciel nuageux","Pluie","Orage"};
-		default = 1;
-	};
 	class heure
 	{
-		title = "------| Environnement : Heure |";
+		title = "==| Environnement : Heure |";
 		values[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0};
 		texts[] = {"01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00"};
 		default = 12;
-	};
-	class fog	{
-		title = "------| Environnement : Brouillard |";
-		values[] = {0,1,2,3};
-		texts[] = {"Aucun","Léger","Moyen","Dense"};
-		default = 0;
 	};
 	class fullmoon
 	{
@@ -40,9 +27,21 @@ class Params
 		texts[] = {"Non","Oui"};
 		default = 0;
 	};
+	class meteo
+	{
+		title = "------| Environnement : Météo |";
+		values[] = {0,1,2,3,4};
+		texts[] = {"Ciel dégagé","Ciel légèrement nuageux","Ciel nuageux","Pluie","Orage"};
+		default = 1;
+	};
+	class fog	{
+		title = "------| Environnement : Brouillard |";
+		values[] = {0,1,2,3};
+		texts[] = {"Aucun","Léger","Moyen","Dense"};
+		default = 0;
+	};
 
-	/* INSERTION EXTRACTION */
-	class faction
+	class faction_player
 	{
 		title = "==|Joueurs : Faction |";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22};
