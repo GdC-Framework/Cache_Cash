@@ -22,6 +22,7 @@ class CfgFunctions
 			class setupsssarty {};
 			class ssshelicoui {};
 			class setupssshelico {};
+			class changerloadoutui {};
 		};
 	};
 };
@@ -111,7 +112,7 @@ class Params
 			"URSS 1980", //21
 			"US vietnam" //22
 		};
-		default = 3;
+		default = 18;
 	};
 	class nvg
 	{
@@ -146,14 +147,14 @@ class Params
 		title = "> SSS Artillerie";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 	class sss_helico
 	{
 		title = "> SSS Hélico de transport";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 	class sss_drone
 	{
@@ -167,14 +168,14 @@ class Params
 		title = "> BFT :";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 	class hicom
 	{
 		title = "> HICOM";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 
 	/* IAs */
@@ -218,7 +219,7 @@ class Params
 			"CUP : Horizon Island Legion", //216
 			"CUP : Allemagne" //217
 		};
-		default = 101;
+		default = 206;
 	};
 	class menace_at
 	{
@@ -253,7 +254,14 @@ class Params
 		title = "=> Présence possible de véhicules aériens ennemis (hélicos + avions) :";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 0;
+		default = 1;
+	};
+	class typeIA
+	{
+		title = "=> Type d'IA:";
+		values[] = {0,1};
+		texts[] = {"GAIA","PLUTO"};
+		default = 1;
 	};
 	class skillIA
 	{
@@ -535,6 +543,8 @@ class CC_ssshelico
 		helicos[] = {"CPC_NAM_B_US_UH1H","CPC_NAM_B_US_CH47F"};
 	};
 };
+
+#include "ui\loadout_ui.hpp"
 
 /*
 	class nato: cc_faction_army

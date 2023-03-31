@@ -7,17 +7,23 @@ MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
-[1,(getpos cpc_hicom_logic_1),false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
+[0,(getpos cpc_hicom_logic_1),false,600,false,3600,false,false,"SERGEANT",true] call GDC_fnc_lucyInit;
 
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
-	null = [] execVM "scripts\spawn_ia.sqf";
+	switch (CC_p_skillia) do {
+		case 1: {null = [] execVM "scripts\spawn_ia_pluto.sqf";};
+		default {null = [] execVM "scripts\spawn_ia.sqf";}; // GAIA
+	};
 } else {
 	if !(hasInterface or isServer) then {
 		MODE_HC = true;
 		HC_IsPresent = true;
 		publicVariableServer "HC_IsPresent";
-		null = [] execVM "scripts\spawn_ia.sqf";
+		switch (CC_p_skillia) do {
+			case 1: {null = [] execVM "scripts\spawn_ia_pluto.sqf";};
+			default {null = [] execVM "scripts\spawn_ia.sqf";}; // GAIA
+		};
 	};
 };
 
@@ -94,6 +100,8 @@ if (CC_P_ssshelico > 0) then {
 	null = [] execVM "scripts\ssshelico_creator.sqf";
 };
 
+//Changer de loadout :
+null = [] execVM "scripts\changer_loadout.sqf";
 
 // Trigger de fin de mission
 _trg = createTrigger ["EmptyDetector",[0,0,0],true];
@@ -113,7 +121,6 @@ if (CC_p_vehicle > 0) then {
 [] call STDR_fnc_meteo;
 
 
-// param SSS
+// vitesse spawn lucy
 // param Zeus ACE 
-// ajout logique de jeu 
 // parmètres CC par défaut
