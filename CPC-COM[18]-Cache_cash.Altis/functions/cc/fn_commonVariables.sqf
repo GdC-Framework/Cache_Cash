@@ -29,6 +29,8 @@ CC_p_menace_air = "menace_air" call BIS_fnc_getParamValue;
 CC_p_skillia = "skillIA" call BIS_fnc_getParamValue;
 CC_P_ssscas = "sss_cas" call BIS_fnc_getParamValue;
 CC_P_sssdrone = "sss_drone" call BIS_fnc_getParamValue;
+CC_P_sssarty = "sss_arty" call BIS_fnc_getParamValue;
+CC_P_ssshelico = "sss_helico" call BIS_fnc_getParamValue;
 
 // Loadout
 CC_loadout = switch (CC_p_loaout) do {

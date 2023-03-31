@@ -7,7 +7,7 @@ MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
-[1,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
+[1,(getpos cpc_hicom_logic_1),false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
 
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
@@ -70,7 +70,7 @@ if (CC_p_extraction == 2) then {
 };
 
 //HICOM
-if (CC_p_bft == 1) then {
+if (CC_p_hicom > 0) then {
 	[
 		[
 			["Commandement Canard",cpc_hicom_logic_1] // un array contenant le nom du HICOM tel qu'il appraitra dans le menu ACE et le nom de la logique de jeu de ce HICOM
@@ -84,6 +84,14 @@ if (CC_p_bft == 1) then {
 	] call gdc_fnc_zeushicom;
 
 	null = [] execVM "scripts\hicom_grp_creator.sqf";
+};
+
+if (CC_P_sssarty > 0) then {
+	null = [] execVM "scripts\sssarty_creator.sqf";
+};
+
+if (CC_P_ssshelico > 0) then {
+	null = [] execVM "scripts\ssshelico_creator.sqf";
 };
 
 
@@ -103,3 +111,9 @@ if (CC_p_vehicle > 0) then {
 
 //METEO
 [] call STDR_fnc_meteo;
+
+
+// param SSS
+// param Zeus ACE 
+// ajout logique de jeu 
+// parmètres CC par défaut

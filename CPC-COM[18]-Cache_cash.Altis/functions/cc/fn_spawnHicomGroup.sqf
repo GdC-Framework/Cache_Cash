@@ -2,7 +2,7 @@
 	Author: Sparfell
 
 	Description:
-	function that handle the dialog UI for HICOM
+	function that handle the group spawn HICOM
 
 	Parameter(s):
 		POSITION : spawn position
