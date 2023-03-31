@@ -18,6 +18,13 @@ if (CC_p_vehicle > 0) then {
 		player createDiaryRecord ["Diary",["Véhicules",_txt]];
 };
 
+if (CC_p_hicom > 0) then {
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer des groupes HICOM au moyen d'une action disponible dans le menu molette.
+		<br/>- Il est possible de créer des groupes d'infanterie, des camions de transport et des hélicoptères de transport.
+		<br/>- L'action molette disparaît après 10 minutes.";
+	player createDiaryRecord ["Diary",["HICOM",_txt]];
+};
+
 player createDiaryRecord ["Diary",["Extraction",
 
 switch (CC_p_extraction) do {

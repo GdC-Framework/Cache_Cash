@@ -7,7 +7,7 @@ MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
-[1.0,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
+[1,"mkr_spawn_static_unit",false,600,false,3600,false,false,"SERGEANT"] call GDC_fnc_lucyInit;
 
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
@@ -67,6 +67,23 @@ if (CC_p_extraction == 2) then {
 		default {"RHS_CH_47F"};
 	};
 	["ACRE_PRC148",5,blufor,_type,"Mark_Cible",true] call GDC_fnc_extra;
+};
+
+//HICOM
+if (CC_p_bft == 1) then {
+	[
+		[
+			["Commandement Canard",cpc_hicom_logic_1] // un array contenant le nom du HICOM tel qu'il appraitra dans le menu ACE et le nom de la logique de jeu de ce HICOM
+		],
+		"ACRE_PRC148", // item qui doit être dans l'inventaire du joueur pour accéder au HICOM
+		true, // activation du BFT pour les groupes du HICOM
+		true, // activation du OFT : report de contact des groupes du HICOM
+		[], // liste d'unités en plus qui ne sont pas dans les groupes du HICOM mais qui doivent lui reporter des contact
+		false, // si true le HICOM ne peut pas tuer les autres joueurs.
+		true // si true le HICOM a accès à moins d'options dans zeus (ne désactiver que pour des cas particuliers)
+	] call gdc_fnc_zeushicom;
+
+	null = [] execVM "scripts\hicom_grp_creator.sqf";
 };
 
 

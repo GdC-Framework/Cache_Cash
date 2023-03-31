@@ -16,6 +16,8 @@ class CfgFunctions
 			class setskill {};
 			class setupssscas {};
 			class setupsssdrone {};
+			class spawnHicomGroup {};
+			class hicomui {};
 		};
 	};
 };
@@ -142,6 +144,20 @@ class Params
 		texts[] = {"Non","MQ-9 Reaper","MQ-4A Greyhawk","KH-3A Fenghuang"};
 		default = 0;
 	};
+	class bft
+	{
+		title = "> BFT :";
+		values[] = {0,1};
+		texts[] = {"Non","Oui"};
+		default = 1;
+	};
+	class hicom
+	{
+		title = "> HICOM";
+		values[] = {0,1};
+		texts[] = {"Non","Oui"};
+		default = 1;
+	};
 
 	/* IAs */
 	class faction_ia
@@ -227,6 +243,119 @@ class Params
 		values[] = {0.1,0.3,0.5,0.7,0.85,1,1.2,1.5};
 		texts[] = {"- 90%","- 70%","- 50%","- 30%","- 15%","Par défaut","+ 20%","+ 50%"};
 		default = 1;
+	};
+};
+
+#include "ui\hicom_ui.hpp"
+
+class CC_hicom
+{
+	class cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_BAF_WOOD";
+		helico = "CUP_B_UH1D_slick_GER_KSK_Des";
+	};
+	class cc_hicom_NATO: cc_hicom_default
+	{
+		transport = "B_Truck_01_covered_F";
+		helico = "B_Heli_Transport_01_F";
+	};
+	class cc_hicom_CSAT: cc_hicom_default
+	{
+		transport = "O_Truck_03_covered_F";
+		helico = "O_Heli_Light_02_unarmed_F";
+	};
+	class cc_hicom_AAF: cc_hicom_default
+	{
+		transport = "I_Truck_02_covered_F";
+		helico = "CUP_I_412_Mil_Transport_AAF";
+	};
+	class cc_hicom_USArmy: cc_hicom_default
+	{
+		transport = "rhsusf_M1083A1P2_B_WD_fmtv_usarmy";
+		helico = "RHS_UH60M";
+	};
+	class cc_hicom_USMC: cc_hicom_USArmy {};
+	class cc_hicom_USsf: cc_hicom_USArmy {};
+	class cc_hicom_RU2000_RHS: cc_hicom_default
+	{
+		transport = "RHS_Ural_VDV_01";
+		helico = "RHS_Mi8mt_vdv";
+	};
+	class cc_hicom_RU2015_RHS: cc_hicom_RU2000_RHS
+	{
+		transport = "rhs_kamaz5350_vdv";
+	};
+	class cc_hicom_RUsf: cc_hicom_RU2015_RHS {};
+	class cc_hicom_KSK: cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_BAF_WOOD";
+		helico = "CUP_B_UH1D_slick_GER_KSK";
+	};
+	class cc_hicom_BAF: cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_BAF_WOOD";
+		helico = "CUP_B_Merlin_HC3_GB";
+	};
+	class cc_hicom_RACS: cc_hicom_default
+	{
+		transport = "CUP_I_MTVR_RACS";
+		helico = "CUP_I_UH60L_FFV_RACS";
+	};
+	class cc_hicom_TAK: cc_hicom_default
+	{
+		transport = "CUP_O_Ural_TKA";
+		helico = "CUP_O_Mi17_TK";
+	};
+	class cc_hicom_INS: cc_hicom_default
+	{
+		transport = "CUP_I_V3S_Covered_TKG";
+		helico = "CUP_O_Mi8_CHDKZ";
+	};
+	class cc_hicom_TAK_INS: cc_hicom_default
+	{
+		transport = "CUP_I_V3S_Covered_TKG";
+		helico = "CUP_O_Mi8_CHDKZ";
+	};
+	class cc_hicom_SAF: cc_hicom_default
+	{
+		transport = "rhssaf_army_ural";
+		helico = "rhssaf_airforce_ht48";
+	};
+	class cc_hicom_CDF: cc_hicom_default
+	{
+		transport = "CUP_B_Ural_CDF";
+		helico = "CUP_B_Mi17_CDF";
+	};
+	class cc_hicom_PMC: cc_hicom_default
+	{
+		transport = "CUP_I_Van_Transport_ION";
+		helico = "CUP_I_Merlin_HC3_PMC_Transport_black";
+	};
+	class cc_hicom_FR: cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_BAF_WOOD";
+		helico = "CUP_B_SA330_Puma_HC2_BAF";
+	};
+	class cc_hicom_occident: cc_hicom_default
+	{
+		transport = "CUP_I_MTVR_RACS";
+		helico = "CPC_ME_B_DAM_UH1H";
+	};
+	class cc_hicom_US80: cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_USMC";
+		helico = "CPC_NAM_B_US_UH1H_slick";
+	};
+	class cc_hicom_RU1980: cc_hicom_default
+	{
+		transport = "rhs_zil131_msv";
+		helico = "RHS_Mi8mt_vdv";
+	};
+	class cc_hicom_USNAM: cc_hicom_default
+	{
+		transport = "CUP_B_MTVR_USMC";
+		helico = "CPC_NAM_B_US_UH1H_slick";
 	};
 };
 
