@@ -53,9 +53,9 @@ player allowdamage false;
 
 waitUntil {time > 1};
 if ((uniform playerUnit) == "") then {
-[playerUnit] call hard_setLoadout;
-playerUnit setVariable ["loadout_done", true, true];
-playerUnit action ["WeaponOnBack", playerUnit];
+	[playerUnit] call hard_setLoadout;
+	playerUnit setVariable ["loadout_done", true, true];
+	playerUnit action ["WeaponOnBack", playerUnit];
 };
 
 waitUntil {time > 10};

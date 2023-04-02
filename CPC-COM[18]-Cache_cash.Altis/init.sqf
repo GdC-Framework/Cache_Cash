@@ -2,12 +2,15 @@
 // We need tones of variables
 [] call STDR_fnc_commonVariables;
 
+cpc_alarme = false;
+
 // déterminer la localité pour faire pop les IAs(HC ou éditeur)
 MODE_EDITEUR = false;
 MODE_HC = false;
 HC_IsPresent = false;
 
-[0,(getpos cpc_hicom_logic_1),false,600,false,3600,false,false,"SERGEANT",true] call GDC_fnc_lucyInit;
+private _d = if (CC_p_debug) then {0} else {1};
+[_d,(getpos cpc_hicom_logic_1),false,600,false,3600,false,false,"SERGEANT",true] call GDC_fnc_lucyInit;
 
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
@@ -121,6 +124,5 @@ if (CC_p_vehicle > 0) then {
 [] call STDR_fnc_meteo;
 
 
-// vitesse spawn lucy
-// param Zeus ACE 
+// intro
 // parmètres CC par défaut

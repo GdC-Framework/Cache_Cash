@@ -4,7 +4,7 @@
 private [
 	"_nbr","_mark","_markEx","_pos","_dir","_group","_veh","_array","_type","_wp","_i","_markPos","_upPos",
 	"_side","_unitType","_vehTypes","_VehicleCrew","_VehicleCrewTypes",
-	"_r","_tl","_gl","_lat","_at","_mg","_m","_aa","_crew","_hmg",
+	"_r","_tl","_gl","_lat","_at","_mg","_m","_aa","_crew","_pilot","_hmg","_plane",
 	"_veharray_light","_veharray_medium","_veharray_heavy","_veharray_transport","_veharray_heli","_veharray_air","_veharray_aa"
 ];
 
@@ -25,7 +25,9 @@ _mg = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >>
 _m = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "m");
 _aa = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "aa");
 _crew = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "crew");
+_pilot = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "pilot");
 _hmg = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "hmg");
+_plane = getText (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "plane");
 _veharray_light = getArray (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "veharray_light");
 _veharray_medium = getArray (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "veharray_medium");
 _veharray_heavy = getArray (missionConfigFile >> "CC_ennemy" >> CC_faction_ia >> cc_IAcamo >> "veharray_heavy");
@@ -69,7 +71,7 @@ waituntil {time > 10};
 
 /* SPAWN */
 
-// Fait spawn des groupes (jusqu'à 4) qui patrouillent dans la petite zone en NOFOLLOW
+// Fait spawn des groupes (jusqu'à 4) qui patrouillent dans la petite zone
 _nbr = CC_p_difficulty + 1;
 _mark = "2";
 _markEx = "1";
@@ -77,10 +79,9 @@ for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,_markEx,100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-	sleep 0.5;
 };
 
-// Fait spawn des technicals (jusqu'à 4) qui patrouillent dans la petite zone en MOVE
+// Fait spawn des technicals (jusqu'à 4) qui patrouillent dans la petite zone 
 _nbr = switch (CC_p_difficulty) do {
 	case 0: {2};
 	case 1: {2 + (floor random 2)};
@@ -95,7 +96,6 @@ if (CC_p_menace_veh_nbr > 0) then {
 		_group = _veh#0;
 		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 		_group setVariable ["PLUTO_ORDER","QRF"];
-		sleep 0.5;
 	};
 };
 
@@ -129,10 +129,9 @@ for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,[],100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	[_group,(MarkerPos _mark),100,2,0.2,0] call CBA_fnc_taskDefend;
-	sleep 0.5;
 };
 
-// Fait spawn des groupes (minimum 4) qui patrouillent dans la grande zone en MOVE
+// Fait spawn des groupes (minimum 4) qui patrouillent dans la grande zone
 _nbr = switch (CC_p_difficulty) do {
 	case 0: {1};
 	case 1: {2};
@@ -147,10 +146,9 @@ for "_n" from 1 to _nbr do {
 		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 		_group setVariable ["PLUTO_ORDER","QRF"];
-		sleep 0.5;
 	} foreach [1,2,3,4];
 };
-// Fait spawn des véhicules "lourds" (entre 1 et 8) qui patrouillent dans la grande zone en MOVE 
+// Fait spawn des véhicules "lourds" (entre 1 et 8) qui patrouillent dans la grande zone
 _nbr = switch (CC_p_difficulty) do {
 	case 0: {floor random 2};
 	case 1: {floor ((random 2)+ 0.5)};
@@ -164,6 +162,11 @@ if (CC_p_menace_veh_nbr > 0) then {
 	for "_n" from 1 to _nbr do {
 		_type = selectrandom _vehTypes;
 		_pos = [_mark,0,_markEx,[200,_type]] call SHK_pos;
+		private _roads = _pos nearroads 500;
+		_roads = _roads select {_x inArea _mark};
+		if (count _roads > 0) then {
+			_pos = getpos (selectrandom _roads);
+		};
 		if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
 			_VehicleCrew = _VehicleCrewTypes;
 		} else {
@@ -171,13 +174,12 @@ if (CC_p_menace_veh_nbr > 0) then {
 		};
 		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
-		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+		[_group,(markerPos _mark),1200,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call STDR_fnc_lucyGroupRandomPatrolOnRoad;
 		_group setVariable ["PLUTO_ORDER","QRF"];
-		sleep 0.5;
 	};
 };
 
-// Fait spawn des véhicules AA qui ne sont pas affectés à GAIA :
+// Fait spawn des véhicules AA qui ne sont pas affectés à PLUTO :
 if (CC_p_menace_aa == 1) then {
 	_nbr = switch (CC_p_difficulty) do {
 		case 0: {1};
@@ -197,7 +199,6 @@ if (CC_p_menace_aa == 1) then {
 		};
 		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group setVariable ["PLUTO_ORDER","IGNORE"];
-		sleep 0.5;
 	};
 };
 
@@ -223,35 +224,18 @@ if (random 100 < 22) then {
 		] execVM "scripts\create_camp.sqf";
 		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		[_group,_pos,50,2,0.2,0] call CBA_fnc_taskDefend;
-		sleep 0.5;
 	};
 } foreach [40,20,5,2];
 
 // Fait spawn un véhicule de transport de troupes sur une route entre 1000m et 1500m du camp et le fait patrouiller.
 if (CC_p_menace_veh_nbr > 0) then {
 	if (random 100 < 75) then {
+		_mark = "3";
 		_type = selectRandom _veharray_transport;
 		_pos = [getMarkerPos "1",[1000,1500],random 360,0,[1,500],_type] call SHK_pos;
-		_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_veh = [_pos,_side,_type,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo),(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0; _veh = _veh#1;
-		//units _group join _veh;
-		_wp = _group addWaypoint [(getpos _veh),20];
-			_wp setWaypointType "MOVE";
-			_wp setWaypointBehaviour "SAFE";
-			_wp setWaypointSpeed "LIMITED";
-		{
-			_pos = [getMarkerPos "1",[1500,1800],_x,0,[1,500]] call SHK_pos;
-			_wp = _group addWaypoint [_pos,20];
-				_wp setWaypointType "MOVE";
-				_wp setWaypointBehaviour "SAFE";
-				_wp setWaypointSpeed "LIMITED";
-		} foreach [[0,90],[90,180],[180,270],[270,360]];
-		_wp = _group addWaypoint [(getpos _veh),20];
-			_wp setWaypointType "CYCLE";
-			_wp setWaypointBehaviour "SAFE";
-			_wp setWaypointSpeed "LIMITED";
-		_group = [(getpos _veh),_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-		{_x assignAsCargo _veh; _x moveInCargo _veh;} foreach units _group;
+		[_group,(markerPos _mark),1200,["MOVE","NORMAL","SAFE","YELLOW","WEDGE"]] call STDR_fnc_lucyGroupRandomPatrolOnRoad;
 	};
 };
 
@@ -276,19 +260,19 @@ if (random 100 < 75) then {
 	"4" setmarkerpos _pos;
 	_group = [(getpos _veh),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	(leader _group) setPosATL (_veh buildingPos 1);
-	[_group,_pos,50,1,0.2,0] call CBA_fnc_taskDefend;
+	[_group,_pos,50,1,0.1,0] call CBA_fnc_taskDefend;
 };
 
-//hélico TODO : changer la fonction, besoin d'une classe pilote
+//hélico qui patrouille dans la grande zone
 if (CC_p_menace_air == 1) then {
 	for "_i" from 1 to 2 do {
 		if (((count _veharray_air) != 0) AND (random 100 < 50)) then {
 			_mark = "2";
 			_markEx = "1";
 			_type = selectRandom _veharray_air;
-			_group = [_crew];
+			_group = [_pilot];
 			{
-				_group = _group + [_crew];
+				_group = _group + [_pilot];
 			} forEach ([_type,false] call BIS_fnc_allTurrets);
 			_pos = [_mark,0,_markEx,[300,_type]] call SHK_pos;
 			//_veh = [_pos,(random 360),_type,_side] call BIS_fnc_spawnVehicle;
@@ -296,6 +280,7 @@ if (CC_p_menace_air == 1) then {
 			_group = _veh #0;
 			[_group,"3",["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 			_group setVariable ["PLUTO_ORDER","QRF"];
+			[(units _group)] call STDR_fnc_setskill;
 		};
 	};
 };
@@ -328,7 +313,6 @@ private _houseOutlist = [];
 			chefIA_create = true;
 			publicVariable "chefIA_create";
 		};
-		sleep 0.5;
 	};
 } foreach _houselist;
 
@@ -347,7 +331,6 @@ _houselist = _houselist - _houseOutlist;
 		};
 		_group = [_pos,civilian,[(selectrandom _type),(selectrandom _type)]] call GDC_fnc_lucySpawnGroupInf;
 		[_group,0] setWaypointType "DISMISS";
-		sleep 0.5;
 	};
 } foreach _houselist;
 
@@ -362,7 +345,6 @@ _markEx = "1";
 		_veh = _type createVehicle _pos;
 		_veh setdir (random 360);
 		_veh setVectorUp surfaceNormal position _veh;
-		sleep 0.5;
 	};
 } foreach [100,90,80,70,60,50,40,30,10];
 
@@ -372,34 +354,13 @@ _markEx = "1";
 // chef IA
 if (chefIA_create) then {removeHeadgear chefIA; chefIA addHeadgear "CUP_H_RUS_Beret_Spetsnaz"; chefIA allowDamage true;};
 
-//event fin
-[_unitTypes,_tl,_side] spawn {
-	params ["_unitTypes","_tl","_side"];
-	private ["_nbr","_mark","_markPos","_pos","_group"];
-	waitUntil {("Succeeded" == (taskState task1))};
+hint "FIN DU SPAWN";
+private _total_ennemis = count (allunits select {side _x == _side});
 
-	_nbr = switch (CC_p_difficulty) do {
-		case 0: {2};
-		case 1: {3};
-		case 2: {4};
-		case 3: {5};
-	};
-	for "_n" from 1 to _nbr do {
-		_mark = "2";
-		_markPos = markerpos _mark;
-		_pos = [[_markPos select 0,_markPos select 1,0],1400,random 360,0,[],100] call SHK_pos;
-		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-		_group setVariable ["PLUTO_ORDER","QRF"];
-		sleep 0.5;
-		[(units _group)] call STDR_fnc_setskill;
-	};
-};
-hint "SPAWN END";
-
+// PLUTO
 gdc_plutoDebug = false;
 [
-	[independent],				//0 camp
+	[_side],				//0 camp
 	[1000,2000,6000],	//1 revealRange [man,land,air]
 	[1500,2000,3000],	//2 sensorRange [man,land,air]
 	120,				//3 QRFtimeout
@@ -411,52 +372,235 @@ gdc_plutoDebug = false;
 	[0,40,100]			//9 ARTYerror [min,mid,max]
 ] call GDC_fnc_pluto;
 
-/* RANDOM EVENTS */
+/* RENFORTS */
 
-waitUntil {time > (2100 + (random 600))};
+// trigger d'alarme qui se déclenche quand indep détecte blufor à - de 500m de l'objectif
+private _trg = createTrigger ["EmptyDetector",(markerpos "2")];
+_trg setTriggerArea [500, 500, 0, false, 100];
+_trg setTriggerActivation ["WEST", "GUER D", false];
+_trg setTriggerStatements ["this", "cpc_alarme = true; publicVariable 'cpc_alarme';", "hint 'no civilian near'"];
 
-/*
-// Camion de renfort
+// Types de renforts en fonction de la difficulté et de la faction ennemie
+private _types_renforts = [];
 if (CC_p_menace_veh_nbr > 0) then {
-	_type = selectRandom _veharray_transport;
-	_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,200],_type] call SHK_pos;
-	_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
-	_group = _veh#0; _veh = _veh#1;
-	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	{_x assignAsCargo _veh; _x moveInCargo _veh;} foreach units _group;
-	units _group join _group;
-	[_group,"2",["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-	_group setVariable ["PLUTO_ORDER","QRF"];
-	[(units _group)] call STDR_fnc_setskill;
-};
-
-// Camion de renfort
-if ((random 100 < 50) AND (CC_p_menace_veh_nbr > 0)) then {
-	sleep (600 + (random 300));
-	_type = selectRandom _veharray_transport;
-	_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,200],_type] call SHK_pos;
-	_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
-	_group = _veh#0; _veh = _veh#1;
-	_group = [_pos,_side,([_unitTypes,5,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	{_x assignAsCargo (_veh select 0); _x moveInCargo (_veh select 0);} foreach units _group;
-	units _group join (_veh select 2);
-	(_veh select 2) setVariable ["GAIA_ZONE_INTEND",["2", "MOVE"], false];
-	[(units (_veh select 2))] call STDR_fnc_setskill;
-};
-*/
-
-
-/*
-if (CC_p_menace_air == 1) then {
-	if (((count _veharray_air) != 0) AND (random 100 < 35)) then {
-		waitUntil {time > (6100+ (random 300))};
-		_mark = "2";
-		_markEx = "1";
-		_type = selectRandom _veharray_air;
-		_pos = [_mark,0,_markEx,[300,_type]] call SHK_pos;
-		_veh = [_pos,(random 360),_type,_side] call BIS_fnc_spawnVehicle;
-		_group = _veh #2;
-		_veh setVariable ["GAIA_ZONE_INTEND",["3","MOVE"],false];
+	_types_renforts = _types_renforts + [["camion",0.8],["technical",0.5]];
+	if (CC_p_menace_veh_type > 0) then {
+		_types_renforts = _types_renforts + [["blinde",0.5]];
 	};
+	if (CC_p_menace_veh_type > 1) then {
+		_types_renforts = _types_renforts + [["tank",0.3]];
+	};
+	if ((count _veharray_heli) > 0) then {
+		_types_renforts = _types_renforts + [["heliportes",0.3]];
+	};
+} else {
+	_types_renforts = _types_renforts + [["infanterie",1]];
 };
-*/
+if (_plane != "") then {
+	_types_renforts = _types_renforts + [["paras",0.3]];
+};
+if ((CC_p_menace_air > 0) && ((count _veharray_air) > 0)) then {
+	_types_renforts = _types_renforts + [["air",0.3]];
+};
+systemChat str _types_renforts;
+
+waitUntil {sleep 1;cpc_alarme};
+
+// boucle de déclenchement des renforts toutes les 5 à 15 minutes
+while {true} do {
+	waitUntil {(count (allunits select {side _x == _side})) < (_total_ennemis * 0.75)}; // attente de perte ennemies (25% de pertes)
+	private _thisrenf = selectRandomWeighted (flatten _types_renforts);
+	//_thisrenf = "infanterie";
+	switch (_thisrenf) do {
+		case "camion": {
+			// Infanterie transportée par camions
+			_type = selectRandom _veharray_transport;
+			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
+			_veh = [_pos,_side,_type,[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh#0; _veh = _veh#1;
+			_group setVariable ["PLUTO_ORDER","IGNORE"];
+			_group = [_pos,_side,([_unitTypes,6,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
+			_dir = (getMarkerPos "1") getdir _pos;
+			_pos = [(getMarkerPos "1"),[250,500],[(_dir-45),(_dir+45)],0,[1,500],_type] call SHK_pos;
+			[
+				_veh,_group,
+				[_pos],
+				[],
+				["NORMAL","CARELESS","GREEN"],"true",[0,0,0],"",false,0
+			] call GDC_fnc_lucyTransportReinforcement;
+			[
+				_group,
+				[(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "technical": {
+			// technical
+			_type = selectRandom _veharray_light;
+			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
+			_group = [_r];
+			{
+				_group = _group + [_r];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh#0; _veh = _veh#1;
+			_group setVariable ["PLUTO_ORDER","IGNORE"];
+			_dir = (getMarkerPos "1") getdir _pos;
+			_pos = [(getMarkerPos "1"),[250,500],[(_dir-45),(_dir+45)],0,[1,500],_type] call SHK_pos;
+			[
+				_group,
+				[_pos,(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "blinde": {
+			// blindé
+			_type = selectRandom _veharray_medium;
+			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
+			_group = [_crew];
+			{
+				_group = _group + [_crew];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh#0; _veh = _veh#1;
+			_group setVariable ["PLUTO_ORDER","IGNORE"];
+			_dir = (getMarkerPos "1") getdir _pos;
+			_pos = [(getMarkerPos "1"),[250,500],[(_dir-45),(_dir+45)],0,[1,500],_type] call SHK_pos;
+			[
+				_group,
+				[_pos,(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "tank": {
+			// tank
+			_type = selectRandom _veharray_heavy;
+			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
+			_group = [_crew];
+			{
+				_group = _group + [_crew];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh#0; _veh = _veh#1;
+			_group setVariable ["PLUTO_ORDER","IGNORE"];
+			_dir = (getMarkerPos "1") getdir _pos;
+			_pos = [(getMarkerPos "1"),[250,500],[(_dir-45),(_dir+45)],0,[1,500],_type] call SHK_pos;
+			[
+				_group,
+				[_pos,(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "heliportes": {
+			// Infanterie transportée par hélicoptère
+			_type = selectRandom _veharray_heli;
+			_group = [_pilot];
+			{
+				_group = _group + [_pilot];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_pos = (getMarkerPos "1") getPos [8000,random 360];
+			_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,20]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh#0; _veh = _veh#1;
+			_group setVariable ["PLUTO_ORDER","IGNORE"];
+			_group = [_pos,_side,([_unitTypes,6,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
+			_pos = (getMarkerPos "1");
+			_pos = [_pos, 300, 600, 10, 0, 0.25, 0, [], [_pos,_pos]] call BIS_fnc_findSafePos;
+			if !(_pos isEqualTo (getMarkerPos "1")) then {
+				"Land_HelipadEmpty_F" createVehicle _pos;
+			};
+			[
+				_veh,_group,
+				[_pos],
+				[(getMarkerPos "1") getPos [8000,random 360]],
+				["NORMAL","CARELESS","GREEN"],"true",[0,0,0],"",true,0
+			] call GDC_fnc_lucyTransportReinforcement;
+			[
+				_group,
+				[(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "paras": {
+			// parachutistes
+			_type = _plane;
+			_pos = (getMarkerPos "1");
+			private _posB = _pos getPos [(300 + (random 200)),(selectrandom [0,90,180,270])];
+			_dir = _pos getdir _posB;
+			private _posA = _posB getPos [8000,(_dir-90)];
+			private _posC = _posB getPos [8000,(_dir+90)];
+			_dir = _posB getdir _posA;
+			_posB = _posB getPos [300,_dir];
+			_group = [
+				_posA,_posB,_posC,
+				_side,[_type,_pilot,300],
+				([_unitTypes,8,_tl] call GDC_fnc_creategroupCompo),
+				"LIMITED"
+			] call GDC_fnc_lucySpawnGroupInfParadrop;
+			_group = _group #0;
+			[
+				_group,
+				[(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+			] call GDC_fnc_lucyReinforcement;
+		};
+		case "air": {
+			// Hélicoptère ou avion de combat
+			_type = selectRandom _veharray_air;
+			_group = [_pilot];
+			{
+				_group = _group + [_pilot];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_pos = (getMarkerPos "1") getPos [8000,random 360];
+			if (_type isKindOf "plane") then {
+				_veh = [_pos,_side,_type,_group,(random 360),["FLY",50,90]] call GDC_fnc_lucySpawnVehicle;
+			} else {
+				_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,20]] call GDC_fnc_lucySpawnVehicle;
+			};
+			_group = _veh#0; _veh = _veh#1;
+			[_group,"3",["MOVE","NORMAL","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+			_group setVariable ["PLUTO_ORDER","QRF"];
+			[(units _group)] call STDR_fnc_setskill;
+		};
+		case "infanterie";
+		default {
+			// Infanterie à pieds
+			_pos = [getMarkerPos "1",[1200,1500],random 360,0,[0,200],_type] call SHK_pos;
+			_group = [_pos,_side,([_unitTypes,6,_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
+			[
+				_group,
+				[(getMarkerPos "1")],
+				"true",[0,0,0],
+				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+			] call GDC_fnc_lucyReinforcement;
+			[(units _group)] call STDR_fnc_setskill;
+		};
+	};
+	if (CC_p_debug) then {
+		sleep 30;
+	} else {
+		switch (CC_p_difficulty) do {
+			case 0: {sleep (600 + (random 300));};
+			case 1: {sleep (300 + (random 600));};
+			case 2: {sleep (300 + (random 300));};
+			case 3: {sleep (random 600);};
+		};
+	};	
+};

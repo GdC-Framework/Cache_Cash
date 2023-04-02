@@ -4,6 +4,8 @@
 if (!isNil "CC_variables_defined") exitWith {};
 CC_variables_defined = true;
 
+CC_p_debug = switch (["debug",0] call BIS_fnc_getParamValue) do {case 1: {true}; case 0; default {false};};
+
 // définition manuelle des paramètres pour le débug
 
 // Variables liées au paramètres de la mission

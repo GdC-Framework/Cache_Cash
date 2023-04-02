@@ -23,6 +23,7 @@ class CfgFunctions
 			class ssshelicoui {};
 			class setupssshelico {};
 			class changerloadoutui {};
+			class lucyGroupRandomPatrolOnRoad {};
 		};
 	};
 };
@@ -219,7 +220,7 @@ class Params
 			"CUP : Horizon Island Legion", //216
 			"CUP : Allemagne" //217
 		};
-		default = 206;
+		default = 101;
 	};
 	class menace_at
 	{
@@ -254,7 +255,7 @@ class Params
 		title = "=> Présence possible de véhicules aériens ennemis (hélicos + avions) :";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 	class typeIA
 	{
@@ -268,6 +269,13 @@ class Params
 		title = "=> Skill des IAs (par rapport au réglage serveur):";
 		values[] = {0.1,0.3,0.5,0.7,0.85,1,1.2,1.5};
 		texts[] = {"- 90%","- 70%","- 50%","- 30%","- 15%","Par défaut","+ 20%","+ 50%"};
+		default = 1;
+	};
+	class debug // ["debug",0] call BIS_fnc_getParamValue;
+	{
+		title = "Debug";
+		values[] = {0,1};
+		texts[] = {"OFF","ON"};
 		default = 1;
 	};
 };
@@ -1035,7 +1043,7 @@ class CC_ennemy
 			veharray_light[] = {"rhsgref_ins_uaz_dshkm","rhsgref_ins_uaz_dshkm","rhsgref_nat_uaz_dshkm","rhsgref_ins_uaz_ags"};
 			veharray_medium[] = {"rhsgref_BRDM2_ins","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_bmd1","rhsgref_ins_bmp1"};
 			veharray_heavy[] = {"rhsgref_ins_bmd2","rhsgref_ins_bmp2e","rhsgref_ins_t72ba","rhsgref_ins_t72bb"};
-			veharray_transport[] = {"rhsgref_ins_gaz66","rhsgref_ins_gaz66o","rhsgref_ins_ural","rhsgref_ins_ural_open","rhsgref_ins_kraz255b1_flatbed"};
+			veharray_transport[] = {"rhsgref_ins_gaz66","rhsgref_ins_gaz66o","rhsgref_ins_ural","rhsgref_ins_ural_open","rhsgref_ins_kraz255b1_cargo_open","rhsgref_ins_zil131"};
 			veharray_heli[] = {};
 			veharray_air[] = {};
 			veharray_aa[] = {"rhsgref_ins_ural_Zu23","rhsgref_ins_zsu234"};
@@ -1200,7 +1208,7 @@ class CC_ennemy
 		class polyvalent
 		{
 			r = "CUP_I_RACS_Soldier";
-			tl = "CUP_I_RACS_Officer";
+			tl = "CUP_I_RACS_SL";
 			gl = "CUP_I_RACS_GL";
 			lat = "CUP_I_RACS_Soldier_LAT";
 			at = "CUP_I_RACS_Soldier_MAT";
@@ -1222,7 +1230,7 @@ class CC_ennemy
 		class woodland: polyvalent
 		{
 			r = "CUP_I_RACS_Soldier_wdl";
-			tl = "CUP_I_RACS_Officer_wdl";
+			tl = "CUP_I_RACS_SL_wdl";
 			gl = "CUP_I_RACS_GL_wdl";
 			lat = "CUP_I_RACS_Soldier_LAT_wdl";
 			at = "CUP_I_RACS_Soldier_MAT_wdl";
@@ -1234,7 +1242,7 @@ class CC_ennemy
 		class jungle: woodland
 		{
 			r = "CUP_I_RACS_Soldier_Mech";
-			tl = "CUP_I_RACS_Officer_Mech";
+			tl = "CUP_I_RACS_SL_Mech";
 			gl = "CUP_I_RACS_GL_Mech";
 			lat = "CUP_I_RACS_Soldier_LAT_Mech";
 			at = "CUP_I_RACS_Soldier_MAT_Mech";
@@ -1245,7 +1253,7 @@ class CC_ennemy
 		class winter: woodland
 		{
 			r = "CUP_I_RACS_Soldier_Urban";
-			tl = "CUP_I_RACS_Officer_Urban";
+			tl = "CUP_I_RACS_SL_Urban";
 			gl = "CUP_I_RACS_GL_Urban";
 			lat = "CUP_I_RACS_Soldier_LAT_Urban";
 			at = "CUP_I_RACS_Soldier_MAT_Urban";
