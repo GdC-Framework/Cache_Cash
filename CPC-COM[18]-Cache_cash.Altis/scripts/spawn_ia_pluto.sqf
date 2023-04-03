@@ -3,7 +3,7 @@
 */
 private [
 	"_nbr","_mark","_markEx","_pos","_dir","_group","_veh","_array","_type","_wp","_i","_markPos","_upPos",
-	"_side","_unitType","_vehTypes","_VehicleCrew","_VehicleCrewTypes",
+	"_side","_unitType","_vehTypes","_VehicleCrew",
 	"_r","_tl","_gl","_lat","_at","_mg","_m","_aa","_crew","_pilot","_hmg","_plane",
 	"_veharray_light","_veharray_medium","_veharray_heavy","_veharray_transport","_veharray_heli","_veharray_air","_veharray_aa"
 ];
@@ -64,8 +64,6 @@ if (CC_p_menace_veh_type > 1) then { // Présence de véhicules lourds
 if (CC_p_menace_veh_type > 2) then { // Encore plus de véhicules lourds
 	_vehTypes = _vehTypes + _veharray_heavy;
 };
-
-_VehicleCrewTypes = [_crew,_crew,_crew];
 
 waituntil {time > 10};
 
@@ -168,9 +166,13 @@ if (CC_p_menace_veh_nbr > 0) then {
 			_pos = getpos (selectrandom _roads);
 		};
 		if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
-			_VehicleCrew = _VehicleCrewTypes;
+			_VehicleCrew = [_crew];
+			{
+				_VehicleCrew = _VehicleCrew + [_crew];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
 		} else {
-			_VehicleCrew = ([_unitTypes,2] call GDC_fnc_creategroupCompo);
+			_VehicleCrew = 1 + (count ([_type,false] call BIS_fnc_allTurrets));
+			_VehicleCrew = ([_unitTypes,_VehicleCrew] call GDC_fnc_creategroupCompo);
 		};
 		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
@@ -193,9 +195,13 @@ if (CC_p_menace_aa == 1) then {
 		_type = selectrandom _veharray_aa;
 		_pos = [_mark,0,_markEx,[200,_type]] call SHK_pos;
 		if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
-			_VehicleCrew = _VehicleCrewTypes;
+			_VehicleCrew = [_crew];
+			{
+				_VehicleCrew = _VehicleCrew + [_crew];
+			} forEach ([_type,false] call BIS_fnc_allTurrets);
 		} else {
-			_VehicleCrew = ([_unitTypes,2] call GDC_fnc_creategroupCompo);
+			_VehicleCrew = 1 + (count ([_type,false] call BIS_fnc_allTurrets));
+			_VehicleCrew = ([_unitTypes,_VehicleCrew] call GDC_fnc_creategroupCompo);
 		};
 		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group setVariable ["PLUTO_ORDER","IGNORE"];
@@ -402,11 +408,10 @@ if (_plane != "") then {
 if ((CC_p_menace_air > 0) && ((count _veharray_air) > 0)) then {
 	_types_renforts = _types_renforts + [["air",0.3]];
 };
-systemChat str _types_renforts;
 
 waitUntil {sleep 1;cpc_alarme};
 
-// boucle de déclenchement des renforts toutes les 5 à 15 minutes
+// boucle de déclenchement des renforts toutes les X minutes
 while {true} do {
 	waitUntil {(count (allunits select {side _x == _side})) < (_total_ennemis * 0.75)}; // attente de perte ennemies (25% de pertes)
 	private _thisrenf = selectRandomWeighted (flatten _types_renforts);
@@ -596,7 +601,7 @@ while {true} do {
 	if (CC_p_debug) then {
 		sleep 30;
 	} else {
-		switch (CC_p_difficulty) do {
+		switch (CC_p_difficulty) do { // délai entre chaque renfort selon la difficulté.
 			case 0: {sleep (600 + (random 300));};
 			case 1: {sleep (300 + (random 600));};
 			case 2: {sleep (300 + (random 300));};

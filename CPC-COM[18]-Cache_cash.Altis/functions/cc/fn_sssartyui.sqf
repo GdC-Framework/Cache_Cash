@@ -20,7 +20,7 @@ params [
 switch (_mode) do {
 	case "list_type": {
 		{
-			private _class = getText (missionConfigFile >> "CC_sssarty" >> ("CC_sssarty_" + CC_loadout) >> _x);
+			private _class = getText (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "sss" >> _x);
 			private _text = getText (ConfigFile >> "CfgVehicles" >> _class >> "DisplayName");
 			_text = format ["%1 : %2",_x,_text];
 			private _index = _control lbAdd _text;

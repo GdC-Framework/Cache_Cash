@@ -8,48 +8,88 @@
 		POSITION : spawn position
 		STRING : type of group
 		STRING : group ID
+		NUMBER : direction
 
 	Returns:
 	nothing
 */
 
 
-params ["_pos","_type","_id"];
-private ["_group","_objects"];
+params ["_pos","_type","_id","_dir"];
+private ["_group","_objects","_cs"];
 _group = grpNull;
 _objects = [];
 
-switch (_type) do {
-	case "b_inf": {
-		//spawn du group
-		_group = [
-			_pos,
-			blufor,
-			["B_Soldier_TL_F","B_soldier_AR_F","B_soldier_AT_F","B_soldier_M_F","B_HeavyGunner_F","B_soldier_LAT_F","B_soldier_AAR_F","B_Soldier_GL_F"],
-			0.7
-		] call GDC_fnc_lucySpawnGroupInf;
-		_objects = (units _group);
+if (_type in ["b_inf","b_motor_inf","b_unknown","b_air"]) then { // Infanterie et transports 
+	switch (_type) do {
+		case "b_inf": {
+			//spawn du group
+			_group = [
+				_pos,
+				blufor,
+				["B_Soldier_TL_F","B_soldier_AR_F","B_soldier_AT_F","B_soldier_M_F","B_HeavyGunner_F","B_soldier_LAT_F","B_soldier_AAR_F","B_Soldier_GL_F"],
+				0.7
+			] call GDC_fnc_lucySpawnGroupInf;
+			_objects = (units _group);
+			_cs = "Foxtrot";
+		};
+		case "b_motor_inf": {
+			private _class = getText (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "transport");
+			private _veh = [_pos,blufor,_class,["B_Soldier_F"],_dir,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh #0;
+			private _veh = _veh #1;
+			{
+				_x disableAI "AUTOCOMBAT";_x disableAI "AUTOTARGET"; _x disableAI "SUPPRESSION";
+			} forEach (units _group);
+			_objects = (units _group) + [_veh];
+			_cs = "Victor";
+		};
+		case "b_unknown": {
+			private _class = getText (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "transport");
+			private _veh = _class createVehicle _pos;
+			_veh setdir _dir;
+			_objects = [_veh];
+			_cs = "Victor";
+		};
+		case "b_air": {
+			private _class = getText (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "helico");
+			private _VehicleCrew = ["B_Helipilot_F"];
+			{
+				_VehicleCrew = _VehicleCrew + ["B_Helipilot_F"];
+			} forEach ([_class,false] call BIS_fnc_allTurrets);
+			private _flyparam = if (surfaceIsWater _pos) then {["FLY",30,0]} else {["NONE",0,0]};
+			private _veh = [_pos,blufor,_class,_VehicleCrew,_dir,_flyparam] call GDC_fnc_lucySpawnVehicle;
+			_group = _veh #0;
+			private _veh = _veh #1;
+			{
+				_x disableAI "AUTOCOMBAT";_x disableAI "AUTOTARGET"; _x disableAI "SUPPRESSION";
+			} forEach (units _group);
+			_objects = (units _group) + [_veh];
+			_cs = "Hotel";
+		};
+		default {hint "error"};
 	};
-	case "b_motor_inf": {
-		private _class = getText (missionConfigFile >> "CC_hicom" >> ("cc_hicom_" + CC_loadout) >> "transport");
-		private _veh = [_pos,blufor,_class,["B_Soldier_F"],0,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
-		_group = _veh #0;
-		private _veh = _veh #1;
-		_objects = (units _group) + [_veh];
+} else { // techniclas, blindés, AA, helicos
+	private _crew = "B_Soldier_F";
+	private _flyparam = ["NONE",0,0];
+	_cs = "Victor";
+	if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
+		_crew = "B_Crew_F";
+		_cs = "Romeo";
 	};
-	case "b_unknown": {
-		private _class = getText (missionConfigFile >> "CC_hicom" >> ("cc_hicom_" + CC_loadout) >> "transport");
-		private _veh = _class createVehicle _pos;
-		_objects = [_veh];
+	if (_type isKindOf "Air") then {
+		_crew = "B_Helipilot_F";
+		if (surfaceIsWater _pos) then {_flyparam = ["FLY",30,0];};
+		_cs = "Hotel";
 	};
-	case "b_air": {
-		private _class = getText (missionConfigFile >> "CC_hicom" >> ("cc_hicom_" + CC_loadout) >> "helico");
-		private _veh = [_pos,blufor,_class,["B_Helipilot_F","B_Helipilot_F"],0,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
-		_group = _veh #0;
-		private _veh = _veh #1;
-		_objects = (units _group) + [_veh];
-	};
-	default {hint "error"};
+	private _VehicleCrew = [_crew];
+	{
+		_VehicleCrew = _VehicleCrew + [_crew];
+	} forEach ([_type,false] call BIS_fnc_allTurrets);
+	private _veh = [_pos,blufor,_type,_VehicleCrew,_dir,_flyparam] call GDC_fnc_lucySpawnVehicle;
+	_group = _veh #0;
+	private _veh = _veh #1;
+	_objects = (units _group) + [_veh];
 };
 
 //loadouts
@@ -72,6 +112,14 @@ switch (_type) do {
 } forEach (units _group);
 
 //group id
+if (_id == "") then {
+	switch (_cs) do {
+		case "Foxtrot": {_id = format ["%1 %2",_cs,cc_hicom_cs_foxtrot];cc_hicom_cs_foxtrot = cc_hicom_cs_foxtrot+1; publicVariable "cc_hicom_cs_foxtrot";};
+		case "Victor": {_id = format ["%1 %2",_cs,cc_hicom_cs_victor];cc_hicom_cs_victor = cc_hicom_cs_victor+1; publicVariable "cc_hicom_cs_victor";};
+		case "Romeo": {_id = format ["%1 %2",_cs,cc_hicom_cs_romeo];cc_hicom_cs_romeo = cc_hicom_cs_romeo+1; publicVariable "cc_hicom_cs_romeo";};
+		case "Hotel": {_id = format ["%1 %2",_cs,cc_hicom_cs_hotel];cc_hicom_cs_hotel = cc_hicom_cs_hotel+1; publicVariable "cc_hicom_cs_hotel";};
+	};
+};
 _group setGroupIdGlobal [_id];
 
 //ajout au Zeus

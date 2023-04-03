@@ -211,7 +211,7 @@ class Params
 			"CUP : CDF",
 			"CUP : US",
 			"CUP : BAF",
-			"CUP : SLA",
+			"CUP : SLA", //210
 			"CUP : Armée takistanaise",
 			"CUP : ACR", //212
 			"CUP : Armée Lingor",
@@ -252,7 +252,7 @@ class Params
 	};
 	class menace_air
 	{
-		title = "=> Présence possible de véhicules aériens ennemis (hélicos + avions) :";
+		title = "=> Présence possible de véhicules aériens ennemis (helicos + avions) :";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
 		default = 0;
@@ -276,283 +276,500 @@ class Params
 		title = "Debug";
 		values[] = {0,1};
 		texts[] = {"OFF","ON"};
-		default = 1;
+		default = 0;
 	};
 };
 
+#include "ui\ui_base.hpp"
 #include "ui\hicom_ui.hpp"
-
-class CC_hicom
-{
-	class cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_BAF_WOOD";
-		helico = "CUP_B_UH1D_slick_GER_KSK_Des";
-	};
-	class cc_hicom_NATO: cc_hicom_default
-	{
-		transport = "B_Truck_01_covered_F";
-		helico = "B_Heli_Transport_01_F";
-	};
-	class cc_hicom_CSAT: cc_hicom_default
-	{
-		transport = "O_Truck_03_covered_F";
-		helico = "O_Heli_Light_02_unarmed_F";
-	};
-	class cc_hicom_AAF: cc_hicom_default
-	{
-		transport = "I_Truck_02_covered_F";
-		helico = "CUP_I_412_Mil_Transport_AAF";
-	};
-	class cc_hicom_USArmy: cc_hicom_default
-	{
-		transport = "rhsusf_M1083A1P2_B_WD_fmtv_usarmy";
-		helico = "RHS_UH60M";
-	};
-	class cc_hicom_USMC: cc_hicom_USArmy {};
-	class cc_hicom_USsf: cc_hicom_USArmy {};
-	class cc_hicom_RU2000_RHS: cc_hicom_default
-	{
-		transport = "RHS_Ural_VDV_01";
-		helico = "RHS_Mi8mt_vdv";
-	};
-	class cc_hicom_RU2015_RHS: cc_hicom_RU2000_RHS
-	{
-		transport = "rhs_kamaz5350_vdv";
-	};
-	class cc_hicom_RUsf: cc_hicom_RU2015_RHS {};
-	class cc_hicom_KSK: cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_BAF_WOOD";
-		helico = "CUP_B_UH1D_slick_GER_KSK";
-	};
-	class cc_hicom_BAF: cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_BAF_WOOD";
-		helico = "CUP_B_Merlin_HC3_GB";
-	};
-	class cc_hicom_RACS: cc_hicom_default
-	{
-		transport = "CUP_I_MTVR_RACS";
-		helico = "CUP_I_UH60L_FFV_RACS";
-	};
-	class cc_hicom_TAK: cc_hicom_default
-	{
-		transport = "CUP_O_Ural_TKA";
-		helico = "CUP_O_Mi17_TK";
-	};
-	class cc_hicom_INS: cc_hicom_default
-	{
-		transport = "CUP_I_V3S_Covered_TKG";
-		helico = "CUP_O_Mi8_CHDKZ";
-	};
-	class cc_hicom_TAK_INS: cc_hicom_default
-	{
-		transport = "CUP_I_V3S_Covered_TKG";
-		helico = "CUP_O_Mi8_CHDKZ";
-	};
-	class cc_hicom_SAF: cc_hicom_default
-	{
-		transport = "rhssaf_army_ural";
-		helico = "rhssaf_airforce_ht48";
-	};
-	class cc_hicom_CDF: cc_hicom_default
-	{
-		transport = "CUP_B_Ural_CDF";
-		helico = "CUP_B_Mi17_CDF";
-	};
-	class cc_hicom_PMC: cc_hicom_default
-	{
-		transport = "CUP_I_Van_Transport_ION";
-		helico = "CUP_I_Merlin_HC3_PMC_Transport_black";
-	};
-	class cc_hicom_FR: cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_BAF_WOOD";
-		helico = "CUP_B_SA330_Puma_HC2_BAF";
-	};
-	class cc_hicom_occident: cc_hicom_default
-	{
-		transport = "CUP_I_MTVR_RACS";
-		helico = "CPC_ME_B_DAM_UH1H";
-	};
-	class cc_hicom_US80: cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_USMC";
-		helico = "CPC_NAM_B_US_UH1H_slick";
-	};
-	class cc_hicom_RU1980: cc_hicom_default
-	{
-		transport = "rhs_zil131_msv";
-		helico = "RHS_Mi8mt_vdv";
-	};
-	class cc_hicom_USNAM: cc_hicom_default
-	{
-		transport = "CUP_B_MTVR_USMC";
-		helico = "CPC_NAM_B_US_UH1H_slick";
-	};
-};
-
-
 #include "ui\sssarty_ui.hpp"
-
-class CC_sssarty
-{
-	class cc_sssarty_defaultW
-	{
-		mortier = "CUP_B_M252_US";
-		canon = "CUP_B_M119_US";
-		mlrs = "CUP_B_M270_HE_USMC";
-	};
-	class cc_sssarty_defaultE
-	{
-		mortier = "CUP_O_2b14_82mm_RU";
-		canon = "CUP_O_D30_RU";
-		mlrs = "CUP_O_BM21_RU";
-	};
-	class cc_sssarty_NATO: cc_sssarty_defaultW
-	{
-		mortier = "B_Mortar_01_F";
-		canon = "B_MBT_01_arty_F";
-		mlrs = "B_MBT_01_mlrs_F";
-	};
-	class cc_sssarty_CSAT: cc_sssarty_defaultE
-	{
-		mortier = "CUP_B_M252_US";
-		canon = "O_MBT_02_arty_F";
-	};
-	class cc_sssarty_AAF: cc_sssarty_defaultW
-	{
-		mortier = "I_Mortar_01_F";
-		mlrs = "I_Truck_02_MRL_F";
-	};
-	class cc_sssarty_USArmy: cc_sssarty_defaultW {};
-	class cc_sssarty_USMC: cc_sssarty_defaultW {};
-	class cc_sssarty_USsf: cc_sssarty_defaultW {};
-	class cc_sssarty_RU2000_RHS: cc_sssarty_defaultE {};
-	class cc_sssarty_RU2015_RHS: cc_sssarty_defaultE {};
-	class cc_sssarty_RUsf: cc_sssarty_defaultE {};
-	class cc_sssarty_KSK: cc_sssarty_defaultW {};
-	class cc_sssarty_BAF: cc_sssarty_defaultW {};
-	class cc_sssarty_RACS: cc_sssarty_defaultW
-	{
-		mlrs = "CUP_I_M270_HE_RACS";
-	};
-	class cc_sssarty_TAK: cc_sssarty_defaultE
-	{
-		mlrs = "CUP_O_BM21_TKA";
-	};
-	class cc_sssarty_INS: cc_sssarty_defaultE
-	{
-		mlrs = "CUP_I_Hilux_MLRS_TK";
-	};
-	class cc_sssarty_TAK_INS: cc_sssarty_defaultE
-	{
-		mlrs = "CUP_I_Hilux_MLRS_TK";
-	};
-	class cc_sssarty_SAF: cc_sssarty_defaultW {};
-	class cc_sssarty_CDF: cc_sssarty_defaultW
-	{
-		mlrs = "CUP_B_BM21_CDF";
-	};
-	class cc_sssarty_PMC: cc_sssarty_defaultW {};
-	class cc_sssarty_FR: cc_sssarty_defaultW {};
-	class cc_sssarty_occident: cc_sssarty_defaultW {};
-	class cc_sssarty_US80: cc_sssarty_defaultW {};
-	class cc_sssarty_RU1980: cc_sssarty_defaultE {};
-	class cc_sssarty_USNAM: cc_sssarty_defaultW {};
-};
-
-
 #include "ui\ssshelico_ui.hpp"
+#include "ui\loadout_ui.hpp"
 
-class CC_ssshelico
+class CC_ally
 {
-	class cc_ssshelico_defaultW
+	class cc_ally_defaultW
 	{
-		helicos[] = {"RHS_UH60M","RHS_CH_47F","CUP_B_MH6J_USA","CUP_B_MH6M_USA","rhsusf_CH53E_USMC_D","RHS_UH1Y_UNARMED_d"};
+		class polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_WOOD";
+			helico = "CUP_B_UH1D_slick_GER_KSK_Des";
+			technicals[] = {"CUP_B_nM1025_M2_NATO","CUP_B_nM1025_M240_NATO","CUP_B_nM1025_Mk19_NATO","CUP_B_nM1025_SOV_M2_NATO","CUP_B_nM1025_SOV_Mk19_NATO","CUP_B_nM1036_TOW_NATO"};
+			blindes[] = {"CUP_B_M113A3_olive_USA","CUP_B_LAV25_green","CUP_B_M1A2SEP_NATO"};
+			antiair[] = {"CUP_B_M163_Vulcan_USA","CUP_B_nM1097_AVENGER_NATO"};
+			helicos[] = {"CUP_B_UH1D_gunship_GER_KSK_Des","CUP_B_AH6J_USA","CUP_B_AH1Z_Dynamic_USMC","CUP_B_AH64D_DL_USA","CUP_B_UH1Y_Gunship_Dynamic_USMC"};
+			class sss
+			{
+				mortier = "CUP_B_M252_US";
+				canon = "CUP_B_M119_US";
+				mlrs = "CUP_B_M270_HE_USMC";
+				helicos[] = {"RHS_UH60M","RHS_CH_47F","CUP_B_MH6J_USA","CUP_B_MH6M_USA","rhsusf_CH53E_USMC_D","RHS_UH1Y_UNARMED_d"};
+			};
+		};
+		class woodland: polyvalent
+		{
+			technicals[] = {"CUP_B_nM1025_M2_NATO_T","CUP_B_nM1025_M240_NATO_T","CUP_B_nM1025_Mk19_NATO_T","CUP_B_nM1025_SOV_M2_NATO_T","CUP_B_nM1025_SOV_Mk19_NATO_T","CUP_B_nM1036_TOW_NATO_T"};
+			blindes[] = {"CUP_B_M1A2SEP_NATO_T","CUP_B_LAV25_green","CUP_B_M113A3_olive_USA"};
+		};
+		class desert: polyvalent
+		{
+			transport = "CUP_B_MTVR_USA";
+			technicals[] = {"CUP_B_nM1025_M2_USA_DES","CUP_B_nM1025_M240_USA_DES","CUP_B_nM1025_Mk19_USA_DES","CUP_B_nM1025_SOV_M2_USA_DES","CUP_B_nM1025_SOV_Mk19_USA_DES","CUP_B_nM1036_TOW_USA_DES"};
+			blindes[] = {"CUP_B_M113A3_desert_USA","CUP_B_LAV25_desert_USMC","CUP_B_M1A2SEP_Desert_US_Army"};
+		};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_defaultE
+	class cc_ally_defaultE
 	{
-		helicos[] = {"RHS_Mi8mt_vvsc","rhs_ka60_c"};
+		class polyvalent
+		{
+			transport = "CUP_O_Ural_SLA";
+			helico = "CUP_O_Mi8AMT_RU";
+			technicals[] = {"CUP_O_UAZ_MG_SLA","CUP_O_UAZ_AGS30_SLA","CUP_O_UAZ_METIS_SLA","CUP_O_UAZ_SPG9_SLA"};
+			blindes[] = {"CUP_O_BRDM2_SLA","CUP_O_BTR80A_SLA","CUP_O_BTR80_SLA","CUP_O_T55_SLA","CUP_O_T72_SLA"};
+			antiair[] = {"CUP_O_ZSU23_SLA","CUP_O_Ural_ZU23_SLA"};
+			helicos[] = {"CUP_O_Mi24_V_Dynamic_RU","CUP_O_Mi8_RU"};
+			class sss
+			{
+				mortier = "CUP_O_2b14_82mm_RU";
+				canon = "CUP_O_D30_RU";
+				mlrs = "CUP_O_BM21_RU";
+				helicos[] = {"RHS_Mi8mt_vvsc","rhs_ka60_c"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_NATO: cc_ssshelico_defaultW
+	/* actual classes */
+	class cc_ally_NATO: cc_ally_defaultW
 	{
-		helicos[] = {"B_Heli_Transport_01_F","B_Heli_Transport_03_F","B_Heli_Light_01_F"};
+		class polyvalent: polyvalent
+		{
+			transport = "B_Truck_01_covered_F";
+			helico = "B_Heli_Transport_01_F";
+			technicals[] = {"CUP_B_nM1025_M2_NATO","CUP_B_nM1025_M240_NATO","CUP_B_nM1025_Mk19_NATO","CUP_B_nM1025_SOV_M2_NATO","CUP_B_nM1025_SOV_Mk19_NATO","CUP_B_nM1036_TOW_NATO","B_LSV_01_armed_F","B_LSV_01_AT_F"};
+			blindes[] = {"B_MRAP_01_hmg_F","B_MRAP_01_gmg_F","MU_NATO_Gorgon","B_APC_Wheeled_01_cannon_F","B_APC_Tracked_01_rcws_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F","B_MBT_01_cannon_F","B_MBT_01_TUSK_F"};
+			antiair[] = {"B_APC_Tracked_01_AA_F","CUP_B_nM1097_AVENGER_NATO"};
+			helicos[] = {"B_Heli_Light_01_dynamicLoadout_F","B_Heli_Attack_01_dynamicLoadout_F","B_Heli_Transport_01_F"};
+			class sss: sss
+			{
+				mortier = "B_Mortar_01_F";
+				canon = "B_MBT_01_arty_F";
+				mlrs = "B_MBT_01_MLRS_F";
+				helicos[] = {"B_Heli_Transport_01_F","B_Heli_Transport_03_F","B_Heli_Light_01_F"};
+			};
+		};
+		class woodland: polyvalent
+		{
+			transport = "B_T_Truck_01_covered_F";
+			helico = "B_CTRG_Heli_Transport_01_tropic_F";
+			technicals[] = {"CUP_B_nM1025_M2_NATO_T","CUP_B_nM1025_M240_NATO_T","CUP_B_nM1025_Mk19_NATO_T","CUP_B_nM1025_SOV_M2_NATO_T","CUP_B_nM1025_SOV_Mk19_NATO_T","CUP_B_nM1036_TOW_NATO_T","B_T_LSV_01_armed_F","B_T_LSV_01_AT_F"};
+			blindes[] = {"B_T_MRAP_01_hmg_F","B_T_MRAP_01_gmg_F","B_T_APC_Wheeled_01_cannon_F","B_T_APC_Tracked_01_rcws_F","B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F","B_T_MBT_01_cannon_F","B_T_MBT_01_TUSK_F"};
+			antiair[] = {"B_T_APC_Tracked_01_AA_F","CUP_B_nM1097_AVENGER_NATO_T"};
+		};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_CSAT: cc_ssshelico_defaultE
+	class cc_ally_CSAT: cc_ally_defaultE
 	{
-		helicos[] = {"O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F"};
+		class polyvalent: polyvalent
+		{
+			transport = "O_Truck_03_covered_F";
+			helico = "O_Heli_Light_02_unarmed_F";
+			technicals[] = {"O_LSV_02_armed_F","O_LSV_02_AT_F"};
+			blindes[] = {"O_MRAP_02_hmg_F","O_MRAP_02_gmg_F","O_APC_Wheeled_02_rcws_v2_F","O_APC_Tracked_02_cannon_F","O_MBT_02_cannon_F","O_MBT_04_cannon_F","O_MBT_04_command_F"};
+			antiair[] = {"O_APC_Tracked_02_AA_F"};
+			helicos[] = {"O_Heli_Light_02_dynamicLoadout_F","O_Heli_Attack_02_dynamicLoadout_F"};
+			class sss: sss
+			{
+				mortier = "CUP_B_M252_US";
+				canon = "O_MBT_02_arty_F";
+				helicos[] = {"O_Heli_Transport_04_covered_F","O_Heli_Light_02_unarmed_F"};
+			};
+		};
+		class woodland: polyvalent
+		{
+			transport = "O_T_Truck_03_covered_ghex_F";
+			technicals[] = {"O_T_LSV_02_armed_F","O_T_LSV_02_AT_F"};
+			blindes[] = {"O_T_MRAP_02_hmg_ghex_F","O_T_MRAP_02_gmg_ghex_F","O_T_APC_Wheeled_02_rcws_v2_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F","O_T_MBT_02_cannon_ghex_F","O_T_MBT_04_cannon_F","O_T_MBT_04_command_F"};
+			antiair[] = {"O_T_APC_Tracked_02_AA_ghex_F"};
+		};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_AAF: cc_ssshelico_defaultW
+	class cc_ally_AAF: cc_ally_defaultW
 	{
-		helicos[] = {"I_Heli_Transport_02_F","MU_AAF_Orca_unarmed","CUP_I_412_Mil_Transport_AAF","MU_AAF_HummingBird"};
+		class polyvalent: polyvalent
+		{
+			transport = "I_Truck_02_covered_F";
+			helico = "CUP_I_412_Mil_Transport_AAF";
+			technicals[] = {"CUP_I_LR_MG_AAF","CUP_I_LR_SF_HMG_AAF","CUP_I_LR_SF_HMG_AAF"};
+			blindes[] = {"I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_APC_Wheeled_03_cannon_F","I_APC_tracked_03_cannon_F","CUP_I_M113A3_AAF","I_MBT_03_cannon_F","I_LT_01_cannon_F","I_LT_01_AT_F"};
+			antiair[] = {"I_LT_01_AA_F","CUP_I_M163_Vulcan_AAF"};
+			helicos[] = {"I_Heli_light_03_dynamicLoadout_F","MU_AAF_pawnee","MU_AAF_Orca","CUP_I_AH1Z_Dynamic_AAF","CUP_I_412_Military_Armed_AAF"};
+			class sss: sss
+			{
+				mortier = "I_Mortar_01_F";
+				mlrs = "I_Truck_02_MRL_F";
+				helicos[] = {"I_Heli_Transport_02_F","MU_AAF_Orca_unarmed","CUP_I_412_Mil_Transport_AAF","MU_AAF_HummingBird"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_USArmy: cc_ssshelico_defaultW {};
-	class cc_ssshelico_USMC: cc_ssshelico_defaultW {};
-	class cc_ssshelico_USsf: cc_ssshelico_defaultW {};
-	class cc_ssshelico_RU2000_RHS: cc_ssshelico_defaultE {};
-	class cc_ssshelico_RU2015_RHS: cc_ssshelico_defaultE {};
-	class cc_ssshelico_RUsf: cc_ssshelico_defaultE {};
-	class cc_ssshelico_KSK: cc_ssshelico_defaultW
+	class cc_ally_USArmy: cc_ally_defaultW
 	{
-		helicos[] = {"CUP_B_UH1D_slick_GER_KSK","CUP_B_UH1D_slick_GER_KSK_Des","CUP_B_CH53E_GER"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_USMC";
+			helico = "CUP_B_UH60M_Unarmed_US";
+			technicals[] = {"CUP_B_nM1025_M2_USA_WDL","CUP_B_nM1025_M240_USA_WDL","CUP_B_nM1025_Mk19_USA_WDL","CUP_B_nM1025_SOV_M2_USA_WDL","CUP_B_nM1025_SOV_Mk19_USA_WDL","CUP_B_nM1036_TOW_USA_WDL"};
+			blindes[] = {"CUP_B_RG31_M2_OD_USA","CUP_B_RG31_Mk19_OD_USA","CUP_B_M1126_ICV_M2_Woodland","CUP_B_M1126_ICV_MK19_Woodland","CUP_B_M1128_MGS_Woodland","CUP_B_M113A3_USA","CUP_B_M2Bradley_USA_W","CUP_B_M2A3Bradley_USA_W","CUP_B_M1A2SEP_Woodland_US_Army","CUP_B_M1A2C_TUSK_Woodland_US_Army","CUP_B_LAV25_USMC","CUP_B_LAV25M240_USMC","CUP_B_AAV_USMC"};
+			antiair[] = {"CUP_B_nM1097_AVENGER_USA_WDL","CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CUP_B_AH64D_DL_USA","CUP_B_AH6J_USA","CUP_B_UH60M_US","CUP_B_AH1Z_Dynamic_USMC","CUP_B_UH1Y_Gunship_Dynamic_USMC","CUP_B_UH60S_USN"};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			transport = "CUP_B_MTVR_USA";
+			technicals[] = {"CUP_B_nM1025_M2_USA_DES","CUP_B_nM1025_M240_USA_DES","CUP_B_nM1025_Mk19_USA_DES","CUP_B_nM1025_SOV_M2_USA_DES","CUP_B_nM1025_SOV_Mk19_USA_DES","CUP_B_nM1036_TOW_USA_DES"};
+			blindes[] = {"CUP_B_M163_Vulcan_USA","CUP_B_RG31_M2_USA","CUP_B_RG31_Mk19_USA","CUP_B_M1126_ICV_M2_Desert","CUP_B_M1126_ICV_MK19_Desert","CUP_B_M1128_MGS_Desert","CUP_B_M113A3_desert_USA","CUP_B_M2Bradley_USA_D","CUP_B_M2A3Bradley_USA_D","CUP_B_M1A2SEP_Desert_US_Army","CUP_B_M1A2C_TUSK_II_Desert_US_Army","CUP_B_LAV25_desert_USMC","CUP_B_LAV25M240_desert_USMC"};
+		};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_BAF: cc_ssshelico_defaultW
+	class cc_ally_USMC: cc_ally_USArmy {};
+	class cc_ally_USsf: cc_ally_USArmy {};
+	class cc_ally_RU2000_RHS: cc_ally_defaultE
 	{
-		helicos[] = {"CUP_B_Merlin_HC3_GB","CUP_B_CH47F_GB"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_O_Ural_RU";
+			helico = "CUP_O_Mi8AMT_RU";
+			technicals[] = {"CUP_O_UAZ_MG_RU","CUP_O_UAZ_AGS30_RU","CUP_O_UAZ_METIS_RU","rhs_tigr_sts_msv","CUP_O_GAZ_Vodnik_PK_RU","CUP_O_GAZ_Vodnik_BPPU_RU","CUP_O_GAZ_Vodnik_KPVT_RU"};
+			blindes[] = {"CUP_O_BRDM2_RUS","CUP_O_BRDM2_ATGM_RUS","CUP_O_BMP2_RU","CUP_O_BMP3_RU","CUP_O_BTR60_RU","CUP_O_BTR80_CAMO_RU","CUP_O_BTR80A_CAMO_RU","CUP_O_BTR90_RU","CUP_O_MTLB_pk_WDL_RU","CUP_O_T72_RU","CUP_O_T90_RU"};
+			antiair[] = {"CUP_O_2S6_RU","CUP_O_ZSU23_SLA","CUP_O_Ural_ZU23_RU"};
+			helicos[] = {"CUP_O_Mi24_V_Dynamic_RU","CUP_O_Mi24_P_Dynamic_RU","CUP_O_Mi8_RU","CUP_O_Ka52_RU"};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_RACS: cc_ssshelico_defaultW
+	class cc_ally_RU2015_RHS: cc_ally_RU2000_RHS
 	{
-		helicos[] = {"CUP_I_UH60L_RACS","CUP_I_UH1H_Slick_RACS","CUP_I_SA330_Puma_HC1_RACS","CUP_I_CH47F_RACS","CUP_I_MH6J_RACS"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_O_Kamaz_RU";
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_TAK: cc_ssshelico_defaultE
+	class cc_ally_RUsf: cc_ally_RU2015_RHS {};
+	class cc_ally_KSK: cc_ally_defaultW
 	{
-		helicos[] = {"CUP_O_Mi17_TK","CUP_O_UH1H_slick_TKA"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_WOOD";
+			helico = "CUP_B_UH1D_slick_GER_KSK";
+			technicals[] = {"CUP_B_LR_MG_GB_W","CUP_B_LR_Special_M2_GB_W","CUP_B_LR_Special_GMG_GB_W"};
+			blindes[] = {"CUP_B_Dingo_GER_Wdl","CUP_B_Dingo_GL_GER_Wdl","CUP_B_Boxer_HMG_GER_WDL","CUP_B_Boxer_GMG_GER_WDL","CUP_B_M113A3_GER","CUP_B_Leopard2A6_GER"};
+			antiair[] = {"CUP_B_nM1097_AVENGER_USA_WDL","CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CUP_B_AW159_GER","CUP_B_UH1D_gunship_GER_KSK","CUP_B_AH64D_DL_USA"};
+			class sss: sss
+			{
+				helicos[] = {"CUP_B_UH1D_slick_GER_KSK","CUP_B_UH1D_slick_GER_KSK_Des","CUP_B_CH53E_GER"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_DES";
+			helico = "CUP_B_UH1D_GER_KSK_Des";
+			technicals[] = {"CUP_B_LR_MG_GB_D","CUP_B_LR_Special_M2_GB_D","CUP_B_LR_Special_GMG_GB_D"};
+			blindes[] = {"CUP_B_Dingo_GER_Des","CUP_B_Dingo_GL_GER_Des","CUP_B_Boxer_HMG_GER_DES","CUP_B_Boxer_GMG_GER_DES","CUP_B_Leopard2A6DST_GER"};
+		};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_INS: cc_ssshelico_defaultE
+	class cc_ally_BAF: cc_ally_defaultW
 	{
-		helicos[] = {"CUP_I_UH1H_slick_TK_GUE","CUP_O_Mi8_CHDKZ","CUP_C_Mi17_Civilian_RU","CUP_C_412","MU_CIV_Orca"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_WOOD";
+			helico = "CUP_B_Merlin_HC3_GB";
+			technicals[] = {"CUP_B_Jackal2_L2A1_GB_W","CUP_B_Jackal2_GMG_GB_W","CUP_B_LR_MG_GB_W","CUP_B_LR_Special_M2_GB_W","CUP_B_LR_Special_GMG_GB_W"};
+			blindes[] = {"CUP_B_Ridgback_LMG_GB_W","CUP_B_Ridgback_HMG_GB_W","CUP_B_Ridgback_GMG_GB_W","CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV510_GB_W_SLAT","CUP_B_MCV80_GB_W_SLAT","CUP_B_Challenger2_2CW_BAF"};
+			antiair[] = {"CUP_B_nM1097_AVENGER_USA_WDL","CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CUP_B_AH1_DL_BAF","CUP_B_AW159_GB","CUP_B_CH47F_GB"};
+			class sss: sss
+			{
+				helicos[] = {"CUP_B_Merlin_HC3_GB","CUP_B_CH47F_GB"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_DES";
+			technicals[] = {"CUP_B_Jackal2_L2A1_GB_D","CUP_B_Jackal2_GMG_GB_D","CUP_B_LR_MG_GB_D","CUP_B_LR_Special_M2_GB_D","CUP_B_LR_Special_GMG_GB_D"};
+			blindes[] = {"CUP_B_Ridgback_LMG_GB_D","CUP_B_Ridgback_HMG_GB_D","CUP_B_Ridgback_GMG_GB_D","CUP_B_FV432_Bulldog_GB_D_RWS","CUP_B_FV432_Bulldog_GB_D","CUP_B_FV510_GB_D_SLAT","CUP_B_MCV80_GB_D_SLAT","CUP_B_Challenger2_Desert_BAF"};
+		};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_TAK_INS: cc_ssshelico_defaultE
+	class cc_ally_RACS: cc_ally_defaultW
 	{
-		helicos[] = {"CUP_I_UH1H_slick_TK_GUE","CUP_O_Mi8_CHDKZ"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_I_MTVR_RACS";
+			helico = "CUP_I_UH60L_Unarmed_RACS";
+			technicals[] = {"CUP_I_LR_MG_RACS"};
+			blindes[] = {"CUP_I_M113A1_RACS","CUP_I_LAV25_RACS","CUP_I_LAV25M240_RACS","CUP_I_AAV_RACS","CUP_B_M1A2SEP_RACS","CUP_I_M60A3_RACS","CUP_I_T72_RACS"};
+			antiair[] = {"CUP_I_M163_Vulcan_RACS","CUP_I_LR_AA_RACS"};
+			helicos[] = {"CUP_I_AH6J_RACS","CUP_I_UH1H_gunship_RACS","CUP_I_UH60L_RACS"};
+			class sss: sss
+			{
+				mlrs = "CUP_I_M270_HE_RACS";
+				helicos[] = {"CUP_I_UH60L_RACS","CUP_I_UH1H_Slick_RACS","CUP_I_SA330_Puma_HC1_RACS","CUP_I_CH47F_RACS","CUP_I_MH6J_RACS"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_SAF: cc_ssshelico_defaultW
+	class cc_ally_TAK: cc_ally_defaultE
 	{
-		helicos[] = {"rhssaf_airforce_ht40"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_O_Ural_TKA";
+			helico = "CUP_O_Mi17_TK";
+			technicals[] = {"CUP_O_UAZ_MG_TKA","CUP_O_UAZ_AGS30_TKA","CUP_O_UAZ_METIS_TKA","CUP_O_UAZ_SPG9_TKA","CUP_O_LR_MG_TKA","CUP_O_LR_SPG9_TKA","CUP_O_BTR40_MG_TKA"};
+			blindes[] = {"CUP_O_BRDM2_TKA","CUP_O_BRDM2_ATGM_TKA","CUP_O_BTR60_TK","CUP_O_BTR80_TK","CUP_O_BTR80A_TK","CUP_O_M113A3_TKA","CUP_O_MTLB_pk_TKA","CUP_O_BMP1_TKA","CUP_O_BMP1P_TKA","CUP_O_BMP2_TKA","CUP_O_BMP2_ZU_TKA","CUP_O_T34_TKA","CUP_O_T55_TK","CUP_O_T72_TKA"};
+			antiair[] = {"CUP_O_ZSU23_TK","CUP_O_Ural_ZU23_TKA","CUP_O_UAZ_AA_TKA"};
+			helicos[] = {"CUP_O_Mi24_D_Dynamic_TK","CUP_O_Mi17_TK","CUP_O_UH1H_gunship_TKA"};
+			class sss: sss
+			{
+				mlrs = "CUP_O_BM21_TKA";
+				helicos[] = {"CUP_O_Mi17_TK","CUP_O_UH1H_slick_TKA"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_CDF: cc_ssshelico_defaultW
+	class cc_ally_INS: cc_ally_defaultE
 	{
-		helicos[] = {"CUP_B_Mi17_CDF"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_I_V3S_Covered_TKG";
+			helico = "CUP_O_Mi8_CHDKZ";
+			technicals[] = {"CUP_O_UAZ_MG_SLA","CUP_O_UAZ_AGS30_SLA","CUP_O_UAZ_METIS_SLA","CUP_O_UAZ_SPG9_SLA","CUP_I_BTR40_MG_TKG","CUP_I_Hilux_DSHKM_TK","CUP_I_Hilux_AGS30_TK","CUP_I_Hilux_zu23_TK","I_G_Offroad_01_armed_F","I_G_Offroad_01_AT_F"};
+			blindes[] = {"CUP_I_BRDM2_TK_Gue","CUP_I_BMP1_TK_GUE","CUP_I_T34_TK_GUE","CUP_I_T55_TK_GUE","CUP_O_MTLB_pk_ChDKZ"};
+			antiair[] = {"CUP_I_Ural_ZU23_TK_Gue","CUP_I_Datsun_AA_TK"};
+			helicos[] = {"CUP_I_UH1H_gunship_TK_GUE","CUP_O_Mi8_CHDKZ"};
+			class sss: sss
+			{
+				mlrs = "CUP_I_Hilux_MLRS_TK";
+				helicos[] = {"CUP_I_UH1H_slick_TK_GUE","CUP_O_Mi8_CHDKZ","CUP_C_Mi17_Civilian_RU","CUP_C_412","MU_CIV_Orca"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_PMC: cc_ssshelico_defaultW
+	class cc_ally_TAK_INS: cc_ally_INS
 	{
-		helicos[] = {"CUP_I_412_Mil_Transport_PMC","CUP_I_Merlin_HC3_PMC_Transport_black","CUP_I_MH6M_ION"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_I_V3S_Covered_TKG";
+			helico = "CUP_O_Mi8_CHDKZ";
+			class sss: sss
+			{
+				mlrs = "CUP_I_Hilux_MLRS_TK";
+				helicos[] = {"CUP_I_UH1H_slick_TK_GUE","CUP_O_Mi8_CHDKZ"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_FR: cc_ssshelico_defaultW
+	class cc_ally_SAF: cc_ally_defaultW
 	{
-		helicos[] = {"CUP_B_SA330_Puma_HC2_BAF"};
+		class polyvalent: polyvalent
+		{
+			transport = "rhssaf_army_ural";
+			helico = "rhssaf_airforce_ht48";
+			technicals[] = {"rhssaf_m1025_olive_m2","rhssaf_m1151_olive_pkm"};
+			blindes[] = {"rhssaf_army_t72s"};
+			antiair[] = {"CUP_O_ZSU23_SLA"};
+			helicos[] = {"CUP_B_Mi35_Dynamic_CZ","CUP_B_UH1D_gunship_GER_KSK_Des"};
+			class sss: sss
+			{
+				helicos[] = {"rhssaf_airforce_ht40"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_occident: cc_ssshelico_defaultW
+	class cc_ally_CDF: cc_ally_defaultW
 	{
-		helicos[] = {"CPC_ME_B_DAM_UH1H","RHS_UH60M","CUP_B_MH6J_USA","CUP_B_MH6M_USA","rhsusf_CH53E_USMC_D"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_Ural_CDF";
+			helico = "CUP_B_Mi17_CDF";
+			mlrs = "CUP_B_BM21_CDF";
+			technicals[] = {"CUP_B_UAZ_MG_CDF","CUP_B_UAZ_AGS30_CDF","CUP_B_UAZ_METIS_CDF","CUP_B_UAZ_SPG9_CDF"};
+			blindes[] = {"CUP_B_BRDM2_CDF","CUP_B_BRDM2_ATGM_CDF","CUP_B_BTR60_CDF","CUP_B_BTR80_CDF","CUP_B_BTR80A_CDF","CUP_B_MTLB_pk_CDF","CUP_B_BMP2_CDF","CUP_B_T72_CDF"};
+			antiair[] = {"CUP_B_ZSU23_CDF","CUP_B_Ural_ZU23_CDF","CUP_B_UAZ_AA_CDF"};
+			helicos[] = {"CUP_B_Mi24_D_Dynamic_CDF","CUP_B_Mi171Sh_CDF"};
+			class sss: sss
+			{
+				helicos[] = {"CUP_B_Mi17_CDF"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_US80: cc_ssshelico_defaultW
+	class cc_ally_PMC: cc_ally_defaultW
 	{
-		helicos[] = {"CPC_NAM_B_US_UH1H","CPC_NAM_B_US_CH47F"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_I_Van_Transport_ION";
+			helico = "CUP_I_Merlin_HC3_PMC_Transport_black";
+			technicals[] = {"CUP_I_SUV_Armored_ION","CUP_I_nM1025_M2_ION","CUP_I_nM1025_M240_ION","CUP_I_nM1025_Mk19_ION","CUP_B_nM1025_SOV_M2_ION","CUP_B_nM1025_SOV_Mk19_ION","CUP_I_4WD_LMG_ION","CUP_I_LSV_02_Minigun_ION"};
+			blindes[] = {"CUP_I_RG31_M2_ION","CUP_I_RG31_Mk19_ION","CUP_I_FENNEK_HMG_ION","CUP_I_FENNEK_GMG_ION","CUP_I_MATV_HMG_ION","CUP_I_MATV_GMG_ION","CUP_I_BTR80_ION","CUP_I_BTR80A_ION"};
+			antiair[] = {"CUP_B_nM1097_AVENGER_USA_WDL","CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CUP_I_412_Military_Armed_PMC","CUP_I_Ka60_Blk_ION","CUP_I_Mi24_Mk4_ION","CUP_I_Mi24_D_Dynamic_ION"};
+			class sss: sss
+			{
+				helicos[] = {"CUP_I_412_Mil_Transport_PMC","CUP_I_Merlin_HC3_PMC_Transport_black","CUP_I_MH6M_ION"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_RU1980: cc_ssshelico_defaultE
+	class cc_ally_FR: cc_ally_defaultW
 	{
-		helicos[] = {"RHS_Mi8mt_vvsc"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_WOOD";
+			helico = "CUP_B_SA330_Puma_HC2_BAF";
+			technicals[] = {"CUP_B_LR_MG_GB_W","CUP_B_LR_Special_M2_GB_W","CUP_B_LR_Special_GMG_GB_W"};
+			blindes[] = {"CUP_B_M1128_MGS_Woodland","B_T_APC_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"};
+			antiair[] = {"CUP_B_nM1097_AVENGER_NATO_T","CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CUP_B_AH64D_DL_USA"};
+			class sss: sss
+			{
+				helicos[] = {"CUP_B_SA330_Puma_HC2_BAF"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			transport = "CUP_B_MTVR_BAF_DES";
+			technicals[] = {"CUP_B_LR_MG_GB_D","CUP_B_LR_Special_M2_GB_D","CUP_B_LR_Special_GMG_GB_D"};
+			blindes[] = {"CUP_B_M1128_MGS_Desert","B_APC_Wheeled_01_cannon_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"};
+		};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
-	class cc_ssshelico_USNAM: cc_ssshelico_defaultW
+	class cc_ally_occident: cc_ally_defaultW
 	{
-		helicos[] = {"CPC_NAM_B_US_UH1H","CPC_NAM_B_US_CH47F"};
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_I_MTVR_RACS";
+			helico = "CUP_B_UH1D_slick_GER_KSK_Des";
+			class sss: sss
+			{
+				helicos[] = {"CPC_ME_B_DAM_UH1H","RHS_UH60M","CUP_B_MH6J_USA","CUP_B_MH6M_USA","rhsusf_CH53E_USMC_D"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
+	};
+	class cc_ally_US80: cc_ally_defaultW
+	{
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_USMC";
+			helico = "CPC_NAM_B_US_UH1H_slick";
+			technicals[] = {"CUP_I_M151_M2_SYND"};
+			blindes[] = {"CUP_B_M113A1_olive_USA","CUP_B_M113A3_olive_USA","CUP_B_LAV25_green","CUP_B_AAV_USMC","CUP_B_M60A3_USMC"};
+			antiair[] = {"CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CPC_NAM_B_US_UH1H_armed","CPC_NAM_B_US_CH47F"};
+			class sss: sss
+			{
+				helicos[] = {"CPC_NAM_B_US_UH1H","CPC_NAM_B_US_CH47F"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
+	};
+	class cc_ally_RU1980: cc_ally_defaultE
+	{
+		class polyvalent: polyvalent
+		{
+			transport = "rhs_zil131_msv";
+			helico = "CUP_O_Mi8AMT_RU";
+			technicals[] = {"CUP_O_UAZ_MG_RU","CUP_O_UAZ_AGS30_RU","CUP_O_UAZ_SPG9_RU"};
+			blindes[] = {"CUP_O_BRDM2_RUS","CUP_O_BTR60_RU","CUP_O_BTR80_GREEN_RU","CUP_O_MTLB_pk_Green_RU","CUP_O_BMP2_RU","CUP_I_BMP1_TK_GUE","CUP_O_T72_RU","CUP_O_T55_SLA"};
+			antiair[] = {"CUP_O_ZSU23_SLA","CUP_O_Ural_ZU23_SLA"};
+			helicos[] = {"CUP_O_Mi24_V_Dynamic_RU","CUP_O_Mi24_P_Dynamic_RU","CUP_O_Mi8_RU"};
+			class sss: sss
+			{
+				helicos[] = {"RHS_Mi8mt_vvsc"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
+	};
+	class cc_ally_USNAM: cc_ally_defaultW
+	{
+		class polyvalent: polyvalent
+		{
+			transport = "CUP_B_MTVR_USMC";
+			helico = "CPC_NAM_B_US_UH1H_slick";
+			technicals[] = {"CUP_I_M151_M2_SYND"};
+			blindes[] = {"CUP_B_M113A1_olive_USA","CUP_B_M113A3_olive_USA"};
+			antiair[] = {"CUP_B_M163_Vulcan_USA"};
+			helicos[] = {"CPC_NAM_B_US_UH1H_armed","CPC_NAM_B_US_CH47F"};
+			class sss: sss
+			{
+				helicos[] = {"CPC_NAM_B_US_UH1H","CPC_NAM_B_US_CH47F"};
+			};
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent {};
+		class jungle: woodland {};
+		class winter: woodland {};
 	};
 };
 
-#include "ui\loadout_ui.hpp"
 
 /*
 	class nato: cc_faction_army

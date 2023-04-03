@@ -8,15 +8,16 @@
 		POSITION : spawn position
 		STRING : type of group
 		STRING : group ID
+		NUMBER : direction
 
 	Returns:
 	nothing
 */
 
 
-params ["_pos","_type","_id"];
+params ["_pos","_type","_id","_dir"];
 private _crew = ["B_Helipilot_F","B_Helipilot_F"];
-private _veh = [_pos,blufor,_type,_crew,0,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+private _veh = [_pos,blufor,_type,_crew,_dir,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 private _group = _veh #0;
 private _veh = _veh #1;
 

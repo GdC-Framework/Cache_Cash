@@ -122,7 +122,3 @@ if (CC_p_vehicle > 0) then {
 
 //METEO
 [] call STDR_fnc_meteo;
-
-
-// intro
-// parmètres CC par défaut

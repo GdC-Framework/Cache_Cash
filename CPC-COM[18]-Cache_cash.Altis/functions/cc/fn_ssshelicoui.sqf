@@ -23,7 +23,7 @@ switch (_mode) do {
 			private _text = getText (ConfigFile >> "CfgVehicles" >> _x >> "DisplayName");
 			private _index = _control lbAdd _text;
 			_control lbSetData [_index,_x];
-		} forEach (getArray (missionConfigFile >> "CC_ssshelico" >> ("CC_ssshelico_" + CC_loadout) >> "helicos"));
+		} forEach (getArray (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "sss" >> "helicos"));
 		_control lbSetCurSel 0;
 	};
 	case "text_box": {
@@ -36,7 +36,7 @@ switch (_mode) do {
 		private _type = (lbData [691,lbCurSel 691]);
 		private _id = (ctrlText 692);
 		// spawn is done serverside
-		[_pos,_type,_id] remoteExec ["STDR_fnc_setupssshelico",2];
+		[_pos,_type,_id,((getdir player -180))] remoteExec ["STDR_fnc_setupssshelico",2];
 
 		closeDialog 1;
 	};
@@ -49,7 +49,7 @@ switch (_mode) do {
 		[_type,_id] onMapSingleClick {
 			_this params ["_type","_id"];
 			// spawn is done serverside
-			[_pos,_type,_id] remoteExec ["STDR_fnc_setupssshelico",2];
+			[_pos,_type,_id,(random 360)] remoteExec ["STDR_fnc_setupssshelico",2];
 
 			openMap false;
 			onMapSingleClick "";
