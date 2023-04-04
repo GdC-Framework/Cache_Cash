@@ -54,7 +54,7 @@ class GDC_CC_SSSHELICO_Display
 			w = 18 * GUI_GRID_CENTER_W;
 			h = 2 * GUI_GRID_CENTER_H;
 			onLoad = "params ['_control'];['text_box',_control] call STDR_fnc_ssshelicoui;";
-		}
+		};
 		class GDC_CC_SSSHELICO_ButtonCreateMarker: RscButton
 		{
 			idc = -1;

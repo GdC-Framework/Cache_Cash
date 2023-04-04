@@ -280,6 +280,7 @@ class Params
 	};
 };
 
+#include "ui\defineCommonGrids.hpp"
 #include "ui\ui_base.hpp"
 #include "ui\hicom_ui.hpp"
 #include "ui\sssarty_ui.hpp"

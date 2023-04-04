@@ -78,7 +78,7 @@ class GDC_CC_HICOM_Display
 			h = 2 * GUI_GRID_CENTER_H;
 			onLoad = "params ['_control'];['text_box',_control] call STDR_fnc_hicomui;";
 			tooltip = "si non renseigné, un callsign est automatiquement assigné";
-		}
+		};
 		class GDC_CC_HICOM_ButtonCreateMarker: RscButton
 		{
 			idc = -1;
