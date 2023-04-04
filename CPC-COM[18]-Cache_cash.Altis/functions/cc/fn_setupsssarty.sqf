@@ -20,13 +20,7 @@ private _crew = "B_Soldier_F";
 if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
 	_crew = "B_crew_F";
 };
-private _VehicleCrew = [_crew];
-{
-	_VehicleCrew = _VehicleCrew + [_crew];
-} forEach ([_type,false] call BIS_fnc_allTurrets);
-if (_type isKindOf "CUP_M270_HE_Base") then {
-	_VehicleCrew = _VehicleCrew + [_crew];
-};
+private _VehicleCrew = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 private _veh = [_pos,blufor,_type,_VehicleCrew,0,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 private _group = _veh #0;
 private _veh = _veh #1;

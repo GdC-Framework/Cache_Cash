@@ -53,10 +53,7 @@ if (_type in ["b_inf","b_motor_inf","b_unknown","b_air"]) then { // Infanterie e
 		};
 		case "b_air": {
 			private _class = getText (missionConfigFile >> "CC_ally" >> ("cc_ally_" + CC_loadout) >> cc_loadoutcamo >> "helico");
-			private _VehicleCrew = ["B_Helipilot_F"];
-			{
-				_VehicleCrew = _VehicleCrew + ["B_Helipilot_F"];
-			} forEach ([_class,false] call BIS_fnc_allTurrets);
+			private _VehicleCrew = [_class,"B_Helipilot_F"] call STDR_fnc_getcrewfromvehicleclass;
 			private _flyparam = if (surfaceIsWater _pos) then {["FLY",30,0]} else {["NONE",0,0]};
 			private _veh = [_pos,blufor,_class,_VehicleCrew,_dir,_flyparam] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh #0;
@@ -82,10 +79,7 @@ if (_type in ["b_inf","b_motor_inf","b_unknown","b_air"]) then { // Infanterie e
 		if (surfaceIsWater _pos) then {_flyparam = ["FLY",30,0];};
 		_cs = "Hotel";
 	};
-	private _VehicleCrew = [_crew];
-	{
-		_VehicleCrew = _VehicleCrew + [_crew];
-	} forEach ([_type,false] call BIS_fnc_allTurrets);
+	private _VehicleCrew = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 	private _veh = [_pos,blufor,_type,_VehicleCrew,_dir,_flyparam] call GDC_fnc_lucySpawnVehicle;
 	_group = _veh #0;
 	private _veh = _veh #1;

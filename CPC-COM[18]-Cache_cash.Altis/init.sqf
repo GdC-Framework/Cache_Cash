@@ -14,19 +14,13 @@ private _d = if (CC_p_debug) then {0} else {1};
 
 if !(isMultiplayer) then {
 	MODE_EDITEUR = true;
-	switch (CC_p_skillia) do {
-		case 1: {null = [] execVM "scripts\spawn_ia_pluto.sqf";};
-		default {null = [] execVM "scripts\spawn_ia.sqf";}; // GAIA
-	};
+	null = [] execVM "scripts\spawn_ia_pluto.sqf";
 } else {
 	if !(hasInterface or isServer) then {
 		MODE_HC = true;
 		HC_IsPresent = true;
 		publicVariableServer "HC_IsPresent";
-		switch (CC_p_skillia) do {
-			case 1: {null = [] execVM "scripts\spawn_ia_pluto.sqf";};
-			default {null = [] execVM "scripts\spawn_ia.sqf";}; // GAIA
-		};
+		null = [] execVM "scripts\spawn_ia_pluto.sqf";
 	};
 };
 

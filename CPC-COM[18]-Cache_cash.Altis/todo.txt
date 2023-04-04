@@ -1,0 +1,5 @@
+TODO :
+
+
+bugs :
+- certains véhicules spawn avec trop de crew (cause : les fausse tourelles ou certaines tourelles FFV sont comptées)

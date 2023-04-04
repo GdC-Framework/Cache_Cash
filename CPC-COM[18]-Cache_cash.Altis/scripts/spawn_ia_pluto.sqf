@@ -10,6 +10,10 @@ private [
 
 waitUntil {!isnil "cc_MarkersCreated"};
 
+if (CC_p_typeia == 0) then {
+	[] execVM "InitGaia.sqf";
+};
+
 call compile preprocessfilelinenumbers "shk_pos\shk_pos_init.sqf";
 
 /* PARAMETRES */
@@ -76,7 +80,14 @@ _markEx = "1";
 for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,_markEx,100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+	switch (CC_p_typeia) do {
+		case 1: { // PLUTO
+			[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+		};
+		default { // GAIA
+			_group setVariable ["GAIA_ZONE_INTEND",[_mark,"NOFOLLOW"],false];
+		};
+	};
 };
 
 // Fait spawn des technicals (jusqu'à 4) qui patrouillent dans la petite zone 
@@ -92,8 +103,15 @@ if (CC_p_menace_veh_nbr > 0) then {
 		_pos = [_mark,0,_markEx,[100,_type]] call SHK_pos;
 		_veh = [_pos,_side,_type,([_unitTypes,2] call GDC_fnc_creategroupCompo),(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
-		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-		_group setVariable ["PLUTO_ORDER","QRF"];
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+				_group setVariable ["PLUTO_ORDER","QRF"];
+			};
+			default { // GAIA
+				_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
+			};
+		};
 	};
 };
 
@@ -126,7 +144,14 @@ _mark = "1";
 for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,[],100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	[_group,(MarkerPos _mark),100,2,0.2,0] call CBA_fnc_taskDefend;
+	switch (CC_p_typeia) do {
+		case 1: { // PLUTO
+			[_group,(MarkerPos _mark),100,2,0.2,0] call CBA_fnc_taskDefend;
+		};
+		default { // GAIA
+			_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
+		};
+	};
 };
 
 // Fait spawn des groupes (minimum 4) qui patrouillent dans la grande zone
@@ -142,8 +167,15 @@ for "_n" from 1 to _nbr do {
 	{
 		_pos = [_mark,0,_markEx,200] call SHK_pos;
 		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-		[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-		_group setVariable ["PLUTO_ORDER","QRF"];
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+				_group setVariable ["PLUTO_ORDER","QRF"];
+			};
+			default { // GAIA
+				_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
+			};
+		};
 	} foreach [1,2,3,4];
 };
 // Fait spawn des véhicules "lourds" (entre 1 et 8) qui patrouillent dans la grande zone
@@ -166,18 +198,21 @@ if (CC_p_menace_veh_nbr > 0) then {
 			_pos = getpos (selectrandom _roads);
 		};
 		if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
-			_VehicleCrew = [_crew];
-			{
-				_VehicleCrew = _VehicleCrew + [_crew];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 		} else {
-			_VehicleCrew = 1 + (count ([_type,false] call BIS_fnc_allTurrets));
-			_VehicleCrew = ([_unitTypes,_VehicleCrew] call GDC_fnc_creategroupCompo);
+			_group = [_type,_r] call STDR_fnc_getcrewfromvehicleclass;
 		};
-		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
-		[_group,(markerPos _mark),1200,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call STDR_fnc_lucyGroupRandomPatrolOnRoad;
-		_group setVariable ["PLUTO_ORDER","QRF"];
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				[_group,(markerPos _mark),1200,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call STDR_fnc_lucyGroupRandomPatrolOnRoad;
+				_group setVariable ["PLUTO_ORDER","QRF"];
+			};
+			default { // GAIA
+				_group setVariable ["GAIA_ZONE_INTEND",[_mark,"MOVE"],false];
+			};
+		};
 	};
 };
 
@@ -195,16 +230,18 @@ if (CC_p_menace_aa == 1) then {
 		_type = selectrandom _veharray_aa;
 		_pos = [_mark,0,_markEx,[200,_type]] call SHK_pos;
 		if ((_type isKindOf "tank") OR (_type isKindOf "Wheeled_APC_F")) then {
-			_VehicleCrew = [_crew];
-			{
-				_VehicleCrew = _VehicleCrew + [_crew];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 		} else {
-			_VehicleCrew = 1 + (count ([_type,false] call BIS_fnc_allTurrets));
-			_VehicleCrew = ([_unitTypes,_VehicleCrew] call GDC_fnc_creategroupCompo);
+			_group = [_type,_r] call STDR_fnc_getcrewfromvehicleclass;
 		};
-		_veh = [_pos,_side,_type,_VehicleCrew,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
-		_group setVariable ["PLUTO_ORDER","IGNORE"];
+		_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
+		_group = _veh#0; _veh = _veh#1;
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				_group setVariable ["PLUTO_ORDER","IGNORE"];
+			};
+			default {}; // GAIA
+		};
 	};
 };
 
@@ -214,7 +251,14 @@ if (random 100 < 22) then {
 	_pos = [[getmarkerpos "1" select 0, getmarkerpos "1" select 1,0],2000,(_dir + ((random 20)-10)),0] call SHK_pos;
 	_veh = [_pos,_side,"B_G_Mortar_01_F",[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 	_group = _veh#0; _veh = _veh#1;
-	_group setVariable ["PLUTO_ORDER","ARTY"];
+	switch (CC_p_typeia) do {
+		case 1: { // PLUTO
+			_group setVariable ["PLUTO_ORDER","ARTY"];
+		};
+		default { // GAIA
+			_group setVariable ["GAIA_ZONE_INTEND",["3","NOFOLLOW"],false];
+		};
+	};
 };
 
 //Fait spawn des petits camps (jusqu'à 4) dans la grande zone avec un groupe dessus en FORTIFY
@@ -228,8 +272,20 @@ if (random 100 < 22) then {
 			_pos
 			, selectrandom ["campA","campB","campC","campD","campE","campF"]
 		] execVM "scripts\create_camp.sqf";
-		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-		[_group,_pos,50,2,0.2,0] call CBA_fnc_taskDefend;
+		_group = [(_pos getpos [10,(random 360)]),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				[_group,_pos,50,2,0.2,0] call CBA_fnc_taskDefend;
+			};
+			default { // GAIA
+				_mark = createMarker [format["CPos%1",_pos],_pos];
+				_mark setmarkerColor "colorRed";
+				_mark setMarkerShape "ELLIPSE";
+				_mark setMarkerSize [50,51];
+				_mark setMarkerAlpha 0;
+				_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
+			};
+		};
 	};
 } foreach [40,20,5,2];
 
@@ -265,8 +321,15 @@ if (random 100 < 75) then {
 	_veh setdir random 360;
 	"4" setmarkerpos _pos;
 	_group = [(getpos _veh),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	(leader _group) setPosATL (_veh buildingPos 1);
-	[_group,_pos,50,1,0.1,0] call CBA_fnc_taskDefend;
+	(leader _group) setPos (_veh buildingPos 1);
+	switch (CC_p_typeia) do {
+		case 1: { // PLUTO
+			[_group,_pos,50,1,0.1,0] call CBA_fnc_taskDefend;
+		};
+		default { // GAIA
+			_group setVariable ["GAIA_ZONE_INTEND",["4","FORTIFY"],false];
+		};
+	};
 };
 
 //hélico qui patrouille dans la grande zone
@@ -276,17 +339,19 @@ if (CC_p_menace_air == 1) then {
 			_mark = "2";
 			_markEx = "1";
 			_type = selectRandom _veharray_air;
-			_group = [_pilot];
-			{
-				_group = _group + [_pilot];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_pilot] call STDR_fnc_getcrewfromvehicleclass;
 			_pos = [_mark,0,_markEx,[300,_type]] call SHK_pos;
-			//_veh = [_pos,(random 360),_type,_side] call BIS_fnc_spawnVehicle;
 			_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,0]] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh #0;
-			[_group,"3",["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-			_group setVariable ["PLUTO_ORDER","QRF"];
-			[(units _group)] call STDR_fnc_setskill;
+			switch (CC_p_typeia) do {
+				case 1: { // PLUTO
+					[_group,"3",["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
+					_group setVariable ["PLUTO_ORDER","QRF"];
+				};
+				default { // GAIA
+					_group setVariable ["GAIA_ZONE_INTEND",["3","MOVE"],false];
+				};
+			};
 		};
 	};
 };
@@ -305,7 +370,19 @@ private _houseOutlist = [];
 		_houseOutlist = _houseOutlist + [_x];
 		_pos = getpos _x;
 		_group = [_pos,_side,([_unitTypes,2] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-		[_group,_pos,50,3,0.2,0] call CBA_fnc_taskDefend;
+		switch (CC_p_typeia) do {
+			case 1: { // PLUTO
+				[_group,_pos,50,3,0.2,0] call CBA_fnc_taskDefend;
+			};
+			default { // GAIA
+				_mark = createMarker [format["BPos%1",_pos],_pos];
+				_mark setmarkerColor "colorPink";
+				_mark setMarkerShape "ELLIPSE";
+				_mark setMarkerSize [40,40];
+				_mark setMarkerAlpha 0;
+				_group setVariable ["GAIA_ZONE_INTEND",[_mark,"FORTIFY"],false];
+			};
+		};
 		if ((!chefIA_create) AND (random 100 < 20) AND !(["1",_pos] call BIS_fnc_inTrigger)) then {
 			private _group_chef = [_pos,_side,[_tl]] call GDC_fnc_lucySpawnGroupInf;
 			chefIA = (units _group_chef) #0;
@@ -364,19 +441,21 @@ hint "FIN DU SPAWN";
 private _total_ennemis = count (allunits select {side _x == _side});
 
 // PLUTO
-gdc_plutoDebug = false;
-[
-	[_side],				//0 camp
-	[1000,2000,6000],	//1 revealRange [man,land,air]
-	[1500,2000,3000],	//2 sensorRange [man,land,air]
-	120,				//3 QRFtimeout
-	[1000,2000,6000],	//4 QRFrange [man,land,air]
-	[20,30,60],			//5 QRFdelay [min,mid,max]
-	240,				//6 ARTYtimeout
-	[20,30,60],			//7 ARTYdelay [min,mid,max]
-	[1,2,4],			//8 ARTYrounds [min,mid,max]
-	[0,40,100]			//9 ARTYerror [min,mid,max]
-] call GDC_fnc_pluto;
+if (CC_p_typeia == 1) then {
+	gdc_plutoDebug = false;
+	[
+		[_side],				//0 camp
+		[1000,2000,6000],	//1 revealRange [man,land,air]
+		[1500,2000,3000],	//2 sensorRange [man,land,air]
+		120,				//3 QRFtimeout
+		[1000,2000,6000],	//4 QRFrange [man,land,air]
+		[20,30,60],			//5 QRFdelay [min,mid,max]
+		240,				//6 ARTYtimeout
+		[20,30,60],			//7 ARTYdelay [min,mid,max]
+		[1,2,4],			//8 ARTYrounds [min,mid,max]
+		[0,40,100]			//9 ARTYerror [min,mid,max]
+	] call GDC_fnc_pluto;
+};
 
 /* RENFORTS */
 
@@ -438,7 +517,7 @@ while {true} do {
 				[(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];","2",0
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
@@ -446,10 +525,7 @@ while {true} do {
 			// technical
 			_type = selectRandom _veharray_light;
 			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
-			_group = [_r];
-			{
-				_group = _group + [_r];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_r] call STDR_fnc_getcrewfromvehicleclass;
 			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh#0; _veh = _veh#1;
 			_group setVariable ["PLUTO_ORDER","IGNORE"];
@@ -460,7 +536,7 @@ while {true} do {
 				[_pos,(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];",500,100
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
@@ -468,10 +544,7 @@ while {true} do {
 			// blindé
 			_type = selectRandom _veharray_medium;
 			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
-			_group = [_crew];
-			{
-				_group = _group + [_crew];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh#0; _veh = _veh#1;
 			_group setVariable ["PLUTO_ORDER","IGNORE"];
@@ -482,7 +555,7 @@ while {true} do {
 				[_pos,(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];",500,100
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
@@ -490,10 +563,7 @@ while {true} do {
 			// tank
 			_type = selectRandom _veharray_heavy;
 			_pos = [getMarkerPos "1",[1500,1800],random 360,0,[1,500],_type] call SHK_pos;
-			_group = [_crew];
-			{
-				_group = _group + [_crew];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 			_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh#0; _veh = _veh#1;
 			_group setVariable ["PLUTO_ORDER","IGNORE"];
@@ -504,17 +574,14 @@ while {true} do {
 				[_pos,(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];",500,100
+				"MOVE",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];",500,100
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
 		case "heliportes": {
 			// Infanterie transportée par hélicoptère
 			_type = selectRandom _veharray_heli;
-			_group = [_pilot];
-			{
-				_group = _group + [_pilot];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_pilot] call STDR_fnc_getcrewfromvehicleclass;
 			_pos = (getMarkerPos "1") getPos [8000,random 360];
 			_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,20]] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh#0; _veh = _veh#1;
@@ -536,7 +603,7 @@ while {true} do {
 				[(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];","2",0
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
@@ -562,16 +629,13 @@ while {true} do {
 				[(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];","2",0
 			] call GDC_fnc_lucyReinforcement;
 		};
 		case "air": {
 			// Hélicoptère ou avion de combat
 			_type = selectRandom _veharray_air;
-			_group = [_pilot];
-			{
-				_group = _group + [_pilot];
-			} forEach ([_type,false] call BIS_fnc_allTurrets);
+			_group = [_type,_pilot] call STDR_fnc_getcrewfromvehicleclass;
 			_pos = (getMarkerPos "1") getPos [8000,random 360];
 			if (_type isKindOf "plane") then {
 				_veh = [_pos,_side,_type,_group,(random 360),["FLY",50,90]] call GDC_fnc_lucySpawnVehicle;
@@ -580,7 +644,14 @@ while {true} do {
 			};
 			_group = _veh#0; _veh = _veh#1;
 			[_group,"3",["MOVE","NORMAL","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
-			_group setVariable ["PLUTO_ORDER","QRF"];
+			switch (CC_p_typeia) do {
+				case 1: { // PLUTO
+					_group setVariable ["PLUTO_ORDER","QRF"];
+				};
+				default { // GAIA
+					_group setVariable ["GAIA_ZONE_INTEND",["3","MOVE"],false];
+				};
+			};
 			[(units _group)] call STDR_fnc_setskill;
 		};
 		case "infanterie";
@@ -593,7 +664,7 @@ while {true} do {
 				[(getMarkerPos "1")],
 				"true",[0,0,0],
 				["NORMAL","AWARE","YELLOW"],"NO CHANGE",
-				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF'];","2",0
+				"SAD",["NORMAL","AWARE","RED"],"NO CHANGE","(group this) setVariable ['PLUTO_ORDER','QRF']; (group this) setVariable ['GAIA_ZONE_INTEND',['3','MOVE'],false];","2",0
 			] call GDC_fnc_lucyReinforcement;
 			[(units _group)] call STDR_fnc_setskill;
 		};
