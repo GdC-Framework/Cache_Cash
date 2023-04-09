@@ -250,7 +250,7 @@ if (CC_p_menace_aa == 1) then {
 };
 
 // Fait spawn un mortier qui bombarde la grande zone
-if (random 100 < 22) then {
+if (random 100 < 25) then {
 	_dir = [[getMarkerPos "Mark_Inser" select 0,getMarkerPos "Mark_Inser" select 1,0],[getMarkerPos "1" select 0,getMarkerPos "1" select 1,0]] call BIS_fnc_dirTo;
 	_pos = [[getmarkerpos "1" select 0, getmarkerpos "1" select 1,0],2000,(_dir + ((random 20)-10)),0] call SHK_pos;
 	_veh = [_pos,_side,"B_G_Mortar_01_F",[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
@@ -258,6 +258,8 @@ if (random 100 < 22) then {
 	switch (CC_p_typeia) do {
 		case 1: { // PLUTO
 			_group setVariable ["PLUTO_ORDER","ARTY"];
+			_group setVariable ["PLUTO_REVEALRANGE",5000];
+			_group setVariable ["PLUTO_ARTYRANGE","3"];
 		};
 		default { // GAIA
 			_group setVariable ["GAIA_ZONE_INTEND",["3","NOFOLLOW"],false];
