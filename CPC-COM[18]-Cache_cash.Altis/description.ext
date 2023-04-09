@@ -156,7 +156,7 @@ class Params
 		title = "> SSS Hélico de transport";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
-		default = 1;
+		default = 0;
 	};
 	class sss_drone
 	{
@@ -244,16 +244,16 @@ class Params
 		texts[] = {"Aucun","Normal","Beaucoup"};
 		default = 1;
 	};
+	class menace_air
+	{
+		title = "=> Présence possible de véhicules aériens ennemis :";
+		values[] = {0,1,2};
+		texts[] = {"Non","Hélicos","Hélicos et avions"};
+		default = 0;
+	};
 	class menace_aa
 	{
 		title = "=> Présence d'armements AA (infanterie + véhicules) :";
-		values[] = {0,1};
-		texts[] = {"Non","Oui"};
-		default = 0;
-	};
-	class menace_air
-	{
-		title = "=> Présence possible de véhicules aériens ennemis (helicos + avions) :";
 		values[] = {0,1};
 		texts[] = {"Non","Oui"};
 		default = 0;

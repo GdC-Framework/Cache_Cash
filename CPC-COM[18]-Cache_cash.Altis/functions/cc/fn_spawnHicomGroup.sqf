@@ -117,7 +117,7 @@ if (_id == "") then {
 _group setGroupIdGlobal [_id];
 
 //ajout au Zeus
-cpc_hicom_logic_1 synchronizeObjectsAdd _objects;
+[cpc_hicom_logic_1,_objects] remoteExec ["synchronizeObjectsAdd"];
 {
 	_x addCuratorEditableObjects [_objects,false];
 } forEach gdc_zeushicommodules;

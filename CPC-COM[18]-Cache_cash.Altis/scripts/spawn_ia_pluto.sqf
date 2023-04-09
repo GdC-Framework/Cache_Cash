@@ -69,6 +69,10 @@ if (CC_p_menace_veh_type > 2) then { // Encore plus de véhicules lourds
 	_vehTypes = _vehTypes + _veharray_heavy;
 };
 
+if (CC_p_menace_air < 2) then {
+	_veharray_air = _veharray_air select {_x isKindOf "helicopter"};
+};
+
 waituntil {time > 10};
 
 /* SPAWN */
@@ -321,7 +325,7 @@ if (random 100 < 75) then {
 	_veh setdir random 360;
 	"4" setmarkerpos _pos;
 	_group = [(getpos _veh),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
-	(leader _group) setPos (_veh buildingPos 1);
+	private _unit = [_m,[((AGLToASL (_veh buildingPos 1)) + [((getdir _veh) - 90)])],_side,"UP"] call GDC_fnc_lucySpawnStaticInf;
 	switch (CC_p_typeia) do {
 		case 1: { // PLUTO
 			[_group,_pos,50,1,0.1,0] call CBA_fnc_taskDefend;
@@ -332,16 +336,23 @@ if (random 100 < 75) then {
 	};
 };
 
-//hélico qui patrouille dans la grande zone
-if (CC_p_menace_air == 1) then {
-	for "_i" from 1 to 2 do {
-		if (((count _veharray_air) != 0) AND (random 100 < 50)) then {
+//hélico/avion qui patrouillent dans la grande zone
+_nbr = switch (CC_p_difficulty) do {
+	case 0: {[75]};
+	case 1: {[100,50]};
+	case 2: {[100,50,25]};
+	case 3: {[100,75,50,25]};
+};
+if ((CC_p_menace_air > 0) && ((count _veharray_air) > 0)) then {
+	{
+		if (random 100 < _x) then {
 			_mark = "2";
 			_markEx = "1";
 			_type = selectRandom _veharray_air;
 			_group = [_type,_pilot] call STDR_fnc_getcrewfromvehicleclass;
 			_pos = [_mark,0,_markEx,[300,_type]] call SHK_pos;
-			_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,0]] call GDC_fnc_lucySpawnVehicle;
+			private _flyparam = if (_type isKindOf "plane") then {["FLY",300,90]} else {["FLY",30,0]};
+			_veh = [_pos,_side,_type,_group,(random 360),_flyparam] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh #0;
 			switch (CC_p_typeia) do {
 				case 1: { // PLUTO
@@ -353,7 +364,7 @@ if (CC_p_menace_air == 1) then {
 				};
 			};
 		};
-	};
+	} forEach _nbr;
 };
 
 //Fait spawn des binomes dans les batiments de la grande zone et les assigne en FORTIFY à cette zone
@@ -638,7 +649,7 @@ while {true} do {
 			_group = [_type,_pilot] call STDR_fnc_getcrewfromvehicleclass;
 			_pos = (getMarkerPos "1") getPos [8000,random 360];
 			if (_type isKindOf "plane") then {
-				_veh = [_pos,_side,_type,_group,(random 360),["FLY",50,90]] call GDC_fnc_lucySpawnVehicle;
+				_veh = [_pos,_side,_type,_group,(random 360),["FLY",300,90]] call GDC_fnc_lucySpawnVehicle;
 			} else {
 				_veh = [_pos,_side,_type,_group,(random 360),["FLY",30,20]] call GDC_fnc_lucySpawnVehicle;
 			};

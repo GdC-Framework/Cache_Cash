@@ -25,13 +25,13 @@ publicVariable "Random_Position";
 _Cargo = "Land_Cargo20_military_green_F" createVehicle [0,0,0];
 _Cargo setpos [(_center select 0) + 2,_center select 1,1];
 cible setpos [(_center select 0) + 2,_center select 1,1.5];
-"Mark_Cible" setmarkerpos [(_center select 0)+(random 300)-150,(_center select 1)+(random 300)-150,0];
+_pos = [(_center select 0)+(random 300)-150,(_center select 1)+(random 300)-150,0];
+"Mark_Cible" setmarkerpos _pos;
 "Mark_Cible" setmarkerAlpha 0.6;
-_pos = markerpos "Mark_Cible";
 "Mark_Cible_1" setmarkerpos _pos;
-"1" setmarkerpos getpos cible;
-"2" setmarkerpos markerpos "Mark_Cible";
-"3" setmarkerpos markerpos "Mark_Cible_1";
+"1" setmarkerpos _center;
+"2" setmarkerpos _pos;
+"3" setmarkerpos _pos;
 
 cc_objOK = true;
 publicVariable "cc_objOK";

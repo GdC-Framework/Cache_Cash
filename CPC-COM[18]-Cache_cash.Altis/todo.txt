@@ -1,5 +1,13 @@
 TODO :
-
+pouvoir choisir si village/fob/camp
+hicom : pouvoir changer le marker BFT
+pouvoir placer la caisse de matos soi-même
 
 bugs :
-- certains véhicules spawn avec trop de crew (cause : les fausse tourelles ou certaines tourelles FFV sont comptées)
+- les véhicules HICOM ont du mal à démarrer.
+- certains véhicules spawnent avec trop de crew (cause : les fausses tourelles ou certaines tourelles FFV sont comptées)
+- parfois les markers de zone ia ne sont pas au bon endroit, et le camp n'est pas crée
+
+tests serveur :
+HICOM BFT et OFT
+Params acre zeus

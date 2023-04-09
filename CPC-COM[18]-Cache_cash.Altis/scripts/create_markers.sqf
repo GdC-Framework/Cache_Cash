@@ -98,7 +98,7 @@ switch (CPC_MAP) do {
 		CPC_FullMoon = [2016,6,29,0,0];
 		publicVariable "CPC_FullMoon";
 		_mkz_whitelist = [
-			[[6499.09,6499.61,0],"RECTANGLE",[6002.91,6001.42],0]
+			[[6502.69,6494.06,0],"RECTANGLE",[5497.66,5507.39],0]
 		];
 		_mkz_blacklist = [
 			[[5710.79,11393.7,0],"RECTANGLE",[937.946,434.322],134.145],
