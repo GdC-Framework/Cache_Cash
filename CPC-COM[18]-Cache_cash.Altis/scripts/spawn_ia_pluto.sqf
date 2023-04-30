@@ -94,7 +94,7 @@ for "_n" from 1 to _nbr do {
 	};
 };
 
-// Fait spawn des technicals (jusqu'à 4) qui patrouillent dans la petite zone 
+// Fait spawn des technicals (jusqu'à 4) qui patrouillent dans la petite zone
 _nbr = switch (CC_p_difficulty) do {
 	case 0: {2};
 	case 1: {2 + (floor random 2)};
@@ -190,7 +190,7 @@ _nbr = switch (CC_p_difficulty) do {
 	case 3: {(floor random 3) + 2};
 };
 if (CC_p_menace_veh_nbr > 0) then {
-	if (CC_p_menace_veh_nbr == 2) then {_nbr = _nbr + 1 + CC_p_difficulty;}; 
+	if (CC_p_menace_veh_nbr == 2) then {_nbr = _nbr + 1 + CC_p_difficulty;};
 	_mark = "3";
 	_markEx = "2";
 	for "_n" from 1 to _nbr do {
@@ -454,20 +454,27 @@ hint "FIN DU SPAWN";
 private _total_ennemis = count (allunits select {side _x == _side});
 
 // PLUTO
-if (CC_p_typeia == 1) then {
-	gdc_plutoDebug = false;
-	[
-		[_side],				//0 camp
-		[1000,2000,6000],	//1 revealRange [man,land,air]
-		[1500,2000,3000],	//2 sensorRange [man,land,air]
-		120,				//3 QRFtimeout
-		[1000,2000,6000],	//4 QRFrange [man,land,air]
-		[20,30,60],			//5 QRFdelay [min,mid,max]
-		240,				//6 ARTYtimeout
-		[20,30,60],			//7 ARTYdelay [min,mid,max]
-		[1,2,4],			//8 ARTYrounds [min,mid,max]
-		[0,40,100]			//9 ARTYerror [min,mid,max]
-	] call GDC_fnc_pluto;
+switch (CC_p_typeia) do {
+	case 0: { diag_log "Gaia enable." };
+	case 1: {
+		gdc_plutoDebug = false;
+		[
+			[_side],				//0 camp
+			[1000,2000,6000],	//1 revealRange [man,land,air]
+			[1500,2000,3000],	//2 sensorRange [man,land,air]
+			120,				//3 QRFtimeout
+			[1000,2000,6000],	//4 QRFrange [man,land,air]
+			[20,30,60],			//5 QRFdelay [min,mid,max]
+			240,				//6 ARTYtimeout
+			[20,30,60],			//7 ARTYdelay [min,mid,max]
+			[1,2,4],			//8 ARTYrounds [min,mid,max]
+			[0,40,100]			//9 ARTYerror [min,mid,max]
+		] call GDC_fnc_pluto;
+	};
+	case 2: {
+		[] remoteExec ["VCM_fnc_VcomInit"];
+	};
+	default { throw "Error: AI case not implemented" };
 };
 
 /* RENFORTS */
@@ -691,5 +698,5 @@ while {true} do {
 			case 2: {sleep (300 + (random 300));};
 			case 3: {sleep (random 600);};
 		};
-	};	
+	};
 };
