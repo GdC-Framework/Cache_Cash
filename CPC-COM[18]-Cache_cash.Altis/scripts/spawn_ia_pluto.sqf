@@ -85,6 +85,7 @@ for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,_markEx,100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	switch (CC_p_typeia) do {
+		case 2;
 		case 1: { // PLUTO
 			[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 		};
@@ -108,6 +109,7 @@ if (CC_p_menace_veh_nbr > 0) then {
 		_veh = [_pos,_side,_type,([_unitTypes,2] call GDC_fnc_creategroupCompo),(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
 		switch (CC_p_typeia) do {
+			case 2;
 			case 1: { // PLUTO
 				[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 				_group setVariable ["PLUTO_ORDER","QRF"];
@@ -149,6 +151,7 @@ for "_n" from 1 to _nbr do {
 	_pos = [_mark,0,[],100] call SHK_pos;
 	_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	switch (CC_p_typeia) do {
+		case 2;
 		case 1: { // PLUTO
 			[_group,(MarkerPos _mark),100,2,0.2,0] call CBA_fnc_taskDefend;
 		};
@@ -172,6 +175,7 @@ for "_n" from 1 to _nbr do {
 		_pos = [_mark,0,_markEx,200] call SHK_pos;
 		_group = [_pos,_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		switch (CC_p_typeia) do {
+			case 2;
 			case 1: { // PLUTO
 				[_group,_mark,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 				_group setVariable ["PLUTO_ORDER","QRF"];
@@ -209,6 +213,7 @@ if (CC_p_menace_veh_nbr > 0) then {
 		_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0;
 		switch (CC_p_typeia) do {
+			case 2;
 			case 1: { // PLUTO
 				[_group,(markerPos _mark),1200,["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call STDR_fnc_lucyGroupRandomPatrolOnRoad;
 				_group setVariable ["PLUTO_ORDER","QRF"];
@@ -241,6 +246,9 @@ if (CC_p_menace_aa == 1) then {
 		_veh = [_pos,_side,_type,_group,(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 		_group = _veh#0; _veh = _veh#1;
 		switch (CC_p_typeia) do {
+			case 2: { // VCOM
+				
+			};
 			case 1: { // PLUTO
 				_group setVariable ["PLUTO_ORDER","IGNORE"];
 			};
@@ -256,6 +264,9 @@ if (random 100 < 25) then {
 	_veh = [_pos,_side,"B_G_Mortar_01_F",[_r],(random 360),["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 	_group = _veh#0; _veh = _veh#1;
 	switch (CC_p_typeia) do {
+		case 2: { // VCOM
+			
+		};
 		case 1: { // PLUTO
 			_group setVariable ["PLUTO_ORDER","ARTY"];
 			_group setVariable ["PLUTO_REVEALRANGE",5000];
@@ -280,6 +291,7 @@ if (random 100 < 25) then {
 		] execVM "scripts\create_camp.sqf";
 		_group = [(_pos getpos [10,(random 360)]),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		switch (CC_p_typeia) do {
+			case 2;
 			case 1: { // PLUTO
 				[_group,_pos,50,2,0.2,0] call CBA_fnc_taskDefend;
 			};
@@ -329,6 +341,7 @@ if (random 100 < 75) then {
 	_group = [(getpos _veh),_side,([_unitTypes,[2,3,5],_tl] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 	private _unit = [_m,[((AGLToASL (_veh buildingPos 1)) + [((getdir _veh) - 90)])],_side,"UP"] call GDC_fnc_lucySpawnStaticInf;
 	switch (CC_p_typeia) do {
+		case 2;
 		case 1: { // PLUTO
 			[_group,_pos,50,1,0.1,0] call CBA_fnc_taskDefend;
 		};
@@ -357,6 +370,7 @@ if ((CC_p_menace_air > 0) && ((count _veharray_air) > 0)) then {
 			_veh = [_pos,_side,_type,_group,(random 360),_flyparam] call GDC_fnc_lucySpawnVehicle;
 			_group = _veh #0;
 			switch (CC_p_typeia) do {
+				case 2;
 				case 1: { // PLUTO
 					[_group,"3",["MOVE","LIMITED","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 					_group setVariable ["PLUTO_ORDER","QRF"];
@@ -384,6 +398,7 @@ private _houseOutlist = [];
 		_pos = getpos _x;
 		_group = [_pos,_side,([_unitTypes,2] call GDC_fnc_creategroupCompo)] call GDC_fnc_lucySpawnGroupInf;
 		switch (CC_p_typeia) do {
+			case 2;
 			case 1: { // PLUTO
 				[_group,_pos,50,3,0.2,0] call CBA_fnc_taskDefend;
 			};
@@ -665,6 +680,9 @@ while {true} do {
 			_group = _veh#0; _veh = _veh#1;
 			[_group,"3",["MOVE","NORMAL","SAFE","YELLOW","WEDGE"]] call GDC_fnc_lucyGroupRandomPatrol;
 			switch (CC_p_typeia) do {
+				case 2: { // VCOM
+					
+				};
 				case 1: { // PLUTO
 					_group setVariable ["PLUTO_ORDER","QRF"];
 				};
