@@ -15,7 +15,28 @@ if (CC_p_vehicle > 0) then {
 		<br/>- Le véhicule est crée 10m devant le joueur.
 		<br/>- L'action disparaît après 10 minutes ou lorsque le nombre de véhicules disponibles est égal à 0.
 		<br/><br/>Nombre de véhicules disponibles : " + _nbr;
-		player createDiaryRecord ["Diary",["Véhicules",_txt]];
+	player createDiaryRecord ["Diary",["Véhicules",_txt]];
+};
+
+if (CC_P_ssshelico > 0) then {
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer des hélicoptères de transport SSS au moyen d'une action disponible dans le menu molette.
+		<br/>- Il est possible de créer différents types d'hélicos en fonction de la faction jouée.
+		<br/>- L'action molette disparaît après 10 minutes.";
+	player createDiaryRecord ["Diary",["SSS Helico",_txt]];
+};
+
+if (CC_P_sssarty > 0) then {
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer des artillerie SSS au moyen d'une action disponible dans le menu molette.
+		<br/>- Il est possible de créer des mortiers, des canons et des mlrs.
+		<br/>- L'action molette disparaît après 10 minutes.";
+	player createDiaryRecord ["Diary",["SSS Arty",_txt]];
+};
+
+if (CC_p_hicom > 0) then {
+	_txt = "Une fois en jeu, les chefs de groupes peuvent créer des groupes HICOM au moyen d'une action disponible dans le menu molette.
+		<br/>- Il est possible de créer des groupes d'infanterie et des véhicules.
+		<br/>- L'action molette disparaît après 10 minutes.";
+	player createDiaryRecord ["Diary",["HICOM",_txt]];
 };
 
 player createDiaryRecord ["Diary",["Extraction",

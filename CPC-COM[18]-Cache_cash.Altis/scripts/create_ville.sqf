@@ -26,7 +26,7 @@ _d = 20;
 {
 	for "_i" from 1 to 310 step _x do {
 		_p = [(_pos select 0) + ((sin (_dir + (_i)))*_d),(_pos select 1)  + ((cos (_dir + (_i)))*_d), 0];
-		if (((count (_p nearRoads 12)) == 0) AND !(isOnRoad _p)) then {
+		if (((count (_p nearRoads 12)) == 0) AND !(isOnRoad _p) AND !(surfaceIsWater _p)) then {
 			{ _x hideObjectGlobal true;} forEach (nearestTerrainObjects [_p,[],12]);
 			_type = selectRandom _typeHouse;
 			_objet = _type CreateVehicle _p;

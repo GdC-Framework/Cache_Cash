@@ -317,10 +317,10 @@ loadoutCC_GL = //
 	_unit setUnitLoadout [
 		_weap_cco,
 		[],
-		_pistol,
+		["rhs_weap_M320","","","",["CUP_1Rnd_HEDP_M203",1],[],""],
 		[_uniform,_itemsU_base],
-		[_vest_1,[["HandGrenade",4,1],["CUP_25Rnd_556x45_Famas",5,25]]],
-		[_backpack_med,[["CUP_25Rnd_556x45_Famas",2,25],["HandGrenade",6,1],["SmokeShellBlue",6,1],["ACE_HandFlare_Green",6,1],["SmokeShell",2,1]]],
+		[_vest_1,_itemsV_base],
+		[_backpack_med,[["CUP_1Rnd_HEDP_M203",14,1],["CUP_1Rnd_SmokeRed_M203",6,1],["CUP_1Rnd_StarFlare_Green_M203",6,1],["SmokeShell",2,1],["HandGrenade",2,1]]],
 		_helmet,
 		_facewear,
 		["ACE_Vector","","","",[],[],""],

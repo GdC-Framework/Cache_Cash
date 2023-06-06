@@ -47,13 +47,15 @@ execVM "briefing.sqf";
 [] call GDC_fnc_inventoryBriefing; // lancement du script qui affiche le loadout lors du briefing.
 [] call GDC_fnc_rosterBriefing; // lancement du script qui affiche le roster lors du briefing.
 
+if (CC_p_bft == 1) then {["ACE_microDAGR"] call GDC_fnc_bft;};
+
 player allowdamage false;
 
 waitUntil {time > 1};
 if ((uniform playerUnit) == "") then {
-[playerUnit] call hard_setLoadout;
-playerUnit setVariable ["loadout_done", true, true];
-playerUnit action ["WeaponOnBack", playerUnit];
+	[playerUnit] call hard_setLoadout;
+	playerUnit setVariable ["loadout_done", true, true];
+	playerUnit action ["WeaponOnBack", playerUnit];
 };
 
 waitUntil {time > 10};

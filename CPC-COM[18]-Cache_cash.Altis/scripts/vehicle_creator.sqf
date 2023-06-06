@@ -75,7 +75,7 @@ cc_action_vehiclecreator = player addaction ["<t color='#B404AE'>créer vehicule
 	["Open",true] call BIS_fnc_garage;
 },"",1.5,false,true,"","(rank player == 'SERGEANT') && (CC_p_vehicle > 0)"];
 
-// l'action est suprimée au bout 10 minutes ou si le nombre de véhicules disponible et égal à 0
+// l'action est suprimée au bout 10 minutes ou si le nombre de véhicules disponible est égal à 0
 waitUntil {(CC_p_vehicle < 1) OR (time > 600)};
 player removeaction cc_action_vehiclecreator;
 
