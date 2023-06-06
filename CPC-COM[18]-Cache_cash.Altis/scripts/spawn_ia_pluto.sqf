@@ -247,7 +247,7 @@ if (CC_p_menace_aa == 1) then {
 		_group = _veh#0; _veh = _veh#1;
 		switch (CC_p_typeia) do {
 			case 2: { // VCOM
-				
+				_group setVariable ["Vcm_Disable",true];
 			};
 			case 1: { // PLUTO
 				_group setVariable ["PLUTO_ORDER","IGNORE"];
@@ -265,7 +265,7 @@ if (random 100 < 25) then {
 	_group = _veh#0; _veh = _veh#1;
 	switch (CC_p_typeia) do {
 		case 2: { // VCOM
-			
+			//nothing needed
 		};
 		case 1: { // PLUTO
 			_group setVariable ["PLUTO_ORDER","ARTY"];
