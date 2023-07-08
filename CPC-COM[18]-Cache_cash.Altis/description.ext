@@ -188,11 +188,11 @@ class Params
 		values[] = {
 			1,2,3,4,5,
 			101,102,103,104,105,106,107,
-			201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217
+			201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218
 		};
 		texts[] =
 		{
-			"FIA",
+			"Insurgés (adaptatifs)",
 			"NATO",
 			"CSAT",
 			"AAF",
@@ -220,9 +220,10 @@ class Params
 			"CUP : Viet Cong", //214
 			"CUP : US (vietnam)", //215
 			"CUP : Horizon Island Legion", //216
-			"CUP : Allemagne" //217
+			"CUP : Allemagne", //217
+			"CUP : Insurgés (adaptatifs)" //218
 		};
-		default = 101;
+		default = 218;
 	};
 	class menace_at
 	{
@@ -2096,5 +2097,67 @@ class CC_ennemy
 		};
 		class jungle: woodland {};
 		class winter: woodland {};
+	};
+	class ins_cup: cc_faction_ins
+	{
+		class polyvalent
+		{
+			r = "CUP_O_INS_Soldier";
+			tl = "CUP_O_INS_Officer";
+			gl = "CUP_O_INS_Soldier_GL";
+			lat = "CUP_O_INS_Soldier_LAT";
+			at = "CUP_O_INS_Soldier_AT";
+			mg = "CUP_O_INS_Soldier_MG";
+			m = "CUP_O_INS_Sniper";
+			aa = "CUP_O_INS_Soldier_AA";
+			crew = "CUP_O_INS_Crew";
+			veharray_light[] = {"CUP_O_UAZ_MG_CHDKZ","CUP_O_UAZ_MG_CHDKZ","CUP_O_Hilux_DSHKM_CHDKZ","CUP_O_UAZ_AGS30_CHDKZ"};
+			veharray_medium[] = {"CUP_O_BRDM2_CHDKZ","CUP_O_BRDM2_CHDKZ","CUP_O_BTR60_CHDKZ","CUP_O_BTR80_CHDKZ"};
+			veharray_heavy[] = {"CUP_O_BMP2_CHDKZ","CUP_O_T55_CHDKZ","CUP_O_T55_CHDKZ","CUP_O_T72_CHDKZ"};
+			veharray_transport[] = {"CUP_O_Ural_CHDKZ","CUP_O_Ural_CHDKZ","CUP_O_Ural_Open_CHDKZ"};
+			veharray_heli[] = {};
+			veharray_air[] = {};
+			veharray_aa[] = {"CUP_O_Hilux_zu23_CHDKZ","CUP_O_Ural_ZU23_CHDKZ"};
+			hmg = "CUP_O_DSHKM_ChDKZ";
+			pilot = "";
+			plane = "";
+		};
+		class woodland: polyvalent {};
+		class desert: polyvalent
+		{
+			r = "CUP_I_TK_GUE_Soldier";
+			tl = "CUP_I_TK_GUE_Soldier_TL";
+			gl = "CUP_I_TK_GUE_Soldier_GL";
+			lat = "CUP_I_TK_GUE_Soldier_LAT";
+			at = "CUP_I_TK_GUE_Soldier_AT";
+			mg = "CUP_I_TK_GUE_Soldier_MG";
+			m = "CUP_I_TK_GUE_Sniper";
+			aa = "CUP_I_TK_GUE_Soldier_AA";
+			crew = "CUP_I_TK_GUE_Soldier_AK_47S";
+			veharray_light[] = {"CUP_I_Hilux_DSHKM_TK","CUP_I_Hilux_M2_TK","CUP_I_Hilux_armored_DSHKM_TK","CUP_I_Hilux_AGS30_TK","CUP_I_BTR40_MG_TKG"};
+			veharray_medium[] = {"CUP_I_BMP1_TK_GUE","CUP_I_BRDM2_TK_Gue","CUP_I_BRDM2_TK_Gue","CUP_I_Hilux_armored_zu23_TK"};
+			veharray_heavy[] = {"CUP_I_T55_TK_GUE","CUP_I_T55_TK_GUE","CUP_I_T34_TK_GUE"};
+			veharray_transport[] = {"CUP_I_V3S_Covered_TKG","CUP_I_V3S_Covered_TKG","CUP_I_V3S_Open_TKG"};
+			veharray_aa[] = {"CUP_I_Ural_ZU23_TK_Gue"};
+		};
+		class jungle: woodland
+		{
+			r = "CPC_LAT_I_PIC_soldier_2";
+			tl = "CPC_LAT_I_PIC_soldier_TL";
+			gl = "CPC_LAT_I_PIC_soldier_GL";
+			lat = "CPC_LAT_I_PIC_soldier_LAT";
+			at = "CPC_LAT_I_PIC_soldier_AT";
+			mg = "CPC_LAT_I_PIC_soldier_MG";
+			m = "CPC_LAT_I_PIC_soldier_M";
+			aa = "CPC_LAT_I_PIC_soldier_AA";
+			crew = "CPC_LAT_I_PIC_soldier_2";
+			veharray_light[] = {"CPC_LAT_I_PIC_Hilux_DSHKM","CPC_LAT_I_PIC_Hilux_DSHKM","CPC_LAT_I_PIC_Hilux_M2","CPC_LAT_I_PIC_BTR40_MG"};
+			veharray_medium[] = {"CUP_I_BMP1_TK_GUE","CUP_I_BRDM2_NAPA","CUP_I_BRDM2_NAPA"};
+			veharray_heavy[] = {"CUP_I_T34_NAPA","CUP_I_T55_NAPA","CUP_I_T55_NAPA","CUP_I_T72_NAPA"};
+			veharray_transport[] = {"CPC_LAT_I_PIC_V3S_Open","CPC_LAT_I_PIC_V3S_Covered","CPC_LAT_I_PIC_Ural_3"};
+			veharray_aa[] = {"CPC_LAT_I_PIC_Ural_ZU23","CPC_LAT_I_PIC_Hilux_zu23"};
+		};
+		class winter: woodland
+		{};
 	};
 };

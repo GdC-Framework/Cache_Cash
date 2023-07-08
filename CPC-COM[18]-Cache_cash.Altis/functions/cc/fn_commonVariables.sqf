@@ -94,7 +94,8 @@ CC_faction_ia = switch (CC_p_faction_ia) do {
 	case 215 : {"usnam_cup"};
 	case 216 : {"hil_cup"};
 	case 217 : {"ger_cup"};
-	default {"ins_rhs"};
+	case 218 : {"ins_cup"};
+	default {"ins_cup"};
 };
 
 // Nuit
@@ -125,6 +126,7 @@ switch (toLower worldName) do {
 	case "noe"; // Nogova
 	case "vt7";
 	case "wl_rosche";
+	case "brf_sumava";
 	case "eden" : {cc_IAcamo = "woodland"}; // Everon
 	case "takistan";
 	case "pja307"; // dariyah
