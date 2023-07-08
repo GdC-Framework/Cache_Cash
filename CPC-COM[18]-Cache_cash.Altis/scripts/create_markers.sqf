@@ -668,6 +668,30 @@ switch (CPC_MAP) do {
 		"Mark_Inser" setMarkerPos [760.565,4669.13,0];
 		_spawnpos = [15313.6,14936.7,0];
 	};
+
+	//Sumava
+	case "brf_sumava" : {
+
+		CPC_WorldType = "chern";
+		publicVariable "CPC_WorldType";
+		CPC_FullMoon = [2016,3,30,0,0];
+		publicVariable "CPC_FullMoon";
+		_mkz_whitelist = [
+			[[5999.75,6177.15,0],"RECTANGLE",[4999.86,5309.21],0]
+		];
+		_mkz_blacklist = [
+			[[2125.36,11509.3,0],"ELLIPSE",[1430.13,646.22],0],
+			[[5545.8,10491.8,0],"ELLIPSE",[804.915,510.115],114.187],
+			[[7483.45,4740.14,0],"ELLIPSE",[985.218,524.502],359.687],
+			[[7301.15,5628.81,0],"ELLIPSE",[1219.22,815.43],214.955],
+			[[9496.11,2747.33,0],"ELLIPSE",[1448.3,881.457],299.707],
+			[[1832.51,2096.71,0],"ELLIPSE",[1306.01,1731.2],359.687],
+			[[10586.3,7814.22,0],"ELLIPSE",[985.218,699.016],359.687],
+			[[9692.43,5961.34,0],"ELLIPSE",[530.898,424.363],151.944]
+		];
+		"Mark_Inser" setMarkerPos [674.402,11936.6,0];
+		_spawnpos = [42.8827,43.9155,0];
+	};
 };
 
 // Création des markers

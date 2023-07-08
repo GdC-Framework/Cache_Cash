@@ -334,7 +334,7 @@ if (random 100 < 75) then {
 			};
 		};
 	};
-
+	{_x hideObjectGlobal true;} forEach (nearestTerrainObjects [[_pos #0,_pos #1,0],[],15]);
 	_veh = "Land_Cargo_Patrol_V2_F" CreateVehicle [_pos select 0, _pos select 1,-3];
 	_veh setdir random 360;
 	"4" setmarkerpos _pos;
