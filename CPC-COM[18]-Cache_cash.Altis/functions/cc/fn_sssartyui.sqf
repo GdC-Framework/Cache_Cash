@@ -30,7 +30,7 @@ switch (_mode) do {
 		_control lbSetCurSel 0;
 	};
 	case "text_box": {
-		private _txt = format ["Boom boom %1",(ceil random 9)];
+		private _txt = format ["Hammer %1",(ceil random 9)];
 		_control ctrlSetText _txt;
 	};
 	case "create_arty": {

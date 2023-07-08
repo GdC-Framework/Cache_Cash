@@ -24,6 +24,10 @@ private _VehicleCrew = [_type,_crew] call STDR_fnc_getcrewfromvehicleclass;
 private _veh = [_pos,blufor,_type,_VehicleCrew,0,["NONE",0,0]] call GDC_fnc_lucySpawnVehicle;
 private _group = _veh #0;
 private _veh = _veh #1;
+_id = format ["%1 - %2",_id,gettext (configFile >> "CfgVehicles" >> _type >> "Displayname")];
+private _mk = createMarker [(format ["mk_arty_%1",_pos]),_pos];
+_mk setMarkerType "b_art";
+_mk setMarkerText _id;
 
 //loadouts
 {
@@ -40,7 +44,7 @@ private _veh = _veh #1;
 	-1,
 	[0,60], //cooldown and additionnal cooldown per round fired
 	10, //max rounds
-	0, //coordination distance
+	100, //coordination distance
 	2,
 	{},
 	["ACRE_PRC148"],
