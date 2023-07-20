@@ -692,6 +692,47 @@ switch (CPC_MAP) do {
 		"Mark_Inser" setMarkerPos [674.402,11936.6,0];
 		_spawnpos = [42.8827,43.9155,0];
 	};
+
+	//Mutambara
+	case "swu_public_rhode_map" : {
+
+		CPC_WorldType = "afrique";
+		publicVariable "CPC_WorldType";
+		CPC_FullMoon = [2016,3,30,0,0];
+		publicVariable "CPC_FullMoon";
+		_mkz_whitelist = [
+			[[2500.22,2606.68,0],"RECTANGLE",[1500.9,1794.72],0]
+		];
+		_mkz_blacklist = [
+			[[1654.29,2938.52,0],"ELLIPSE",[130.656,134.215],0],
+			[[1118.01,2662,0],"ELLIPSE",[407.243,346.369],0],
+			[[1175.5,1040.14,0],"ELLIPSE",[407.243,346.369],0],
+			[[3997.17,1932.72,0],"ELLIPSE",[588.15,700.509],0],
+			[[3046.36,4102.69,0],"ELLIPSE",[179.895,165.986],0],
+			[[2348.96,2410.83,0],"ELLIPSE",[130.656,134.215],0]
+		];
+		"Mark_Inser" setMarkerPos [3803.68,302.962,0];
+		_spawnpos = [5000.83,5068.05,0];
+	};
+
+	//Niakala
+	case "juju_kalahari" : {
+
+		CPC_WorldType = "afrique";
+		publicVariable "CPC_WorldType";
+		CPC_FullMoon = [2016,3,30,0,0];
+		publicVariable "CPC_FullMoon";
+		_mkz_whitelist = [
+			[[5097.45,5142.84,0],"RECTANGLE",[4095.7,4100.68],0]
+		];
+		_mkz_blacklist = [
+			[[6736.73,970.07,0],"ELLIPSE",[919.365,1442.54],0],
+			[[5596.13,7461.65,0],"ELLIPSE",[534.764,557.459],0],
+			[[2876.62,5525.85,0],"ELLIPSE",[534.764,433.982],0]
+		];
+		"Mark_Inser" setMarkerPos [6728.16,1429.75,0];
+		_spawnpos = [25.4685,182.8,0];
+	};
 };
 
 // Création des markers

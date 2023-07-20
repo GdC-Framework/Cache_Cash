@@ -133,6 +133,8 @@ switch (toLower worldName) do {
 	case "isladuala3";
 	case "tem_kujari";
 	case "tem_anizay";
+	case "juju_kalahari"; // Niakala
+	case "swu_public_rhode_map"; //Mutambara
 	case "dingor" : {cc_IAcamo = "desert"};
 	case "tanoa";
 	case "pja305"; // Nazigogo
